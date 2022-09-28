@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>/application-research/estuary/master/docs/swagger.json</context-root>
+</jboss-web>
