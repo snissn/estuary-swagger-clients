@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello, World!"
+          command: "docker run swaggerapi/swagger-codegen-cli generate  -i https://petstore.swagger.io/v2/swagger.json  -l go  -o /tmp/go"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
