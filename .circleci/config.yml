@@ -18,7 +18,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            java - jar ./opt/swagger-codegen-cli/swagger-codegen-cli.jar generate  -i https://petstore.swagger.io/v2/swagger.json  -l go  -o /tmp/go
+            java -jar ./opt/swagger-codegen-cli/swagger-codegen-cli.jar generate  -i https://petstore.swagger.io/v2/swagger.json  -l go  -o /tmp/go
 
 
 
