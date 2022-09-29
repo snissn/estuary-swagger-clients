@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T02:02:42.194Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T07:41:39.731Z")
 public class ContentApiServiceImpl implements ContentApiService {
       @Override
       public Response contentAddCarPost(String body, String filename, String commp, String size, SecurityContext securityContext) {

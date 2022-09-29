@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:02:34.322Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T07:41:29.593Z")
 public class MainGetApiKeysResp   {
   @JsonProperty("expiry")
   private String expiry = null;

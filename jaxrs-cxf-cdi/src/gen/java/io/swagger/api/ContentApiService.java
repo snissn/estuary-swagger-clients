@@ -19,7 +19,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T02:02:42.194Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T07:41:39.731Z")
 public interface ContentApiService {
       public Response contentAddCarPost(String body, String filename, String commp, String size, SecurityContext securityContext);
       public Response contentAddIpfsPost(UtilContentAddIpfsBody body, SecurityContext securityContext);

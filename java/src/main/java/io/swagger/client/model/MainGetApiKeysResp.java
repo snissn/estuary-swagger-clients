@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MainGetApiKeysResp
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T02:02:35.546Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T07:41:31.230Z")
 public class MainGetApiKeysResp {
   @SerializedName("expiry")
   private String expiry = null;
