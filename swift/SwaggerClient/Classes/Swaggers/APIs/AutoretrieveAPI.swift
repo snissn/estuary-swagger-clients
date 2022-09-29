@@ -27,7 +27,7 @@ public class AutoretrieveAPI: APIBase {
     /**
      Register autoretrieve server
      - POST /admin/autoretrieve/init
-     - This endpoint registers a new autoretrieve server
+     - This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth

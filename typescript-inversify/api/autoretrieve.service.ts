@@ -34,7 +34,7 @@ export class AutoretrieveService {
 
     /**
      * Register autoretrieve server
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
      * @param addresses Autoretrieve&#39;s comma-separated list of addresses
      * @param pubKey Autoretrieve&#39;s public key
      

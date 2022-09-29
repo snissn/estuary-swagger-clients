@@ -25,7 +25,7 @@ public:
 
 /*! \brief Register autoretrieve server. *Synchronous*
  *
- * This endpoint registers a new autoretrieve server
+ * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
  * \param addresses Autoretrieve's comma-separated list of addresses *Required*
  * \param pubKey Autoretrieve's public key *Required*
  * \param handler The callback function to be invoked on completion. *Required*
@@ -39,7 +39,7 @@ bool adminAutoretrieveInitPostSync(char * accessToken,
 
 /*! \brief Register autoretrieve server. *Asynchronous*
  *
- * This endpoint registers a new autoretrieve server
+ * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
  * \param addresses Autoretrieve's comma-separated list of addresses *Required*
  * \param pubKey Autoretrieve's public key *Required*
  * \param handler The callback function to be invoked on completion. *Required*

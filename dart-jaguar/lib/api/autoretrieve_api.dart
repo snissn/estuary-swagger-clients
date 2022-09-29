@@ -17,7 +17,7 @@ class AutoretrieveApi extends _$AutoretrieveApiClient implements ApiClient {
 
     /// Register autoretrieve server
     ///
-    /// This endpoint registers a new autoretrieve server
+    /// This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
     @PostReq(path: "/admin/autoretrieve/init", metadata: {"auth": [ {"type": "apiKey", "name": "bearerAuth", "keyName": "Authorization", "where": "header" }]})
     Future<void> adminAutoretrieveInitPost(
         

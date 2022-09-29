@@ -13,13 +13,13 @@ import javax.validation.Valid;
 
 @Path("/admin")
 @Api(description = "the admin API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-09-29T08:05:38.359Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-09-29T08:49:12.044Z")
 public class AdminApi {
 
     @POST
     @Path("/autoretrieve/init")
     @Produces({ "application/json" })
-    @ApiOperation(value = "Register autoretrieve server", notes = "This endpoint registers a new autoretrieve server", response = Void.class, authorizations = {
+    @ApiOperation(value = "Register autoretrieve server", notes = "This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj", response = Void.class, authorizations = {
         @Authorization(value = "bearerAuth")
     }, tags={ "autoretrieve",  })
     @ApiResponses(value = { 

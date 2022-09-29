@@ -18,7 +18,7 @@ import io.swagger.client.core.ApiKeyLocations._
 object AutoretrieveApi {
 
   /**
-   * This endpoint registers a new autoretrieve server
+   * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
    * 
    * Expected answers:
    * 

@@ -57,7 +57,7 @@
 
     /**
      * Register autoretrieve server
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
      * @param {String} addresses Autoretrieve's comma-separated list of addresses
      * @param {String} pubKey Autoretrieve's public key
      * @param {module:api/AutoretrieveApi~adminAutoretrieveInitPostCallback} callback The callback function, accepting three arguments: error, data, response

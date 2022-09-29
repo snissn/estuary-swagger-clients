@@ -987,7 +987,7 @@ print_adminAutoretrieveInitPost_help() {
     echo ""
     echo -e "${BOLD}${WHITE}adminAutoretrieveInitPost - Register autoretrieve server${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "This endpoint registers a new autoretrieve server" | paste -sd' ' | fold -sw 80
+    echo -e "This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[]${OFF} ${RED}(required)${OFF}${OFF} - Autoretrieve's comma-separated list of addresses" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Register autoretrieve server
 
-This endpoint registers a new autoretrieve server
+This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
 
 ### Example 
 ```dart

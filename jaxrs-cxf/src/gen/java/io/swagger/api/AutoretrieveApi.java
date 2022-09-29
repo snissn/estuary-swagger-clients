@@ -31,7 +31,7 @@ public interface AutoretrieveApi  {
     /**
      * Register autoretrieve server
      *
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
      *
      */
     @POST

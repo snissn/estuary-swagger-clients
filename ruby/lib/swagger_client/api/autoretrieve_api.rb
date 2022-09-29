@@ -20,7 +20,7 @@ module SwaggerClient
       @api_client = api_client
     end
     # Register autoretrieve server
-    # This endpoint registers a new autoretrieve server
+    # This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
     # @param addresses Autoretrieve&#39;s comma-separated list of addresses
     # @param pub_key Autoretrieve&#39;s public key
     # @param [Hash] opts the optional parameters
@@ -31,7 +31,7 @@ module SwaggerClient
     end
 
     # Register autoretrieve server
-    # This endpoint registers a new autoretrieve server
+    # This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
     # @param addresses Autoretrieve&#39;s comma-separated list of addresses
     # @param pub_key Autoretrieve&#39;s public key
     # @param [Hash] opts the optional parameters

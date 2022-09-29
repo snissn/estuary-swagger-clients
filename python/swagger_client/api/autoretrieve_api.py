@@ -36,7 +36,7 @@ class AutoretrieveApi(object):
     def admin_autoretrieve_init_post(self, addresses, pub_key, **kwargs):  # noqa: E501
         """Register autoretrieve server  # noqa: E501
 
-        This endpoint registers a new autoretrieve server  # noqa: E501
+        This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.admin_autoretrieve_init_post(addresses, pub_key, async_req=True)
@@ -59,7 +59,7 @@ class AutoretrieveApi(object):
     def admin_autoretrieve_init_post_with_http_info(self, addresses, pub_key, **kwargs):  # noqa: E501
         """Register autoretrieve server  # noqa: E501
 
-        This endpoint registers a new autoretrieve server  # noqa: E501
+        This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.admin_autoretrieve_init_post_with_http_info(addresses, pub_key, async_req=True)

@@ -11,7 +11,7 @@ namespace IO.Swagger.Api
     public interface IAutoretrieveApi
     {
         /// <summary>
-        /// Register autoretrieve server This endpoint registers a new autoretrieve server
+        /// Register autoretrieve server This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </summary>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
         /// <param name="pubKey">Autoretrieve&#39;s public key</param>
@@ -84,7 +84,7 @@ namespace IO.Swagger.Api
         public ApiClient ApiClient {get; set;}
     
         /// <summary>
-        /// Register autoretrieve server This endpoint registers a new autoretrieve server
+        /// Register autoretrieve server This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </summary>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param> 
         /// <param name="pubKey">Autoretrieve&#39;s public key</param> 

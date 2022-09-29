@@ -938,7 +938,7 @@ export class AdminApi extends BaseAPI {
 export const AutoretrieveApiFetchParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This endpoint registers a new autoretrieve server
+         * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
          * @summary Register autoretrieve server
          * @param {string} addresses Autoretrieve&#39;s comma-separated list of addresses
          * @param {string} pubKey Autoretrieve&#39;s public key
@@ -1063,7 +1063,7 @@ export const AutoretrieveApiFetchParamCreator = function (configuration?: Config
 export const AutoretrieveApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * This endpoint registers a new autoretrieve server
+         * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
          * @summary Register autoretrieve server
          * @param {string} addresses Autoretrieve&#39;s comma-separated list of addresses
          * @param {string} pubKey Autoretrieve&#39;s public key
@@ -1129,7 +1129,7 @@ export const AutoretrieveApiFp = function(configuration?: Configuration) {
 export const AutoretrieveApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
     return {
         /**
-         * This endpoint registers a new autoretrieve server
+         * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
          * @summary Register autoretrieve server
          * @param {string} addresses Autoretrieve&#39;s comma-separated list of addresses
          * @param {string} pubKey Autoretrieve&#39;s public key
@@ -1169,7 +1169,7 @@ export const AutoretrieveApiFactory = function (configuration?: Configuration, f
  */
 export class AutoretrieveApi extends BaseAPI {
     /**
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
      * @summary Register autoretrieve server
      * @param {string} addresses Autoretrieve&#39;s comma-separated list of addresses
      * @param {string} pubKey Autoretrieve&#39;s public key

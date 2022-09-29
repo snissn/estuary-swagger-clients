@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the pinning API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T08:05:36.416Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T08:49:10.292Z")
 public interface PinningApi  {
    
     @GET

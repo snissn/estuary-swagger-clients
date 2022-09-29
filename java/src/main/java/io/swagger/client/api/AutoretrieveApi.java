@@ -124,7 +124,7 @@ public class AutoretrieveApi {
 
     /**
      * Register autoretrieve server
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
      * @param addresses Autoretrieve&#39;s comma-separated list of addresses (required)
      * @param pubKey Autoretrieve&#39;s public key (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -135,7 +135,7 @@ public class AutoretrieveApi {
 
     /**
      * Register autoretrieve server
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
      * @param addresses Autoretrieve&#39;s comma-separated list of addresses (required)
      * @param pubKey Autoretrieve&#39;s public key (required)
      * @return ApiResponse&lt;Void&gt;
@@ -148,7 +148,7 @@ public class AutoretrieveApi {
 
     /**
      * Register autoretrieve server (asynchronously)
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
      * @param addresses Autoretrieve&#39;s comma-separated list of addresses (required)
      * @param pubKey Autoretrieve&#39;s public key (required)
      * @param callback The callback to be executed when the API call finishes

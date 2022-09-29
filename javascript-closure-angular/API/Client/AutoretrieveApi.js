@@ -44,7 +44,7 @@ API.Client.AutoretrieveApi.$inject = ['$http', '$httpParamSerializer', '$injecto
 
 /**
  * Register autoretrieve server
- * This endpoint registers a new autoretrieve server
+ * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
  * @param {!string} addresses Autoretrieve&#39;s comma-separated list of addresses
  * @param {!string} pubKey Autoretrieve&#39;s public key
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.

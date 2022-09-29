@@ -26,7 +26,7 @@ feature -- API Access
 
 	admin_autoretrieve_init_post (addresses: STRING_32; pub_key: STRING_32)
 			-- Register autoretrieve server
-			-- This endpoint registers a new autoretrieve server
+			-- This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
 			-- 
 			-- argument: addresses Autoretrieve&#39;s comma-separated list of addresses (required)
 			-- 

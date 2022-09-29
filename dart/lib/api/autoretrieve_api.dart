@@ -9,7 +9,7 @@ class AutoretrieveApi {
 
   /// Register autoretrieve server
   ///
-  /// This endpoint registers a new autoretrieve server
+  /// This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
   Future adminAutoretrieveInitPost(String addresses, String pubKey) async {
     Object postBody = pubKey;
 

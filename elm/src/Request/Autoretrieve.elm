@@ -24,7 +24,7 @@ basePath =
 
 
 {-
-   This endpoint registers a new autoretrieve server
+   This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
 -}
 adminAutoretrieveInitPost : String -> Http.Request 
 adminAutoretrieveInitPost model =

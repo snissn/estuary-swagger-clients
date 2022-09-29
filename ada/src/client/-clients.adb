@@ -107,7 +107,7 @@ package body .Clients is
    end Admin_Users_Get;
 
    --  Register autoretrieve server
-   --  This endpoint registers a new autoretrieve server
+   --  This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
    procedure Admin_Autoretrieve_Init_Post
       (Client : in out Client_Type;
        Addresses : in Swagger.UString;

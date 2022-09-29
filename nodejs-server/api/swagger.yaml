@@ -21,7 +21,7 @@ paths:
       tags:
       - "autoretrieve"
       summary: "Register autoretrieve server"
-      description: "This endpoint registers a new autoretrieve server"
+      description: "This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj"
       operationId: "adminAutoretrieveInitPOST"
       produces:
       - "application/json"

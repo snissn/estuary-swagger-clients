@@ -50,7 +50,7 @@ NSInteger kSWGAutoretrieveApiMissingParamErrorCode = 234513;
 
 ///
 /// Register autoretrieve server
-/// This endpoint registers a new autoretrieve server
+/// This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
 ///  @param addresses Autoretrieve's comma-separated list of addresses 
 ///
 ///  @param pubKey Autoretrieve's public key 

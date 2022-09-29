@@ -13,7 +13,7 @@ Method | HTTP request | Description
 > admin_autoretrieve_init_post(ctx, addresses, pub_key)
 Register autoretrieve server
 
-This endpoint registers a new autoretrieve server
+This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
 
 ### Required Parameters
 

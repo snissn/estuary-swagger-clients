@@ -20,7 +20,7 @@ namespace Swagger
 
 /* Register autoretrieve server
  *
- * This endpoint registers a new autoretrieve server
+ * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
 */
 class SWAGGER_API SwaggerAutoretrieveApi::AdminAutoretrieveInitPostRequest : public Request
 {

@@ -3,7 +3,7 @@
 
 /**
  * Register autoretrieve server
- * This endpoint registers a new autoretrieve server
+ * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
  *
  * addresses String Autoretrieve's comma-separated list of addresses
  * pubKey String Autoretrieve's public key

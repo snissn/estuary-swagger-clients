@@ -27,7 +27,7 @@ namespace IO.Swagger.Api
         /// Register autoretrieve server
         /// </summary>
         /// <remarks>
-        /// This endpoint registers a new autoretrieve server
+        /// This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
@@ -39,7 +39,7 @@ namespace IO.Swagger.Api
         /// Register autoretrieve server
         /// </summary>
         /// <remarks>
-        /// This endpoint registers a new autoretrieve server
+        /// This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
@@ -92,7 +92,7 @@ namespace IO.Swagger.Api
         /// Register autoretrieve server
         /// </summary>
         /// <remarks>
-        /// This endpoint registers a new autoretrieve server
+        /// This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
@@ -104,7 +104,7 @@ namespace IO.Swagger.Api
         /// Register autoretrieve server
         /// </summary>
         /// <remarks>
-        /// This endpoint registers a new autoretrieve server
+        /// This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
@@ -252,7 +252,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Register autoretrieve server This endpoint registers a new autoretrieve server
+        /// Register autoretrieve server This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
@@ -264,7 +264,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Register autoretrieve server This endpoint registers a new autoretrieve server
+        /// Register autoretrieve server This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
@@ -334,7 +334,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Register autoretrieve server This endpoint registers a new autoretrieve server
+        /// Register autoretrieve server This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
@@ -347,7 +347,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Register autoretrieve server This endpoint registers a new autoretrieve server
+        /// Register autoretrieve server This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>

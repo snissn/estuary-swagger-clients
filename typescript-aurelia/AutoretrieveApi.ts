@@ -56,7 +56,7 @@ export class AutoretrieveApi extends Api {
 
   /**
    * Register autoretrieve server
-   * This endpoint registers a new autoretrieve server
+   * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
    * @param params.addresses Autoretrieve&#39;s comma-separated list of addresses
    * @param params.pubKey Autoretrieve&#39;s public key
    */

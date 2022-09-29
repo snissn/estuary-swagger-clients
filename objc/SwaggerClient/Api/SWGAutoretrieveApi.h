@@ -23,7 +23,7 @@ extern NSInteger kSWGAutoretrieveApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(SWGApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Register autoretrieve server
-/// This endpoint registers a new autoretrieve server
+/// This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
 ///
 /// @param addresses Autoretrieve&#39;s comma-separated list of addresses
 /// @param pubKey Autoretrieve&#39;s public key

@@ -7,7 +7,7 @@ from swagger_server import util
 def admin_autoretrieve_init_post(addresses, pubKey):  # noqa: E501
     """Register autoretrieve server
 
-    This endpoint registers a new autoretrieve server # noqa: E501
+    This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj # noqa: E501
 
     :param addresses: Autoretrieve&#39;s comma-separated list of addresses
     :type addresses: str

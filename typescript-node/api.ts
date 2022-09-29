@@ -981,7 +981,7 @@ export class AutoretrieveApi {
         (this.authentications as any)[AutoretrieveApiApiKeys[key]].apiKey = value;
     }
     /**
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
      * @summary Register autoretrieve server
      * @param addresses Autoretrieve&#39;s comma-separated list of addresses
      * @param pubKey Autoretrieve&#39;s public key

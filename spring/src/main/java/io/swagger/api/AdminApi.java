@@ -20,14 +20,14 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T08:06:16.216Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T08:49:46.056Z")
 
 @Validated
 @Api(value = "admin", description = "the admin API")
 @RequestMapping(value = "")
 public interface AdminApi {
 
-    @ApiOperation(value = "Register autoretrieve server", nickname = "adminAutoretrieveInitPost", notes = "This endpoint registers a new autoretrieve server", authorizations = {
+    @ApiOperation(value = "Register autoretrieve server", nickname = "adminAutoretrieveInitPost", notes = "This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj", authorizations = {
         @Authorization(value = "bearerAuth")
     }, tags={ "autoretrieve", })
     @ApiResponses(value = {  })

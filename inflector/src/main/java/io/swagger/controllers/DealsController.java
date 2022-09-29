@@ -11,7 +11,7 @@ import java.util.List;
 import io.swagger.model.*;
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T08:05:18.333Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T08:48:54.399Z")
 public class DealsController  {
   /** 
    * Uncomment and implement as you see fit.  These operations will map

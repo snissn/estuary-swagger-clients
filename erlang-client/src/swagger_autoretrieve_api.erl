@@ -7,7 +7,7 @@
 -define(BASE_URL, "/").
 
 %% @doc Register autoretrieve server
-%% This endpoint registers a new autoretrieve server
+%% This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj
 -spec admin_autoretrieve_init_post(ctx:ctx(), binary(), binary()) -> {ok, [], swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
 admin_autoretrieve_init_post(Ctx, Addresses, PubKey) ->
     admin_autoretrieve_init_post(Ctx, Addresses, PubKey, #{}).

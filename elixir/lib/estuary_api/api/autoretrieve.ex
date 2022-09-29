@@ -13,7 +13,7 @@ defmodule EstuaryAPI.Api.Autoretrieve do
 
   @doc """
   Register autoretrieve server
-  This endpoint registers a new autoretrieve server
+  This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
 
   ## Parameters
 

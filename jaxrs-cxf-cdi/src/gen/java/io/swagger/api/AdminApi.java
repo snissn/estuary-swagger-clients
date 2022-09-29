@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 @Api(description = "the admin API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T08:05:29.960Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T08:49:04.694Z")
 
 public class AdminApi  {
 
@@ -37,7 +37,7 @@ public class AdminApi  {
     @Path("/autoretrieve/init")
     
     @Produces({ "application/json" })
-    @ApiOperation(value = "Register autoretrieve server", notes = "This endpoint registers a new autoretrieve server", response = Void.class, authorizations = {
+    @ApiOperation(value = "Register autoretrieve server", notes = "This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj", response = Void.class, authorizations = {
         @Authorization(value = "bearerAuth")
     }, tags={ "autoretrieve",  })
     @ApiResponses(value = {  })

@@ -31,7 +31,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Register autoretrieve server
         /// </summary>
-        /// <remarks>This endpoint registers a new autoretrieve server</remarks>
+        /// <remarks>This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj</remarks>
         /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
         /// <param name="pubKey">Autoretrieve&#39;s public key</param>
         [HttpPost]

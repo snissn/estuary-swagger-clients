@@ -16,7 +16,7 @@ feature -- Test routines
     test_admin_autoretrieve_init_post
             -- Register autoretrieve server
             -- 
-            -- This endpoint registers a new autoretrieve server 
+            -- This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj 
         local
             l_addresses: STRING_32
             l_pub_key: STRING_32

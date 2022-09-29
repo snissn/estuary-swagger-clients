@@ -4,7 +4,7 @@
 
 (defn admin-autoretrieve-init-post-with-http-info
   "Register autoretrieve server
-  This endpoint registers a new autoretrieve server"
+  This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj"
   [addresses pub-key ]
   (check-required-params addresses pub-key)
   (call-api "/admin/autoretrieve/init" :post
@@ -19,7 +19,7 @@
 
 (defn admin-autoretrieve-init-post
   "Register autoretrieve server
-  This endpoint registers a new autoretrieve server"
+  This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj"
   [addresses pub-key ]
   (:data (admin-autoretrieve-init-post-with-http-info addresses pub-key)))
 

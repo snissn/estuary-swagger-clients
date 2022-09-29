@@ -21,14 +21,14 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the admin API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T08:05:36.416Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T08:49:10.292Z")
 public interface AdminApi  {
    
     @POST
     @Path("/autoretrieve/init")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Register autoretrieve server", notes = "This endpoint registers a new autoretrieve server", response = Void.class, authorizations = {
+    @io.swagger.annotations.ApiOperation(value = "Register autoretrieve server", notes = "This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj", response = Void.class, authorizations = {
         @io.swagger.annotations.Authorization(value = "bearerAuth")
     }, tags={ "autoretrieve", })
     @io.swagger.annotations.ApiResponses(value = {  })

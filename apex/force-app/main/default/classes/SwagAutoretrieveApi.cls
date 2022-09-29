@@ -27,7 +27,7 @@ public class SwagAutoretrieveApi {
 
     /**
      * Register autoretrieve server
-     * This endpoint registers a new autoretrieve server
+     * This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
      * @param addresses Autoretrieve\&#39;s comma-separated list of addresses (required)
      * @param pubKey Autoretrieve\&#39;s public key (required)
      * @throws Swagger.ApiException if fails to make API call
