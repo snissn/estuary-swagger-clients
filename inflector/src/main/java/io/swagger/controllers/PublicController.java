@@ -1,7 +1,7 @@
 package io.swagger.controllers;
 
-import io.swagger.oas.inflector.models.RequestContext;
-import io.swagger.oas.inflector.models.ResponseContext;
+import io.swagger.inflector.models.RequestContext;
+import io.swagger.inflector.models.ResponseContext;
 import javax.ws.rs.core.Response.Status;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
@@ -11,7 +11,8 @@ import java.util.List;
 import io.swagger.model.*;
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaInflectorServerCodegen", date = "2022-09-27T20:40:25.355549-10:00[Pacific/Honolulu]")public class PublicController  {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:00:49.114Z")
+public class PublicController  {
   /** 
    * Uncomment and implement as you see fit.  These operations will map
    * Directly to operation calls from the routing logic.  Because the inflector
@@ -19,8 +20,7 @@ import io.swagger.model.*;
    **/
 
   /*
-    public ResponseContext publicByCidCidGET(RequestContext request , String cid 
-) {
+    public ResponseContext publicByCidCidGET(RequestContext request , String cid) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
@@ -50,35 +50,25 @@ import io.swagger.model.*;
   */
 
   /*
-    public ResponseContext publicMinersDealsMinerGET(RequestContext request , String miner 
-) {
+    public ResponseContext publicMinersDealsMinerGET(RequestContext request , String miner) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext publicMinersDealsMinerGET(RequestContext request , String miner 
-) {
+    public ResponseContext publicMinersDealsMinerGET(RequestContext request , String miner) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext publicMinersFailuresMinerGET(RequestContext request , String miner 
-) {
+    public ResponseContext publicMinersFailuresMinerGET(RequestContext request , String miner) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext publicMinersFailuresMinerGET(RequestContext request , String miner 
-) {
-        return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
-    }
-  */
-
-  /*
-    public ResponseContext publicMinersGET(RequestContext request ) {
+    public ResponseContext publicMinersFailuresMinerGET(RequestContext request , String miner) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
@@ -90,22 +80,25 @@ import io.swagger.model.*;
   */
 
   /*
-    public ResponseContext publicMinersStatsMinerGET(RequestContext request , String miner 
-) {
+    public ResponseContext publicMinersGET(RequestContext request ) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext publicMinersStatsMinerGET(RequestContext request , String miner 
-) {
+    public ResponseContext publicMinersStatsMinerGET(RequestContext request , String miner) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext publicMinersStorageQueryMinerGET(RequestContext request , String miner 
-) {
+    public ResponseContext publicMinersStatsMinerGET(RequestContext request , String miner) {
+        return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
+    }
+  */
+
+  /*
+    public ResponseContext publicMinersStorageQueryMinerGET(RequestContext request , String miner) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */

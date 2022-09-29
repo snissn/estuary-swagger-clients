@@ -10,12 +10,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.jaxrs.PATCH;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -26,6 +25,7 @@ import javax.validation.Valid;
  *
  */
 @Path("/")
+@Api(value = "/", description = "")
 public interface AdminApi  {
 
     /**
@@ -36,7 +36,8 @@ public interface AdminApi  {
      */
     @DELETE
     @Path("/admin/peering/peers")
-    @Operation(summary = "Remove peers on Peering Service", tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Remove peers on Peering Service", tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public void adminPeeringPeersDelete();
 
@@ -48,7 +49,8 @@ public interface AdminApi  {
      */
     @GET
     @Path("/admin/peering/peers")
-    @Operation(summary = "List all Peering peers", tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "List all Peering peers", tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public void adminPeeringPeersGet();
 
@@ -60,7 +62,8 @@ public interface AdminApi  {
      */
     @POST
     @Path("/admin/peering/peers")
-    @Operation(summary = "Add peers on Peering Service", tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Add peers on Peering Service", tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public void adminPeeringPeersPost();
 
@@ -72,7 +75,8 @@ public interface AdminApi  {
      */
     @POST
     @Path("/admin/peering/start")
-    @Operation(summary = "Start Peering", tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Start Peering", tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public void adminPeeringStartPost();
 
@@ -84,7 +88,8 @@ public interface AdminApi  {
      */
     @GET
     @Path("/admin/peering/status")
-    @Operation(summary = "Check Peering Status", tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Check Peering Status", tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public void adminPeeringStatusGet();
 
@@ -96,7 +101,8 @@ public interface AdminApi  {
      */
     @POST
     @Path("/admin/peering/stop")
-    @Operation(summary = "Stop Peering", tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Stop Peering", tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public void adminPeeringStopPost();
 
@@ -108,7 +114,8 @@ public interface AdminApi  {
      */
     @GET
     @Path("/admin/system/config")
-    @Operation(summary = "Get systems(estuary/shuttle) config", tags={ "admin" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get systems(estuary/shuttle) config", tags={ "admin",  })
     @ApiResponses(value = {  })
     public void adminSystemConfigGet();
 
@@ -120,7 +127,9 @@ public interface AdminApi  {
      */
     @GET
     @Path("/admin/users")
-    @Operation(summary = "Get all users", tags={ "admin" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get all users", tags={ "admin" })
     @ApiResponses(value = {  })
     public void adminUsersGet();
 }
+

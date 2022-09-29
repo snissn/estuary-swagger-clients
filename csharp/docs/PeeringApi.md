@@ -1,6 +1,6 @@
 # IO.Swagger.Api.PeeringApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**AdminPeeringStartPost**](PeeringApi.md#adminpeeringstartpost) | **POST** /admin/peering/start | Start Peering
 [**AdminPeeringStatusGet**](PeeringApi.md#adminpeeringstatusget) | **GET** /admin/peering/status | Check Peering Status
 [**AdminPeeringStopPost**](PeeringApi.md#adminpeeringstoppost) | **POST** /admin/peering/stop | Stop Peering
+
 
 <a name="adminpeeringpeersdelete"></a>
 # **AdminPeeringPeersDelete**
@@ -68,9 +69,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringpeersget"></a>
 # **AdminPeeringPeersGet**
 > void AdminPeeringPeersGet ()
@@ -128,9 +130,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringpeerspost"></a>
 # **AdminPeeringPeersPost**
 > void AdminPeeringPeersPost ()
@@ -188,9 +191,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringstartpost"></a>
 # **AdminPeeringStartPost**
 > void AdminPeeringStartPost ()
@@ -248,9 +252,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringstatusget"></a>
 # **AdminPeeringStatusGet**
 > void AdminPeeringStatusGet ()
@@ -308,9 +313,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringstoppost"></a>
 # **AdminPeeringStopPost**
 > void AdminPeeringStopPost ()
@@ -368,6 +374,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

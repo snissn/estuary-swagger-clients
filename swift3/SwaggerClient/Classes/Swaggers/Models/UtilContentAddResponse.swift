@@ -9,6 +9,7 @@ import Foundation
 
 
 open class UtilContentAddResponse: JSONEncodable {
+
     public var cid: String?
     public var estuaryId: Int32?
     public var providers: [String]?
@@ -28,3 +29,4 @@ open class UtilContentAddResponse: JSONEncodable {
         return dictionary
     }
 }
+

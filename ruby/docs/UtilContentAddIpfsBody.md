@@ -9,3 +9,4 @@ Name | Type | Description | Notes
 **peers** | **Array&lt;String&gt;** |  | [optional] 
 **root** | **String** |  | [optional] 
 
+

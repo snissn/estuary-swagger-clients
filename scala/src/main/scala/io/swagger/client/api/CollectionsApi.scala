@@ -9,13 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 package io.swagger.client.api
 
 import java.text.SimpleDateFormat
 
+import io.swagger.client.model.Collection
 import io.swagger.client.model.CreateCollectionBody
-import io.swagger.client.model.main.Collection
-import io.swagger.client.model.util.HttpError
+import io.swagger.client.model.HttpError
 import io.swagger.client.{ApiInvoker, ApiException}
 
 import com.sun.jersey.multipart.FormDataMultiPart
@@ -46,7 +47,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class CollectionsApi(
-  val defBasePath: String = "//api.estuary.tech/",
+  val defBasePath: String = "https://api.estuary.tech",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {
@@ -192,11 +193,11 @@ class CollectionsApi(
    *
    * @param coluuid Collection ID 
    * @param content Content 
-   * @param &#x60;path&#x60; Path to file 
+   * @param `path` Path to file 
    * @return void
    */
-  def collectionsFsAddPost(coluuid: String, content: String, &#x60;path&#x60;: String) = {
-    val await = Try(Await.result(collectionsFsAddPostAsync(coluuid, content, &#x60;path&#x60;), Duration.Inf))
+  def collectionsFsAddPost(coluuid: String, content: String, `path`: String) = {
+    val await = Try(Await.result(collectionsFsAddPostAsync(coluuid, content, `path`), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -209,11 +210,11 @@ class CollectionsApi(
    *
    * @param coluuid Collection ID 
    * @param content Content 
-   * @param &#x60;path&#x60; Path to file 
+   * @param `path` Path to file 
    * @return Future(void)
    */
-  def collectionsFsAddPostAsync(coluuid: String, content: String, &#x60;path&#x60;: String) = {
-      helper.collectionsFsAddPost(coluuid, content, &#x60;path&#x60;)
+  def collectionsFsAddPostAsync(coluuid: String, content: String, `path`: String) = {
+      helper.collectionsFsAddPost(coluuid, content, `path`)
   }
 
   /**
@@ -221,9 +222,9 @@ class CollectionsApi(
    * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
    *
    * @param id User ID 
-   * @return List[main.Collection]
+   * @return List[Collection]
    */
-  def collectionsGet(id: Integer): Option[List[main.Collection]] = {
+  def collectionsGet(id: Integer): Option[List[Collection]] = {
     val await = Try(Await.result(collectionsGetAsync(id), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
@@ -236,9 +237,9 @@ class CollectionsApi(
    * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
    *
    * @param id User ID 
-   * @return Future(List[main.Collection])
+   * @return Future(List[Collection])
    */
-  def collectionsGetAsync(id: Integer): Future[List[main.Collection]] = {
+  def collectionsGetAsync(id: Integer): Future[List[Collection]] = {
       helper.collectionsGet(id)
   }
 
@@ -247,9 +248,9 @@ class CollectionsApi(
    * This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
    *
    * @param body Collection name and description 
-   * @return main.Collection
+   * @return Collection
    */
-  def collectionsPost(body: CreateCollectionBody): Option[main.Collection] = {
+  def collectionsPost(body: CreateCollectionBody): Option[Collection] = {
     val await = Try(Await.result(collectionsPostAsync(body), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
@@ -262,9 +263,9 @@ class CollectionsApi(
    * This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
    *
    * @param body Collection name and description 
-   * @return Future(main.Collection)
+   * @return Future(Collection)
    */
-  def collectionsPostAsync(body: CreateCollectionBody): Future[main.Collection] = {
+  def collectionsPostAsync(body: CreateCollectionBody): Future[Collection] = {
       helper.collectionsPost(body)
   }
 
@@ -350,7 +351,7 @@ class CollectionsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
 
   def collectionsFsAddPost(coluuid: String,
     content: String,
-    &#x60;path&#x60;: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
+    `path`: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
     val path = (addFmt("/collections/fs/add"))
 
@@ -362,11 +363,11 @@ class CollectionsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
 
     if (content == null) throw new Exception("Missing required parameter 'content' when calling CollectionsApi->collectionsFsAddPost")
 
-    if (&#x60;path&#x60; == null) throw new Exception("Missing required parameter '&#x60;path&#x60;' when calling CollectionsApi->collectionsFsAddPost")
+    if (`path` == null) throw new Exception("Missing required parameter '`path`' when calling CollectionsApi->collectionsFsAddPost")
 
     queryParams += "coluuid" -> coluuid.toString
     queryParams += "content" -> content.toString
-    queryParams += "path" -> &#x60;path&#x60;.toString
+    queryParams += "path" -> `path`.toString
 
     val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, "")
     resFuture flatMap { resp =>
@@ -374,7 +375,7 @@ class CollectionsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
     }
   }
 
-  def collectionsGet(id: Integer)(implicit reader: ClientResponseReader[List[main.Collection]]): Future[List[main.Collection]] = {
+  def collectionsGet(id: Integer)(implicit reader: ClientResponseReader[List[Collection]]): Future[List[Collection]] = {
     // create path and map variables
     val path = (addFmt("/collections/")
       replaceAll("\\{" + "id" + "\\}", id.toString))
@@ -390,7 +391,7 @@ class CollectionsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
     }
   }
 
-  def collectionsPost(body: CreateCollectionBody)(implicit reader: ClientResponseReader[main.Collection], writer: RequestWriter[CreateCollectionBody]): Future[main.Collection] = {
+  def collectionsPost(body: CreateCollectionBody)(implicit reader: ClientResponseReader[Collection], writer: RequestWriter[CreateCollectionBody]): Future[Collection] = {
     // create path and map variables
     val path = (addFmt("/collections/"))
 

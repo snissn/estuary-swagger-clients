@@ -3,17 +3,22 @@ part of swagger.api;
 class MainCollection {
   
   String cid = null;
+  
 
   String createdAt = null;
+  
 
   String description = null;
+  
 
   String name = null;
+  
 
   int userId = null;
+  
 
   String uuid = null;
-
+  
   MainCollection();
 
   @override
@@ -23,12 +28,24 @@ class MainCollection {
 
   MainCollection.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    cid = json['cid'];
-    createdAt = json['createdAt'];
-    description = json['description'];
-    name = json['name'];
-    userId = json['userId'];
-    uuid = json['uuid'];
+    cid =
+        json['cid']
+    ;
+    createdAt =
+        json['createdAt']
+    ;
+    description =
+        json['description']
+    ;
+    name =
+        json['name']
+    ;
+    userId =
+        json['userId']
+    ;
+    uuid =
+        json['uuid']
+    ;
   }
 
   Map<String, dynamic> toJson() {
@@ -54,3 +71,4 @@ class MainCollection {
     return map;
   }
 }
+

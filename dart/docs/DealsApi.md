@@ -5,7 +5,7 @@
 import 'package:swagger/api.dart';
 ```
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**publicDealsFailuresGet**](DealsApi.md#publicDealsFailuresGet) | **GET** /public/deals/failures | Get storage failures
 [**publicMinersStorageQueryMinerGet**](DealsApi.md#publicMinersStorageQueryMinerGet) | **GET** /public/miners/storage/query/{miner} | Query Ask
 
+
 # **dealEstimatePost**
 > dealEstimatePost(body)
 
@@ -30,7 +31,7 @@ Estimate the cost of a deal
 
 This endpoint estimates the cost of a deal
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -41,7 +42,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DealsApi();
 var body = new MainEstimateDealBody(); // MainEstimateDealBody | The size of the deal in bytes, the replication factor, and the duration of the deal in blocks
 
-try {
+try { 
     api_instance.dealEstimatePost(body);
 } catch (e) {
     print("Exception when calling DealsApi->dealEstimatePost: $e\n");
@@ -64,8 +65,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -76,7 +77,7 @@ Get Deal Info
 
 This endpoint returns the deal info for a deal
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -87,7 +88,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DealsApi();
 var dealid = 56; // int | Deal ID
 
-try {
+try { 
     api_instance.dealInfoDealidGet(dealid);
 } catch (e) {
     print("Exception when calling DealsApi->dealInfoDealidGet: $e\n");
@@ -111,7 +112,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -122,7 +123,7 @@ Get Proposal
 
 This endpoint returns the proposal for a deal
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -133,7 +134,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DealsApi();
 var propcid = propcid_example; // String | Proposal CID
 
-try {
+try { 
     api_instance.dealProposalPropcidGet(propcid);
 } catch (e) {
     print("Exception when calling DealsApi->dealProposalPropcidGet: $e\n");
@@ -157,7 +158,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -168,7 +169,7 @@ Query Ask
 
 This endpoint returns the ask for a given CID
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -179,7 +180,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DealsApi();
 var miner = miner_example; // String | CID
 
-try {
+try { 
     api_instance.dealQueryMinerGet(miner);
 } catch (e) {
     print("Exception when calling DealsApi->dealQueryMinerGet: $e\n");
@@ -203,7 +204,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -214,7 +215,7 @@ Get Deal Status by PropCid
 
 Get Deal Status by PropCid
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -225,7 +226,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DealsApi();
 var propcid = propcid_example; // String | PropCid
 
-try {
+try { 
     api_instance.dealStatusByProposalPropcidGet(propcid);
 } catch (e) {
     print("Exception when calling DealsApi->dealStatusByProposalPropcidGet: $e\n");
@@ -249,7 +250,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -260,7 +261,7 @@ Deal Status
 
 This endpoint returns the status of a deal
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -272,7 +273,7 @@ var api_instance = new DealsApi();
 var miner = miner_example; // String | Miner
 var propcid = propcid_example; // String | Proposal CID
 
-try {
+try { 
     api_instance.dealStatusMinerPropcidGet(miner, propcid);
 } catch (e) {
     print("Exception when calling DealsApi->dealStatusMinerPropcidGet: $e\n");
@@ -297,7 +298,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -308,7 +309,7 @@ Transfer In Progress
 
 This endpoint returns the in-progress transfers
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -318,7 +319,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new DealsApi();
 
-try {
+try { 
     api_instance.dealTransferInProgressGet();
 } catch (e) {
     print("Exception when calling DealsApi->dealTransferInProgressGet: $e\n");
@@ -339,7 +340,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -350,7 +351,7 @@ Transfer Status
 
 This endpoint returns the status of a transfer
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -360,7 +361,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new DealsApi();
 
-try {
+try { 
     api_instance.dealTransferStatusPost();
 } catch (e) {
     print("Exception when calling DealsApi->dealTransferStatusPost: $e\n");
@@ -381,7 +382,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -392,7 +393,7 @@ Get storage failures for user
 
 This endpoint returns a list of storage failures for user
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -402,7 +403,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new DealsApi();
 
-try {
+try { 
     api_instance.dealsFailuresGet();
 } catch (e) {
     print("Exception when calling DealsApi->dealsFailuresGet: $e\n");
@@ -423,18 +424,18 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **dealsMakeMinerPost**
-> dealsMakeMinerPost(body, miner)
+> dealsMakeMinerPost(miner, dealRequest)
 
 Make Deal
 
 This endpoint makes a deal for a given content and miner
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -443,11 +444,11 @@ import 'package:swagger/api.dart';
 //swagger.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
 
 var api_instance = new DealsApi();
-var body = new String(); // String | Deal Request
 var miner = miner_example; // String | Miner
+var dealRequest = new String(); // String | Deal Request
 
-try {
-    api_instance.dealsMakeMinerPost(body, miner);
+try { 
+    api_instance.dealsMakeMinerPost(miner, dealRequest);
 } catch (e) {
     print("Exception when calling DealsApi->dealsMakeMinerPost: $e\n");
 }
@@ -457,8 +458,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Deal Request | 
  **miner** | **String**| Miner | 
+ **dealRequest** | **String**| Deal Request | 
 
 ### Return type
 
@@ -470,8 +471,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -482,7 +483,7 @@ Get Deal Status
 
 This endpoint returns the status of a deal
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -493,7 +494,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DealsApi();
 var deal = 56; // int | Deal ID
 
-try {
+try { 
     api_instance.dealsStatusDealGet(deal);
 } catch (e) {
     print("Exception when calling DealsApi->dealsStatusDealGet: $e\n");
@@ -517,7 +518,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -528,7 +529,7 @@ Get storage failures
 
 This endpoint returns a list of storage failures
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -538,7 +539,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new DealsApi();
 
-try {
+try { 
     api_instance.publicDealsFailuresGet();
 } catch (e) {
     print("Exception when calling DealsApi->publicDealsFailuresGet: $e\n");
@@ -559,7 +560,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -570,7 +571,7 @@ Query Ask
 
 This endpoint returns the ask for a given CID
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -581,7 +582,7 @@ import 'package:swagger/api.dart';
 var api_instance = new DealsApi();
 var miner = miner_example; // String | CID
 
-try {
+try { 
     api_instance.publicMinersStorageQueryMinerGet(miner);
 } catch (e) {
     print("Exception when calling DealsApi->publicMinersStorageQueryMinerGet: $e\n");
@@ -605,7 +606,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -13,6 +13,7 @@ import Alamofire
 open class DealsAPI {
     /**
      Estimate the cost of a deal
+     
      - parameter body: (body) The size of the deal in bytes, the replication factor, and the duration of the deal in blocks 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -34,6 +35,7 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter body: (body) The size of the deal in bytes, the replication factor, and the duration of the deal in blocks 
 
      - returns: RequestBuilder<Void> 
@@ -52,6 +54,7 @@ open class DealsAPI {
 
     /**
      Get Deal Info
+     
      - parameter dealid: (path) Deal ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -73,6 +76,7 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter dealid: (path) Deal ID 
 
      - returns: RequestBuilder<Void> 
@@ -84,7 +88,7 @@ open class DealsAPI {
         path = path.replacingOccurrences(of: "{dealid}", with: dealidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -94,6 +98,7 @@ open class DealsAPI {
 
     /**
      Get Proposal
+     
      - parameter propcid: (path) Proposal CID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -115,6 +120,7 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter propcid: (path) Proposal CID 
 
      - returns: RequestBuilder<Void> 
@@ -126,7 +132,7 @@ open class DealsAPI {
         path = path.replacingOccurrences(of: "{propcid}", with: propcidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -136,6 +142,7 @@ open class DealsAPI {
 
     /**
      Query Ask
+     
      - parameter miner: (path) CID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -157,6 +164,7 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter miner: (path) CID 
 
      - returns: RequestBuilder<Void> 
@@ -168,7 +176,7 @@ open class DealsAPI {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -178,6 +186,7 @@ open class DealsAPI {
 
     /**
      Get Deal Status by PropCid
+     
      - parameter propcid: (path) PropCid 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -199,6 +208,7 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter propcid: (path) PropCid 
 
      - returns: RequestBuilder<Void> 
@@ -210,7 +220,7 @@ open class DealsAPI {
         path = path.replacingOccurrences(of: "{propcid}", with: propcidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -220,7 +230,9 @@ open class DealsAPI {
 
     /**
      Deal Status
-     - parameter miner: (path) Miner      - parameter propcid: (path) Proposal CID 
+     
+     - parameter miner: (path) Miner 
+     - parameter propcid: (path) Proposal CID 
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func dealStatusMinerPropcidGet(miner: String, propcid: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -241,7 +253,9 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter miner: (path) Miner      - parameter propcid: (path) Proposal CID 
+     
+     - parameter miner: (path) Miner 
+     - parameter propcid: (path) Proposal CID 
 
      - returns: RequestBuilder<Void> 
      */
@@ -255,7 +269,7 @@ open class DealsAPI {
         path = path.replacingOccurrences(of: "{propcid}", with: propcidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -265,7 +279,7 @@ open class DealsAPI {
 
     /**
      Transfer In Progress
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func dealTransferInProgressGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -293,7 +307,7 @@ open class DealsAPI {
         let path = "/deal/transfer/in-progress"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -303,7 +317,7 @@ open class DealsAPI {
 
     /**
      Transfer Status
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func dealTransferStatusPost(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -331,7 +345,7 @@ open class DealsAPI {
         let path = "/deal/transfer/status"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -341,7 +355,7 @@ open class DealsAPI {
 
     /**
      Get storage failures for user
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func dealsFailuresGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -369,7 +383,7 @@ open class DealsAPI {
         let path = "/deals/failures"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -379,11 +393,13 @@ open class DealsAPI {
 
     /**
      Make Deal
-     - parameter body: (body) Deal Request      - parameter miner: (path) Miner 
+     
+     - parameter miner: (path) Miner 
+     - parameter dealRequest: (body) Deal Request 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func dealsMakeMinerPost(body: String, miner: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        dealsMakeMinerPostWithRequestBuilder(body: body, miner: miner).execute { (response, error) -> Void in
+    open class func dealsMakeMinerPost(miner: String, dealRequest: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        dealsMakeMinerPostWithRequestBuilder(miner: miner, dealRequest: dealRequest).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -400,17 +416,19 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter body: (body) Deal Request      - parameter miner: (path) Miner 
+     
+     - parameter miner: (path) Miner 
+     - parameter dealRequest: (body) Deal Request 
 
      - returns: RequestBuilder<Void> 
      */
-    open class func dealsMakeMinerPostWithRequestBuilder(body: String, miner: String) -> RequestBuilder<Void> {
+    open class func dealsMakeMinerPostWithRequestBuilder(miner: String, dealRequest: String) -> RequestBuilder<Void> {
         var path = "/deals/make/{miner}"
         let minerPreEscape = "\(miner)"
         let minerPostEscape = minerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: dealRequest)
 
         let url = URLComponents(string: URLString)
 
@@ -421,6 +439,7 @@ open class DealsAPI {
 
     /**
      Get Deal Status
+     
      - parameter deal: (path) Deal ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -442,6 +461,7 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter deal: (path) Deal ID 
 
      - returns: RequestBuilder<Void> 
@@ -453,7 +473,7 @@ open class DealsAPI {
         path = path.replacingOccurrences(of: "{deal}", with: dealPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -463,7 +483,7 @@ open class DealsAPI {
 
     /**
      Get storage failures
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func publicDealsFailuresGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -491,7 +511,7 @@ open class DealsAPI {
         let path = "/public/deals/failures"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -501,6 +521,7 @@ open class DealsAPI {
 
     /**
      Query Ask
+     
      - parameter miner: (path) CID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -522,6 +543,7 @@ open class DealsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter miner: (path) CID 
 
      - returns: RequestBuilder<Void> 
@@ -533,7 +555,7 @@ open class DealsAPI {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()

@@ -5,7 +5,7 @@
 import 'package:swagger/api.dart';
 ```
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**userExportGet**](UserApi.md#userExportGet) | **GET** /user/export | Export user data
 [**userStatsGet**](UserApi.md#userStatsGet) | **GET** /user/stats | Create API keys for a user
 
+
 # **userApiKeysGet**
 > List<MainGetApiKeysResp> userApiKeysGet()
 
@@ -22,7 +23,7 @@ Get API keys for a user
 
 This endpoint is used to get API keys for a user. In estuary, each user can be given multiple API keys (tokens). This endpoint can be used to retrieve all available API keys for a given user.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -32,7 +33,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new UserApi();
 
-try {
+try { 
     var result = api_instance.userApiKeysGet();
     print(result);
 } catch (e) {
@@ -65,7 +66,7 @@ Revoke a User API Key.
 
 This endpoint is used to revoke a user API key. In estuary, every user is assigned with an API key, this API key is generated and issued for each user and is primarily use to access all estuary features. This endpoint can be used to revoke the API key thats assigned to the user.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -76,7 +77,7 @@ import 'package:swagger/api.dart';
 var api_instance = new UserApi();
 var key = key_example; // String | Key
 
-try {
+try { 
     api_instance.userApiKeysKeyDelete(key);
 } catch (e) {
     print("Exception when calling UserApi->userApiKeysKeyDelete: $e\n");
@@ -100,7 +101,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -111,7 +112,7 @@ Create API keys for a user
 
 This endpoint is used to create API keys for a user. In estuary, each user is given an API key to access all features.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -121,7 +122,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new UserApi();
 
-try {
+try { 
     var result = api_instance.userApiKeysPost();
     print(result);
 } catch (e) {
@@ -154,7 +155,7 @@ Export user data
 
 This endpoint is used to get API keys for a user.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -164,7 +165,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new UserApi();
 
-try {
+try { 
     var result = api_instance.userExportGet();
     print(result);
 } catch (e) {
@@ -197,7 +198,7 @@ Create API keys for a user
 
 This endpoint is used to create API keys for a user.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -207,7 +208,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new UserApi();
 
-try {
+try { 
     var result = api_instance.userStatsGet();
     print(result);
 } catch (e) {

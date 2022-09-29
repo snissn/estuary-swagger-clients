@@ -13,6 +13,7 @@ import Alamofire
 open class PublicAPI {
     /**
      Get Content by Cid
+     
      - parameter cid: (path) Cid 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -34,6 +35,7 @@ open class PublicAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter cid: (path) Cid 
 
      - returns: RequestBuilder<Void> 
@@ -45,7 +47,7 @@ open class PublicAPI {
         path = path.replacingOccurrences(of: "{cid}", with: cidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -55,7 +57,7 @@ open class PublicAPI {
 
     /**
      Get public node info
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func publicInfoGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -83,7 +85,7 @@ open class PublicAPI {
         let path = "/public/info"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -93,7 +95,7 @@ open class PublicAPI {
 
     /**
      Get deal metrics
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func publicMetricsDealsOnChainGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -121,7 +123,7 @@ open class PublicAPI {
         let path = "/public/metrics/deals-on-chain"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -131,6 +133,7 @@ open class PublicAPI {
 
     /**
      Get all miners deals
+     
      - parameter miner: (path) Filter by miner 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -152,6 +155,7 @@ open class PublicAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter miner: (path) Filter by miner 
 
      - returns: RequestBuilder<Void> 
@@ -163,7 +167,7 @@ open class PublicAPI {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -173,6 +177,7 @@ open class PublicAPI {
 
     /**
      Get all miners
+     
      - parameter miner: (path) Filter by miner 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -194,6 +199,7 @@ open class PublicAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter miner: (path) Filter by miner 
 
      - returns: RequestBuilder<Void> 
@@ -205,7 +211,7 @@ open class PublicAPI {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -215,7 +221,7 @@ open class PublicAPI {
 
     /**
      Get all miners
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func publicMinersGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -243,7 +249,7 @@ open class PublicAPI {
         let path = "/public/miners"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -253,6 +259,7 @@ open class PublicAPI {
 
     /**
      Get miner stats
+     
      - parameter miner: (path) Filter by miner 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -274,6 +281,7 @@ open class PublicAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter miner: (path) Filter by miner 
 
      - returns: RequestBuilder<Void> 
@@ -285,7 +293,7 @@ open class PublicAPI {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -295,7 +303,7 @@ open class PublicAPI {
 
     /**
      Net Addrs
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func publicNetAddrsGet(completion: @escaping ((_ data: [String]?,_ error: Error?) -> Void)) {
@@ -312,7 +320,7 @@ open class PublicAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ "", "" ]}]
+     - examples: [{contentType=application/json, example={}}]
 
      - returns: RequestBuilder<[String]> 
      */
@@ -320,7 +328,7 @@ open class PublicAPI {
         let path = "/public/net/addrs"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[String]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -330,7 +338,7 @@ open class PublicAPI {
 
     /**
      Net Peers
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func publicNetPeersGet(completion: @escaping ((_ data: [String]?,_ error: Error?) -> Void)) {
@@ -347,7 +355,7 @@ open class PublicAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ "", "" ]}]
+     - examples: [{contentType=application/json, example={}}]
 
      - returns: RequestBuilder<[String]> 
      */
@@ -355,7 +363,7 @@ open class PublicAPI {
         let path = "/public/net/peers"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[String]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -365,7 +373,7 @@ open class PublicAPI {
 
     /**
      Public stats
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func publicStatsGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -393,7 +401,7 @@ open class PublicAPI {
         let path = "/public/stats"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()

@@ -1,19 +1,26 @@
 package io.swagger.model;
+
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaInflectorServerCodegen", date = "2022-09-27T20:40:25.355549-10:00[Pacific/Honolulu]")
+
+
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:00:49.114Z")
 public class UtilHttpError   {
   @JsonProperty("code")
   private Integer code = null;
+
   @JsonProperty("details")
   private String details = null;
+
   @JsonProperty("reason")
   private String reason = null;
+
   /**
    **/
   public UtilHttpError code(Integer code) {
@@ -22,7 +29,7 @@ public class UtilHttpError   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("code")
   public Integer getCode() {
     return code;
@@ -39,7 +46,7 @@ public class UtilHttpError   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("details")
   public String getDetails() {
     return details;
@@ -56,7 +63,7 @@ public class UtilHttpError   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("reason")
   public String getReason() {
     return reason;
@@ -89,6 +96,7 @@ public class UtilHttpError   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UtilHttpError {\n");
+    
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -107,3 +115,4 @@ public class UtilHttpError   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

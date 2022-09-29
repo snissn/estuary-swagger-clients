@@ -26,7 +26,7 @@ class DealsApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     
-    List<String> contentTypes = ["*/*"];
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
     List<String> authNames = ["bearerAuth"];
@@ -34,6 +34,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -52,7 +53,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -85,6 +86,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -103,7 +105,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -136,6 +138,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -154,7 +157,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -187,6 +190,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -205,7 +209,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -238,6 +242,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -256,7 +261,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -292,6 +297,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -310,7 +316,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -340,6 +346,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -358,7 +365,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -388,6 +395,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -406,7 +414,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -436,6 +444,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -454,7 +463,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -463,15 +472,15 @@ class DealsApi {
   /// Make Deal
   ///
   /// This endpoint makes a deal for a given content and miner
-  Future dealsMakeMinerPost(String body, String miner) async {
-    Object postBody = body;
+  Future dealsMakeMinerPost(String miner, String dealRequest) async {
+    Object postBody = dealRequest;
 
     // verify required params are set
-    if(body == null) {
-     throw new ApiException(400, "Missing required param: body");
-    }
     if(miner == null) {
      throw new ApiException(400, "Missing required param: miner");
+    }
+    if(dealRequest == null) {
+     throw new ApiException(400, "Missing required param: dealRequest");
     }
 
     // create path and map variables
@@ -482,7 +491,7 @@ class DealsApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     
-    List<String> contentTypes = ["*/*"];
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
     List<String> authNames = ["bearerAuth"];
@@ -490,6 +499,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -508,7 +518,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -541,6 +551,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -559,7 +570,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -589,6 +600,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -607,7 +619,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -640,6 +652,7 @@ class DealsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -658,7 +671,7 @@ class DealsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;

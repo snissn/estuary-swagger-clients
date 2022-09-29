@@ -9,3 +9,5 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **userId** | **Number** |  | [optional] 
 **uuid** | **String** |  | [optional] 
+
+

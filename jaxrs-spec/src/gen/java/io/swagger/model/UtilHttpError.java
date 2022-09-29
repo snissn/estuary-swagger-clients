@@ -10,11 +10,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class UtilHttpError   {
-
+  
   private @Valid Integer code = null;
-
   private @Valid String details = null;
-
   private @Valid String reason = null;
 
   /**
@@ -27,7 +25,6 @@ public class UtilHttpError   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("code")
-
   public Integer getCode() {
     return code;
   }
@@ -45,7 +42,6 @@ public class UtilHttpError   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("details")
-
   public String getDetails() {
     return details;
   }
@@ -63,7 +59,6 @@ public class UtilHttpError   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("reason")
-
   public String getReason() {
     return reason;
   }
@@ -114,3 +109,4 @@ public class UtilHttpError   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

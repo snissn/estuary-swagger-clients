@@ -1,17 +1,23 @@
 package io.swagger.model;
+
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaInflectorServerCodegen", date = "2022-09-27T20:40:25.355549-10:00[Pacific/Honolulu]")
+
+
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:00:49.114Z")
 public class MainGetApiKeysResp   {
   @JsonProperty("expiry")
   private String expiry = null;
+
   @JsonProperty("token")
   private String token = null;
+
   /**
    **/
   public MainGetApiKeysResp expiry(String expiry) {
@@ -20,7 +26,7 @@ public class MainGetApiKeysResp   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("expiry")
   public String getExpiry() {
     return expiry;
@@ -37,7 +43,7 @@ public class MainGetApiKeysResp   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("token")
   public String getToken() {
     return token;
@@ -69,6 +75,7 @@ public class MainGetApiKeysResp   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MainGetApiKeysResp {\n");
+    
     sb.append("    expiry: ").append(toIndentedString(expiry)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
@@ -86,3 +93,4 @@ public class MainGetApiKeysResp   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

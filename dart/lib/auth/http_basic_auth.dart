@@ -10,4 +10,5 @@ class HttpBasicAuth implements Authentication {
     String str = (username == null ? "" : username) + ":" + (password == null ? "" : password);
     headerParams["Authorization"] = "Basic " + base64.encode(utf8.encode(str));
   }
+
 }

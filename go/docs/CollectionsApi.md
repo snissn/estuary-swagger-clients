@@ -1,6 +1,6 @@
-# {{classname}}
+# \CollectionsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**CollectionsFsAddPost**](CollectionsApi.md#CollectionsFsAddPost) | **Post** /collections/fs/add | Add a file to a collection
 [**CollectionsGet**](CollectionsApi.md#CollectionsGet) | **Get** /collections/ | List all collections
 [**CollectionsPost**](CollectionsApi.md#CollectionsPost) | **Post** /collections/ | Create a new collection
+
 
 # **CollectionsColuuidCommitPost**
 > string CollectionsColuuidCommitPost(ctx, coluuid)
@@ -84,6 +85,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a CollectionsApiCollectionsColuuidGetOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -115,7 +117,7 @@ This endpoint adds already-pinned contents (that have ContentIDs) to a collectio
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**[]int32**](int32.md)| Content IDs to add to collection | 
+  **body** | **[]int32**| Content IDs to add to collection | 
 
 ### Return type
 
@@ -158,7 +160,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -213,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

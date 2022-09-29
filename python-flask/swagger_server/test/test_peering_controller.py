@@ -17,7 +17,7 @@ class TestPeeringController(BaseTestCase):
         Remove peers on Peering Service
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/admin/peering/peers',
+            '//admin/peering/peers',
             method='DELETE')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -28,7 +28,7 @@ class TestPeeringController(BaseTestCase):
         List all Peering peers
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/admin/peering/peers',
+            '//admin/peering/peers',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -39,7 +39,7 @@ class TestPeeringController(BaseTestCase):
         Add peers on Peering Service
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/admin/peering/peers',
+            '//admin/peering/peers',
             method='POST')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -50,7 +50,7 @@ class TestPeeringController(BaseTestCase):
         Start Peering
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/admin/peering/start',
+            '//admin/peering/start',
             method='POST')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -61,7 +61,7 @@ class TestPeeringController(BaseTestCase):
         Check Peering Status
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/admin/peering/status',
+            '//admin/peering/status',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -72,7 +72,7 @@ class TestPeeringController(BaseTestCase):
         Stop Peering
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/admin/peering/stop',
+            '//admin/peering/stop',
             method='POST')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

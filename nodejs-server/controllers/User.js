@@ -13,7 +13,8 @@ module.exports.userApi_keysGET = function userApi_keysGET (req, res, next) {
     });
 };
 
-module.exports.userApi_keysKeyDELETE = function userApi_keysKeyDELETE (req, res, next, key) {
+module.exports.userApi_keysKeyDELETE = function userApi_keysKeyDELETE (req, res, next) {
+  var key = req.swagger.params['key'].value;
   User.userApi_keysKeyDELETE(key)
     .then(function (response) {
       utils.writeJson(res, response);

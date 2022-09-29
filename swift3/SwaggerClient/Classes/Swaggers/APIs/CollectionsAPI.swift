@@ -29,7 +29,10 @@ open class CollectionsAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
      - parameter coluuid: (path) coluuid 
      - returns: RequestBuilder<String> 
      */
@@ -40,7 +43,7 @@ open class CollectionsAPI: APIBase {
         path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -77,7 +80,7 @@ open class CollectionsAPI: APIBase {
         path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -105,7 +108,10 @@ open class CollectionsAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
      - parameter coluuid: (query) Collection UUID 
      - parameter dir: (query) Directory (optional)
      - returns: RequestBuilder<String> 
@@ -114,10 +120,11 @@ open class CollectionsAPI: APIBase {
         let path = "/collections/{coluuid}"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-                        "coluuid": coluuid,
-                        "dir": dir
+            "coluuid": coluuid,
+            "dir": dir
         ])
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -144,9 +151,7 @@ open class CollectionsAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "key" : ""
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
      - parameter body: (body) Content IDs to add to collection 
      - returns: RequestBuilder<[String:String]> 
      */
@@ -192,11 +197,12 @@ open class CollectionsAPI: APIBase {
         let path = "/collections/fs/add"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-                        "coluuid": coluuid,
-                        "content": content,
-                        "path": path
+            "coluuid": coluuid,
+            "content": content,
+            "path": path
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -223,21 +229,7 @@ open class CollectionsAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ {
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-}, {
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-} ]}]
+     - examples: [{contentType=application/json, example={}}]
      - parameter id: (path) User ID 
      - returns: RequestBuilder<[MainCollection]> 
      */
@@ -248,7 +240,7 @@ open class CollectionsAPI: APIBase {
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[MainCollection]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -275,14 +267,7 @@ open class CollectionsAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
      - parameter body: (body) Collection name and description 
      - returns: RequestBuilder<MainCollection> 
      */

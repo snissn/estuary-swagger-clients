@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.model.UtilHttpError;
@@ -22,7 +23,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * API tests for PinningApi
  */
@@ -31,6 +31,7 @@ public class PinningApiTest {
 
     private final PinningApi api = new PinningApi();
 
+    
     /**
      * List all pin status objects
      *
@@ -45,6 +46,7 @@ public class PinningApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Delete a pinned object
      *
@@ -60,6 +62,7 @@ public class PinningApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get a pin status object
      *
@@ -75,6 +78,7 @@ public class PinningApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Replace a pinned object
      *
@@ -90,6 +94,7 @@ public class PinningApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Add and pin object
      *
@@ -106,4 +111,5 @@ public class PinningApiTest {
 
         // TODO: test validations
     }
+    
 }

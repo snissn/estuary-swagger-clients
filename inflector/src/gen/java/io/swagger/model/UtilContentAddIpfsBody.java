@@ -1,25 +1,34 @@
 package io.swagger.model;
+
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaInflectorServerCodegen", date = "2022-09-27T20:40:25.355549-10:00[Pacific/Honolulu]")
+
+
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:00:49.114Z")
 public class UtilContentAddIpfsBody   {
   @JsonProperty("coluuid")
   private String coluuid = null;
+
   @JsonProperty("dir")
   private String dir = null;
+
   @JsonProperty("filename")
   private String filename = null;
+
   @JsonProperty("peers")
   private List<String> peers = null;
+
   @JsonProperty("root")
   private String root = null;
+
   /**
    **/
   public UtilContentAddIpfsBody coluuid(String coluuid) {
@@ -28,7 +37,7 @@ public class UtilContentAddIpfsBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("coluuid")
   public String getColuuid() {
     return coluuid;
@@ -45,7 +54,7 @@ public class UtilContentAddIpfsBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("dir")
   public String getDir() {
     return dir;
@@ -62,7 +71,7 @@ public class UtilContentAddIpfsBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("filename")
   public String getFilename() {
     return filename;
@@ -79,7 +88,7 @@ public class UtilContentAddIpfsBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("peers")
   public List<String> getPeers() {
     return peers;
@@ -96,7 +105,7 @@ public class UtilContentAddIpfsBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("root")
   public String getRoot() {
     return root;
@@ -131,6 +140,7 @@ public class UtilContentAddIpfsBody   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UtilContentAddIpfsBody {\n");
+    
     sb.append("    coluuid: ").append(toIndentedString(coluuid)).append("\n");
     sb.append("    dir: ").append(toIndentedString(dir)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
@@ -151,3 +161,4 @@ public class UtilContentAddIpfsBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -26,7 +26,7 @@ part 'api/peers_api.dart';
 part 'api/pinning_api.dart';
 part 'api/public_api.dart';
 part 'api/user_api.dart';
-part 'model/content_add_body.dart';
+
 part 'model/main_collection.dart';
 part 'model/main_create_collection_body.dart';
 part 'model/main_estimate_deal_body.dart';
@@ -36,5 +36,6 @@ part 'model/main_user_stats_response.dart';
 part 'model/util_content_add_ipfs_body.dart';
 part 'model/util_content_add_response.dart';
 part 'model/util_http_error.dart';
+
 
 ApiClient defaultApiClient = new ApiClient();

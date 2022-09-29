@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import org.junit.Test;
@@ -21,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * API tests for PeeringApi
  */
@@ -30,6 +30,7 @@ public class PeeringApiTest {
 
     private final PeeringApi api = new PeeringApi();
 
+    
     /**
      * Remove peers on Peering Service
      *
@@ -44,6 +45,7 @@ public class PeeringApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * List all Peering peers
      *
@@ -58,6 +60,7 @@ public class PeeringApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Add peers on Peering Service
      *
@@ -72,6 +75,7 @@ public class PeeringApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Start Peering
      *
@@ -86,6 +90,7 @@ public class PeeringApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Check Peering Status
      *
@@ -100,6 +105,7 @@ public class PeeringApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Stop Peering
      *
@@ -114,4 +120,5 @@ public class PeeringApiTest {
 
         // TODO: test validations
     }
+    
 }

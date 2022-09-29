@@ -34,7 +34,7 @@ open class MetricsAPI: APIBase {
         let path = "/public/metrics/deals-on-chain"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

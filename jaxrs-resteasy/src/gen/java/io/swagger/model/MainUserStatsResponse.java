@@ -5,16 +5,19 @@ import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.*;
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyServerCodegen", date = "2022-09-27T20:40:41.950348-10:00[Pacific/Honolulu]")public class MainUserStatsResponse   {
-  private Integer numPins = null;  private Integer totalSize = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T02:01:02.450Z")
+public class MainUserStatsResponse   {
+  
+  private Integer numPins = null;
+  private Integer totalSize = null;
 
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("numPins")
   public Integer getNumPins() {
     return numPins;
@@ -26,7 +29,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("totalSize")
   public Integer getTotalSize() {
     return totalSize;
@@ -76,3 +79,4 @@ import io.swagger.v3.oas.annotations.media.Schema;
     return o.toString().replace("\n", "\n    ");
   }
 }
+

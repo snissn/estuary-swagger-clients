@@ -14,6 +14,7 @@ class UtilContentAddResponse(Model):
 
     Do not edit the class manually.
     """
+
     def __init__(self, cid: str=None, estuary_id: int=None, providers: List[str]=None, retrieval_url: str=None):  # noqa: E501
         """UtilContentAddResponse - a model defined in Swagger
 
@@ -39,6 +40,7 @@ class UtilContentAddResponse(Model):
             'providers': 'providers',
             'retrieval_url': 'retrieval_url'
         }
+
         self._cid = cid
         self._estuary_id = estuary_id
         self._providers = providers

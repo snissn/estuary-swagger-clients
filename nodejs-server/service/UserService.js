@@ -10,13 +10,7 @@
 exports.userApi_keysGET = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = [ {
-  "expiry" : "expiry",
-  "token" : "token"
-}, {
-  "expiry" : "expiry",
-  "token" : "token"
-} ];
+    examples['application/json'] = {};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -49,10 +43,7 @@ exports.userApi_keysKeyDELETE = function(key) {
 exports.userApi_keysPOST = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = {
-  "expiry" : "expiry",
-  "token" : "token"
-};
+    examples['application/json'] = {"empty": false};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -71,7 +62,10 @@ exports.userApi_keysPOST = function() {
 exports.userExportGET = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = "";
+    examples['application/json'] = {
+  "bytes": [],
+  "empty": true
+};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -90,10 +84,7 @@ exports.userExportGET = function() {
 exports.userStatsGET = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = {
-  "totalSize" : 6,
-  "numPins" : 0
-};
+    examples['application/json'] = {"empty": false};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {

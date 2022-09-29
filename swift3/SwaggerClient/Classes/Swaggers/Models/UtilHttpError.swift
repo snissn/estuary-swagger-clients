@@ -9,6 +9,7 @@ import Foundation
 
 
 open class UtilHttpError: JSONEncodable {
+
     public var code: Int32?
     public var details: String?
     public var reason: String?
@@ -26,3 +27,4 @@ open class UtilHttpError: JSONEncodable {
         return dictionary
     }
 }
+

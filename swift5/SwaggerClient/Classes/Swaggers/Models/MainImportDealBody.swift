@@ -16,7 +16,7 @@ public struct MainImportDealBody: Codable {
     public var dir: String?
     public var name: String?
 
-    public init(coluuid: String? = nil, dealIDs: [Int]? = nil, dir: String? = nil, name: String? = nil) {
+    public init(coluuid: String?, dealIDs: [Int]?, dir: String?, name: String?) {
         self.coluuid = coluuid
         self.dealIDs = dealIDs
         self.dir = dir
@@ -25,3 +25,4 @@ public struct MainImportDealBody: Codable {
 
 
 }
+

@@ -3,7 +3,6 @@
 # flake8: noqa
 from __future__ import absolute_import
 # import models into model package
-from swagger_server.models.content_add_body import ContentAddBody
 from swagger_server.models.main_collection import MainCollection
 from swagger_server.models.main_create_collection_body import MainCreateCollectionBody
 from swagger_server.models.main_estimate_deal_body import MainEstimateDealBody

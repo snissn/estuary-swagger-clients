@@ -13,6 +13,7 @@ import Alamofire
 open class MinerAPI {
     /**
      Get all miners deals
+     
      - parameter miner: (path) Filter by miner 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -34,6 +35,7 @@ open class MinerAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter miner: (path) Filter by miner 
 
      - returns: RequestBuilder<Void> 
@@ -45,7 +47,7 @@ open class MinerAPI {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -55,6 +57,7 @@ open class MinerAPI {
 
     /**
      Get miner stats
+     
      - parameter miner: (path) Filter by miner 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -76,6 +79,7 @@ open class MinerAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter miner: (path) Filter by miner 
 
      - returns: RequestBuilder<Void> 
@@ -87,7 +91,7 @@ open class MinerAPI {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()

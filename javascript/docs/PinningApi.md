@@ -1,6 +1,6 @@
 # EstuaryApi.PinningApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**pinningPinsPinidGet**](PinningApi.md#pinningPinsPinidGet) | **GET** /pinning/pins/{pinid} | Get a pin status object
 [**pinningPinsPinidPost**](PinningApi.md#pinningPinsPinidPost) | **POST** /pinning/pins/{pinid} | Replace a pinned object
 [**pinningPinsPost**](PinningApi.md#pinningPinsPost) | **POST** /pinning/pins | Add and pin object
+
 
 <a name="pinningPinsGet"></a>
 # **pinningPinsGet**
@@ -20,23 +21,25 @@ This endpoint lists all pin status objects
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PinningApi();
-apiInstance.pinningPinsGet((error, data, response) => {
+var apiInstance = new EstuaryApi.PinningApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.pinningPinsGet(callback);
 ```
 
 ### Parameters
@@ -65,25 +68,28 @@ This endpoint deletes a pinned object.
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PinningApi();
-let pinid = "pinid_example"; // String | Pin ID
+var apiInstance = new EstuaryApi.PinningApi();
 
-apiInstance.pinningPinsPinidDelete(pinid, (error, data, response) => {
+var pinid = "pinid_example"; // String | Pin ID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.pinningPinsPinidDelete(pinid, callback);
 ```
 
 ### Parameters
@@ -103,7 +109,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="pinningPinsPinidGet"></a>
 # **pinningPinsPinidGet**
@@ -115,25 +121,28 @@ This endpoint returns a pin status object.
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PinningApi();
-let pinid = "pinid_example"; // String | cid
+var apiInstance = new EstuaryApi.PinningApi();
 
-apiInstance.pinningPinsPinidGet(pinid, (error, data, response) => {
+var pinid = "pinid_example"; // String | cid
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.pinningPinsPinidGet(pinid, callback);
 ```
 
 ### Parameters
@@ -153,7 +162,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="pinningPinsPinidPost"></a>
 # **pinningPinsPinidPost**
@@ -165,25 +174,28 @@ This endpoint replaces a pinned object.
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PinningApi();
-let pinid = "pinid_example"; // String | Pin ID
+var apiInstance = new EstuaryApi.PinningApi();
 
-apiInstance.pinningPinsPinidPost(pinid, (error, data, response) => {
+var pinid = "pinid_example"; // String | Pin ID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.pinningPinsPinidPost(pinid, callback);
 ```
 
 ### Parameters
@@ -203,7 +215,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="pinningPinsPost"></a>
 # **pinningPinsPost**
@@ -215,26 +227,30 @@ This endpoint adds a pin to the IPFS daemon.
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PinningApi();
-let cid = "cid_example"; // String | cid
-let name = "name_example"; // String | name
+var apiInstance = new EstuaryApi.PinningApi();
 
-apiInstance.pinningPinsPost(cid, name, (error, data, response) => {
+var cid = "cid_example"; // String | cid
+
+var name = "name_example"; // String | name
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.pinningPinsPost(cid, name, callback);
 ```
 
 ### Parameters
@@ -255,5 +271,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 

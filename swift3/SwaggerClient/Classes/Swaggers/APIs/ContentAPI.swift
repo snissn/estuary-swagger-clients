@@ -42,11 +42,12 @@ open class ContentAPI: APIBase {
         let path = "/content/add-car"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = body.encodeToJSON()
+
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-                        "filename": filename,
-                        "commp": commp,
-                        "size": size
+            "filename": filename,
+            "commp": commp,
+            "size": size
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -90,12 +91,12 @@ open class ContentAPI: APIBase {
 
     /**
      Add new content
-     - parameter file: (form)  
+     - parameter file: (form) File to upload 
      - parameter coluuid: (path) Collection UUID 
      - parameter dir: (path) Directory 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func contentAddPost(file: Data, coluuid: String, dir: String, completion: @escaping ((_ data: UtilContentAddResponse?, _ error: ErrorResponse?) -> Void)) {
+    open class func contentAddPost(file: URL, coluuid: String, dir: String, completion: @escaping ((_ data: UtilContentAddResponse?, _ error: ErrorResponse?) -> Void)) {
         contentAddPostWithRequestBuilder(file: file, coluuid: coluuid, dir: dir).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -109,18 +110,13 @@ open class ContentAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "retrieval_url" : "retrieval_url",
-  "estuaryId" : 0,
-  "providers" : [ "providers", "providers" ],
-  "cid" : "cid"
-}}]
-     - parameter file: (form)  
+     - examples: [{contentType=application/json, example={"empty": false}}]
+     - parameter file: (form) File to upload 
      - parameter coluuid: (path) Collection UUID 
      - parameter dir: (path) Directory 
      - returns: RequestBuilder<UtilContentAddResponse> 
      */
-    open class func contentAddPostWithRequestBuilder(file: Data, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
+    open class func contentAddPostWithRequestBuilder(file: URL, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
         var path = "/content/add"
         let coluuidPreEscape = "\(coluuid)"
         let coluuidPostEscape = coluuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -130,12 +126,12 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{dir}", with: dirPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let formParams: [String:Any?] = [
-                        "file": file
+            "file": file
         ]
 
         let nonNullParameters = APIHelper.rejectNil(formParams)
         let parameters = APIHelper.convertBoolToString(nonNullParameters)
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<UtilContentAddResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -162,7 +158,10 @@ open class ContentAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
      - parameter content: (path) Content ID 
      - returns: RequestBuilder<String> 
      */
@@ -173,7 +172,7 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{content}", with: contentPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -211,11 +210,12 @@ open class ContentAPI: APIBase {
         let path = "/content/all-deals"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-                        "begin": begin,
-                        "duration": duration,
-                        "all": all
+            "begin": begin,
+            "duration": duration,
+            "all": all
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -252,7 +252,7 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{content}", with: contentPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -322,10 +322,11 @@ open class ContentAPI: APIBase {
         let path = "/content/deals"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-                        "limit": limit?.encodeToJSON(),
-                        "offset": offset?.encodeToJSON()
+            "limit": limit?.encodeToJSON(),
+            "offset": offset?.encodeToJSON()
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -362,7 +363,7 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{datacid}", with: datacidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -389,7 +390,10 @@ open class ContentAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
      - parameter content: (path) Content ID 
      - returns: RequestBuilder<String> 
      */
@@ -400,7 +404,7 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{content}", with: contentPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -460,14 +464,14 @@ open class ContentAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ "", "" ]}]
+     - examples: [{contentType=application/json, example={}}]
      - returns: RequestBuilder<[String]> 
      */
     open class func contentListGetWithRequestBuilder() -> RequestBuilder<[String]> {
         let path = "/content/list"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[String]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -504,7 +508,7 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{cont}", with: contPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -536,7 +540,7 @@ open class ContentAPI: APIBase {
         let path = "/content/staging-zones"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -573,7 +577,7 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{limit}", with: limitPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -610,7 +614,7 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

@@ -5,7 +5,7 @@
 import 'package:swagger/api.dart';
 ```
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**publicNetAddrsGet**](NetApi.md#publicNetAddrsGet) | **GET** /public/net/addrs | Net Addrs
 [**publicNetPeersGet**](NetApi.md#publicNetPeersGet) | **GET** /public/net/peers | Net Peers
 
+
 # **netAddrsGet**
 > List<String> netAddrsGet()
 
@@ -22,7 +23,7 @@ Net Addrs
 
 This endpoint is used to get net addrs
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -32,7 +33,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new NetApi();
 
-try {
+try { 
     var result = api_instance.netAddrsGet();
     print(result);
 } catch (e) {
@@ -65,7 +66,7 @@ Get all miners
 
 This endpoint returns all miners
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -76,7 +77,7 @@ import 'package:swagger/api.dart';
 var api_instance = new NetApi();
 var miner = miner_example; // String | Filter by miner
 
-try {
+try { 
     api_instance.publicMinersFailuresMinerGet(miner);
 } catch (e) {
     print("Exception when calling NetApi->publicMinersFailuresMinerGet: $e\n");
@@ -100,7 +101,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -111,7 +112,7 @@ Get all miners
 
 This endpoint returns all miners
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -121,7 +122,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new NetApi();
 
-try {
+try { 
     api_instance.publicMinersGet();
 } catch (e) {
     print("Exception when calling NetApi->publicMinersGet: $e\n");
@@ -142,7 +143,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -153,7 +154,7 @@ Net Addrs
 
 This endpoint is used to get net addrs
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -163,7 +164,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new NetApi();
 
-try {
+try { 
     var result = api_instance.publicNetAddrsGet();
     print(result);
 } catch (e) {
@@ -196,7 +197,7 @@ Net Peers
 
 This endpoint is used to get net peers
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -206,7 +207,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new NetApi();
 
-try {
+try { 
     var result = api_instance.publicNetPeersGet();
     print(result);
 } catch (e) {

@@ -15,14 +15,15 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-27T20:40:33.778721-10:00[Pacific/Honolulu]")public class DealsApiServiceImpl implements DealsApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T02:00:58.647Z")
+public class DealsApiServiceImpl implements DealsApiService {
       @Override
       public Response dealsFailuresGet(SecurityContext securityContext) {
       // do some magic!
       return Response.ok().entity("magic!").build();
   }
       @Override
-      public Response dealsMakeMinerPost(String body, String miner, SecurityContext securityContext) {
+      public Response dealsMakeMinerPost(String miner, String dealRequest, SecurityContext securityContext) {
       // do some magic!
       return Response.ok().entity("magic!").build();
   }

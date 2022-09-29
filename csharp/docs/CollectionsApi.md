@@ -1,6 +1,6 @@
 # IO.Swagger.Api.CollectionsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**CollectionsFsAddPost**](CollectionsApi.md#collectionsfsaddpost) | **POST** /collections/fs/add | Add a file to a collection
 [**CollectionsGet**](CollectionsApi.md#collectionsget) | **GET** /collections/ | List all collections
 [**CollectionsPost**](CollectionsApi.md#collectionspost) | **POST** /collections/ | Create a new collection
+
 
 <a name="collectionscoluuidcommitpost"></a>
 # **CollectionsColuuidCommitPost**
@@ -77,6 +78,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="collectionscoluuiddelete"></a>
 # **CollectionsColuuidDelete**
 > void CollectionsColuuidDelete (string coluuid)
@@ -141,6 +143,7 @@ void (empty response body)
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="collectionscoluuidget"></a>
 # **CollectionsColuuidGet**
 > string CollectionsColuuidGet (string coluuid, string dir = null)
@@ -208,6 +211,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="collectionscoluuidpost"></a>
 # **CollectionsColuuidPost**
 > Dictionary<string, string> CollectionsColuuidPost (List<int?> body)
@@ -236,7 +240,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new CollectionsApi();
-            var body = new List<int?>(); // List<int?> | Content IDs to add to collection
+            var body = ;  // List<int?> | Content IDs to add to collection
 
             try
             {
@@ -257,7 +261,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;int?&gt;**](int?.md)| Content IDs to add to collection | 
+ **body** | **List&lt;int?&gt;**| Content IDs to add to collection | 
 
 ### Return type
 
@@ -273,6 +277,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="collectionsfsaddpost"></a>
 # **CollectionsFsAddPost**
 > void CollectionsFsAddPost (string coluuid, string content, string path)
@@ -338,9 +343,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="collectionsget"></a>
 # **CollectionsGet**
 > List<MainCollection> CollectionsGet (int? id)
@@ -406,6 +412,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="collectionspost"></a>
 # **CollectionsPost**
 > MainCollection CollectionsPost (MainCreateCollectionBody body)
@@ -467,7 +474,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

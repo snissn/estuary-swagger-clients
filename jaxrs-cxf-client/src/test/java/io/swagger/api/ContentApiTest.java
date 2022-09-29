@@ -22,6 +22,7 @@
  * limitations under the License.
  */
 
+
 package io.swagger.api;
 
 import java.io.File;
@@ -66,12 +67,13 @@ public class ContentApiTest {
         List providers = new ArrayList();
         providers.add(provider);
         
-        api = JAXRSClientFactory.create("//api.estuary.tech/", ContentApi.class, providers);
+        api = JAXRSClientFactory.create("https://api.estuary.tech", ContentApi.class, providers);
         org.apache.cxf.jaxrs.client.Client client = WebClient.client(api);
         
         ClientConfiguration config = WebClient.getConfig(client); 
     }
 
+    
     /**
      * Add Car object
      *
@@ -92,6 +94,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Add IPFS object
      *
@@ -109,6 +112,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Add new content
      *
@@ -128,6 +132,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Get aggregated content stats
      *
@@ -145,6 +150,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Get all deals for a user
      *
@@ -164,6 +170,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Get content bandwidth
      *
@@ -181,6 +188,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Add a new content
      *
@@ -198,6 +206,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Content with deals
      *
@@ -216,6 +225,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Ensure Replication
      *
@@ -233,6 +243,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * List all failures for a content
      *
@@ -250,6 +261,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Import a deal
      *
@@ -267,6 +279,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * List all pinned content
      *
@@ -283,6 +296,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Read content
      *
@@ -300,6 +314,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Get staging zone for user
      *
@@ -316,6 +331,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Get content statistics
      *
@@ -333,6 +349,7 @@ public class ContentApiTest {
         
         
     }
+    
     /**
      * Content Status
      *
@@ -350,4 +367,5 @@ public class ContentApiTest {
         
         
     }
+    
 }

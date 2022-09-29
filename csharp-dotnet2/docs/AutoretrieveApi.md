@@ -1,6 +1,6 @@
 # IO.Swagger.Api.AutoretrieveApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,9 +8,10 @@ Method | HTTP request | Description
 [**AdminAutoretrieveListGet**](AutoretrieveApi.md#adminautoretrievelistget) | **GET** /admin/autoretrieve/list | List autoretrieve servers
 [**AutoretrieveHeartbeatPost**](AutoretrieveApi.md#autoretrieveheartbeatpost) | **POST** /autoretrieve/heartbeat | Marks autoretrieve server as up
 
+
 <a name="adminautoretrieveinitpost"></a>
 # **AdminAutoretrieveInitPost**
-> void AdminAutoretrieveInitPost (string body)
+> void AdminAutoretrieveInitPost (string addresses, string pubKey)
 
 Register autoretrieve server
 
@@ -30,19 +31,20 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
 
             var apiInstance = new AutoretrieveApi();
-            var body = new string(); // string | Autoretrieve's public key
+            var addresses = addresses_example;  // string | Autoretrieve's comma-separated list of addresses
+            var pubKey = pubKey_example;  // string | Autoretrieve's public key
 
             try
             {
                 // Register autoretrieve server
-                apiInstance.AdminAutoretrieveInitPost(body);
+                apiInstance.AdminAutoretrieveInitPost(addresses, pubKey);
             }
             catch (Exception e)
             {
@@ -57,7 +59,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**string**](string.md)| Autoretrieve&#x27;s public key | 
+ **addresses** | **string**| Autoretrieve&#39;s comma-separated list of addresses | 
+ **pubKey** | **string**| Autoretrieve&#39;s public key | 
 
 ### Return type
 
@@ -69,8 +72,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -96,7 +99,7 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -132,7 +135,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -158,7 +161,7 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -185,7 +188,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **token** | **string**| Autoretrieve&#x27;s auth token | 
+ **token** | **string**| Autoretrieve&#39;s auth token | 
 
 ### Return type
 
@@ -198,7 +201,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

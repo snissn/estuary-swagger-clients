@@ -1,6 +1,6 @@
 # DealsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**dealsStatusDealGet**](DealsApi.md#dealsStatusDealGet) | **GET** /deals/status/{deal} | Get Deal Status
 [**publicDealsFailuresGet**](DealsApi.md#publicDealsFailuresGet) | **GET** /public/deals/failures | Get storage failures
 [**publicMinersStorageQueryMinerGet**](DealsApi.md#publicMinersStorageQueryMinerGet) | **GET** /public/miners/storage/query/{miner} | Query Ask
+
 
 <a name="dealEstimatePost"></a>
 # **dealEstimatePost**
@@ -69,8 +70,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="dealInfoDealidGet"></a>
 # **dealInfoDealidGet**
@@ -124,7 +125,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealProposalPropcidGet"></a>
 # **dealProposalPropcidGet**
@@ -178,7 +179,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealQueryMinerGet"></a>
 # **dealQueryMinerGet**
@@ -232,7 +233,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealStatusByProposalPropcidGet"></a>
 # **dealStatusByProposalPropcidGet**
@@ -286,7 +287,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealStatusMinerPropcidGet"></a>
 # **dealStatusMinerPropcidGet**
@@ -342,7 +343,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealTransferInProgressGet"></a>
 # **dealTransferInProgressGet**
@@ -392,7 +393,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealTransferStatusPost"></a>
 # **dealTransferStatusPost**
@@ -442,7 +443,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealsFailuresGet"></a>
 # **dealsFailuresGet**
@@ -492,11 +493,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealsMakeMinerPost"></a>
 # **dealsMakeMinerPost**
-> dealsMakeMinerPost(body, miner)
+> dealsMakeMinerPost(miner, dealRequest)
 
 Make Deal
 
@@ -520,10 +521,10 @@ bearerAuth.setApiKey("YOUR API KEY");
 //bearerAuth.setApiKeyPrefix("Token");
 
 DealsApi apiInstance = new DealsApi();
-String body = "body_example"; // String | Deal Request
 String miner = "miner_example"; // String | Miner
+String dealRequest = "dealRequest_example"; // String | Deal Request
 try {
-    apiInstance.dealsMakeMinerPost(body, miner);
+    apiInstance.dealsMakeMinerPost(miner, dealRequest);
 } catch (ApiException e) {
     System.err.println("Exception when calling DealsApi#dealsMakeMinerPost");
     e.printStackTrace();
@@ -534,8 +535,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Deal Request |
  **miner** | **String**| Miner |
+ **dealRequest** | **String**| Deal Request |
 
 ### Return type
 
@@ -547,8 +548,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="dealsStatusDealGet"></a>
 # **dealsStatusDealGet**
@@ -602,7 +603,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="publicDealsFailuresGet"></a>
 # **publicDealsFailuresGet**
@@ -652,7 +653,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="publicMinersStorageQueryMinerGet"></a>
 # **publicMinersStorageQueryMinerGet**
@@ -706,5 +707,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 

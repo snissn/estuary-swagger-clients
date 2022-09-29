@@ -114,12 +114,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Produce a CID of the collection contents This endpoint is used to save the contents in a collection, producing a top-level CID that references all the current CIDs in the collection.
         /// </summary>
-        /// <param name="coluuid">coluuid</param>
-        /// <returns>string</returns>
+        /// <param name="coluuid">coluuid</param> 
+        /// <returns>string</returns>            
         public string CollectionsColuuidCommitPost (string coluuid)
         {
+            
             // verify the required parameter 'coluuid' is set
             if (coluuid == null) throw new ApiException(400, "Missing required parameter 'coluuid' when calling CollectionsColuuidCommitPost");
+            
     
             var path = "/collections/{coluuid}/commit";
             path = path.Replace("{format}", "json");
@@ -131,7 +133,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -149,12 +151,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Deletes a collection This endpoint is used to delete an existing collection.
         /// </summary>
-        /// <param name="coluuid">Collection ID</param>
-        /// <returns></returns>
+        /// <param name="coluuid">Collection ID</param> 
+        /// <returns></returns>            
         public void CollectionsColuuidDelete (string coluuid)
         {
+            
             // verify the required parameter 'coluuid' is set
             if (coluuid == null) throw new ApiException(400, "Missing required parameter 'coluuid' when calling CollectionsColuuidDelete");
+            
     
             var path = "/collections/{coluuid}";
             path = path.Replace("{format}", "json");
@@ -166,7 +170,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -184,13 +188,15 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get contents in a collection This endpoint is used to get contents in a collection. If no colpath query param is passed
         /// </summary>
-        /// <param name="coluuid">Collection UUID</param>
-        /// <param name="dir">Directory</param>
-        /// <returns>string</returns>
+        /// <param name="coluuid">Collection UUID</param> 
+        /// <param name="dir">Directory</param> 
+        /// <returns>string</returns>            
         public string CollectionsColuuidGet (string coluuid, string dir)
         {
+            
             // verify the required parameter 'coluuid' is set
             if (coluuid == null) throw new ApiException(400, "Missing required parameter 'coluuid' when calling CollectionsColuuidGet");
+            
     
             var path = "/collections/{coluuid}";
             path = path.Replace("{format}", "json");
@@ -203,7 +209,7 @@ namespace IO.Swagger.Api
     
              if (coluuid != null) queryParams.Add("coluuid", ApiClient.ParameterToString(coluuid)); // query parameter
  if (dir != null) queryParams.Add("dir", ApiClient.ParameterToString(dir)); // query parameter
-                        
+                                        
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -221,12 +227,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Add contents to a collection This endpoint adds already-pinned contents (that have ContentIDs) to a collection.
         /// </summary>
-        /// <param name="body">Content IDs to add to collection</param>
-        /// <returns>Dictionary&lt;string, string&gt;</returns>
+        /// <param name="body">Content IDs to add to collection</param> 
+        /// <returns>Dictionary&lt;string, string&gt;</returns>            
         public Dictionary<string, string> CollectionsColuuidPost (List<int?> body)
         {
+            
             // verify the required parameter 'body' is set
             if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling CollectionsColuuidPost");
+            
     
             var path = "/collections/{coluuid}";
             path = path.Replace("{format}", "json");
@@ -237,8 +245,8 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    postBody = ApiClient.Serialize(body); // http body (model) parameter
-
+                                                postBody = ApiClient.Serialize(body); // http body (model) parameter
+    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -256,18 +264,22 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Add a file to a collection This endpoint adds a file to a collection
         /// </summary>
-        /// <param name="coluuid">Collection ID</param>
-        /// <param name="content">Content</param>
-        /// <param name="path">Path to file</param>
-        /// <returns></returns>
+        /// <param name="coluuid">Collection ID</param> 
+        /// <param name="content">Content</param> 
+        /// <param name="path">Path to file</param> 
+        /// <returns></returns>            
         public void CollectionsFsAddPost (string coluuid, string content, string path)
         {
+            
             // verify the required parameter 'coluuid' is set
             if (coluuid == null) throw new ApiException(400, "Missing required parameter 'coluuid' when calling CollectionsFsAddPost");
+            
             // verify the required parameter 'content' is set
             if (content == null) throw new ApiException(400, "Missing required parameter 'content' when calling CollectionsFsAddPost");
+            
             // verify the required parameter 'path' is set
             if (path == null) throw new ApiException(400, "Missing required parameter 'path' when calling CollectionsFsAddPost");
+            
     
             var path = "/collections/fs/add";
             path = path.Replace("{format}", "json");
@@ -281,7 +293,7 @@ namespace IO.Swagger.Api
              if (coluuid != null) queryParams.Add("coluuid", ApiClient.ParameterToString(coluuid)); // query parameter
  if (content != null) queryParams.Add("content", ApiClient.ParameterToString(content)); // query parameter
  if (path != null) queryParams.Add("path", ApiClient.ParameterToString(path)); // query parameter
-                        
+                                        
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -299,12 +311,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// List all collections This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </summary>
-        /// <param name="id">User ID</param>
-        /// <returns>List&lt;MainCollection&gt;</returns>
+        /// <param name="id">User ID</param> 
+        /// <returns>List&lt;MainCollection&gt;</returns>            
         public List<MainCollection> CollectionsGet (int? id)
         {
+            
             // verify the required parameter 'id' is set
             if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling CollectionsGet");
+            
     
             var path = "/collections/";
             path = path.Replace("{format}", "json");
@@ -316,7 +330,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -334,12 +348,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Create a new collection This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
         /// </summary>
-        /// <param name="body">Collection name and description</param>
-        /// <returns>MainCollection</returns>
+        /// <param name="body">Collection name and description</param> 
+        /// <returns>MainCollection</returns>            
         public MainCollection CollectionsPost (MainCreateCollectionBody body)
         {
+            
             // verify the required parameter 'body' is set
             if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling CollectionsPost");
+            
     
             var path = "/collections/";
             path = path.Replace("{format}", "json");
@@ -350,8 +366,8 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    postBody = ApiClient.Serialize(body); // http body (model) parameter
-
+                                                postBody = ApiClient.Serialize(body); // http body (model) parameter
+    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

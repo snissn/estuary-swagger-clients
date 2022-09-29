@@ -5,10 +5,11 @@
  * Register autoretrieve server
  * This endpoint registers a new autoretrieve server
  *
- * body String Autoretrieve's public key
+ * addresses String Autoretrieve's comma-separated list of addresses
+ * pubKey String Autoretrieve's public key
  * no response value expected for this operation
  **/
-exports.adminAutoretrieveInitPOST = function(body) {
+exports.adminAutoretrieveInitPOST = function(addresses,pubKey) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,15 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * UtilContentAddIpfsBody
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-27T20:40:26.717738-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T02:00:50.565Z")
 public class UtilContentAddIpfsBody {
   @SerializedName("coluuid")
   private String coluuid = null;
@@ -53,7 +55,7 @@ public class UtilContentAddIpfsBody {
    * Get coluuid
    * @return coluuid
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getColuuid() {
     return coluuid;
   }
@@ -71,7 +73,7 @@ public class UtilContentAddIpfsBody {
    * Get dir
    * @return dir
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getDir() {
     return dir;
   }
@@ -89,7 +91,7 @@ public class UtilContentAddIpfsBody {
    * Get filename
    * @return filename
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getFilename() {
     return filename;
   }
@@ -115,7 +117,7 @@ public class UtilContentAddIpfsBody {
    * Get peers
    * @return peers
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public List<String> getPeers() {
     return peers;
   }
@@ -133,7 +135,7 @@ public class UtilContentAddIpfsBody {
    * Get root
    * @return root
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getRoot() {
     return root;
   }
@@ -191,3 +193,4 @@ public class UtilContentAddIpfsBody {
   }
 
 }
+

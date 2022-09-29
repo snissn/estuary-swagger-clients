@@ -1,21 +1,29 @@
 package io.swagger.model;
+
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaInflectorServerCodegen", date = "2022-09-27T20:40:25.355549-10:00[Pacific/Honolulu]")
+
+
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:00:49.114Z")
 public class MainEstimateDealBody   {
   @JsonProperty("durationBlks")
   private Integer durationBlks = null;
+
   @JsonProperty("replication")
   private Integer replication = null;
+
   @JsonProperty("size")
   private Integer size = null;
+
   @JsonProperty("verified")
   private Boolean verified = null;
+
   /**
    **/
   public MainEstimateDealBody durationBlks(Integer durationBlks) {
@@ -24,7 +32,7 @@ public class MainEstimateDealBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("durationBlks")
   public Integer getDurationBlks() {
     return durationBlks;
@@ -41,7 +49,7 @@ public class MainEstimateDealBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("replication")
   public Integer getReplication() {
     return replication;
@@ -58,7 +66,7 @@ public class MainEstimateDealBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("size")
   public Integer getSize() {
     return size;
@@ -75,7 +83,7 @@ public class MainEstimateDealBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("verified")
   public Boolean isVerified() {
     return verified;
@@ -109,6 +117,7 @@ public class MainEstimateDealBody   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MainEstimateDealBody {\n");
+    
     sb.append("    durationBlks: ").append(toIndentedString(durationBlks)).append("\n");
     sb.append("    replication: ").append(toIndentedString(replication)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -128,3 +137,4 @@ public class MainEstimateDealBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

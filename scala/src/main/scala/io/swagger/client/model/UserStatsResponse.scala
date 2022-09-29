@@ -9,13 +9,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 package io.swagger.client.model
 
 
-/**
- * @param numPins 
- * @param totalSize 
- */
 case class UserStatsResponse (
   numPins: Option[Integer] = None,
   totalSize: Option[Integer] = None

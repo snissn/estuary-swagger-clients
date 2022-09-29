@@ -34,7 +34,6 @@ public class RestApplication extends Application {
         resources.add(PublicApiServiceImpl.class);
         resources.add(UserApiServiceImpl.class);
 
-
         return resources;
     }
 

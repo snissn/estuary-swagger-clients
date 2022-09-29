@@ -3,7 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.validation.annotation.Validated;
@@ -14,7 +15,7 @@ import javax.validation.constraints.*;
  * MainImportDealBody
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-09-27T20:41:13.008650-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T02:01:33.084Z")
 
 
 public class MainImportDealBody   {
@@ -39,10 +40,11 @@ public class MainImportDealBody   {
   /**
    * Get coluuid
    * @return coluuid
-   **/
-  @Schema(description = "")
-  
-    public String getColuuid() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getColuuid() {
     return coluuid;
   }
 
@@ -66,10 +68,11 @@ public class MainImportDealBody   {
   /**
    * Get dealIDs
    * @return dealIDs
-   **/
-  @Schema(description = "")
-  
-    public List<Integer> getDealIDs() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public List<Integer> getDealIDs() {
     return dealIDs;
   }
 
@@ -85,10 +88,11 @@ public class MainImportDealBody   {
   /**
    * Get dir
    * @return dir
-   **/
-  @Schema(description = "")
-  
-    public String getDir() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getDir() {
     return dir;
   }
 
@@ -104,10 +108,11 @@ public class MainImportDealBody   {
   /**
    * Get name
    * @return name
-   **/
-  @Schema(description = "")
-  
-    public String getName() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getName() {
     return name;
   }
 
@@ -160,3 +165,4 @@ public class MainImportDealBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

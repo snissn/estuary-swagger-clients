@@ -6,6 +6,7 @@ import io.swagger.model.*;
 import org.apache.cxf.jaxrs.ext.multipart.Attachment;
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 
+import java.util.List;
 import io.swagger.model.MainCollection;
 import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
@@ -18,7 +19,8 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-27T20:40:33.778721-10:00[Pacific/Honolulu]")public interface CollectionsApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T02:00:58.647Z")
+public interface CollectionsApiService {
       public Response collectionsColuuidCommitPost(String coluuid, SecurityContext securityContext);
       public Response collectionsColuuidDelete(String coluuid, SecurityContext securityContext);
       public Response collectionsColuuidGet(String coluuid, String dir, SecurityContext securityContext);

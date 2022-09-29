@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.model.MainGetApiKeysResp;
@@ -24,7 +25,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * API tests for UserApi
  */
@@ -33,6 +33,7 @@ public class UserApiTest {
 
     private final UserApi api = new UserApi();
 
+    
     /**
      * Get API keys for a user
      *
@@ -47,6 +48,7 @@ public class UserApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Revoke a User API Key.
      *
@@ -62,6 +64,7 @@ public class UserApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Create API keys for a user
      *
@@ -76,6 +79,7 @@ public class UserApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Export user data
      *
@@ -90,6 +94,7 @@ public class UserApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Create API keys for a user
      *
@@ -104,4 +109,5 @@ public class UserApiTest {
 
         // TODO: test validations
     }
+    
 }

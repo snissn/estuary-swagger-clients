@@ -3,8 +3,10 @@ package io.swagger.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+
+import io.swagger.annotations.*;
 import java.util.Objects;
 
 import javax.xml.bind.annotation.*;
@@ -12,6 +14,7 @@ import javax.xml.bind.annotation.*;
 
 
 public class MainUserStatsResponse   {
+  
   private Integer numPins = null;
   private Integer totalSize = null;
 
@@ -23,8 +26,7 @@ public class MainUserStatsResponse   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("numPins")
   public Integer getNumPins() {
     return numPins;
@@ -41,8 +43,7 @@ public class MainUserStatsResponse   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("totalSize")
   public Integer getTotalSize() {
     return totalSize;
@@ -92,3 +93,4 @@ public class MainUserStatsResponse   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,6 +1,6 @@
 # NetApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**publicMinersGet**](NetApi.md#publicMinersGet) | **GET** /public/miners | Get all miners
 [**publicNetAddrsGet**](NetApi.md#publicNetAddrsGet) | **GET** /public/net/addrs | Net Addrs
 [**publicNetPeersGet**](NetApi.md#publicNetPeersGet) | **GET** /public/net/peers | Net Peers
+
 
 <a name="netAddrsGet"></a>
 # **netAddrsGet**
@@ -113,7 +114,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="publicMinersGet"></a>
 # **publicMinersGet**
@@ -163,7 +164,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="publicNetAddrsGet"></a>
 # **publicNetAddrsGet**

@@ -12,11 +12,12 @@ import Alamofire
 open class AutoretrieveAPI: APIBase {
     /**
      Register autoretrieve server
-     - parameter body: (body) Autoretrieve&#x27;s public key 
+     - parameter addresses: (body) Autoretrieve&#39;s comma-separated list of addresses 
+     - parameter pubKey: (body) Autoretrieve&#39;s public key 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func adminAutoretrieveInitPost(body: String, completion: @escaping ((_ error: ErrorResponse?) -> Void)) {
-        adminAutoretrieveInitPostWithRequestBuilder(body: body).execute { (response, error) -> Void in
+    open class func adminAutoretrieveInitPost(addresses: String, pubKey: String, completion: @escaping ((_ error: ErrorResponse?) -> Void)) {
+        adminAutoretrieveInitPostWithRequestBuilder(addresses: addresses, pubKey: pubKey).execute { (response, error) -> Void in
             completion(error)
         }
     }
@@ -29,13 +30,14 @@ open class AutoretrieveAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter body: (body) Autoretrieve&#x27;s public key 
+     - parameter addresses: (body) Autoretrieve&#39;s comma-separated list of addresses 
+     - parameter pubKey: (body) Autoretrieve&#39;s public key 
      - returns: RequestBuilder<Void> 
      */
-    open class func adminAutoretrieveInitPostWithRequestBuilder(body: String) -> RequestBuilder<Void> {
+    open class func adminAutoretrieveInitPostWithRequestBuilder(addresses: String, pubKey: String) -> RequestBuilder<Void> {
         let path = "/admin/autoretrieve/init"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters = body.encodeToJSON()
+        let parameters = pubKey.encodeToJSON()
 
         let url = URLComponents(string: URLString)
 
@@ -68,7 +70,7 @@ open class AutoretrieveAPI: APIBase {
         let path = "/admin/autoretrieve/list"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -78,7 +80,7 @@ open class AutoretrieveAPI: APIBase {
 
     /**
      Marks autoretrieve server as up
-     - parameter token: (header) Autoretrieve&#x27;s auth token 
+     - parameter token: (header) Autoretrieve&#39;s auth token 
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func autoretrieveHeartbeatPost(token: String, completion: @escaping ((_ error: ErrorResponse?) -> Void)) {
@@ -95,17 +97,17 @@ open class AutoretrieveAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter token: (header) Autoretrieve&#x27;s auth token 
+     - parameter token: (header) Autoretrieve&#39;s auth token 
      - returns: RequestBuilder<Void> 
      */
     open class func autoretrieveHeartbeatPostWithRequestBuilder(token: String) -> RequestBuilder<Void> {
         let path = "/autoretrieve/heartbeat"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
-                        "token": token
+            "token": token
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 

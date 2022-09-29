@@ -17,7 +17,7 @@ class TestMinerController(BaseTestCase):
         Get all miners deals
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/miners/deals/{miner}'.format(miner='miner_example'),
+            '//public/miners/deals/{miner}'.format(miner='miner_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -28,7 +28,7 @@ class TestMinerController(BaseTestCase):
         Get miner stats
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/miners/stats/{miner}'.format(miner='miner_example'),
+            '//public/miners/stats/{miner}'.format(miner='miner_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

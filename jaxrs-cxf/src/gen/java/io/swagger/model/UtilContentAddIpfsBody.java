@@ -3,8 +3,9 @@ package io.swagger.model;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,24 +14,22 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class UtilContentAddIpfsBody   {
+public class UtilContentAddIpfsBody  {
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   private String coluuid = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String dir = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String filename = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private List<String> peers = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String root = null;
  /**
    * Get coluuid
@@ -153,3 +152,4 @@ public class UtilContentAddIpfsBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

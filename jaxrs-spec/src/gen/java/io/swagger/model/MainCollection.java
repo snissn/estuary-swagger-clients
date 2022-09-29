@@ -10,17 +10,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class MainCollection   {
-
+  
   private @Valid String cid = null;
-
   private @Valid String createdAt = null;
-
   private @Valid String description = null;
-
   private @Valid String name = null;
-
   private @Valid Integer userId = null;
-
   private @Valid String uuid = null;
 
   /**
@@ -33,7 +28,6 @@ public class MainCollection   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("cid")
-
   public String getCid() {
     return cid;
   }
@@ -51,7 +45,6 @@ public class MainCollection   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("createdAt")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -69,7 +62,6 @@ public class MainCollection   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("description")
-
   public String getDescription() {
     return description;
   }
@@ -87,7 +79,6 @@ public class MainCollection   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("name")
-
   public String getName() {
     return name;
   }
@@ -105,7 +96,6 @@ public class MainCollection   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("userId")
-
   public Integer getUserId() {
     return userId;
   }
@@ -123,7 +113,6 @@ public class MainCollection   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("uuid")
-
   public String getUuid() {
     return uuid;
   }
@@ -180,3 +169,4 @@ public class MainCollection   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

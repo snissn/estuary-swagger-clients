@@ -1,6 +1,6 @@
 # SwaggerClient::PeersApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**admin_peering_start_post**](PeersApi.md#admin_peering_start_post) | **POST** /admin/peering/start | Start Peering
 [**admin_peering_status_get**](PeersApi.md#admin_peering_status_get) | **GET** /admin/peering/status | Check Peering Status
 [**admin_peering_stop_post**](PeersApi.md#admin_peering_stop_post) | **POST** /admin/peering/stop | Stop Peering
+
 
 # **admin_peering_peers_delete**
 > admin_peering_peers_delete
@@ -54,7 +55,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -101,7 +102,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -148,7 +149,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -195,7 +196,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -242,7 +243,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -289,7 +290,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

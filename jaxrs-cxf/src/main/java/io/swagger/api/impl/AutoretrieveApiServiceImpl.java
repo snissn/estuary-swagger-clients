@@ -13,6 +13,7 @@ import org.apache.cxf.jaxrs.model.wadl.DocTarget;
 
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
+import io.swagger.annotations.Api;
 
 /**
  * Estuary API
@@ -27,7 +28,7 @@ public class AutoretrieveApiServiceImpl implements AutoretrieveApi {
      * This endpoint registers a new autoretrieve server
      *
      */
-    public void adminAutoretrieveInitPost(String body) {
+    public void adminAutoretrieveInitPost(String addresses, String pubKey) {
         // TODO: Implement...
         
         

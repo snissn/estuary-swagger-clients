@@ -10,12 +10,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.jaxrs.PATCH;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -26,6 +25,7 @@ import javax.validation.Valid;
  *
  */
 @Path("/")
+@Api(value = "/", description = "")
 public interface NetApi  {
 
     /**
@@ -37,8 +37,9 @@ public interface NetApi  {
     @GET
     @Path("/net/addrs")
     @Produces({ "application/json" })
-    @Operation(summary = "Net Addrs", tags={ "net" })
+    @ApiOperation(value = "Net Addrs", tags={ "net" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = String.class)))) })
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     public List<String> netAddrsGet();
 }
+

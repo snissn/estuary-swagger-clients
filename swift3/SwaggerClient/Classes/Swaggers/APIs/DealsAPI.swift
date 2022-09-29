@@ -73,7 +73,7 @@ open class DealsAPI: APIBase {
         path = path.replacingOccurrences(of: "{dealid}", with: dealidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -110,7 +110,7 @@ open class DealsAPI: APIBase {
         path = path.replacingOccurrences(of: "{propcid}", with: propcidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -147,7 +147,7 @@ open class DealsAPI: APIBase {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -184,7 +184,7 @@ open class DealsAPI: APIBase {
         path = path.replacingOccurrences(of: "{propcid}", with: propcidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -226,7 +226,7 @@ open class DealsAPI: APIBase {
         path = path.replacingOccurrences(of: "{propcid}", with: propcidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -258,7 +258,7 @@ open class DealsAPI: APIBase {
         let path = "/deal/transfer/in-progress"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -290,7 +290,7 @@ open class DealsAPI: APIBase {
         let path = "/deal/transfer/status"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -322,7 +322,7 @@ open class DealsAPI: APIBase {
         let path = "/deals/failures"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -332,12 +332,12 @@ open class DealsAPI: APIBase {
 
     /**
      Make Deal
-     - parameter body: (body) Deal Request 
      - parameter miner: (path) Miner 
+     - parameter dealRequest: (body) Deal Request 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func dealsMakeMinerPost(body: String, miner: String, completion: @escaping ((_ error: ErrorResponse?) -> Void)) {
-        dealsMakeMinerPostWithRequestBuilder(body: body, miner: miner).execute { (response, error) -> Void in
+    open class func dealsMakeMinerPost(miner: String, dealRequest: String, completion: @escaping ((_ error: ErrorResponse?) -> Void)) {
+        dealsMakeMinerPostWithRequestBuilder(miner: miner, dealRequest: dealRequest).execute { (response, error) -> Void in
             completion(error)
         }
     }
@@ -350,17 +350,17 @@ open class DealsAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter body: (body) Deal Request 
      - parameter miner: (path) Miner 
+     - parameter dealRequest: (body) Deal Request 
      - returns: RequestBuilder<Void> 
      */
-    open class func dealsMakeMinerPostWithRequestBuilder(body: String, miner: String) -> RequestBuilder<Void> {
+    open class func dealsMakeMinerPostWithRequestBuilder(miner: String, dealRequest: String) -> RequestBuilder<Void> {
         var path = "/deals/make/{miner}"
         let minerPreEscape = "\(miner)"
         let minerPostEscape = minerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters = body.encodeToJSON()
+        let parameters = dealRequest.encodeToJSON()
 
         let url = URLComponents(string: URLString)
 
@@ -398,7 +398,7 @@ open class DealsAPI: APIBase {
         path = path.replacingOccurrences(of: "{deal}", with: dealPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -430,7 +430,7 @@ open class DealsAPI: APIBase {
         let path = "/public/deals/failures"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -467,7 +467,7 @@ open class DealsAPI: APIBase {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

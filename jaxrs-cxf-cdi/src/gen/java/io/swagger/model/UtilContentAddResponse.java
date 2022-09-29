@@ -5,8 +5,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+
+import io.swagger.annotations.*;
 import java.util.Objects;
 
 import javax.xml.bind.annotation.*;
@@ -14,6 +16,7 @@ import javax.xml.bind.annotation.*;
 
 
 public class UtilContentAddResponse   {
+  
   private String cid = null;
   private Integer estuaryId = null;
   private List<String> providers = new ArrayList<String>();
@@ -27,8 +30,7 @@ public class UtilContentAddResponse   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("cid")
   public String getCid() {
     return cid;
@@ -45,8 +47,7 @@ public class UtilContentAddResponse   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("estuaryId")
   public Integer getEstuaryId() {
     return estuaryId;
@@ -63,8 +64,7 @@ public class UtilContentAddResponse   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("providers")
   public List<String> getProviders() {
     return providers;
@@ -81,8 +81,7 @@ public class UtilContentAddResponse   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("retrieval_url")
   public String getRetrievalUrl() {
     return retrievalUrl;
@@ -136,3 +135,4 @@ public class UtilContentAddResponse   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

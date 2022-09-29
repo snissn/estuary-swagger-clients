@@ -22,6 +22,7 @@
  * limitations under the License.
  */
 
+
 package io.swagger.api;
 
 import io.swagger.model.UtilHttpError;
@@ -63,12 +64,13 @@ public class PinningApiTest {
         List providers = new ArrayList();
         providers.add(provider);
         
-        api = JAXRSClientFactory.create("//api.estuary.tech/", PinningApi.class, providers);
+        api = JAXRSClientFactory.create("https://api.estuary.tech", PinningApi.class, providers);
         org.apache.cxf.jaxrs.client.Client client = WebClient.client(api);
         
         ClientConfiguration config = WebClient.getConfig(client); 
     }
 
+    
     /**
      * List all pin status objects
      *
@@ -85,6 +87,7 @@ public class PinningApiTest {
         
         
     }
+    
     /**
      * Delete a pinned object
      *
@@ -102,6 +105,7 @@ public class PinningApiTest {
         
         
     }
+    
     /**
      * Get a pin status object
      *
@@ -119,6 +123,7 @@ public class PinningApiTest {
         
         
     }
+    
     /**
      * Replace a pinned object
      *
@@ -136,6 +141,7 @@ public class PinningApiTest {
         
         
     }
+    
     /**
      * Add and pin object
      *
@@ -154,4 +160,5 @@ public class PinningApiTest {
         
         
     }
+    
 }

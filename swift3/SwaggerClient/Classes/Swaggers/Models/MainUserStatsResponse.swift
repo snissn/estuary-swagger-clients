@@ -9,6 +9,7 @@ import Foundation
 
 
 open class MainUserStatsResponse: JSONEncodable {
+
     public var numPins: Int32?
     public var totalSize: Int32?
 
@@ -24,3 +25,4 @@ open class MainUserStatsResponse: JSONEncodable {
         return dictionary
     }
 }
+

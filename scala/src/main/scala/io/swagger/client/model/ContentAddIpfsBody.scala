@@ -9,16 +9,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 package io.swagger.client.model
 
 
-/**
- * @param coluuid 
- * @param dir 
- * @param filename 
- * @param peers 
- * @param root 
- */
 case class ContentAddIpfsBody (
   coluuid: Option[String] = None,
   dir: Option[String] = None,

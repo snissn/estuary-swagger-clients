@@ -35,7 +35,7 @@ class ContentApi {
       queryParams.addAll(_convertParametersForCollectionFormat("", "size", size));
     }
     
-    List<String> contentTypes = ["*/*"];
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
     List<String> authNames = ["bearerAuth"];
@@ -43,6 +43,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -61,7 +62,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -86,7 +87,7 @@ class ContentApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     
-    List<String> contentTypes = ["*/*"];
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
     List<String> authNames = ["bearerAuth"];
@@ -94,6 +95,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -112,7 +114,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -121,7 +123,7 @@ class ContentApi {
   /// Add new content
   ///
   /// This endpoint is used to upload new content.
-  Future<UtilContentAddResponse> contentAddPost(String file, String coluuid, String dir) async {
+  Future<UtilContentAddResponse> contentAddPost(MultipartFile file, String coluuid, String dir) async {
     Object postBody = null;
 
     // verify required params are set
@@ -151,11 +153,13 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if (file != null) {
         hasFields = true;
         mp.fields['file'] = file.field;
         mp.files.add(file);
       }
+      
       if(hasFields)
         postBody = mp;
     }
@@ -175,7 +179,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'UtilContentAddResponse') as UtilContentAddResponse ;
     } else {
       return null;
@@ -208,6 +212,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -226,7 +231,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'String') as String ;
     } else {
       return null;
@@ -268,6 +273,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -286,7 +292,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -319,6 +325,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -337,7 +344,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -362,7 +369,7 @@ class ContentApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     
-    List<String> contentTypes = ["*/*"];
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
     List<String> authNames = ["bearerAuth"];
@@ -370,6 +377,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -388,7 +396,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -424,6 +432,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -442,7 +451,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -475,6 +484,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -493,7 +503,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -526,6 +536,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -544,7 +555,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'String') as String ;
     } else {
       return null;
@@ -569,7 +580,7 @@ class ContentApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     
-    List<String> contentTypes = ["*/*"];
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
     List<String> authNames = ["bearerAuth"];
@@ -577,6 +588,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -595,7 +607,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -625,6 +637,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -643,7 +656,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
         (apiClient.deserialize(response.body, 'List<String>') as List).map((item) => item as String).toList();
     } else {
       return null;
@@ -676,6 +689,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -694,7 +708,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -724,6 +738,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -742,7 +757,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -775,6 +790,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -793,7 +809,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -826,6 +842,7 @@ class ContentApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -844,7 +861,7 @@ class ContentApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;

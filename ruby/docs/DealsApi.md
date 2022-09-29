@@ -1,6 +1,6 @@
 # SwaggerClient::DealsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**deals_status_deal_get**](DealsApi.md#deals_status_deal_get) | **GET** /deals/status/{deal} | Get Deal Status
 [**public_deals_failures_get**](DealsApi.md#public_deals_failures_get) | **GET** /public/deals/failures | Get storage failures
 [**public_miners_storage_query_miner_get**](DealsApi.md#public_miners_storage_query_miner_get) | **GET** /public/miners/storage/query/{miner} | Query Ask
+
 
 # **deal_estimate_post**
 > deal_estimate_post(body)
@@ -38,6 +39,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
+
 body = SwaggerClient::MainEstimateDealBody.new # MainEstimateDealBody | The size of the deal in bytes, the replication factor, and the duration of the deal in blocks
 
 
@@ -65,8 +67,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -90,6 +92,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
+
 dealid = 56 # Integer | Deal ID
 
 
@@ -118,7 +121,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -142,6 +145,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
+
 propcid = 'propcid_example' # String | Proposal CID
 
 
@@ -170,7 +174,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -194,6 +198,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
+
 miner = 'miner_example' # String | CID
 
 
@@ -222,7 +227,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -246,6 +251,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
+
 propcid = 'propcid_example' # String | PropCid
 
 
@@ -274,7 +280,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -298,7 +304,9 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
+
 miner = 'miner_example' # String | Miner
+
 propcid = 'propcid_example' # String | Proposal CID
 
 
@@ -328,7 +336,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -375,7 +383,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -422,7 +430,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -469,12 +477,12 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **deals_make_miner_post**
-> deals_make_miner_post(bodyminer)
+> deals_make_miner_post(miner, deal_request)
 
 Make Deal
 
@@ -493,13 +501,15 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
-body = 'body_example' # String | Deal Request
+
 miner = 'miner_example' # String | Miner
+
+deal_request = 'deal_request_example' # String | Deal Request
 
 
 begin
   #Make Deal
-  api_instance.deals_make_miner_post(bodyminer)
+  api_instance.deals_make_miner_post(miner, deal_request)
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling DealsApi->deals_make_miner_post: #{e}"
 end
@@ -509,8 +519,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Deal Request | 
  **miner** | **String**| Miner | 
+ **deal_request** | **String**| Deal Request | 
 
 ### Return type
 
@@ -522,8 +532,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -547,6 +557,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
+
 deal = 56 # Integer | Deal ID
 
 
@@ -575,7 +586,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -622,7 +633,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -646,6 +657,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::DealsApi.new
+
 miner = 'miner_example' # String | CID
 
 
@@ -674,7 +686,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

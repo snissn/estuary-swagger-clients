@@ -14,12 +14,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.jaxrs.PATCH;
 
 /**
  * Estuary API
@@ -28,6 +27,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  *
  */
 @Path("/")
+@Api(value = "/", description = "")
 public interface ContentApi  {
 
     /**
@@ -38,8 +38,8 @@ public interface ContentApi  {
      */
     @POST
     @Path("/content/add-car")
-    @Consumes({ "*/*" })
-    @Operation(summary = "Add Car object", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Add Car object", tags={  })
     @ApiResponses(value = {  })
     public void contentAddCarPost(String body, @QueryParam("filename")String filename, @QueryParam("commp")String commp, @QueryParam("size")String size);
 
@@ -51,8 +51,8 @@ public interface ContentApi  {
      */
     @POST
     @Path("/content/add-ipfs")
-    @Consumes({ "*/*" })
-    @Operation(summary = "Add IPFS object", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Add IPFS object", tags={  })
     @ApiResponses(value = {  })
     public void contentAddIpfsPost(UtilContentAddIpfsBody body);
 
@@ -66,9 +66,9 @@ public interface ContentApi  {
     @Path("/content/add")
     @Consumes({ "multipart/form-data" })
     @Produces({ "application/json" })
-    @Operation(summary = "Add new content", tags={  })
+    @ApiOperation(value = "Add new content", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilContentAddResponse.class))) })
+        @ApiResponse(code = 200, message = "OK", response = UtilContentAddResponse.class) })
     public UtilContentAddResponse contentAddPost( @Multipart(value = "file" ) Attachment fileDetail, @PathParam("coluuid") String coluuid, @PathParam("dir") String dir);
 
     /**
@@ -80,9 +80,9 @@ public interface ContentApi  {
     @GET
     @Path("/content/aggregated/{content}")
     @Produces({ "application/json" })
-    @Operation(summary = "Get aggregated content stats", tags={  })
+    @ApiOperation(value = "Get aggregated content stats", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))) })
+        @ApiResponse(code = 200, message = "OK", response = String.class) })
     public String contentAggregatedContentGet(@PathParam("content") String content);
 
     /**
@@ -93,7 +93,8 @@ public interface ContentApi  {
      */
     @GET
     @Path("/content/all-deals")
-    @Operation(summary = "Get all deals for a user", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get all deals for a user", tags={  })
     @ApiResponses(value = {  })
     public void contentAllDealsGet(@QueryParam("begin")String begin, @QueryParam("duration")String duration, @QueryParam("all")String all);
 
@@ -105,7 +106,8 @@ public interface ContentApi  {
      */
     @GET
     @Path("/content/bw-usage/{content}")
-    @Operation(summary = "Get content bandwidth", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get content bandwidth", tags={  })
     @ApiResponses(value = {  })
     public void contentBwUsageContentGet(@PathParam("content") String content);
 
@@ -117,8 +119,8 @@ public interface ContentApi  {
      */
     @POST
     @Path("/content/create")
-    @Consumes({ "*/*" })
-    @Operation(summary = "Add a new content", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Add a new content", tags={  })
     @ApiResponses(value = {  })
     public void contentCreatePost(String body);
 
@@ -130,7 +132,8 @@ public interface ContentApi  {
      */
     @GET
     @Path("/content/deals")
-    @Operation(summary = "Content with deals", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Content with deals", tags={  })
     @ApiResponses(value = {  })
     public void contentDealsGet(@QueryParam("limit")Integer limit, @QueryParam("offset")Integer offset);
 
@@ -142,7 +145,8 @@ public interface ContentApi  {
      */
     @GET
     @Path("/content/ensure-replication/{datacid}")
-    @Operation(summary = "Ensure Replication", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Ensure Replication", tags={  })
     @ApiResponses(value = {  })
     public void contentEnsureReplicationDatacidGet(@PathParam("datacid") String datacid);
 
@@ -155,9 +159,9 @@ public interface ContentApi  {
     @GET
     @Path("/content/failures/{content}")
     @Produces({ "application/json" })
-    @Operation(summary = "List all failures for a content", tags={  })
+    @ApiOperation(value = "List all failures for a content", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))) })
+        @ApiResponse(code = 200, message = "OK", response = String.class) })
     public String contentFailuresContentGet(@PathParam("content") String content);
 
     /**
@@ -168,8 +172,8 @@ public interface ContentApi  {
      */
     @POST
     @Path("/content/importdeal")
-    @Consumes({ "*/*" })
-    @Operation(summary = "Import a deal", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Import a deal", tags={  })
     @ApiResponses(value = {  })
     public void contentImportdealPost(MainImportDealBody body);
 
@@ -182,9 +186,9 @@ public interface ContentApi  {
     @GET
     @Path("/content/list")
     @Produces({ "application/json" })
-    @Operation(summary = "List all pinned content", tags={  })
+    @ApiOperation(value = "List all pinned content", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = String.class)))) })
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     public List<String> contentListGet();
 
     /**
@@ -195,7 +199,8 @@ public interface ContentApi  {
      */
     @GET
     @Path("/content/read/{cont}")
-    @Operation(summary = "Read content", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Read content", tags={  })
     @ApiResponses(value = {  })
     public void contentReadContGet(@PathParam("cont") String cont);
 
@@ -207,7 +212,8 @@ public interface ContentApi  {
      */
     @GET
     @Path("/content/staging-zones")
-    @Operation(summary = "Get staging zone for user", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get staging zone for user", tags={  })
     @ApiResponses(value = {  })
     public void contentStagingZonesGet();
 
@@ -219,7 +225,8 @@ public interface ContentApi  {
      */
     @GET
     @Path("/content/stats")
-    @Operation(summary = "Get content statistics", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get content statistics", tags={  })
     @ApiResponses(value = {  })
     public void contentStatsGet(@PathParam("limit") String limit);
 
@@ -231,7 +238,9 @@ public interface ContentApi  {
      */
     @GET
     @Path("/content/status/{id}")
-    @Operation(summary = "Content Status", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Content Status", tags={  })
     @ApiResponses(value = {  })
     public void contentStatusIdGet(@PathParam("id") Integer id);
 }
+

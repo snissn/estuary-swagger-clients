@@ -1,4 +1,3 @@
-export * from './contentAddBody';
 export * from './mainCollection';
 export * from './mainCreateCollectionBody';
 export * from './mainEstimateDealBody';

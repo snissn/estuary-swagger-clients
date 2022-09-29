@@ -3,7 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -12,7 +13,7 @@ import javax.validation.constraints.*;
  * MainCollection
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-09-27T20:41:13.008650-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T02:01:33.084Z")
 
 
 public class MainCollection   {
@@ -42,10 +43,11 @@ public class MainCollection   {
   /**
    * Get cid
    * @return cid
-   **/
-  @Schema(description = "")
-  
-    public String getCid() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getCid() {
     return cid;
   }
 
@@ -61,10 +63,11 @@ public class MainCollection   {
   /**
    * Get createdAt
    * @return createdAt
-   **/
-  @Schema(description = "")
-  
-    public String getCreatedAt() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getCreatedAt() {
     return createdAt;
   }
 
@@ -80,10 +83,11 @@ public class MainCollection   {
   /**
    * Get description
    * @return description
-   **/
-  @Schema(description = "")
-  
-    public String getDescription() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getDescription() {
     return description;
   }
 
@@ -99,10 +103,11 @@ public class MainCollection   {
   /**
    * Get name
    * @return name
-   **/
-  @Schema(description = "")
-  
-    public String getName() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getName() {
     return name;
   }
 
@@ -118,10 +123,11 @@ public class MainCollection   {
   /**
    * Get userId
    * @return userId
-   **/
-  @Schema(description = "")
-  
-    public Integer getUserId() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public Integer getUserId() {
     return userId;
   }
 
@@ -137,10 +143,11 @@ public class MainCollection   {
   /**
    * Get uuid
    * @return uuid
-   **/
-  @Schema(description = "")
-  
-    public String getUuid() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getUuid() {
     return uuid;
   }
 
@@ -197,3 +204,4 @@ public class MainCollection   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

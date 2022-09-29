@@ -14,7 +14,7 @@ public struct MainCreateCollectionBody: Codable {
     public var _description: String?
     public var name: String?
 
-    public init(_description: String? = nil, name: String? = nil) {
+    public init(_description: String?, name: String?) {
         self._description = _description
         self.name = name
     }
@@ -24,4 +24,6 @@ public struct MainCreateCollectionBody: Codable {
         case name
     }
 
+
 }
+

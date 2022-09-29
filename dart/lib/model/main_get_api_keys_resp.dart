@@ -3,9 +3,10 @@ part of swagger.api;
 class MainGetApiKeysResp {
   
   String expiry = null;
+  
 
   String token = null;
-
+  
   MainGetApiKeysResp();
 
   @override
@@ -15,8 +16,12 @@ class MainGetApiKeysResp {
 
   MainGetApiKeysResp.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    expiry = json['expiry'];
-    token = json['token'];
+    expiry =
+        json['expiry']
+    ;
+    token =
+        json['token']
+    ;
   }
 
   Map<String, dynamic> toJson() {
@@ -38,3 +43,4 @@ class MainGetApiKeysResp {
     return map;
   }
 }
+

@@ -1,5 +1,6 @@
 package io.swagger.api;
 
+import java.util.List;
 import io.swagger.model.MainCollection;
 import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
@@ -13,14 +14,7 @@ import javax.ws.rs.core.SecurityContext;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.annotations.*;
 import java.io.InputStream;
 
 import org.apache.cxf.jaxrs.ext.multipart.Attachment;
@@ -32,10 +26,11 @@ import javax.validation.constraints.*;
 @Path("/collections")
 @RequestScoped
 
+@Api(description = "the collections API")
 
 
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T02:00:58.647Z")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-27T20:40:33.778721-10:00[Pacific/Honolulu]")
 public class CollectionsApi  {
 
   @Context SecurityContext securityContext;
@@ -47,13 +42,12 @@ public class CollectionsApi  {
     @Path("/{coluuid}/commit")
     
     @Produces({ "application/json" })
-    @Operation(summary = "Produce a CID of the collection contents", description = "This endpoint is used to save the contents in a collection, producing a top-level CID that references all the current CIDs in the collection.", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "collections" })
+    @ApiOperation(value = "Produce a CID of the collection contents", notes = "This endpoint is used to save the contents in a collection, producing a top-level CID that references all the current CIDs in the collection.", response = String.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "collections",  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))) })
-    public Response collectionsColuuidCommitPost(
-@Parameter(description = "coluuid",required=true) @PathParam("coluuid") String coluuid
-) {
+        @ApiResponse(code = 200, message = "OK", response = String.class) })
+    public Response collectionsColuuidCommitPost(@ApiParam(value = "coluuid",required=true) @PathParam("coluuid") String coluuid) {
         return delegate.collectionsColuuidCommitPost(coluuid, securityContext);
     }
 
@@ -61,12 +55,11 @@ public class CollectionsApi  {
     @Path("/{coluuid}")
     
     
-    @Operation(summary = "Deletes a collection", description = "This endpoint is used to delete an existing collection.", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "collections" })
+    @ApiOperation(value = "Deletes a collection", notes = "This endpoint is used to delete an existing collection.", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "collections",  })
     @ApiResponses(value = {  })
-    public Response collectionsColuuidDelete(
-@Parameter(description = "Collection ID",required=true) @PathParam("coluuid") String coluuid
-) {
+    public Response collectionsColuuidDelete(@ApiParam(value = "Collection ID",required=true) @PathParam("coluuid") String coluuid) {
         return delegate.collectionsColuuidDelete(coluuid, securityContext);
     }
 
@@ -74,15 +67,12 @@ public class CollectionsApi  {
     @Path("/{coluuid}")
     
     @Produces({ "application/json" })
-    @Operation(summary = "Get contents in a collection", description = "This endpoint is used to get contents in a collection. If no colpath query param is passed", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "collections" })
+    @ApiOperation(value = "Get contents in a collection", notes = "This endpoint is used to get contents in a collection. If no colpath query param is passed", response = String.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "collections",  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))) })
-    public Response collectionsColuuidGet( @NotNull 
-@Parameter(description = "Collection UUID",required=true)  @QueryParam("coluuid") String coluuid
-,  
-@Parameter(description = "Directory")  @QueryParam("dir") String dir
-) {
+        @ApiResponse(code = 200, message = "OK", response = String.class) })
+    public Response collectionsColuuidGet( @NotNull @ApiParam(value = "Collection UUID",required=true)  @QueryParam("coluuid") String coluuid,  @ApiParam(value = "Directory")  @QueryParam("dir") String dir) {
         return delegate.collectionsColuuidGet(coluuid, dir, securityContext);
     }
 
@@ -90,30 +80,24 @@ public class CollectionsApi  {
     @Path("/{coluuid}")
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
-    @Operation(summary = "Add contents to a collection", description = "This endpoint adds already-pinned contents (that have ContentIDs) to a collection.", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "collections" })
+    @ApiOperation(value = "Add contents to a collection", notes = "This endpoint adds already-pinned contents (that have ContentIDs) to a collection.", response = String.class, responseContainer = "Map", authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "collections",  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Map.class)))) })
-    public Response collectionsColuuidPost(
-@Parameter(description = "Content IDs to add to collection" ,required=true) List<Integer> body
-) {
+        @ApiResponse(code = 200, message = "OK", response = Map.class, responseContainer = "Map") })
+    public Response collectionsColuuidPost(@ApiParam(value = "Content IDs to add to collection" ,required=true) List<Integer> body) {
         return delegate.collectionsColuuidPost(body, securityContext);
     }
 
     @POST
     @Path("/fs/add")
     
-    
-    @Operation(summary = "Add a file to a collection", description = "This endpoint adds a file to a collection", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "collections" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Add a file to a collection", notes = "This endpoint adds a file to a collection", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "collections",  })
     @ApiResponses(value = {  })
-    public Response collectionsFsAddPost( @NotNull 
-@Parameter(description = "Collection ID",required=true)  @QueryParam("coluuid") String coluuid
-,  @NotNull 
-@Parameter(description = "Content",required=true)  @QueryParam("content") String content
-,  @NotNull 
-@Parameter(description = "Path to file",required=true)  @QueryParam("path") String path
-) {
+    public Response collectionsFsAddPost( @NotNull @ApiParam(value = "Collection ID",required=true)  @QueryParam("coluuid") String coluuid,  @NotNull @ApiParam(value = "Content",required=true)  @QueryParam("content") String content,  @NotNull @ApiParam(value = "Path to file",required=true)  @QueryParam("path") String path) {
         return delegate.collectionsFsAddPost(coluuid, content, path, securityContext);
     }
 
@@ -121,33 +105,31 @@ public class CollectionsApi  {
     @Path("/")
     
     @Produces({ "application/json" })
-    @Operation(summary = "List all collections", description = "This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "collections" })
+    @ApiOperation(value = "List all collections", notes = "This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.", response = MainCollection.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "collections",  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = MainCollection.class)))),
-        @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
-        @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
-        @ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))) })
-    public Response collectionsGet(
-@Parameter(description = "User ID",required=true) @PathParam("id") Integer id
-) {
+        @ApiResponse(code = 200, message = "OK", response = MainCollection.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class),
+        @ApiResponse(code = 404, message = "Not Found", response = UtilHttpError.class),
+        @ApiResponse(code = 500, message = "Internal Server Error", response = UtilHttpError.class) })
+    public Response collectionsGet(@ApiParam(value = "User ID",required=true) @PathParam("id") Integer id) {
         return delegate.collectionsGet(id, securityContext);
     }
 
     @POST
     @Path("/")
-    @Consumes({ "*/*" })
+    
     @Produces({ "application/json" })
-    @Operation(summary = "Create a new collection", description = "This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "collections" })
+    @ApiOperation(value = "Create a new collection", notes = "This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.", response = MainCollection.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "collections" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = MainCollection.class))),
-        @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
-        @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
-        @ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))) })
-    public Response collectionsPost(
-@Parameter(description = "Collection name and description" ,required=true) MainCreateCollectionBody body
-) {
+        @ApiResponse(code = 200, message = "OK", response = MainCollection.class),
+        @ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class),
+        @ApiResponse(code = 404, message = "Not Found", response = UtilHttpError.class),
+        @ApiResponse(code = 500, message = "Internal Server Error", response = UtilHttpError.class) })
+    public Response collectionsPost(@ApiParam(value = "Collection name and description" ,required=true) MainCreateCollectionBody body) {
         return delegate.collectionsPost(body, securityContext);
     }
 }

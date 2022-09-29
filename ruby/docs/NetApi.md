@@ -1,6 +1,6 @@
 # SwaggerClient::NetApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**public_miners_get**](NetApi.md#public_miners_get) | **GET** /public/miners | Get all miners
 [**public_net_addrs_get**](NetApi.md#public_net_addrs_get) | **GET** /public/net/addrs | Net Addrs
 [**public_net_peers_get**](NetApi.md#public_net_peers_get) | **GET** /public/net/peers | Net Peers
+
 
 # **net_addrs_get**
 > Array&lt;String&gt; net_addrs_get
@@ -78,6 +79,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::NetApi.new
+
 miner = 'miner_example' # String | Filter by miner
 
 
@@ -106,7 +108,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -153,7 +155,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

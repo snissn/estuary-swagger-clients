@@ -20,7 +20,7 @@ class TestCollectionsController(BaseTestCase):
         Produce a CID of the collection contents
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/collections/{coluuid}/commit'.format(coluuid='coluuid_example'),
+            '//collections/{coluuid}/commit'.format(coluuid='coluuid_example'),
             method='POST')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -31,7 +31,7 @@ class TestCollectionsController(BaseTestCase):
         Deletes a collection
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/collections/{coluuid}'.format(coluuid='coluuid_example'),
+            '//collections/{coluuid}'.format(coluuid='coluuid_example'),
             method='DELETE')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -44,7 +44,7 @@ class TestCollectionsController(BaseTestCase):
         query_string = [('coluuid', 'coluuid_example'),
                         ('dir', 'dir_example')]
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/collections/{coluuid}',
+            '//collections/{coluuid}',
             method='GET',
             query_string=query_string)
         self.assert200(response,
@@ -55,9 +55,9 @@ class TestCollectionsController(BaseTestCase):
 
         Add contents to a collection
         """
-        body = [56]
+        body = [List[int]()]
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/collections/{coluuid}',
+            '//collections/{coluuid}',
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
@@ -73,7 +73,7 @@ class TestCollectionsController(BaseTestCase):
                         ('content', 'content_example'),
                         ('path', 'path_example')]
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/collections/fs/add',
+            '//collections/fs/add',
             method='POST',
             query_string=query_string)
         self.assert200(response,
@@ -85,7 +85,7 @@ class TestCollectionsController(BaseTestCase):
         List all collections
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/collections/'.format(id=56),
+            '//collections/'.format(id=56),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -97,10 +97,10 @@ class TestCollectionsController(BaseTestCase):
         """
         body = MainCreateCollectionBody()
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/collections/',
+            '//collections/',
             method='POST',
             data=json.dumps(body),
-            content_type='*/*')
+            content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 

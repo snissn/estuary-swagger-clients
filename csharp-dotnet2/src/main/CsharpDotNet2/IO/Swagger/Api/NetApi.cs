@@ -94,9 +94,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Net Addrs This endpoint is used to get net addrs
         /// </summary>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List&lt;string&gt;</returns>            
         public List<string> NetAddrsGet ()
         {
+            
     
             var path = "/net/addrs";
             path = path.Replace("{format}", "json");
@@ -107,7 +108,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -125,12 +126,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get all miners This endpoint returns all miners
         /// </summary>
-        /// <param name="miner">Filter by miner</param>
-        /// <returns></returns>
+        /// <param name="miner">Filter by miner</param> 
+        /// <returns></returns>            
         public void PublicMinersFailuresMinerGet (string miner)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling PublicMinersFailuresMinerGet");
+            
     
             var path = "/public/miners/failures/{miner}";
             path = path.Replace("{format}", "json");
@@ -142,7 +145,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -160,9 +163,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get all miners This endpoint returns all miners
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void PublicMinersGet ()
         {
+            
     
             var path = "/public/miners";
             path = path.Replace("{format}", "json");
@@ -173,7 +177,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -191,9 +195,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Net Addrs This endpoint is used to get net addrs
         /// </summary>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List&lt;string&gt;</returns>            
         public List<string> PublicNetAddrsGet ()
         {
+            
     
             var path = "/public/net/addrs";
             path = path.Replace("{format}", "json");
@@ -204,7 +209,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -222,9 +227,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Net Peers This endpoint is used to get net peers
         /// </summary>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List&lt;string&gt;</returns>            
         public List<string> PublicNetPeersGet ()
         {
+            
     
             var path = "/public/net/peers";
             path = path.Replace("{format}", "json");
@@ -235,7 +241,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

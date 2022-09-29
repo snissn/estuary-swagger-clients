@@ -9,6 +9,7 @@ import Foundation
 
 
 open class UtilContentAddIpfsBody: JSONEncodable {
+
     public var coluuid: String?
     public var dir: String?
     public var filename: String?
@@ -30,3 +31,4 @@ open class UtilContentAddIpfsBody: JSONEncodable {
         return dictionary
     }
 }
+

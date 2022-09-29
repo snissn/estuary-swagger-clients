@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import org.junit.Test;
@@ -21,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * API tests for NetApi
  */
@@ -30,6 +30,7 @@ public class NetApiTest {
 
     private final NetApi api = new NetApi();
 
+    
     /**
      * Net Addrs
      *
@@ -44,6 +45,7 @@ public class NetApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get all miners
      *
@@ -59,6 +61,7 @@ public class NetApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get all miners
      *
@@ -73,6 +76,7 @@ public class NetApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Net Addrs
      *
@@ -87,6 +91,7 @@ public class NetApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Net Peers
      *
@@ -101,4 +106,5 @@ public class NetApiTest {
 
         // TODO: test validations
     }
+    
 }

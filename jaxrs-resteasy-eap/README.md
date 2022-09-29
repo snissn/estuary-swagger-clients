@@ -12,8 +12,7 @@ You can deploy the WAR file to Jboss EAP or any other JEE server supporting Jbos
 You can then view the swagger listing here:
 
 ```
-Swagger / OpenAPI v2: http://localhost:8080/application-research/estuary/master/docs/swagger.json/swagger.json
-Swagger / OpenAPI v3: http://localhost:8080/application-research/estuary/master/docs/swagger.json/openapi.json
+http://localhost:8080/swagger.json
 ```
 
 Note that if you have configured the `host` to be something other than localhost, the calls through

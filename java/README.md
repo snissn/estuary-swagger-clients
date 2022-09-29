@@ -2,7 +2,7 @@
 
 Estuary API
 - API version: 0.0.0
-  - Build date: 2022-09-27T20:37:03.968674-10:00[Pacific/Honolulu]
+  - Build date: 2022-09-29T02:00:50.565Z
 
 This is the API for the Estuary application.
 
@@ -72,6 +72,7 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
+
 import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -84,7 +85,7 @@ public class AdminApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-
+        
         // Configure API key authorization: bearerAuth
         ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
         bearerAuth.setApiKey("YOUR API KEY");
@@ -100,207 +101,12 @@ public class AdminApiExample {
         }
     }
 }
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminApi;
 
-import java.io.File;
-import java.util.*;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: bearerAuth
-        ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //bearerAuth.setApiKeyPrefix("Token");
-
-        AdminApi apiInstance = new AdminApi();
-        try {
-            apiInstance.adminPeeringPeersGet();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#adminPeeringPeersGet");
-            e.printStackTrace();
-        }
-    }
-}
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminApi;
-
-import java.io.File;
-import java.util.*;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: bearerAuth
-        ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //bearerAuth.setApiKeyPrefix("Token");
-
-        AdminApi apiInstance = new AdminApi();
-        try {
-            apiInstance.adminPeeringPeersPost();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#adminPeeringPeersPost");
-            e.printStackTrace();
-        }
-    }
-}
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminApi;
-
-import java.io.File;
-import java.util.*;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: bearerAuth
-        ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //bearerAuth.setApiKeyPrefix("Token");
-
-        AdminApi apiInstance = new AdminApi();
-        try {
-            apiInstance.adminPeeringStartPost();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#adminPeeringStartPost");
-            e.printStackTrace();
-        }
-    }
-}
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminApi;
-
-import java.io.File;
-import java.util.*;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: bearerAuth
-        ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //bearerAuth.setApiKeyPrefix("Token");
-
-        AdminApi apiInstance = new AdminApi();
-        try {
-            apiInstance.adminPeeringStatusGet();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#adminPeeringStatusGet");
-            e.printStackTrace();
-        }
-    }
-}
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminApi;
-
-import java.io.File;
-import java.util.*;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: bearerAuth
-        ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //bearerAuth.setApiKeyPrefix("Token");
-
-        AdminApi apiInstance = new AdminApi();
-        try {
-            apiInstance.adminPeeringStopPost();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#adminPeeringStopPost");
-            e.printStackTrace();
-        }
-    }
-}
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminApi;
-
-import java.io.File;
-import java.util.*;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: bearerAuth
-        ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //bearerAuth.setApiKeyPrefix("Token");
-
-        AdminApi apiInstance = new AdminApi();
-        try {
-            apiInstance.adminSystemConfigGet();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#adminSystemConfigGet");
-            e.printStackTrace();
-        }
-    }
-}
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminApi;
-
-import java.io.File;
-import java.util.*;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: bearerAuth
-        ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //bearerAuth.setApiKeyPrefix("Token");
-
-        AdminApi apiInstance = new AdminApi();
-        try {
-            apiInstance.adminUsersGet();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#adminUsersGet");
-            e.printStackTrace();
-        }
-    }
-}
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -392,9 +198,9 @@ Class | Method | HTTP request | Description
 *UserApi* | [**userExportGet**](docs/UserApi.md#userExportGet) | **GET** /user/export | Export user data
 *UserApi* | [**userStatsGet**](docs/UserApi.md#userStatsGet) | **GET** /user/stats | Create API keys for a user
 
+
 ## Documentation for Models
 
- - [ContentAddBody](docs/ContentAddBody.md)
  - [MainCollection](docs/MainCollection.md)
  - [MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
  - [MainEstimateDealBody](docs/MainEstimateDealBody.md)
@@ -404,6 +210,7 @@ Class | Method | HTTP request | Description
  - [UtilContentAddIpfsBody](docs/UtilContentAddIpfsBody.md)
  - [UtilContentAddResponse](docs/UtilContentAddResponse.md)
  - [UtilHttpError](docs/UtilHttpError.md)
+
 
 ## Documentation for Authorization
 
@@ -420,5 +227,6 @@ Authentication schemes defined for the API:
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
+
 
 

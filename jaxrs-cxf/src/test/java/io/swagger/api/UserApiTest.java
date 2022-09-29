@@ -22,6 +22,7 @@
  * limitations under the License.
  */
 
+
 package io.swagger.api;
 
 import io.swagger.model.MainGetApiKeysResp;
@@ -65,12 +66,13 @@ public class UserApiTest {
         List providers = new ArrayList();
         providers.add(provider);
         
-        api = JAXRSClientFactory.create("//api.estuary.tech/", UserApi.class, providers);
+        api = JAXRSClientFactory.create("https://api.estuary.tech", UserApi.class, providers);
         org.apache.cxf.jaxrs.client.Client client = WebClient.client(api);
         
         ClientConfiguration config = WebClient.getConfig(client); 
     }
 
+    
     /**
      * Get API keys for a user
      *
@@ -87,6 +89,7 @@ public class UserApiTest {
         
         
     }
+    
     /**
      * Revoke a User API Key.
      *
@@ -104,6 +107,7 @@ public class UserApiTest {
         
         
     }
+    
     /**
      * Create API keys for a user
      *
@@ -120,6 +124,7 @@ public class UserApiTest {
         
         
     }
+    
     /**
      * Export user data
      *
@@ -136,6 +141,7 @@ public class UserApiTest {
         
         
     }
+    
     /**
      * Create API keys for a user
      *
@@ -152,4 +158,5 @@ public class UserApiTest {
         
         
     }
+    
 }

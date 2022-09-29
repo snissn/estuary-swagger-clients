@@ -66,10 +66,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Make Deal This endpoint makes a deal for a given content and miner
         /// </summary>
-        /// <param name="body">Deal Request</param>
         /// <param name="miner">Miner</param>
+        /// <param name="dealRequest">Deal Request</param>
         /// <returns></returns>
-        void DealsMakeMinerPost (string body, string miner);
+        void DealsMakeMinerPost (string miner, string dealRequest);
         /// <summary>
         /// Get Deal Status This endpoint returns the status of a deal
         /// </summary>
@@ -145,12 +145,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Estimate the cost of a deal This endpoint estimates the cost of a deal
         /// </summary>
-        /// <param name="body">The size of the deal in bytes, the replication factor, and the duration of the deal in blocks</param>
-        /// <returns></returns>
+        /// <param name="body">The size of the deal in bytes, the replication factor, and the duration of the deal in blocks</param> 
+        /// <returns></returns>            
         public void DealEstimatePost (MainEstimateDealBody body)
         {
+            
             // verify the required parameter 'body' is set
             if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling DealEstimatePost");
+            
     
             var path = "/deal/estimate";
             path = path.Replace("{format}", "json");
@@ -161,8 +163,8 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    postBody = ApiClient.Serialize(body); // http body (model) parameter
-
+                                                postBody = ApiClient.Serialize(body); // http body (model) parameter
+    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -180,12 +182,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get Deal Info This endpoint returns the deal info for a deal
         /// </summary>
-        /// <param name="dealid">Deal ID</param>
-        /// <returns></returns>
+        /// <param name="dealid">Deal ID</param> 
+        /// <returns></returns>            
         public void DealInfoDealidGet (int? dealid)
         {
+            
             // verify the required parameter 'dealid' is set
             if (dealid == null) throw new ApiException(400, "Missing required parameter 'dealid' when calling DealInfoDealidGet");
+            
     
             var path = "/deal/info/{dealid}";
             path = path.Replace("{format}", "json");
@@ -197,7 +201,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -215,12 +219,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get Proposal This endpoint returns the proposal for a deal
         /// </summary>
-        /// <param name="propcid">Proposal CID</param>
-        /// <returns></returns>
+        /// <param name="propcid">Proposal CID</param> 
+        /// <returns></returns>            
         public void DealProposalPropcidGet (string propcid)
         {
+            
             // verify the required parameter 'propcid' is set
             if (propcid == null) throw new ApiException(400, "Missing required parameter 'propcid' when calling DealProposalPropcidGet");
+            
     
             var path = "/deal/proposal/{propcid}";
             path = path.Replace("{format}", "json");
@@ -232,7 +238,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -250,12 +256,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Query Ask This endpoint returns the ask for a given CID
         /// </summary>
-        /// <param name="miner">CID</param>
-        /// <returns></returns>
+        /// <param name="miner">CID</param> 
+        /// <returns></returns>            
         public void DealQueryMinerGet (string miner)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling DealQueryMinerGet");
+            
     
             var path = "/deal/query/{miner}";
             path = path.Replace("{format}", "json");
@@ -267,7 +275,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -285,12 +293,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get Deal Status by PropCid Get Deal Status by PropCid
         /// </summary>
-        /// <param name="propcid">PropCid</param>
-        /// <returns></returns>
+        /// <param name="propcid">PropCid</param> 
+        /// <returns></returns>            
         public void DealStatusByProposalPropcidGet (string propcid)
         {
+            
             // verify the required parameter 'propcid' is set
             if (propcid == null) throw new ApiException(400, "Missing required parameter 'propcid' when calling DealStatusByProposalPropcidGet");
+            
     
             var path = "/deal/status-by-proposal/{propcid}";
             path = path.Replace("{format}", "json");
@@ -302,7 +312,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -320,15 +330,18 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Deal Status This endpoint returns the status of a deal
         /// </summary>
-        /// <param name="miner">Miner</param>
-        /// <param name="propcid">Proposal CID</param>
-        /// <returns></returns>
+        /// <param name="miner">Miner</param> 
+        /// <param name="propcid">Proposal CID</param> 
+        /// <returns></returns>            
         public void DealStatusMinerPropcidGet (string miner, string propcid)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling DealStatusMinerPropcidGet");
+            
             // verify the required parameter 'propcid' is set
             if (propcid == null) throw new ApiException(400, "Missing required parameter 'propcid' when calling DealStatusMinerPropcidGet");
+            
     
             var path = "/deal/status/{miner}/{propcid}";
             path = path.Replace("{format}", "json");
@@ -341,7 +354,7 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -359,9 +372,10 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
         /// <summary>
         /// Transfer In Progress This endpoint returns the in-progress transfers
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void DealTransferInProgressGet ()
         {
+            
     
             var path = "/deal/transfer/in-progress";
             path = path.Replace("{format}", "json");
@@ -372,7 +386,7 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -390,9 +404,10 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
         /// <summary>
         /// Transfer Status This endpoint returns the status of a transfer
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void DealTransferStatusPost ()
         {
+            
     
             var path = "/deal/transfer/status";
             path = path.Replace("{format}", "json");
@@ -403,7 +418,7 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -421,9 +436,10 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
         /// <summary>
         /// Get storage failures for user This endpoint returns a list of storage failures for user
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void DealsFailuresGet ()
         {
+            
     
             var path = "/deals/failures";
             path = path.Replace("{format}", "json");
@@ -434,7 +450,7 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -452,15 +468,18 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
         /// <summary>
         /// Make Deal This endpoint makes a deal for a given content and miner
         /// </summary>
-        /// <param name="body">Deal Request</param>
-        /// <param name="miner">Miner</param>
-        /// <returns></returns>
-        public void DealsMakeMinerPost (string body, string miner)
+        /// <param name="miner">Miner</param> 
+        /// <param name="dealRequest">Deal Request</param> 
+        /// <returns></returns>            
+        public void DealsMakeMinerPost (string miner, string dealRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling DealsMakeMinerPost");
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling DealsMakeMinerPost");
+            
+            // verify the required parameter 'dealRequest' is set
+            if (dealRequest == null) throw new ApiException(400, "Missing required parameter 'dealRequest' when calling DealsMakeMinerPost");
+            
     
             var path = "/deals/make/{miner}";
             path = path.Replace("{format}", "json");
@@ -472,8 +491,8 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    postBody = ApiClient.Serialize(body); // http body (model) parameter
-
+                                                postBody = ApiClient.Serialize(dealRequest); // http body (model) parameter
+    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -491,12 +510,14 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
         /// <summary>
         /// Get Deal Status This endpoint returns the status of a deal
         /// </summary>
-        /// <param name="deal">Deal ID</param>
-        /// <returns></returns>
+        /// <param name="deal">Deal ID</param> 
+        /// <returns></returns>            
         public void DealsStatusDealGet (int? deal)
         {
+            
             // verify the required parameter 'deal' is set
             if (deal == null) throw new ApiException(400, "Missing required parameter 'deal' when calling DealsStatusDealGet");
+            
     
             var path = "/deals/status/{deal}";
             path = path.Replace("{format}", "json");
@@ -508,7 +529,7 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -526,9 +547,10 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
         /// <summary>
         /// Get storage failures This endpoint returns a list of storage failures
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void PublicDealsFailuresGet ()
         {
+            
     
             var path = "/public/deals/failures";
             path = path.Replace("{format}", "json");
@@ -539,7 +561,7 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -557,12 +579,14 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
         /// <summary>
         /// Query Ask This endpoint returns the ask for a given CID
         /// </summary>
-        /// <param name="miner">CID</param>
-        /// <returns></returns>
+        /// <param name="miner">CID</param> 
+        /// <returns></returns>            
         public void PublicMinersStorageQueryMinerGet (string miner)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling PublicMinersStorageQueryMinerGet");
+            
     
             var path = "/public/miners/storage/query/{miner}";
             path = path.Replace("{format}", "json");
@@ -574,7 +598,7 @@ path = path.Replace("{" + "propcid" + "}", ApiClient.ParameterToString(propcid))
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

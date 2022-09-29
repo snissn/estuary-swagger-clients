@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.OpenApi.Models;
 
 namespace IO.Swagger.Filters
 {
@@ -94,3 +95,4 @@ namespace IO.Swagger.Filters
         }
     }
 }
+

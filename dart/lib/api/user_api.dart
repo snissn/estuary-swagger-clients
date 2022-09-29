@@ -31,6 +31,7 @@ class UserApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -49,7 +50,7 @@ class UserApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
         (apiClient.deserialize(response.body, 'List<MainGetApiKeysResp>') as List).map((item) => item as MainGetApiKeysResp).toList();
     } else {
       return null;
@@ -82,6 +83,7 @@ class UserApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -100,7 +102,7 @@ class UserApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -130,6 +132,7 @@ class UserApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -148,7 +151,7 @@ class UserApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'MainGetApiKeysResp') as MainGetApiKeysResp ;
     } else {
       return null;
@@ -178,6 +181,7 @@ class UserApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -196,7 +200,7 @@ class UserApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'String') as String ;
     } else {
       return null;
@@ -226,6 +230,7 @@ class UserApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -244,7 +249,7 @@ class UserApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'MainUserStatsResponse') as MainUserStatsResponse ;
     } else {
       return null;

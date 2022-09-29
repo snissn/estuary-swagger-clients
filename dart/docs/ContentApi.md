@@ -5,7 +5,7 @@
 import 'package:swagger/api.dart';
 ```
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**contentStatsGet**](ContentApi.md#contentStatsGet) | **GET** /content/stats | Get content statistics
 [**contentStatusIdGet**](ContentApi.md#contentStatusIdGet) | **GET** /content/status/{id} | Content Status
 
+
 # **contentAddCarPost**
 > contentAddCarPost(body, filename, commp, size)
 
@@ -33,7 +34,7 @@ Add Car object
 
 This endpoint is used to add a car object to the network. The object can be a file or a directory.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -47,7 +48,7 @@ var filename = filename_example; // String | Filename
 var commp = commp_example; // String | Commp
 var size = size_example; // String | Size
 
-try {
+try { 
     api_instance.contentAddCarPost(body, filename, commp, size);
 } catch (e) {
     print("Exception when calling ContentApi->contentAddCarPost: $e\n");
@@ -58,7 +59,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Car | 
+ **body** | **String**| Car | 
  **filename** | **String**| Filename | [optional] 
  **commp** | **String**| Commp | [optional] 
  **size** | **String**| Size | [optional] 
@@ -73,8 +74,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -85,7 +86,7 @@ Add IPFS object
 
 This endpoint is used to add an IPFS object to the network. The object can be a file or a directory.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -96,7 +97,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var body = new UtilContentAddIpfsBody(); // UtilContentAddIpfsBody | IPFS Body
 
-try {
+try { 
     api_instance.contentAddIpfsPost(body);
 } catch (e) {
     print("Exception when calling ContentApi->contentAddIpfsPost: $e\n");
@@ -119,8 +120,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -131,7 +132,7 @@ Add new content
 
 This endpoint is used to upload new content.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -140,11 +141,11 @@ import 'package:swagger/api.dart';
 //swagger.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
 
 var api_instance = new ContentApi();
-var file = file_example; // String | 
+var file = /path/to/file.txt; // MultipartFile | File to upload
 var coluuid = coluuid_example; // String | Collection UUID
 var dir = dir_example; // String | Directory
 
-try {
+try { 
     var result = api_instance.contentAddPost(file, coluuid, dir);
     print(result);
 } catch (e) {
@@ -156,7 +157,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **String****String**|  | 
+ **file** | **MultipartFile**| File to upload | 
  **coluuid** | **String**| Collection UUID | 
  **dir** | **String**| Directory | 
 
@@ -182,7 +183,7 @@ Get aggregated content stats
 
 This endpoint returns aggregated content stats
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -193,7 +194,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var content = content_example; // String | Content ID
 
-try {
+try { 
     var result = api_instance.contentAggregatedContentGet(content);
     print(result);
 } catch (e) {
@@ -229,7 +230,7 @@ Get all deals for a user
 
 This endpoint is used to get all deals for a user
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -242,7 +243,7 @@ var begin = begin_example; // String | Begin
 var duration = duration_example; // String | Duration
 var all = all_example; // String | All
 
-try {
+try { 
     api_instance.contentAllDealsGet(begin, duration, all);
 } catch (e) {
     print("Exception when calling ContentApi->contentAllDealsGet: $e\n");
@@ -268,7 +269,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -279,7 +280,7 @@ Get content bandwidth
 
 This endpoint returns content bandwidth
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -290,7 +291,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var content = content_example; // String | Content ID
 
-try {
+try { 
     api_instance.contentBwUsageContentGet(content);
 } catch (e) {
     print("Exception when calling ContentApi->contentBwUsageContentGet: $e\n");
@@ -314,7 +315,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -325,7 +326,7 @@ Add a new content
 
 This endpoint adds a new content
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -336,7 +337,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var body = new String(); // String | Content
 
-try {
+try { 
     api_instance.contentCreatePost(body);
 } catch (e) {
     print("Exception when calling ContentApi->contentCreatePost: $e\n");
@@ -347,7 +348,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Content | 
+ **body** | **String**| Content | 
 
 ### Return type
 
@@ -359,8 +360,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -371,7 +372,7 @@ Content with deals
 
 This endpoint lists all content with deals
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -383,7 +384,7 @@ var api_instance = new ContentApi();
 var limit = 56; // int | Limit
 var offset = 56; // int | Offset
 
-try {
+try { 
     api_instance.contentDealsGet(limit, offset);
 } catch (e) {
     print("Exception when calling ContentApi->contentDealsGet: $e\n");
@@ -408,7 +409,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -419,7 +420,7 @@ Ensure Replication
 
 This endpoint ensures that the content is replicated to the specified number of providers
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -430,7 +431,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var datacid = datacid_example; // String | Data CID
 
-try {
+try { 
     api_instance.contentEnsureReplicationDatacidGet(datacid);
 } catch (e) {
     print("Exception when calling ContentApi->contentEnsureReplicationDatacidGet: $e\n");
@@ -454,7 +455,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -465,7 +466,7 @@ List all failures for a content
 
 This endpoint returns all failures for a content
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -476,7 +477,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var content = content_example; // String | Content ID
 
-try {
+try { 
     var result = api_instance.contentFailuresContentGet(content);
     print(result);
 } catch (e) {
@@ -512,7 +513,7 @@ Import a deal
 
 This endpoint imports a deal into the shuttle.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -523,7 +524,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var body = new MainImportDealBody(); // MainImportDealBody | Import a deal
 
-try {
+try { 
     api_instance.contentImportdealPost(body);
 } catch (e) {
     print("Exception when calling ContentApi->contentImportdealPost: $e\n");
@@ -546,8 +547,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -558,7 +559,7 @@ List all pinned content
 
 This endpoint lists all content
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -568,7 +569,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ContentApi();
 
-try {
+try { 
     var result = api_instance.contentListGet();
     print(result);
 } catch (e) {
@@ -601,7 +602,7 @@ Read content
 
 This endpoint reads content from the blockstore
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -612,7 +613,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var cont = cont_example; // String | CID
 
-try {
+try { 
     api_instance.contentReadContGet(cont);
 } catch (e) {
     print("Exception when calling ContentApi->contentReadContGet: $e\n");
@@ -636,7 +637,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -647,7 +648,7 @@ Get staging zone for user
 
 This endpoint is used to get staging zone for user.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -657,7 +658,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new ContentApi();
 
-try {
+try { 
     api_instance.contentStagingZonesGet();
 } catch (e) {
     print("Exception when calling ContentApi->contentStagingZonesGet: $e\n");
@@ -678,7 +679,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -689,7 +690,7 @@ Get content statistics
 
 This endpoint is used to get content statistics. Every content stored in the network (estuary) is tracked by a unique ID which can be used to get information about the content. This endpoint will allow the consumer to get the collected stats of a conten
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -700,7 +701,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var limit = limit_example; // String | limit
 
-try {
+try { 
     api_instance.contentStatsGet(limit);
 } catch (e) {
     print("Exception when calling ContentApi->contentStatsGet: $e\n");
@@ -724,7 +725,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -735,7 +736,7 @@ Content Status
 
 This endpoint returns the status of a content
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -746,7 +747,7 @@ import 'package:swagger/api.dart';
 var api_instance = new ContentApi();
 var id = 56; // int | Content ID
 
-try {
+try { 
     api_instance.contentStatusIdGet(id);
 } catch (e) {
     print("Exception when calling ContentApi->contentStatusIdGet: $e\n");
@@ -770,7 +771,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

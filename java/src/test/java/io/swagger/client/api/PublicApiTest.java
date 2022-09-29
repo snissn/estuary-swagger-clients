@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import org.junit.Test;
@@ -21,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * API tests for PublicApi
  */
@@ -30,6 +30,7 @@ public class PublicApiTest {
 
     private final PublicApi api = new PublicApi();
 
+    
     /**
      * Get Content by Cid
      *
@@ -45,6 +46,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get public node info
      *
@@ -59,6 +61,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get deal metrics
      *
@@ -73,6 +76,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get all miners deals
      *
@@ -88,6 +92,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get all miners
      *
@@ -103,6 +108,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get all miners
      *
@@ -117,6 +123,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get miner stats
      *
@@ -132,6 +139,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Net Addrs
      *
@@ -146,6 +154,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Net Peers
      *
@@ -160,6 +169,7 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Public stats
      *
@@ -174,4 +184,5 @@ public class PublicApiTest {
 
         // TODO: test validations
     }
+    
 }

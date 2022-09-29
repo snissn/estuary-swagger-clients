@@ -1,7 +1,7 @@
 package io.swagger.model;
 
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -10,18 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class UtilHttpError   {
+public class UtilHttpError  {
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   private Integer code = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String details = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String reason = null;
  /**
    * Get code
@@ -101,3 +99,4 @@ public class UtilHttpError   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

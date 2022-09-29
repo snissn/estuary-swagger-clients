@@ -20,7 +20,7 @@ class TestUserController(BaseTestCase):
         Get API keys for a user
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/user/api-keys',
+            '//user/api-keys',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -31,7 +31,7 @@ class TestUserController(BaseTestCase):
         Revoke a User API Key.
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/user/api-keys/{key}'.format(key='key_example'),
+            '//user/api-keys/{key}'.format(key='key_example'),
             method='DELETE')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -42,7 +42,7 @@ class TestUserController(BaseTestCase):
         Create API keys for a user
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/user/api-keys',
+            '//user/api-keys',
             method='POST')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -53,7 +53,7 @@ class TestUserController(BaseTestCase):
         Export user data
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/user/export',
+            '//user/export',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -64,7 +64,7 @@ class TestUserController(BaseTestCase):
         Create API keys for a user
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/user/stats',
+            '//user/stats',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

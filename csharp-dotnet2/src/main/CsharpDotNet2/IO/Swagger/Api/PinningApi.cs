@@ -99,9 +99,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// List all pin status objects This endpoint lists all pin status objects
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void PinningPinsGet ()
         {
+            
     
             var path = "/pinning/pins";
             path = path.Replace("{format}", "json");
@@ -112,7 +113,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -130,12 +131,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Delete a pinned object This endpoint deletes a pinned object.
         /// </summary>
-        /// <param name="pinid">Pin ID</param>
-        /// <returns></returns>
+        /// <param name="pinid">Pin ID</param> 
+        /// <returns></returns>            
         public void PinningPinsPinidDelete (string pinid)
         {
+            
             // verify the required parameter 'pinid' is set
             if (pinid == null) throw new ApiException(400, "Missing required parameter 'pinid' when calling PinningPinsPinidDelete");
+            
     
             var path = "/pinning/pins/{pinid}";
             path = path.Replace("{format}", "json");
@@ -147,7 +150,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -165,12 +168,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get a pin status object This endpoint returns a pin status object.
         /// </summary>
-        /// <param name="pinid">cid</param>
-        /// <returns></returns>
+        /// <param name="pinid">cid</param> 
+        /// <returns></returns>            
         public void PinningPinsPinidGet (string pinid)
         {
+            
             // verify the required parameter 'pinid' is set
             if (pinid == null) throw new ApiException(400, "Missing required parameter 'pinid' when calling PinningPinsPinidGet");
+            
     
             var path = "/pinning/pins/{pinid}";
             path = path.Replace("{format}", "json");
@@ -182,7 +187,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -200,12 +205,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Replace a pinned object This endpoint replaces a pinned object.
         /// </summary>
-        /// <param name="pinid">Pin ID</param>
-        /// <returns></returns>
+        /// <param name="pinid">Pin ID</param> 
+        /// <returns></returns>            
         public void PinningPinsPinidPost (string pinid)
         {
+            
             // verify the required parameter 'pinid' is set
             if (pinid == null) throw new ApiException(400, "Missing required parameter 'pinid' when calling PinningPinsPinidPost");
+            
     
             var path = "/pinning/pins/{pinid}";
             path = path.Replace("{format}", "json");
@@ -217,7 +224,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -235,15 +242,18 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Add and pin object This endpoint adds a pin to the IPFS daemon.
         /// </summary>
-        /// <param name="cid">cid</param>
-        /// <param name="name">name</param>
-        /// <returns></returns>
+        /// <param name="cid">cid</param> 
+        /// <param name="name">name</param> 
+        /// <returns></returns>            
         public void PinningPinsPost (string cid, string name)
         {
+            
             // verify the required parameter 'cid' is set
             if (cid == null) throw new ApiException(400, "Missing required parameter 'cid' when calling PinningPinsPost");
+            
             // verify the required parameter 'name' is set
             if (name == null) throw new ApiException(400, "Missing required parameter 'name' when calling PinningPinsPost");
+            
     
             var path = "/pinning/pins";
             path = path.Replace("{format}", "json");
@@ -256,7 +266,7 @@ path = path.Replace("{" + "name" + "}", ApiClient.ParameterToString(name));
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

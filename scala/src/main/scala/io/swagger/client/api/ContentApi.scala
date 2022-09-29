@@ -9,14 +9,15 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 package io.swagger.client.api
 
 import java.text.SimpleDateFormat
 
-import io.swagger.client.model.Array[Byte]
 import io.swagger.client.model.ContentAddIpfsBody
+import io.swagger.client.model.ContentAddResponse
+import java.io.File
 import io.swagger.client.model.ImportDealBody
-import io.swagger.client.model.util.ContentAddResponse
 import io.swagger.client.{ApiInvoker, ApiException}
 
 import com.sun.jersey.multipart.FormDataMultiPart
@@ -47,7 +48,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class ContentApi(
-  val defBasePath: String = "//api.estuary.tech/",
+  val defBasePath: String = "https://api.estuary.tech",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {
@@ -143,12 +144,12 @@ class ContentApi(
    * Add new content
    * This endpoint is used to upload new content.
    *
-   * @param file  
+   * @param file File to upload 
    * @param coluuid Collection UUID 
    * @param dir Directory 
-   * @return util.ContentAddResponse
+   * @return ContentAddResponse
    */
-  def contentAddPost(file: Array[Byte], coluuid: String, dir: String): Option[util.ContentAddResponse] = {
+  def contentAddPost(file: File, coluuid: String, dir: String): Option[ContentAddResponse] = {
     val await = Try(Await.result(contentAddPostAsync(file, coluuid, dir), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
@@ -160,12 +161,12 @@ class ContentApi(
    * Add new content asynchronously
    * This endpoint is used to upload new content.
    *
-   * @param file  
+   * @param file File to upload 
    * @param coluuid Collection UUID 
    * @param dir Directory 
-   * @return Future(util.ContentAddResponse)
+   * @return Future(ContentAddResponse)
    */
-  def contentAddPostAsync(file: Array[Byte], coluuid: String, dir: String): Future[util.ContentAddResponse] = {
+  def contentAddPostAsync(file: File, coluuid: String, dir: String): Future[ContentAddResponse] = {
       helper.contentAddPost(file, coluuid, dir)
   }
 
@@ -526,6 +527,7 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     val headerParams = new mutable.HashMap[String, String]
 
     if (body == null) throw new Exception("Missing required parameter 'body' when calling ContentApi->contentAddCarPost")
+
     filename match {
       case Some(param) => queryParams += "filename" -> param.toString
       case _ => queryParams
@@ -561,9 +563,9 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     }
   }
 
-  def contentAddPost(file: Array[Byte],
+  def contentAddPost(file: File,
     coluuid: String,
-    dir: String)(implicit reader: ClientResponseReader[util.ContentAddResponse]): Future[util.ContentAddResponse] = {
+    dir: String)(implicit reader: ClientResponseReader[ContentAddResponse]): Future[ContentAddResponse] = {
     // create path and map variables
     val path = (addFmt("/content/add")
       replaceAll("\\{" + "coluuid" + "\\}", coluuid.toString)
@@ -574,7 +576,6 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     val headerParams = new mutable.HashMap[String, String]
 
     if (file == null) throw new Exception("Missing required parameter 'file' when calling ContentApi->contentAddPost")
-
     if (coluuid == null) throw new Exception("Missing required parameter 'coluuid' when calling ContentApi->contentAddPost")
 
     if (dir == null) throw new Exception("Missing required parameter 'dir' when calling ContentApi->contentAddPost")
@@ -657,6 +658,7 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     val headerParams = new mutable.HashMap[String, String]
 
     if (body == null) throw new Exception("Missing required parameter 'body' when calling ContentApi->contentCreatePost")
+
 
     val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, writer.write(body))
     resFuture flatMap { resp =>

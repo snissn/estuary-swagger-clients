@@ -73,9 +73,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get deal metrics This endpoint is used to get deal metrics
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void PublicMetricsDealsOnChainGet ()
         {
+            
     
             var path = "/public/metrics/deals-on-chain";
             path = path.Replace("{format}", "json");
@@ -86,7 +87,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

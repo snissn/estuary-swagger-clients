@@ -80,12 +80,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get all miners deals This endpoint returns all miners deals
         /// </summary>
-        /// <param name="miner">Filter by miner</param>
-        /// <returns></returns>
+        /// <param name="miner">Filter by miner</param> 
+        /// <returns></returns>            
         public void PublicMinersDealsMinerGet (string miner)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling PublicMinersDealsMinerGet");
+            
     
             var path = "/public/miners/deals/{miner}";
             path = path.Replace("{format}", "json");
@@ -97,7 +99,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -115,12 +117,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get miner stats This endpoint returns miner stats
         /// </summary>
-        /// <param name="miner">Filter by miner</param>
-        /// <returns></returns>
+        /// <param name="miner">Filter by miner</param> 
+        /// <returns></returns>            
         public void PublicMinersStatsMinerGet (string miner)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling PublicMinersStatsMinerGet");
+            
     
             var path = "/public/miners/stats/{miner}";
             path = path.Replace("{format}", "json");
@@ -132,7 +136,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

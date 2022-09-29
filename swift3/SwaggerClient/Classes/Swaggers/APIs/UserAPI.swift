@@ -28,20 +28,14 @@ open class UserAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ {
-  "expiry" : "expiry",
-  "token" : "token"
-}, {
-  "expiry" : "expiry",
-  "token" : "token"
-} ]}]
+     - examples: [{contentType=application/json, example={}}]
      - returns: RequestBuilder<[MainGetApiKeysResp]> 
      */
     open class func userApiKeysGetWithRequestBuilder() -> RequestBuilder<[MainGetApiKeysResp]> {
         let path = "/user/api-keys"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[MainGetApiKeysResp]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -78,7 +72,7 @@ open class UserAPI: APIBase {
         path = path.replacingOccurrences(of: "{key}", with: keyPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -104,17 +98,14 @@ open class UserAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "expiry" : "expiry",
-  "token" : "token"
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
      - returns: RequestBuilder<MainGetApiKeysResp> 
      */
     open class func userApiKeysPostWithRequestBuilder() -> RequestBuilder<MainGetApiKeysResp> {
         let path = "/user/api-keys"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<MainGetApiKeysResp>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -140,14 +131,17 @@ open class UserAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
      - returns: RequestBuilder<String> 
      */
     open class func userExportGetWithRequestBuilder() -> RequestBuilder<String> {
         let path = "/user/export"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -173,17 +167,14 @@ open class UserAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "totalSize" : 6,
-  "numPins" : 0
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
      - returns: RequestBuilder<MainUserStatsResponse> 
      */
     open class func userStatsGetWithRequestBuilder() -> RequestBuilder<MainUserStatsResponse> {
         let path = "/user/stats"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<MainUserStatsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

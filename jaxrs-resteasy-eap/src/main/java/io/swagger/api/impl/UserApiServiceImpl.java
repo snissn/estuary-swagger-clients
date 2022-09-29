@@ -3,6 +3,7 @@ package io.swagger.api.impl;
 import io.swagger.api.*;
 import io.swagger.model.*;
 
+
 import io.swagger.model.MainGetApiKeysResp;
 import io.swagger.model.MainUserStatsResponse;
 import io.swagger.model.UtilHttpError;
@@ -14,7 +15,8 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyEapServerCodegen", date = "2022-09-27T20:40:44.339579-10:00[Pacific/Honolulu]")public class UserApiServiceImpl implements UserApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T02:01:03.863Z")
+public class UserApiServiceImpl implements UserApi {
       public Response userApiKeysGet(SecurityContext securityContext) {
       // do some magic!
       return Response.ok().build();

@@ -1,25 +1,35 @@
 package io.swagger.model;
+
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaInflectorServerCodegen", date = "2022-09-27T20:40:25.355549-10:00[Pacific/Honolulu]")
+
+
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:00:49.114Z")
 public class MainCollection   {
   @JsonProperty("cid")
   private String cid = null;
+
   @JsonProperty("createdAt")
   private String createdAt = null;
+
   @JsonProperty("description")
   private String description = null;
+
   @JsonProperty("name")
   private String name = null;
+
   @JsonProperty("userId")
   private Integer userId = null;
+
   @JsonProperty("uuid")
   private String uuid = null;
+
   /**
    **/
   public MainCollection cid(String cid) {
@@ -28,7 +38,7 @@ public class MainCollection   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("cid")
   public String getCid() {
     return cid;
@@ -45,7 +55,7 @@ public class MainCollection   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("createdAt")
   public String getCreatedAt() {
     return createdAt;
@@ -62,7 +72,7 @@ public class MainCollection   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("description")
   public String getDescription() {
     return description;
@@ -79,7 +89,7 @@ public class MainCollection   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -96,7 +106,7 @@ public class MainCollection   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("userId")
   public Integer getUserId() {
     return userId;
@@ -113,7 +123,7 @@ public class MainCollection   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
@@ -149,6 +159,7 @@ public class MainCollection   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MainCollection {\n");
+    
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -170,3 +181,4 @@ public class MainCollection   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

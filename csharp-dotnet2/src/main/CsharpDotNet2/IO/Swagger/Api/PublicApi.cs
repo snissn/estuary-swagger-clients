@@ -122,12 +122,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get Content by Cid This endpoint returns the content associated with a CID
         /// </summary>
-        /// <param name="cid">Cid</param>
-        /// <returns></returns>
+        /// <param name="cid">Cid</param> 
+        /// <returns></returns>            
         public void PublicByCidCidGet (string cid)
         {
+            
             // verify the required parameter 'cid' is set
             if (cid == null) throw new ApiException(400, "Missing required parameter 'cid' when calling PublicByCidCidGet");
+            
     
             var path = "/public/by-cid/{cid}";
             path = path.Replace("{format}", "json");
@@ -139,7 +141,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -157,9 +159,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get public node info This endpoint returns information about the node
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void PublicInfoGet ()
         {
+            
     
             var path = "/public/info";
             path = path.Replace("{format}", "json");
@@ -170,7 +173,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -188,9 +191,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get deal metrics This endpoint is used to get deal metrics
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void PublicMetricsDealsOnChainGet ()
         {
+            
     
             var path = "/public/metrics/deals-on-chain";
             path = path.Replace("{format}", "json");
@@ -201,7 +205,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -219,12 +223,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get all miners deals This endpoint returns all miners deals
         /// </summary>
-        /// <param name="miner">Filter by miner</param>
-        /// <returns></returns>
+        /// <param name="miner">Filter by miner</param> 
+        /// <returns></returns>            
         public void PublicMinersDealsMinerGet (string miner)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling PublicMinersDealsMinerGet");
+            
     
             var path = "/public/miners/deals/{miner}";
             path = path.Replace("{format}", "json");
@@ -236,7 +242,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -254,12 +260,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get all miners This endpoint returns all miners
         /// </summary>
-        /// <param name="miner">Filter by miner</param>
-        /// <returns></returns>
+        /// <param name="miner">Filter by miner</param> 
+        /// <returns></returns>            
         public void PublicMinersFailuresMinerGet (string miner)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling PublicMinersFailuresMinerGet");
+            
     
             var path = "/public/miners/failures/{miner}";
             path = path.Replace("{format}", "json");
@@ -271,7 +279,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -289,9 +297,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get all miners This endpoint returns all miners
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void PublicMinersGet ()
         {
+            
     
             var path = "/public/miners";
             path = path.Replace("{format}", "json");
@@ -302,7 +311,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -320,12 +329,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Get miner stats This endpoint returns miner stats
         /// </summary>
-        /// <param name="miner">Filter by miner</param>
-        /// <returns></returns>
+        /// <param name="miner">Filter by miner</param> 
+        /// <returns></returns>            
         public void PublicMinersStatsMinerGet (string miner)
         {
+            
             // verify the required parameter 'miner' is set
             if (miner == null) throw new ApiException(400, "Missing required parameter 'miner' when calling PublicMinersStatsMinerGet");
+            
     
             var path = "/public/miners/stats/{miner}";
             path = path.Replace("{format}", "json");
@@ -337,7 +348,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -355,9 +366,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Net Addrs This endpoint is used to get net addrs
         /// </summary>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List&lt;string&gt;</returns>            
         public List<string> PublicNetAddrsGet ()
         {
+            
     
             var path = "/public/net/addrs";
             path = path.Replace("{format}", "json");
@@ -368,7 +380,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -386,9 +398,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Net Peers This endpoint is used to get net peers
         /// </summary>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List&lt;string&gt;</returns>            
         public List<string> PublicNetPeersGet ()
         {
+            
     
             var path = "/public/net/peers";
             path = path.Replace("{format}", "json");
@@ -399,7 +412,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -417,9 +430,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Public stats This endpoint is used to get public stats.
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void PublicStatsGet ()
         {
+            
     
             var path = "/public/stats";
             path = path.Replace("{format}", "json");
@@ -430,7 +444,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

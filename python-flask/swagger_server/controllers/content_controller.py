@@ -13,7 +13,7 @@ def content_add_car_post(body, filename=None, commp=None, size=None):  # noqa: E
     This endpoint is used to add a car object to the network. The object can be a file or a directory. # noqa: E501
 
     :param body: Car
-    :type body: dict | bytes
+    :type body: str
     :param filename: Filename
     :type filename: str
     :param commp: Commp
@@ -23,8 +23,6 @@ def content_add_car_post(body, filename=None, commp=None, size=None):  # noqa: E
 
     :rtype: None
     """
-    if connexion.request.is_json:
-        body = str.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 
@@ -48,8 +46,8 @@ def content_add_post(file, coluuid, dir):  # noqa: E501
 
     This endpoint is used to upload new content. # noqa: E501
 
-    :param file: 
-    :type file: strstr
+    :param file: File to upload
+    :type file: werkzeug.datastructures.FileStorage
     :param coluuid: Collection UUID
     :type coluuid: str
     :param dir: Directory
@@ -109,12 +107,10 @@ def content_create_post(body):  # noqa: E501
     This endpoint adds a new content # noqa: E501
 
     :param body: Content
-    :type body: dict | bytes
+    :type body: str
 
     :rtype: None
     """
-    if connexion.request.is_json:
-        body = str.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 

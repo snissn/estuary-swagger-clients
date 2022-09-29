@@ -3,7 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -12,7 +13,7 @@ import javax.validation.constraints.*;
  * MainCreateCollectionBody
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-09-27T20:41:13.008650-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T02:01:33.084Z")
 
 
 public class MainCreateCollectionBody   {
@@ -30,10 +31,11 @@ public class MainCreateCollectionBody   {
   /**
    * Get description
    * @return description
-   **/
-  @Schema(description = "")
-  
-    public String getDescription() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getDescription() {
     return description;
   }
 
@@ -49,10 +51,11 @@ public class MainCreateCollectionBody   {
   /**
    * Get name
    * @return name
-   **/
-  @Schema(description = "")
-  
-    public String getName() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getName() {
     return name;
   }
 
@@ -101,3 +104,4 @@ public class MainCreateCollectionBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

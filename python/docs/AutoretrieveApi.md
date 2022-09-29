@@ -1,6 +1,6 @@
 # swagger_client.AutoretrieveApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**admin_autoretrieve_list_get**](AutoretrieveApi.md#admin_autoretrieve_list_get) | **GET** /admin/autoretrieve/list | List autoretrieve servers
 [**autoretrieve_heartbeat_post**](AutoretrieveApi.md#autoretrieve_heartbeat_post) | **POST** /autoretrieve/heartbeat | Marks autoretrieve server as up
 
+
 # **admin_autoretrieve_init_post**
-> admin_autoretrieve_init_post(body)
+> admin_autoretrieve_init_post(addresses, pub_key)
 
 Register autoretrieve server
 
@@ -31,11 +32,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AutoretrieveApi(swagger_client.ApiClient(configuration))
-body = 'body_example' # str | Autoretrieve's public key
+addresses = 'addresses_example' # str | Autoretrieve's comma-separated list of addresses
+pub_key = 'pub_key_example' # str | Autoretrieve's public key
 
 try:
     # Register autoretrieve server
-    api_instance.admin_autoretrieve_init_post(body)
+    api_instance.admin_autoretrieve_init_post(addresses, pub_key)
 except ApiException as e:
     print("Exception when calling AutoretrieveApi->admin_autoretrieve_init_post: %s\n" % e)
 ```
@@ -44,7 +46,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**str**](str.md)| Autoretrieve&#x27;s public key | 
+ **addresses** | **str**| Autoretrieve&#39;s comma-separated list of addresses | 
+ **pub_key** | **str**| Autoretrieve&#39;s public key | 
 
 ### Return type
 
@@ -56,8 +59,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -106,7 +109,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -146,7 +149,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **token** | **str**| Autoretrieve&#x27;s auth token | 
+ **token** | **str**| Autoretrieve&#39;s auth token | 
 
 ### Return type
 
@@ -159,7 +162,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

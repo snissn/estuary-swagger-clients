@@ -1,4 +1,4 @@
-# IO.Swagger - ASP.NET Core 2.0 Server
+# IO.Swagger - ASP.NET Core 3.0 Server
 
 This is the API for the Estuary application.
 
