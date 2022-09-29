@@ -20,4 +20,4 @@ git status swagger.json | grep modified && {
       -l $lang \
       -o $lang
   done
-}
+} || true
