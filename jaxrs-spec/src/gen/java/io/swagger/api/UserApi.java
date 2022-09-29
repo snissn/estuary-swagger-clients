@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 @Path("/user")
 @Api(description = "the user API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-09-29T01:55:58.936Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-09-29T01:57:35.180Z")
 public class UserApi {
 
     @GET

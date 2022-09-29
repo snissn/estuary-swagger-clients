@@ -25,7 +25,7 @@ import javax.validation.constraints.*;
 @Api(description = "the deal API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:55:53.497Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:57:29.531Z")
 
 public class DealApi  {
 

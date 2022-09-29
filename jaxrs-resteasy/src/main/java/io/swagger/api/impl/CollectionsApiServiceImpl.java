@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:55:56.557Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:57:32.693Z")
 public class CollectionsApiServiceImpl implements CollectionsApiService {
       public Response collectionsColuuidCommitPost(String coluuid,SecurityContext securityContext)
       throws NotFoundException {
