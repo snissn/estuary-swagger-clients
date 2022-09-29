@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Path("/collections")
 @Api(description = "the collections API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-09-29T02:01:05.368Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-09-29T02:02:47.698Z")
 public class CollectionsApi {
 
     @POST

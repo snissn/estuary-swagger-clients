@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * MainCreateCollectionBody
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T02:01:33.084Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T02:03:14.821Z")
 
 
 public class MainCreateCollectionBody   {
