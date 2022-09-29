@@ -14,16 +14,22 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
+      - add_ssh_keys:
+        fingerprints:
+          - "82:ab:93:63:6a:d5:c4:80:fe:cb:e1:3c:cd:6c:17:79"
       - checkout
       - run:
           name: "Say hello"
           command: |
             find | grep swagger
             apk add git
-            git clone https://github.com/snissn/estuary-swagger-clients.git
+            git clone git@github.com:snissn/estuary-swagger-clients.git
             cd estuary-swagger-clients
             sh build_all.sh
             git status 
+            git add * 
+            git commit -am "Commit from build bot. Build number $CIRCLE_BUILD_NUM. Workflow ID $CIRCLE_WORKFLOW_ID."
+            git push origin main
 
 
 # Invoke jobs via workflows
