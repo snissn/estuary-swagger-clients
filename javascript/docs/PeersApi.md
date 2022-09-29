@@ -1,6 +1,6 @@
 # EstuaryApi.PeersApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**adminPeeringStartPost**](PeersApi.md#adminPeeringStartPost) | **POST** /admin/peering/start | Start Peering
 [**adminPeeringStatusGet**](PeersApi.md#adminPeeringStatusGet) | **GET** /admin/peering/status | Check Peering Status
 [**adminPeeringStopPost**](PeersApi.md#adminPeeringStopPost) | **POST** /admin/peering/stop | Stop Peering
+
 
 <a name="adminPeeringPeersDelete"></a>
 # **adminPeeringPeersDelete**
@@ -21,23 +22,25 @@ This endpoint can be used to remove a Peer from the Peering Service
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PeersApi();
-apiInstance.adminPeeringPeersDelete((error, data, response) => {
+var apiInstance = new EstuaryApi.PeersApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.adminPeeringPeersDelete(callback);
 ```
 
 ### Parameters
@@ -54,7 +57,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="adminPeeringPeersGet"></a>
 # **adminPeeringPeersGet**
@@ -66,23 +69,25 @@ This endpoint can be used to list all peers on Peering Service
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PeersApi();
-apiInstance.adminPeeringPeersGet((error, data, response) => {
+var apiInstance = new EstuaryApi.PeersApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.adminPeeringPeersGet(callback);
 ```
 
 ### Parameters
@@ -99,7 +104,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="adminPeeringPeersPost"></a>
 # **adminPeeringPeersPost**
@@ -111,23 +116,25 @@ This endpoint can be used to add a Peer from the Peering Service
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PeersApi();
-apiInstance.adminPeeringPeersPost((error, data, response) => {
+var apiInstance = new EstuaryApi.PeersApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.adminPeeringPeersPost(callback);
 ```
 
 ### Parameters
@@ -144,7 +151,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="adminPeeringStartPost"></a>
 # **adminPeeringStartPost**
@@ -156,23 +163,25 @@ This endpoint can be used to start the Peering Service
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PeersApi();
-apiInstance.adminPeeringStartPost((error, data, response) => {
+var apiInstance = new EstuaryApi.PeersApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.adminPeeringStartPost(callback);
 ```
 
 ### Parameters
@@ -189,7 +198,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="adminPeeringStatusGet"></a>
 # **adminPeeringStatusGet**
@@ -201,23 +210,25 @@ This endpoint can be used to check the Peering status
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PeersApi();
-apiInstance.adminPeeringStatusGet((error, data, response) => {
+var apiInstance = new EstuaryApi.PeersApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.adminPeeringStatusGet(callback);
 ```
 
 ### Parameters
@@ -234,7 +245,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="adminPeeringStopPost"></a>
 # **adminPeeringStopPost**
@@ -246,23 +257,25 @@ This endpoint can be used to stop the Peering Service
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.PeersApi();
-apiInstance.adminPeeringStopPost((error, data, response) => {
+var apiInstance = new EstuaryApi.PeersApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.adminPeeringStopPost(callback);
 ```
 
 ### Parameters
@@ -279,5 +292,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 

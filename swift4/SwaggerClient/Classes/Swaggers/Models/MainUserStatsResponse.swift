@@ -8,15 +8,17 @@
 import Foundation
 
 
+
 public struct MainUserStatsResponse: Codable {
 
-
     public var numPins: Int?
-
     public var totalSize: Int?
-    public init(numPins: Int? = nil, totalSize: Int? = nil) { 
+
+    public init(numPins: Int?, totalSize: Int?) {
         self.numPins = numPins
         self.totalSize = totalSize
     }
 
+
 }
+

@@ -3,7 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -12,7 +13,7 @@ import javax.validation.constraints.*;
  * UtilHttpError
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-09-27T20:41:13.008650-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T01:53:12.142Z")
 
 
 public class UtilHttpError   {
@@ -33,10 +34,11 @@ public class UtilHttpError   {
   /**
    * Get code
    * @return code
-   **/
-  @Schema(description = "")
-  
-    public Integer getCode() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public Integer getCode() {
     return code;
   }
 
@@ -52,10 +54,11 @@ public class UtilHttpError   {
   /**
    * Get details
    * @return details
-   **/
-  @Schema(description = "")
-  
-    public String getDetails() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getDetails() {
     return details;
   }
 
@@ -71,10 +74,11 @@ public class UtilHttpError   {
   /**
    * Get reason
    * @return reason
-   **/
-  @Schema(description = "")
-  
-    public String getReason() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getReason() {
     return reason;
   }
 
@@ -125,3 +129,4 @@ public class UtilHttpError   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

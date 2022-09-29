@@ -10,9 +10,11 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-27T20:40:26.717738-10:00[Pacific/Honolulu]")public class Pair {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T01:52:34.053Z")
+public class Pair {
     private String name = "";
     private String value = "";
 

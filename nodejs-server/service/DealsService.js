@@ -129,11 +129,11 @@ exports.dealsFailuresGET = function() {
  * Make Deal
  * This endpoint makes a deal for a given content and miner
  *
- * body String Deal Request
  * miner String Miner
+ * dealRequest String Deal Request
  * no response value expected for this operation
  **/
-exports.dealsMakeMinerPOST = function(body,miner) {
+exports.dealsMakeMinerPOST = function(miner,dealRequest) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

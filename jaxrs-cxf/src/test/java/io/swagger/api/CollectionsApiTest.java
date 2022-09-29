@@ -22,8 +22,10 @@
  * limitations under the License.
  */
 
+
 package io.swagger.api;
 
+import java.util.List;
 import io.swagger.model.MainCollection;
 import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
@@ -66,12 +68,13 @@ public class CollectionsApiTest {
         List providers = new ArrayList();
         providers.add(provider);
         
-        api = JAXRSClientFactory.create("//api.estuary.tech/", CollectionsApi.class, providers);
+        api = JAXRSClientFactory.create("https://api.estuary.tech", CollectionsApi.class, providers);
         org.apache.cxf.jaxrs.client.Client client = WebClient.client(api);
         
         ClientConfiguration config = WebClient.getConfig(client); 
     }
 
+    
     /**
      * Produce a CID of the collection contents
      *
@@ -89,6 +92,7 @@ public class CollectionsApiTest {
         
         
     }
+    
     /**
      * Deletes a collection
      *
@@ -106,6 +110,7 @@ public class CollectionsApiTest {
         
         
     }
+    
     /**
      * Get contents in a collection
      *
@@ -124,6 +129,7 @@ public class CollectionsApiTest {
         
         
     }
+    
     /**
      * Add contents to a collection
      *
@@ -141,6 +147,7 @@ public class CollectionsApiTest {
         
         
     }
+    
     /**
      * Add a file to a collection
      *
@@ -160,6 +167,7 @@ public class CollectionsApiTest {
         
         
     }
+    
     /**
      * List all collections
      *
@@ -177,6 +185,7 @@ public class CollectionsApiTest {
         
         
     }
+    
     /**
      * Create a new collection
      *
@@ -194,4 +203,5 @@ public class CollectionsApiTest {
         
         
     }
+    
 }

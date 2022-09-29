@@ -10,9 +10,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class MainCreateCollectionBody   {
-
+  
   private @Valid String description = null;
-
   private @Valid String name = null;
 
   /**
@@ -25,7 +24,6 @@ public class MainCreateCollectionBody   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("description")
-
   public String getDescription() {
     return description;
   }
@@ -43,7 +41,6 @@ public class MainCreateCollectionBody   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("name")
-
   public String getName() {
     return name;
   }
@@ -92,3 +89,4 @@ public class MainCreateCollectionBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

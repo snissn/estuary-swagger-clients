@@ -13,7 +13,8 @@ module.exports.netAddrsGET = function netAddrsGET (req, res, next) {
     });
 };
 
-module.exports.publicMinersFailuresMinerGET = function publicMinersFailuresMinerGET (req, res, next, miner) {
+module.exports.publicMinersFailuresMinerGET = function publicMinersFailuresMinerGET (req, res, next) {
+  var miner = req.swagger.params['miner'].value;
   Net.publicMinersFailuresMinerGET(miner)
     .then(function (response) {
       utils.writeJson(res, response);

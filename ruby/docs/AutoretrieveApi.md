@@ -1,6 +1,6 @@
 # SwaggerClient::AutoretrieveApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**admin_autoretrieve_list_get**](AutoretrieveApi.md#admin_autoretrieve_list_get) | **GET** /admin/autoretrieve/list | List autoretrieve servers
 [**autoretrieve_heartbeat_post**](AutoretrieveApi.md#autoretrieve_heartbeat_post) | **POST** /autoretrieve/heartbeat | Marks autoretrieve server as up
 
+
 # **admin_autoretrieve_init_post**
-> admin_autoretrieve_init_post(body)
+> admin_autoretrieve_init_post(addresses, pub_key)
 
 Register autoretrieve server
 
@@ -28,12 +29,15 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::AutoretrieveApi.new
-body = 'body_example' # String | Autoretrieve's public key
+
+addresses = 'addresses_example' # String | Autoretrieve's comma-separated list of addresses
+
+pub_key = 'pub_key_example' # String | Autoretrieve's public key
 
 
 begin
   #Register autoretrieve server
-  api_instance.admin_autoretrieve_init_post(body)
+  api_instance.admin_autoretrieve_init_post(addresses, pub_key)
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling AutoretrieveApi->admin_autoretrieve_init_post: #{e}"
 end
@@ -43,7 +47,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Autoretrieve&#x27;s public key | 
+ **addresses** | **String**| Autoretrieve&#39;s comma-separated list of addresses | 
+ **pub_key** | **String**| Autoretrieve&#39;s public key | 
 
 ### Return type
 
@@ -55,8 +60,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -103,7 +108,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -127,6 +132,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::AutoretrieveApi.new
+
 token = 'token_example' # String | Autoretrieve's auth token
 
 
@@ -142,7 +148,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **token** | **String**| Autoretrieve&#x27;s auth token | 
+ **token** | **String**| Autoretrieve&#39;s auth token | 
 
 ### Return type
 
@@ -155,7 +161,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

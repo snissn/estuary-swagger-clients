@@ -4,11 +4,15 @@ import java.util.Objects;
 import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.*;
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyEapServerCodegen", date = "2022-09-27T20:40:44.339579-10:00[Pacific/Honolulu]")public class MainEstimateDealBody   {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T01:52:44.565Z")
+public class MainEstimateDealBody   {
+  
   private Integer durationBlks = null;
   private Integer replication = null;
   private Integer size = null;
@@ -17,7 +21,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("durationBlks")
   public Integer getDurationBlks() {
     return durationBlks;
@@ -29,7 +33,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("replication")
   public Integer getReplication() {
     return replication;
@@ -41,7 +45,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("size")
   public Integer getSize() {
     return size;
@@ -53,7 +57,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("verified")
   public Boolean isVerified() {
     return verified;
@@ -107,3 +111,4 @@ import io.swagger.v3.oas.annotations.media.Schema;
     return o.toString().replace("\n", "\n    ");
   }
 }
+

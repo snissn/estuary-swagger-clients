@@ -17,7 +17,7 @@ class TestPublicController(BaseTestCase):
         Get Content by Cid
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/by-cid/{cid}'.format(cid='cid_example'),
+            '//public/by-cid/{cid}'.format(cid='cid_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -28,7 +28,7 @@ class TestPublicController(BaseTestCase):
         Get public node info
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/info',
+            '//public/info',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -39,7 +39,7 @@ class TestPublicController(BaseTestCase):
         Get deal metrics
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/metrics/deals-on-chain',
+            '//public/metrics/deals-on-chain',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -50,7 +50,7 @@ class TestPublicController(BaseTestCase):
         Get all miners deals
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/miners/deals/{miner}'.format(miner='miner_example'),
+            '//public/miners/deals/{miner}'.format(miner='miner_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -61,7 +61,7 @@ class TestPublicController(BaseTestCase):
         Get all miners
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/miners/failures/{miner}'.format(miner='miner_example'),
+            '//public/miners/failures/{miner}'.format(miner='miner_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -72,7 +72,7 @@ class TestPublicController(BaseTestCase):
         Get all miners
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/miners',
+            '//public/miners',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -83,7 +83,7 @@ class TestPublicController(BaseTestCase):
         Get miner stats
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/miners/stats/{miner}'.format(miner='miner_example'),
+            '//public/miners/stats/{miner}'.format(miner='miner_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -94,7 +94,7 @@ class TestPublicController(BaseTestCase):
         Net Addrs
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/net/addrs',
+            '//public/net/addrs',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -105,7 +105,7 @@ class TestPublicController(BaseTestCase):
         Net Peers
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/net/peers',
+            '//public/net/peers',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -116,7 +116,7 @@ class TestPublicController(BaseTestCase):
         Public stats
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/stats',
+            '//public/stats',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

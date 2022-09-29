@@ -1,8 +1,9 @@
 package io.swagger.model;
 
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,27 +12,25 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class MainCollection   {
+public class MainCollection  {
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   private String cid = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String createdAt = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String description = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String name = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private Integer userId = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private String uuid = null;
  /**
    * Get cid
@@ -168,3 +167,4 @@ public class MainCollection   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

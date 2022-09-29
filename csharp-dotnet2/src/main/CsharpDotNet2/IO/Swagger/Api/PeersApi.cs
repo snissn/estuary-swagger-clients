@@ -98,9 +98,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Remove peers on Peering Service This endpoint can be used to remove a Peer from the Peering Service
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void AdminPeeringPeersDelete ()
         {
+            
     
             var path = "/admin/peering/peers";
             path = path.Replace("{format}", "json");
@@ -111,7 +112,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -129,9 +130,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// List all Peering peers This endpoint can be used to list all peers on Peering Service
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void AdminPeeringPeersGet ()
         {
+            
     
             var path = "/admin/peering/peers";
             path = path.Replace("{format}", "json");
@@ -142,7 +144,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -160,9 +162,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Add peers on Peering Service This endpoint can be used to add a Peer from the Peering Service
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void AdminPeeringPeersPost ()
         {
+            
     
             var path = "/admin/peering/peers";
             path = path.Replace("{format}", "json");
@@ -173,7 +176,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -191,9 +194,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Start Peering This endpoint can be used to start the Peering Service
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void AdminPeeringStartPost ()
         {
+            
     
             var path = "/admin/peering/start";
             path = path.Replace("{format}", "json");
@@ -204,7 +208,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -222,9 +226,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Check Peering Status This endpoint can be used to check the Peering status
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void AdminPeeringStatusGet ()
         {
+            
     
             var path = "/admin/peering/status";
             path = path.Replace("{format}", "json");
@@ -235,7 +240,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -253,9 +258,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Stop Peering This endpoint can be used to stop the Peering Service
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void AdminPeeringStopPost ()
         {
+            
     
             var path = "/admin/peering/stop";
             path = path.Replace("{format}", "json");
@@ -266,7 +272,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

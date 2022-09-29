@@ -1,6 +1,6 @@
 # SwaggerClient::UserApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**user_api_keys_post**](UserApi.md#user_api_keys_post) | **POST** /user/api-keys | Create API keys for a user
 [**user_export_get**](UserApi.md#user_export_get) | **GET** /user/export | Export user data
 [**user_stats_get**](UserApi.md#user_stats_get) | **GET** /user/stats | Create API keys for a user
+
 
 # **user_api_keys_get**
 > Array&lt;MainGetApiKeysResp&gt; user_api_keys_get
@@ -78,6 +79,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::UserApi.new
+
 key = 'key_example' # String | Key
 
 
@@ -106,7 +108,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

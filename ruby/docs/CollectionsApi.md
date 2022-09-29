@@ -1,6 +1,6 @@
 # SwaggerClient::CollectionsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**collections_fs_add_post**](CollectionsApi.md#collections_fs_add_post) | **POST** /collections/fs/add | Add a file to a collection
 [**collections_get**](CollectionsApi.md#collections_get) | **GET** /collections/ | List all collections
 [**collections_post**](CollectionsApi.md#collections_post) | **POST** /collections/ | Create a new collection
+
 
 # **collections_coluuid_commit_post**
 > String collections_coluuid_commit_post(coluuid)
@@ -32,6 +33,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::CollectionsApi.new
+
 coluuid = 'coluuid_example' # String | coluuid
 
 
@@ -85,6 +87,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::CollectionsApi.new
+
 coluuid = 'coluuid_example' # String | Collection ID
 
 
@@ -137,7 +140,9 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::CollectionsApi.new
+
 coluuid = 'coluuid_example' # String | Collection UUID
+
 opts = { 
   dir: 'dir_example' # String | Directory
 }
@@ -193,7 +198,8 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::CollectionsApi.new
-body = [56] # Array<Integer> | Content IDs to add to collection
+
+body = [SwaggerClient::Array<Integer>.new] # Array<Integer> | Content IDs to add to collection
 
 
 begin
@@ -209,7 +215,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Array&lt;Integer&gt;**](Integer.md)| Content IDs to add to collection | 
+ **body** | **Array&lt;Integer&gt;**| Content IDs to add to collection | 
 
 ### Return type
 
@@ -246,8 +252,11 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::CollectionsApi.new
+
 coluuid = 'coluuid_example' # String | Collection ID
+
 content = 'content_example' # String | Content
+
 path = 'path_example' # String | Path to file
 
 
@@ -278,7 +287,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -302,6 +311,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::CollectionsApi.new
+
 id = 56 # Integer | User ID
 
 
@@ -355,6 +365,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::CollectionsApi.new
+
 body = SwaggerClient::MainCreateCollectionBody.new # MainCreateCollectionBody | Collection name and description
 
 
@@ -383,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

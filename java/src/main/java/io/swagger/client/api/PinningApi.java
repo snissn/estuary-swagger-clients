@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -62,7 +63,7 @@ public class PinningApi {
      */
     public com.squareup.okhttp.Call pinningPinsGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/pinning/pins";
 
@@ -100,17 +101,14 @@ public class PinningApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call pinningPinsGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = pinningPinsGetCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -175,7 +173,7 @@ public class PinningApi {
      */
     public com.squareup.okhttp.Call pinningPinsPinidDeleteCall(String pinid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/pinning/pins/{pinid}"
             .replaceAll("\\{" + "pinid" + "\\}", apiClient.escapeString(pinid.toString()));
@@ -188,7 +186,7 @@ public class PinningApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -214,21 +212,19 @@ public class PinningApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call pinningPinsPinidDeleteValidateBeforeCall(String pinid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'pinid' is set
         if (pinid == null) {
             throw new ApiException("Missing the required parameter 'pinid' when calling pinningPinsPinidDelete(Async)");
         }
         
+
         com.squareup.okhttp.Call call = pinningPinsPinidDeleteCall(pinid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -296,7 +292,7 @@ public class PinningApi {
      */
     public com.squareup.okhttp.Call pinningPinsPinidGetCall(String pinid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/pinning/pins/{pinid}"
             .replaceAll("\\{" + "pinid" + "\\}", apiClient.escapeString(pinid.toString()));
@@ -309,7 +305,7 @@ public class PinningApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -335,21 +331,19 @@ public class PinningApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call pinningPinsPinidGetValidateBeforeCall(String pinid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'pinid' is set
         if (pinid == null) {
             throw new ApiException("Missing the required parameter 'pinid' when calling pinningPinsPinidGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = pinningPinsPinidGetCall(pinid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -417,7 +411,7 @@ public class PinningApi {
      */
     public com.squareup.okhttp.Call pinningPinsPinidPostCall(String pinid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/pinning/pins/{pinid}"
             .replaceAll("\\{" + "pinid" + "\\}", apiClient.escapeString(pinid.toString()));
@@ -430,7 +424,7 @@ public class PinningApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -456,21 +450,19 @@ public class PinningApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call pinningPinsPinidPostValidateBeforeCall(String pinid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'pinid' is set
         if (pinid == null) {
             throw new ApiException("Missing the required parameter 'pinid' when calling pinningPinsPinidPost(Async)");
         }
         
+
         com.squareup.okhttp.Call call = pinningPinsPinidPostCall(pinid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -539,7 +531,7 @@ public class PinningApi {
      */
     public com.squareup.okhttp.Call pinningPinsPostCall(String cid, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/pinning/pins"
             .replaceAll("\\{" + "cid" + "\\}", apiClient.escapeString(cid.toString()))
@@ -553,7 +545,7 @@ public class PinningApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -579,25 +571,24 @@ public class PinningApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call pinningPinsPostValidateBeforeCall(String cid, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'cid' is set
         if (cid == null) {
             throw new ApiException("Missing the required parameter 'cid' when calling pinningPinsPost(Async)");
         }
+        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling pinningPinsPost(Async)");
         }
         
+
         com.squareup.okhttp.Call call = pinningPinsPostCall(cid, name, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

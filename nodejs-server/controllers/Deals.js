@@ -3,7 +3,8 @@
 var utils = require('../utils/writer.js');
 var Deals = require('../service/DealsService');
 
-module.exports.dealEstimatePOST = function dealEstimatePOST (req, res, next, body) {
+module.exports.dealEstimatePOST = function dealEstimatePOST (req, res, next) {
+  var body = req.swagger.params['body'].value;
   Deals.dealEstimatePOST(body)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -13,7 +14,8 @@ module.exports.dealEstimatePOST = function dealEstimatePOST (req, res, next, bod
     });
 };
 
-module.exports.dealInfoDealidGET = function dealInfoDealidGET (req, res, next, dealid) {
+module.exports.dealInfoDealidGET = function dealInfoDealidGET (req, res, next) {
+  var dealid = req.swagger.params['dealid'].value;
   Deals.dealInfoDealidGET(dealid)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -23,7 +25,8 @@ module.exports.dealInfoDealidGET = function dealInfoDealidGET (req, res, next, d
     });
 };
 
-module.exports.dealProposalPropcidGET = function dealProposalPropcidGET (req, res, next, propcid) {
+module.exports.dealProposalPropcidGET = function dealProposalPropcidGET (req, res, next) {
+  var propcid = req.swagger.params['propcid'].value;
   Deals.dealProposalPropcidGET(propcid)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -33,7 +36,8 @@ module.exports.dealProposalPropcidGET = function dealProposalPropcidGET (req, re
     });
 };
 
-module.exports.dealQueryMinerGET = function dealQueryMinerGET (req, res, next, miner) {
+module.exports.dealQueryMinerGET = function dealQueryMinerGET (req, res, next) {
+  var miner = req.swagger.params['miner'].value;
   Deals.dealQueryMinerGET(miner)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -43,8 +47,10 @@ module.exports.dealQueryMinerGET = function dealQueryMinerGET (req, res, next, m
     });
 };
 
-module.exports.dealStatusMinerPropcidGET = function dealStatusMinerPropcidGET (req, res, next, miner, propcid) {
-  Deals.dealStatusMinerPropcidGET(miner, propcid)
+module.exports.dealStatusMinerPropcidGET = function dealStatusMinerPropcidGET (req, res, next) {
+  var miner = req.swagger.params['miner'].value;
+  var propcid = req.swagger.params['propcid'].value;
+  Deals.dealStatusMinerPropcidGET(miner,propcid)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -53,7 +59,8 @@ module.exports.dealStatusMinerPropcidGET = function dealStatusMinerPropcidGET (r
     });
 };
 
-module.exports.dealStatus_by_proposalPropcidGET = function dealStatus_by_proposalPropcidGET (req, res, next, propcid) {
+module.exports.dealStatus_by_proposalPropcidGET = function dealStatus_by_proposalPropcidGET (req, res, next) {
+  var propcid = req.swagger.params['propcid'].value;
   Deals.dealStatus_by_proposalPropcidGET(propcid)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -93,8 +100,10 @@ module.exports.dealsFailuresGET = function dealsFailuresGET (req, res, next) {
     });
 };
 
-module.exports.dealsMakeMinerPOST = function dealsMakeMinerPOST (req, res, next, body, miner) {
-  Deals.dealsMakeMinerPOST(body, miner)
+module.exports.dealsMakeMinerPOST = function dealsMakeMinerPOST (req, res, next) {
+  var miner = req.swagger.params['miner'].value;
+  var dealRequest = req.swagger.params['dealRequest'].value;
+  Deals.dealsMakeMinerPOST(miner,dealRequest)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -103,7 +112,8 @@ module.exports.dealsMakeMinerPOST = function dealsMakeMinerPOST (req, res, next,
     });
 };
 
-module.exports.dealsStatusDealGET = function dealsStatusDealGET (req, res, next, deal) {
+module.exports.dealsStatusDealGET = function dealsStatusDealGET (req, res, next) {
+  var deal = req.swagger.params['deal'].value;
   Deals.dealsStatusDealGET(deal)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -123,7 +133,8 @@ module.exports.publicDealsFailuresGET = function publicDealsFailuresGET (req, re
     });
 };
 
-module.exports.publicMinersStorageQueryMinerGET = function publicMinersStorageQueryMinerGET (req, res, next, miner) {
+module.exports.publicMinersStorageQueryMinerGET = function publicMinersStorageQueryMinerGET (req, res, next) {
+  var miner = req.swagger.params['miner'].value;
   Deals.publicMinersStorageQueryMinerGET(miner)
     .then(function (response) {
       utils.writeJson(res, response);

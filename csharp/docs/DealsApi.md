@@ -1,6 +1,6 @@
 # IO.Swagger.Api.DealsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**DealsStatusDealGet**](DealsApi.md#dealsstatusdealget) | **GET** /deals/status/{deal} | Get Deal Status
 [**PublicDealsFailuresGet**](DealsApi.md#publicdealsfailuresget) | **GET** /public/deals/failures | Get storage failures
 [**PublicMinersStorageQueryMinerGet**](DealsApi.md#publicminersstoragequeryminerget) | **GET** /public/miners/storage/query/{miner} | Query Ask
+
 
 <a name="dealestimatepost"></a>
 # **DealEstimatePost**
@@ -78,10 +79,11 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealinfodealidget"></a>
 # **DealInfoDealidGet**
 > void DealInfoDealidGet (int? dealid)
@@ -143,9 +145,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealproposalpropcidget"></a>
 # **DealProposalPropcidGet**
 > void DealProposalPropcidGet (string propcid)
@@ -207,9 +210,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealqueryminerget"></a>
 # **DealQueryMinerGet**
 > void DealQueryMinerGet (string miner)
@@ -271,9 +275,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealstatusbyproposalpropcidget"></a>
 # **DealStatusByProposalPropcidGet**
 > void DealStatusByProposalPropcidGet (string propcid)
@@ -335,9 +340,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealstatusminerpropcidget"></a>
 # **DealStatusMinerPropcidGet**
 > void DealStatusMinerPropcidGet (string miner, string propcid)
@@ -401,9 +407,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealtransferinprogressget"></a>
 # **DealTransferInProgressGet**
 > void DealTransferInProgressGet ()
@@ -461,9 +468,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealtransferstatuspost"></a>
 # **DealTransferStatusPost**
 > void DealTransferStatusPost ()
@@ -521,9 +529,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealsfailuresget"></a>
 # **DealsFailuresGet**
 > void DealsFailuresGet ()
@@ -581,12 +590,13 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealsmakeminerpost"></a>
 # **DealsMakeMinerPost**
-> void DealsMakeMinerPost (string body, string miner)
+> void DealsMakeMinerPost (string miner, string dealRequest)
 
 Make Deal
 
@@ -612,13 +622,13 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new DealsApi();
-            var body = new string(); // string | Deal Request
             var miner = miner_example;  // string | Miner
+            var dealRequest = dealRequest_example;  // string | Deal Request
 
             try
             {
                 // Make Deal
-                apiInstance.DealsMakeMinerPost(body, miner);
+                apiInstance.DealsMakeMinerPost(miner, dealRequest);
             }
             catch (Exception e)
             {
@@ -633,8 +643,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**string**](string.md)| Deal Request | 
  **miner** | **string**| Miner | 
+ **dealRequest** | **string**| Deal Request | 
 
 ### Return type
 
@@ -646,10 +656,11 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="dealsstatusdealget"></a>
 # **DealsStatusDealGet**
 > void DealsStatusDealGet (int? deal)
@@ -711,9 +722,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="publicdealsfailuresget"></a>
 # **PublicDealsFailuresGet**
 > void PublicDealsFailuresGet ()
@@ -771,9 +783,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="publicminersstoragequeryminerget"></a>
 # **PublicMinersStorageQueryMinerGet**
 > void PublicMinersStorageQueryMinerGet (string miner)
@@ -835,6 +848,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

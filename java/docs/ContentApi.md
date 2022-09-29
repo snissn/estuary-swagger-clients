@@ -1,6 +1,6 @@
 # ContentApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**contentStagingZonesGet**](ContentApi.md#contentStagingZonesGet) | **GET** /content/staging-zones | Get staging zone for user
 [**contentStatsGet**](ContentApi.md#contentStatsGet) | **GET** /content/stats | Get content statistics
 [**contentStatusIdGet**](ContentApi.md#contentStatusIdGet) | **GET** /content/status/{id} | Content Status
+
 
 <a name="contentAddCarPost"></a>
 # **contentAddCarPost**
@@ -63,7 +64,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Car |
+ **body** | **String**| Car |
  **filename** | **String**| Filename | [optional]
  **commp** | **String**| Commp | [optional]
  **size** | **String**| Size | [optional]
@@ -78,8 +79,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="contentAddIpfsPost"></a>
 # **contentAddIpfsPost**
@@ -132,8 +133,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="contentAddPost"></a>
 # **contentAddPost**
@@ -161,7 +162,7 @@ bearerAuth.setApiKey("YOUR API KEY");
 //bearerAuth.setApiKeyPrefix("Token");
 
 ContentApi apiInstance = new ContentApi();
-File file = new File("file_example"); // File | 
+File file = new File("/path/to/file.txt"); // File | File to upload
 String coluuid = "coluuid_example"; // String | Collection UUID
 String dir = "dir_example"; // String | Directory
 try {
@@ -177,7 +178,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **File**|  |
+ **file** | **File**| File to upload |
  **coluuid** | **String**| Collection UUID |
  **dir** | **String**| Directory |
 
@@ -305,7 +306,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentBwUsageContentGet"></a>
 # **contentBwUsageContentGet**
@@ -359,7 +360,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentCreatePost"></a>
 # **contentCreatePost**
@@ -400,7 +401,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Content |
+ **body** | **String**| Content |
 
 ### Return type
 
@@ -412,8 +413,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="contentDealsGet"></a>
 # **contentDealsGet**
@@ -469,7 +470,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentEnsureReplicationDatacidGet"></a>
 # **contentEnsureReplicationDatacidGet**
@@ -523,7 +524,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentFailuresContentGet"></a>
 # **contentFailuresContentGet**
@@ -631,8 +632,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="contentListGet"></a>
 # **contentListGet**
@@ -737,7 +738,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentStagingZonesGet"></a>
 # **contentStagingZonesGet**
@@ -787,7 +788,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentStatsGet"></a>
 # **contentStatsGet**
@@ -841,7 +842,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentStatusIdGet"></a>
 # **contentStatusIdGet**
@@ -895,5 +896,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 

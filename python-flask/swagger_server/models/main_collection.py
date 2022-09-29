@@ -14,6 +14,7 @@ class MainCollection(Model):
 
     Do not edit the class manually.
     """
+
     def __init__(self, cid: str=None, created_at: str=None, description: str=None, name: str=None, user_id: int=None, uuid: str=None):  # noqa: E501
         """MainCollection - a model defined in Swagger
 
@@ -47,6 +48,7 @@ class MainCollection(Model):
             'user_id': 'userId',
             'uuid': 'uuid'
         }
+
         self._cid = cid
         self._created_at = created_at
         self._description = description

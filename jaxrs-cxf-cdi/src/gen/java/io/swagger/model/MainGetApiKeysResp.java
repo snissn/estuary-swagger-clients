@@ -3,8 +3,10 @@ package io.swagger.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+
+import io.swagger.annotations.*;
 import java.util.Objects;
 
 import javax.xml.bind.annotation.*;
@@ -12,6 +14,7 @@ import javax.xml.bind.annotation.*;
 
 
 public class MainGetApiKeysResp   {
+  
   private String expiry = null;
   private String token = null;
 
@@ -23,8 +26,7 @@ public class MainGetApiKeysResp   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("expiry")
   public String getExpiry() {
     return expiry;
@@ -41,8 +43,7 @@ public class MainGetApiKeysResp   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("token")
   public String getToken() {
     return token;
@@ -92,3 +93,4 @@ public class MainGetApiKeysResp   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

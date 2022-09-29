@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,13 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
 /**
  * MainEstimateDealBody
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-27T20:40:26.717738-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T01:52:34.053Z")
 public class MainEstimateDealBody {
   @SerializedName("durationBlks")
   private Integer durationBlks = null;
@@ -48,7 +50,7 @@ public class MainEstimateDealBody {
    * Get durationBlks
    * @return durationBlks
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Integer getDurationBlks() {
     return durationBlks;
   }
@@ -66,7 +68,7 @@ public class MainEstimateDealBody {
    * Get replication
    * @return replication
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Integer getReplication() {
     return replication;
   }
@@ -84,7 +86,7 @@ public class MainEstimateDealBody {
    * Get size
    * @return size
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Integer getSize() {
     return size;
   }
@@ -102,7 +104,7 @@ public class MainEstimateDealBody {
    * Get verified
    * @return verified
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Boolean isVerified() {
     return verified;
   }
@@ -158,3 +160,4 @@ public class MainEstimateDealBody {
   }
 
 }
+

@@ -1,6 +1,6 @@
 # EstuaryApi.ContentApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**contentStatsGet**](ContentApi.md#contentStatsGet) | **GET** /content/stats | Get content statistics
 [**contentStatusIdGet**](ContentApi.md#contentStatusIdGet) | **GET** /content/status/{id} | Content Status
 
+
 <a name="contentAddCarPost"></a>
 # **contentAddCarPost**
 > contentAddCarPost(body, opts)
@@ -31,36 +32,40 @@ This endpoint is used to add a car object to the network. The object can be a fi
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let body = "body_example"; // String | Car
-let opts = { 
+var apiInstance = new EstuaryApi.ContentApi();
+
+var body = "body_example"; // String | Car
+
+var opts = { 
   'filename': "filename_example", // String | Filename
   'commp': "commp_example", // String | Commp
   'size': "size_example" // String | Size
 };
-apiInstance.contentAddCarPost(body, opts, (error, data, response) => {
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentAddCarPost(body, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Car | 
+ **body** | **String**| Car | 
  **filename** | **String**| Filename | [optional] 
  **commp** | **String**| Commp | [optional] 
  **size** | **String**| Size | [optional] 
@@ -75,8 +80,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="contentAddIpfsPost"></a>
 # **contentAddIpfsPost**
@@ -88,25 +93,28 @@ This endpoint is used to add an IPFS object to the network. The object can be a 
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let body = new EstuaryApi.UtilContentAddIpfsBody(); // UtilContentAddIpfsBody | IPFS Body
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentAddIpfsPost(body, (error, data, response) => {
+var body = new EstuaryApi.UtilContentAddIpfsBody(); // UtilContentAddIpfsBody | IPFS Body
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentAddIpfsPost(body, callback);
 ```
 
 ### Parameters
@@ -125,8 +133,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="contentAddPost"></a>
 # **contentAddPost**
@@ -138,34 +146,39 @@ This endpoint is used to upload new content.
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let file = "file_example"; // Blob | 
-let coluuid = "coluuid_example"; // String | Collection UUID
-let dir = "dir_example"; // String | Directory
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentAddPost(file, coluuid, dir, (error, data, response) => {
+var file = "/path/to/file.txt"; // File | File to upload
+
+var coluuid = "coluuid_example"; // String | Collection UUID
+
+var dir = "dir_example"; // String | Directory
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.contentAddPost(file, coluuid, dir, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **Blob**|  | 
+ **file** | **File**| File to upload | 
  **coluuid** | **String**| Collection UUID | 
  **dir** | **String**| Directory | 
 
@@ -184,7 +197,7 @@ Name | Type | Description  | Notes
 
 <a name="contentAggregatedContentGet"></a>
 # **contentAggregatedContentGet**
-> &#x27;String&#x27; contentAggregatedContentGet(content)
+> 'String' contentAggregatedContentGet(content)
 
 Get aggregated content stats
 
@@ -192,25 +205,28 @@ This endpoint returns aggregated content stats
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let content = "content_example"; // String | Content ID
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentAggregatedContentGet(content, (error, data, response) => {
+var content = "content_example"; // String | Content ID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.contentAggregatedContentGet(content, callback);
 ```
 
 ### Parameters
@@ -221,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**&#x27;String&#x27;**
+**'String'**
 
 ### Authorization
 
@@ -242,27 +258,32 @@ This endpoint is used to get all deals for a user
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let begin = "begin_example"; // String | Begin
-let duration = "duration_example"; // String | Duration
-let all = "all_example"; // String | All
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentAllDealsGet(begin, duration, all, (error, data, response) => {
+var begin = "begin_example"; // String | Begin
+
+var duration = "duration_example"; // String | Duration
+
+var all = "all_example"; // String | All
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentAllDealsGet(begin, duration, all, callback);
 ```
 
 ### Parameters
@@ -284,7 +305,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentBwUsageContentGet"></a>
 # **contentBwUsageContentGet**
@@ -296,25 +317,28 @@ This endpoint returns content bandwidth
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let content = "content_example"; // String | Content ID
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentBwUsageContentGet(content, (error, data, response) => {
+var content = "content_example"; // String | Content ID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentBwUsageContentGet(content, callback);
 ```
 
 ### Parameters
@@ -334,7 +358,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentCreatePost"></a>
 # **contentCreatePost**
@@ -346,32 +370,35 @@ This endpoint adds a new content
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let body = "body_example"; // String | Content
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentCreatePost(body, (error, data, response) => {
+var body = "body_example"; // String | Content
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentCreatePost(body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Content | 
+ **body** | **String**| Content | 
 
 ### Return type
 
@@ -383,8 +410,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="contentDealsGet"></a>
 # **contentDealsGet**
@@ -396,27 +423,30 @@ This endpoint lists all content with deals
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let opts = { 
+var apiInstance = new EstuaryApi.ContentApi();
+
+var opts = { 
   'limit': 56, // Number | Limit
   'offset': 56 // Number | Offset
 };
-apiInstance.contentDealsGet(opts, (error, data, response) => {
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentDealsGet(opts, callback);
 ```
 
 ### Parameters
@@ -437,7 +467,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentEnsureReplicationDatacidGet"></a>
 # **contentEnsureReplicationDatacidGet**
@@ -449,25 +479,28 @@ This endpoint ensures that the content is replicated to the specified number of 
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let datacid = "datacid_example"; // String | Data CID
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentEnsureReplicationDatacidGet(datacid, (error, data, response) => {
+var datacid = "datacid_example"; // String | Data CID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentEnsureReplicationDatacidGet(datacid, callback);
 ```
 
 ### Parameters
@@ -487,11 +520,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentFailuresContentGet"></a>
 # **contentFailuresContentGet**
-> &#x27;String&#x27; contentFailuresContentGet(content)
+> 'String' contentFailuresContentGet(content)
 
 List all failures for a content
 
@@ -499,25 +532,28 @@ This endpoint returns all failures for a content
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let content = "content_example"; // String | Content ID
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentFailuresContentGet(content, (error, data, response) => {
+var content = "content_example"; // String | Content ID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.contentFailuresContentGet(content, callback);
 ```
 
 ### Parameters
@@ -528,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**&#x27;String&#x27;**
+**'String'**
 
 ### Authorization
 
@@ -549,25 +585,28 @@ This endpoint imports a deal into the shuttle.
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let body = new EstuaryApi.MainImportDealBody(); // MainImportDealBody | Import a deal
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentImportdealPost(body, (error, data, response) => {
+var body = new EstuaryApi.MainImportDealBody(); // MainImportDealBody | Import a deal
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentImportdealPost(body, callback);
 ```
 
 ### Parameters
@@ -586,12 +625,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="contentListGet"></a>
 # **contentListGet**
-> [&#x27;String&#x27;] contentListGet()
+> ['String'] contentListGet()
 
 List all pinned content
 
@@ -599,23 +638,25 @@ This endpoint lists all content
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-apiInstance.contentListGet((error, data, response) => {
+var apiInstance = new EstuaryApi.ContentApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.contentListGet(callback);
 ```
 
 ### Parameters
@@ -623,7 +664,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**[&#x27;String&#x27;]**
+**['String']**
 
 ### Authorization
 
@@ -644,25 +685,28 @@ This endpoint reads content from the blockstore
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let cont = "cont_example"; // String | CID
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentReadContGet(cont, (error, data, response) => {
+var cont = "cont_example"; // String | CID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentReadContGet(cont, callback);
 ```
 
 ### Parameters
@@ -682,7 +726,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentStagingZonesGet"></a>
 # **contentStagingZonesGet**
@@ -694,23 +738,25 @@ This endpoint is used to get staging zone for user.
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-apiInstance.contentStagingZonesGet((error, data, response) => {
+var apiInstance = new EstuaryApi.ContentApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentStagingZonesGet(callback);
 ```
 
 ### Parameters
@@ -727,7 +773,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentStatsGet"></a>
 # **contentStatsGet**
@@ -739,25 +785,28 @@ This endpoint is used to get content statistics. Every content stored in the net
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let limit = "limit_example"; // String | limit
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentStatsGet(limit, (error, data, response) => {
+var limit = "limit_example"; // String | limit
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentStatsGet(limit, callback);
 ```
 
 ### Parameters
@@ -777,7 +826,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="contentStatusIdGet"></a>
 # **contentStatusIdGet**
@@ -789,25 +838,28 @@ This endpoint returns the status of a content
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.ContentApi();
-let id = 56; // Number | Content ID
+var apiInstance = new EstuaryApi.ContentApi();
 
-apiInstance.contentStatusIdGet(id, (error, data, response) => {
+var id = 56; // Number | Content ID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.contentStatusIdGet(id, callback);
 ```
 
 ### Parameters
@@ -827,5 +879,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 

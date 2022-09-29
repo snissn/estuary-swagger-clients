@@ -3,7 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -12,7 +13,7 @@ import javax.validation.constraints.*;
  * MainUserStatsResponse
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-09-27T20:41:13.008650-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T01:53:12.142Z")
 
 
 public class MainUserStatsResponse   {
@@ -30,10 +31,11 @@ public class MainUserStatsResponse   {
   /**
    * Get numPins
    * @return numPins
-   **/
-  @Schema(description = "")
-  
-    public Integer getNumPins() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public Integer getNumPins() {
     return numPins;
   }
 
@@ -49,10 +51,11 @@ public class MainUserStatsResponse   {
   /**
    * Get totalSize
    * @return totalSize
-   **/
-  @Schema(description = "")
-  
-    public Integer getTotalSize() {
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public Integer getTotalSize() {
     return totalSize;
   }
 
@@ -101,3 +104,4 @@ public class MainUserStatsResponse   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

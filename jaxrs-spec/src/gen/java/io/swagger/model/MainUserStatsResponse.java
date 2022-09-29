@@ -10,9 +10,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class MainUserStatsResponse   {
-
+  
   private @Valid Integer numPins = null;
-
   private @Valid Integer totalSize = null;
 
   /**
@@ -25,7 +24,6 @@ public class MainUserStatsResponse   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("numPins")
-
   public Integer getNumPins() {
     return numPins;
   }
@@ -43,7 +41,6 @@ public class MainUserStatsResponse   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("totalSize")
-
   public Integer getTotalSize() {
     return totalSize;
   }
@@ -92,3 +89,4 @@ public class MainUserStatsResponse   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

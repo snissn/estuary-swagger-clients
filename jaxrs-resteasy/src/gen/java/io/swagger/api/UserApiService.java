@@ -3,6 +3,7 @@ package io.swagger.api;
 import io.swagger.api.*;
 import io.swagger.model.*;
 
+
 import io.swagger.model.MainGetApiKeysResp;
 import io.swagger.model.MainUserStatsResponse;
 import io.swagger.model.UtilHttpError;
@@ -15,7 +16,8 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyServerCodegen", date = "2022-09-27T20:40:41.950348-10:00[Pacific/Honolulu]")public interface UserApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:52:43.427Z")
+public interface UserApiService {
       Response userApiKeysGet(SecurityContext securityContext)
       throws NotFoundException;
       Response userApiKeysKeyDelete(String key,SecurityContext securityContext)

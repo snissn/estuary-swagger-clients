@@ -14,10 +14,11 @@ public struct MainGetApiKeysResp: Codable {
     public var expiry: String?
     public var token: String?
 
-    public init(expiry: String? = nil, token: String? = nil) {
+    public init(expiry: String?, token: String?) {
         self.expiry = expiry
         self.token = token
     }
 
 
 }
+

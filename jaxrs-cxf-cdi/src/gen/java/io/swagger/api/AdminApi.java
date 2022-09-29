@@ -9,14 +9,7 @@ import javax.ws.rs.core.SecurityContext;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.annotations.*;
 import java.io.InputStream;
 
 import org.apache.cxf.jaxrs.ext.multipart.Attachment;
@@ -28,10 +21,11 @@ import javax.validation.constraints.*;
 @Path("/admin")
 @RequestScoped
 
+@Api(description = "the admin API")
 
 
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:52:40.454Z")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-27T20:40:33.778721-10:00[Pacific/Honolulu]")
 public class AdminApi  {
 
   @Context SecurityContext securityContext;
@@ -41,23 +35,23 @@ public class AdminApi  {
 
     @POST
     @Path("/autoretrieve/init")
-    @Consumes({ "*/*" })
     
-    @Operation(summary = "Register autoretrieve server", description = "This endpoint registers a new autoretrieve server", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "autoretrieve" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Register autoretrieve server", notes = "This endpoint registers a new autoretrieve server", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "autoretrieve",  })
     @ApiResponses(value = {  })
-    public Response adminAutoretrieveInitPost(
-@Parameter(description = "Autoretrieve's public key" ,required=true) String body
-) {
-        return delegate.adminAutoretrieveInitPost(body, securityContext);
+    public Response adminAutoretrieveInitPost(@ApiParam(value = "Autoretrieve's comma-separated list of addresses" ,required=true) String addresses, @ApiParam(value = "Autoretrieve's public key" ,required=true) String pubKey) {
+        return delegate.adminAutoretrieveInitPost(addresses, pubKey, securityContext);
     }
 
     @GET
     @Path("/autoretrieve/list")
     
-    
-    @Operation(summary = "List autoretrieve servers", description = "This endpoint lists all registered autoretrieve servers", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "autoretrieve" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "List autoretrieve servers", notes = "This endpoint lists all registered autoretrieve servers", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "autoretrieve",  })
     @ApiResponses(value = {  })
     public Response adminAutoretrieveListGet() {
         return delegate.adminAutoretrieveListGet(securityContext);
@@ -66,9 +60,10 @@ public class AdminApi  {
     @DELETE
     @Path("/peering/peers")
     
-    
-    @Operation(summary = "Remove peers on Peering Service", description = "This endpoint can be used to remove a Peer from the Peering Service", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Remove peers on Peering Service", notes = "This endpoint can be used to remove a Peer from the Peering Service", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public Response adminPeeringPeersDelete() {
         return delegate.adminPeeringPeersDelete(securityContext);
@@ -77,9 +72,10 @@ public class AdminApi  {
     @GET
     @Path("/peering/peers")
     
-    
-    @Operation(summary = "List all Peering peers", description = "This endpoint can be used to list all peers on Peering Service", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "List all Peering peers", notes = "This endpoint can be used to list all peers on Peering Service", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public Response adminPeeringPeersGet() {
         return delegate.adminPeeringPeersGet(securityContext);
@@ -88,9 +84,10 @@ public class AdminApi  {
     @POST
     @Path("/peering/peers")
     
-    
-    @Operation(summary = "Add peers on Peering Service", description = "This endpoint can be used to add a Peer from the Peering Service", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Add peers on Peering Service", notes = "This endpoint can be used to add a Peer from the Peering Service", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public Response adminPeeringPeersPost() {
         return delegate.adminPeeringPeersPost(securityContext);
@@ -99,9 +96,10 @@ public class AdminApi  {
     @POST
     @Path("/peering/start")
     
-    
-    @Operation(summary = "Start Peering", description = "This endpoint can be used to start the Peering Service", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Start Peering", notes = "This endpoint can be used to start the Peering Service", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public Response adminPeeringStartPost() {
         return delegate.adminPeeringStartPost(securityContext);
@@ -110,9 +108,10 @@ public class AdminApi  {
     @GET
     @Path("/peering/status")
     
-    
-    @Operation(summary = "Check Peering Status", description = "This endpoint can be used to check the Peering status", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Check Peering Status", notes = "This endpoint can be used to check the Peering status", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public Response adminPeeringStatusGet() {
         return delegate.adminPeeringStatusGet(securityContext);
@@ -121,9 +120,10 @@ public class AdminApi  {
     @POST
     @Path("/peering/stop")
     
-    
-    @Operation(summary = "Stop Peering", description = "This endpoint can be used to stop the Peering Service", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "peering", "peers" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Stop Peering", notes = "This endpoint can be used to stop the Peering Service", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "admin", "peering", "peers",  })
     @ApiResponses(value = {  })
     public Response adminPeeringStopPost() {
         return delegate.adminPeeringStopPost(securityContext);
@@ -132,9 +132,10 @@ public class AdminApi  {
     @GET
     @Path("/system/config")
     
-    
-    @Operation(summary = "Get systems(estuary/shuttle) config", description = "This endpoint is used to get system configs.", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get systems(estuary/shuttle) config", notes = "This endpoint is used to get system configs.", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "admin",  })
     @ApiResponses(value = {  })
     public Response adminSystemConfigGet() {
         return delegate.adminSystemConfigGet(securityContext);
@@ -143,9 +144,10 @@ public class AdminApi  {
     @GET
     @Path("/users")
     
-    
-    @Operation(summary = "Get all users", description = "This endpoint is used to get all users.", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get all users", notes = "This endpoint is used to get all users.", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "admin" })
     @ApiResponses(value = {  })
     public Response adminUsersGet() {
         return delegate.adminUsersGet(securityContext);

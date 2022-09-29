@@ -13,7 +13,11 @@ import Alamofire
 open class ContentAPI {
     /**
      Add Car object
-     - parameter body: (body) Car      - parameter filename: (query) Filename (optional)     - parameter commp: (query) Commp (optional)     - parameter size: (query) Size (optional)
+     
+     - parameter body: (body) Car 
+     - parameter filename: (query) Filename (optional)
+     - parameter commp: (query) Commp (optional)
+     - parameter size: (query) Size (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func contentAddCarPost(body: String, filename: String? = nil, commp: String? = nil, size: String? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -34,7 +38,11 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter body: (body) Car      - parameter filename: (query) Filename (optional)     - parameter commp: (query) Commp (optional)     - parameter size: (query) Size (optional)
+     
+     - parameter body: (body) Car 
+     - parameter filename: (query) Filename (optional)
+     - parameter commp: (query) Commp (optional)
+     - parameter size: (query) Size (optional)
 
      - returns: RequestBuilder<Void> 
      */
@@ -42,11 +50,12 @@ open class ContentAPI {
         let path = "/content/add-car"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "filename": filename, 
-                        "commp": commp, 
-                        "size": size
+            "filename": filename, 
+            "commp": commp, 
+            "size": size
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -56,6 +65,7 @@ open class ContentAPI {
 
     /**
      Add IPFS object
+     
      - parameter body: (body) IPFS Body 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -77,6 +87,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter body: (body) IPFS Body 
 
      - returns: RequestBuilder<Void> 
@@ -95,10 +106,13 @@ open class ContentAPI {
 
     /**
      Add new content
-     - parameter file: (form)       - parameter coluuid: (path) Collection UUID      - parameter dir: (path) Directory 
+     
+     - parameter file: (form) File to upload 
+     - parameter coluuid: (path) Collection UUID 
+     - parameter dir: (path) Directory 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func contentAddPost(file: Data, coluuid: String, dir: String, completion: @escaping ((_ data: UtilContentAddResponse?,_ error: Error?) -> Void)) {
+    open class func contentAddPost(file: URL, coluuid: String, dir: String, completion: @escaping ((_ data: UtilContentAddResponse?,_ error: Error?) -> Void)) {
         contentAddPostWithRequestBuilder(file: file, coluuid: coluuid, dir: dir).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -112,17 +126,15 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "retrieval_url" : "retrieval_url",
-  "estuaryId" : 0,
-  "providers" : [ "providers", "providers" ],
-  "cid" : "cid"
-}}]
-     - parameter file: (form)       - parameter coluuid: (path) Collection UUID      - parameter dir: (path) Directory 
+     - examples: [{contentType=application/json, example={"empty": false}}]
+     
+     - parameter file: (form) File to upload 
+     - parameter coluuid: (path) Collection UUID 
+     - parameter dir: (path) Directory 
 
      - returns: RequestBuilder<UtilContentAddResponse> 
      */
-    open class func contentAddPostWithRequestBuilder(file: Data, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
+    open class func contentAddPostWithRequestBuilder(file: URL, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
         var path = "/content/add"
         let coluuidPreEscape = "\(coluuid)"
         let coluuidPostEscape = coluuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -132,12 +144,12 @@ open class ContentAPI {
         path = path.replacingOccurrences(of: "{dir}", with: dirPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let formParams: [String:Any?] = [
-                        "file": file
+            "file": file
         ]
 
         let nonNullParameters = APIHelper.rejectNil(formParams)
         let parameters = APIHelper.convertBoolToString(nonNullParameters)
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<UtilContentAddResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -147,6 +159,7 @@ open class ContentAPI {
 
     /**
      Get aggregated content stats
+     
      - parameter content: (path) Content ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -164,7 +177,11 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
+     
      - parameter content: (path) Content ID 
 
      - returns: RequestBuilder<String> 
@@ -176,7 +193,7 @@ open class ContentAPI {
         path = path.replacingOccurrences(of: "{content}", with: contentPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -186,7 +203,10 @@ open class ContentAPI {
 
     /**
      Get all deals for a user
-     - parameter begin: (query) Begin      - parameter duration: (query) Duration      - parameter all: (query) All 
+     
+     - parameter begin: (query) Begin 
+     - parameter duration: (query) Duration 
+     - parameter all: (query) All 
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func contentAllDealsGet(begin: String, duration: String, all: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -207,7 +227,10 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter begin: (query) Begin      - parameter duration: (query) Duration      - parameter all: (query) All 
+     
+     - parameter begin: (query) Begin 
+     - parameter duration: (query) Duration 
+     - parameter all: (query) All 
 
      - returns: RequestBuilder<Void> 
      */
@@ -215,11 +238,12 @@ open class ContentAPI {
         let path = "/content/all-deals"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "begin": begin, 
-                        "duration": duration, 
-                        "all": all
+            "begin": begin, 
+            "duration": duration, 
+            "all": all
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -229,6 +253,7 @@ open class ContentAPI {
 
     /**
      Get content bandwidth
+     
      - parameter content: (path) Content ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -250,6 +275,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter content: (path) Content ID 
 
      - returns: RequestBuilder<Void> 
@@ -261,7 +287,7 @@ open class ContentAPI {
         path = path.replacingOccurrences(of: "{content}", with: contentPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -271,6 +297,7 @@ open class ContentAPI {
 
     /**
      Add a new content
+     
      - parameter body: (body) Content 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -292,6 +319,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter body: (body) Content 
 
      - returns: RequestBuilder<Void> 
@@ -310,7 +338,9 @@ open class ContentAPI {
 
     /**
      Content with deals
-     - parameter limit: (query) Limit (optional)     - parameter offset: (query) Offset (optional)
+     
+     - parameter limit: (query) Limit (optional)
+     - parameter offset: (query) Offset (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func contentDealsGet(limit: Int? = nil, offset: Int? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -331,7 +361,9 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter limit: (query) Limit (optional)     - parameter offset: (query) Offset (optional)
+     
+     - parameter limit: (query) Limit (optional)
+     - parameter offset: (query) Offset (optional)
 
      - returns: RequestBuilder<Void> 
      */
@@ -339,10 +371,11 @@ open class ContentAPI {
         let path = "/content/deals"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "limit": limit?.encodeToJSON(), 
-                        "offset": offset?.encodeToJSON()
+            "limit": limit?.encodeToJSON(), 
+            "offset": offset?.encodeToJSON()
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -352,6 +385,7 @@ open class ContentAPI {
 
     /**
      Ensure Replication
+     
      - parameter datacid: (path) Data CID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -373,6 +407,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter datacid: (path) Data CID 
 
      - returns: RequestBuilder<Void> 
@@ -384,7 +419,7 @@ open class ContentAPI {
         path = path.replacingOccurrences(of: "{datacid}", with: datacidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -394,6 +429,7 @@ open class ContentAPI {
 
     /**
      List all failures for a content
+     
      - parameter content: (path) Content ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -411,7 +447,11 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
+     
      - parameter content: (path) Content ID 
 
      - returns: RequestBuilder<String> 
@@ -423,7 +463,7 @@ open class ContentAPI {
         path = path.replacingOccurrences(of: "{content}", with: contentPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -433,6 +473,7 @@ open class ContentAPI {
 
     /**
      Import a deal
+     
      - parameter body: (body) Import a deal 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -454,6 +495,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter body: (body) Import a deal 
 
      - returns: RequestBuilder<Void> 
@@ -472,7 +514,7 @@ open class ContentAPI {
 
     /**
      List all pinned content
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func contentListGet(completion: @escaping ((_ data: [String]?,_ error: Error?) -> Void)) {
@@ -489,7 +531,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ "", "" ]}]
+     - examples: [{contentType=application/json, example={}}]
 
      - returns: RequestBuilder<[String]> 
      */
@@ -497,7 +539,7 @@ open class ContentAPI {
         let path = "/content/list"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[String]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -507,6 +549,7 @@ open class ContentAPI {
 
     /**
      Read content
+     
      - parameter cont: (path) CID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -528,6 +571,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter cont: (path) CID 
 
      - returns: RequestBuilder<Void> 
@@ -539,7 +583,7 @@ open class ContentAPI {
         path = path.replacingOccurrences(of: "{cont}", with: contPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -549,7 +593,7 @@ open class ContentAPI {
 
     /**
      Get staging zone for user
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func contentStagingZonesGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -577,7 +621,7 @@ open class ContentAPI {
         let path = "/content/staging-zones"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -587,6 +631,7 @@ open class ContentAPI {
 
     /**
      Get content statistics
+     
      - parameter limit: (path) limit 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -608,6 +653,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter limit: (path) limit 
 
      - returns: RequestBuilder<Void> 
@@ -619,7 +665,7 @@ open class ContentAPI {
         path = path.replacingOccurrences(of: "{limit}", with: limitPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -629,6 +675,7 @@ open class ContentAPI {
 
     /**
      Content Status
+     
      - parameter _id: (path) Content ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -650,6 +697,7 @@ open class ContentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter _id: (path) Content ID 
 
      - returns: RequestBuilder<Void> 
@@ -661,7 +709,7 @@ open class ContentAPI {
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()

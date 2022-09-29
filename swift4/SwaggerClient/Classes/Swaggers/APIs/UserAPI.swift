@@ -13,7 +13,7 @@ import Alamofire
 open class UserAPI {
     /**
      Get API keys for a user
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userApiKeysGet(completion: @escaping ((_ data: [MainGetApiKeysResp]?,_ error: Error?) -> Void)) {
@@ -30,13 +30,7 @@ open class UserAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ {
-  "expiry" : "expiry",
-  "token" : "token"
-}, {
-  "expiry" : "expiry",
-  "token" : "token"
-} ]}]
+     - examples: [{contentType=application/json, example={}}]
 
      - returns: RequestBuilder<[MainGetApiKeysResp]> 
      */
@@ -44,7 +38,7 @@ open class UserAPI {
         let path = "/user/api-keys"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[MainGetApiKeysResp]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -54,6 +48,7 @@ open class UserAPI {
 
     /**
      Revoke a User API Key.
+     
      - parameter key: (path) Key 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -75,6 +70,7 @@ open class UserAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter key: (path) Key 
 
      - returns: RequestBuilder<Void> 
@@ -86,7 +82,7 @@ open class UserAPI {
         path = path.replacingOccurrences(of: "{key}", with: keyPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -96,7 +92,7 @@ open class UserAPI {
 
     /**
      Create API keys for a user
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userApiKeysPost(completion: @escaping ((_ data: MainGetApiKeysResp?,_ error: Error?) -> Void)) {
@@ -113,10 +109,7 @@ open class UserAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "expiry" : "expiry",
-  "token" : "token"
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
 
      - returns: RequestBuilder<MainGetApiKeysResp> 
      */
@@ -124,7 +117,7 @@ open class UserAPI {
         let path = "/user/api-keys"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<MainGetApiKeysResp>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -134,7 +127,7 @@ open class UserAPI {
 
     /**
      Export user data
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userExportGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
@@ -151,7 +144,10 @@ open class UserAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
 
      - returns: RequestBuilder<String> 
      */
@@ -159,7 +155,7 @@ open class UserAPI {
         let path = "/user/export"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -169,7 +165,7 @@ open class UserAPI {
 
     /**
      Create API keys for a user
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userStatsGet(completion: @escaping ((_ data: MainUserStatsResponse?,_ error: Error?) -> Void)) {
@@ -186,10 +182,7 @@ open class UserAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "totalSize" : 6,
-  "numPins" : 0
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
 
      - returns: RequestBuilder<MainUserStatsResponse> 
      */
@@ -197,7 +190,7 @@ open class UserAPI {
         let path = "/user/stats"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<MainUserStatsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

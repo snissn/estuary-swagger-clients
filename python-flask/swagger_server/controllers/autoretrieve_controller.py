@@ -4,18 +4,18 @@ import six
 from swagger_server import util
 
 
-def admin_autoretrieve_init_post(body):  # noqa: E501
+def admin_autoretrieve_init_post(addresses, pubKey):  # noqa: E501
     """Register autoretrieve server
 
     This endpoint registers a new autoretrieve server # noqa: E501
 
-    :param body: Autoretrieve&#x27;s public key
-    :type body: dict | bytes
+    :param addresses: Autoretrieve&#39;s comma-separated list of addresses
+    :type addresses: str
+    :param pubKey: Autoretrieve&#39;s public key
+    :type pubKey: str
 
     :rtype: None
     """
-    if connexion.request.is_json:
-        body = str.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 
@@ -35,7 +35,7 @@ def autoretrieve_heartbeat_post(token):  # noqa: E501
 
     This endpoint updates the lastConnection field for autoretrieve # noqa: E501
 
-    :param token: Autoretrieve&#x27;s auth token
+    :param token: Autoretrieve&#39;s auth token
     :type token: str
 
     :rtype: None

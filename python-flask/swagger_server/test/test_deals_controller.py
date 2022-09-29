@@ -19,10 +19,10 @@ class TestDealsController(BaseTestCase):
         """
         body = MainEstimateDealBody()
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deal/estimate',
+            '//deal/estimate',
             method='POST',
             data=json.dumps(body),
-            content_type='*/*')
+            content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
@@ -32,7 +32,7 @@ class TestDealsController(BaseTestCase):
         Get Deal Info
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deal/info/{dealid}'.format(dealid=56),
+            '//deal/info/{dealid}'.format(dealid=56),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -43,7 +43,7 @@ class TestDealsController(BaseTestCase):
         Get Proposal
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deal/proposal/{propcid}'.format(propcid='propcid_example'),
+            '//deal/proposal/{propcid}'.format(propcid='propcid_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -54,7 +54,7 @@ class TestDealsController(BaseTestCase):
         Query Ask
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deal/query/{miner}'.format(miner='miner_example'),
+            '//deal/query/{miner}'.format(miner='miner_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -65,7 +65,7 @@ class TestDealsController(BaseTestCase):
         Get Deal Status by PropCid
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deal/status-by-proposal/{propcid}'.format(propcid='propcid_example'),
+            '//deal/status-by-proposal/{propcid}'.format(propcid='propcid_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -76,7 +76,7 @@ class TestDealsController(BaseTestCase):
         Deal Status
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deal/status/{miner}/{propcid}'.format(miner='miner_example', propcid='propcid_example'),
+            '//deal/status/{miner}/{propcid}'.format(miner='miner_example', propcid='propcid_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -87,7 +87,7 @@ class TestDealsController(BaseTestCase):
         Transfer In Progress
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deal/transfer/in-progress',
+            '//deal/transfer/in-progress',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -98,7 +98,7 @@ class TestDealsController(BaseTestCase):
         Transfer Status
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deal/transfer/status',
+            '//deal/transfer/status',
             method='POST')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -109,7 +109,7 @@ class TestDealsController(BaseTestCase):
         Get storage failures for user
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deals/failures',
+            '//deals/failures',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -119,12 +119,12 @@ class TestDealsController(BaseTestCase):
 
         Make Deal
         """
-        body = 'body_example'
+        dealRequest = 'dealRequest_example'
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deals/make/{miner}'.format(miner='miner_example'),
+            '//deals/make/{miner}'.format(miner='miner_example'),
             method='POST',
-            data=json.dumps(body),
-            content_type='*/*')
+            data=json.dumps(dealRequest),
+            content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
@@ -134,7 +134,7 @@ class TestDealsController(BaseTestCase):
         Get Deal Status
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/deals/status/{deal}'.format(deal=56),
+            '//deals/status/{deal}'.format(deal=56),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -145,7 +145,7 @@ class TestDealsController(BaseTestCase):
         Get storage failures
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/deals/failures',
+            '//public/deals/failures',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -156,7 +156,7 @@ class TestDealsController(BaseTestCase):
         Query Ask
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/public/miners/storage/query/{miner}'.format(miner='miner_example'),
+            '//public/miners/storage/query/{miner}'.format(miner='miner_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

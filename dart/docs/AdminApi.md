@@ -5,7 +5,7 @@
 import 'package:swagger/api.dart';
 ```
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**adminSystemConfigGet**](AdminApi.md#adminSystemConfigGet) | **GET** /admin/system/config | Get systems(estuary/shuttle) config
 [**adminUsersGet**](AdminApi.md#adminUsersGet) | **GET** /admin/users | Get all users
 
+
 # **adminPeeringPeersDelete**
 > adminPeeringPeersDelete()
 
@@ -25,7 +26,7 @@ Remove peers on Peering Service
 
 This endpoint can be used to remove a Peer from the Peering Service
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -35,7 +36,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AdminApi();
 
-try {
+try { 
     api_instance.adminPeeringPeersDelete();
 } catch (e) {
     print("Exception when calling AdminApi->adminPeeringPeersDelete: $e\n");
@@ -56,7 +57,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -67,7 +68,7 @@ List all Peering peers
 
 This endpoint can be used to list all peers on Peering Service
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -77,7 +78,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AdminApi();
 
-try {
+try { 
     api_instance.adminPeeringPeersGet();
 } catch (e) {
     print("Exception when calling AdminApi->adminPeeringPeersGet: $e\n");
@@ -98,7 +99,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -109,7 +110,7 @@ Add peers on Peering Service
 
 This endpoint can be used to add a Peer from the Peering Service
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -119,7 +120,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AdminApi();
 
-try {
+try { 
     api_instance.adminPeeringPeersPost();
 } catch (e) {
     print("Exception when calling AdminApi->adminPeeringPeersPost: $e\n");
@@ -140,7 +141,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -151,7 +152,7 @@ Start Peering
 
 This endpoint can be used to start the Peering Service
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -161,7 +162,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AdminApi();
 
-try {
+try { 
     api_instance.adminPeeringStartPost();
 } catch (e) {
     print("Exception when calling AdminApi->adminPeeringStartPost: $e\n");
@@ -182,7 +183,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -193,7 +194,7 @@ Check Peering Status
 
 This endpoint can be used to check the Peering status
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -203,7 +204,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AdminApi();
 
-try {
+try { 
     api_instance.adminPeeringStatusGet();
 } catch (e) {
     print("Exception when calling AdminApi->adminPeeringStatusGet: $e\n");
@@ -224,7 +225,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -235,7 +236,7 @@ Stop Peering
 
 This endpoint can be used to stop the Peering Service
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -245,7 +246,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AdminApi();
 
-try {
+try { 
     api_instance.adminPeeringStopPost();
 } catch (e) {
     print("Exception when calling AdminApi->adminPeeringStopPost: $e\n");
@@ -266,7 +267,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -277,7 +278,7 @@ Get systems(estuary/shuttle) config
 
 This endpoint is used to get system configs.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -287,7 +288,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AdminApi();
 
-try {
+try { 
     api_instance.adminSystemConfigGet();
 } catch (e) {
     print("Exception when calling AdminApi->adminSystemConfigGet: $e\n");
@@ -308,7 +309,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -319,7 +320,7 @@ Get all users
 
 This endpoint is used to get all users.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -329,7 +330,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new AdminApi();
 
-try {
+try { 
     api_instance.adminUsersGet();
 } catch (e) {
     print("Exception when calling AdminApi->adminUsersGet: $e\n");
@@ -350,7 +351,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

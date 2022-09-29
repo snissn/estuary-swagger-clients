@@ -2,14 +2,8 @@ package io.swagger.api;
 
 import io.swagger.model.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.annotations.ApiParam;
+import io.swagger.jaxrs.*;
 
 
 import java.util.List;
@@ -22,20 +16,22 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.*;
 import javax.validation.constraints.*;
+
 @Path("/net")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyEapServerCodegen", date = "2022-09-27T20:40:44.339579-10:00[Pacific/Honolulu]")public interface NetApi  {
+@io.swagger.annotations.Api(description = "the net API")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T01:52:44.565Z")
+public interface NetApi  {
    
     @GET
     @Path("/addrs")
     
     @Produces({ "application/json" })
-    @Operation(summary = "Net Addrs", description = "This endpoint is used to get net addrs", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "net" })
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = String.class))))
-         })
-    Response netAddrsGet(@Context SecurityContext securityContext);
-
+    @io.swagger.annotations.ApiOperation(value = "Net Addrs", notes = "This endpoint is used to get net addrs", response = String.class, responseContainer = "List", authorizations = {
+        @io.swagger.annotations.Authorization(value = "bearerAuth")
+    }, tags={ "net", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
+    public Response netAddrsGet(@Context SecurityContext securityContext);
 }

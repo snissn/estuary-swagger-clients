@@ -1,6 +1,6 @@
 # IO.Swagger.Api.AdminApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**AdminPeeringStopPost**](AdminApi.md#adminpeeringstoppost) | **POST** /admin/peering/stop | Stop Peering
 [**AdminSystemConfigGet**](AdminApi.md#adminsystemconfigget) | **GET** /admin/system/config | Get systems(estuary/shuttle) config
 [**AdminUsersGet**](AdminApi.md#adminusersget) | **GET** /admin/users | Get all users
+
 
 <a name="adminpeeringpeersdelete"></a>
 # **AdminPeeringPeersDelete**
@@ -70,9 +71,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringpeersget"></a>
 # **AdminPeeringPeersGet**
 > void AdminPeeringPeersGet ()
@@ -130,9 +132,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringpeerspost"></a>
 # **AdminPeeringPeersPost**
 > void AdminPeeringPeersPost ()
@@ -190,9 +193,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringstartpost"></a>
 # **AdminPeeringStartPost**
 > void AdminPeeringStartPost ()
@@ -250,9 +254,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringstatusget"></a>
 # **AdminPeeringStatusGet**
 > void AdminPeeringStatusGet ()
@@ -310,9 +315,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminpeeringstoppost"></a>
 # **AdminPeeringStopPost**
 > void AdminPeeringStopPost ()
@@ -370,9 +376,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminsystemconfigget"></a>
 # **AdminSystemConfigGet**
 > void AdminSystemConfigGet ()
@@ -430,9 +437,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="adminusersget"></a>
 # **AdminUsersGet**
 > void AdminUsersGet ()
@@ -490,6 +498,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

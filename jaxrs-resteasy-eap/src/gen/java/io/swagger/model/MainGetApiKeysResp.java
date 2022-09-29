@@ -4,18 +4,22 @@ import java.util.Objects;
 import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.*;
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyEapServerCodegen", date = "2022-09-27T20:40:44.339579-10:00[Pacific/Honolulu]")public class MainGetApiKeysResp   {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T01:52:44.565Z")
+public class MainGetApiKeysResp   {
+  
   private String expiry = null;
   private String token = null;
 
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("expiry")
   public String getExpiry() {
     return expiry;
@@ -27,7 +31,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("token")
   public String getToken() {
     return token;
@@ -77,3 +81,4 @@ import io.swagger.v3.oas.annotations.media.Schema;
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -3,14 +3,8 @@ package io.swagger.api;
 import io.swagger.model.*;
 import io.swagger.api.UserApiService;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.annotations.ApiParam;
+import io.swagger.jaxrs.*;
 
 import io.swagger.model.MainGetApiKeysResp;
 import io.swagger.model.MainUserStatsResponse;
@@ -29,10 +23,13 @@ import javax.ws.rs.*;
 import javax.inject.Inject;
 
 import javax.validation.constraints.*;
+
 @Path("/user")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyServerCodegen", date = "2022-09-27T20:40:41.950348-10:00[Pacific/Honolulu]")public class UserApi  {
+@io.swagger.annotations.Api(description = "the user API")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:52:43.427Z")
+public class UserApi  {
 
     @Inject UserApiService service;
 
@@ -40,17 +37,17 @@ import javax.validation.constraints.*;
     @Path("/api-keys")
     
     @Produces({ "application/json" })
-    @Operation(summary = "Get API keys for a user", description = "This endpoint is used to get API keys for a user. In estuary, each user can be given multiple API keys (tokens). This endpoint can be used to retrieve all available API keys for a given user.", security = {
-        @SecurityRequirement(name = "bearerAuth")
-    }, tags={ "User" })
-    @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = MainGetApiKeysResp.class)))),
+    @io.swagger.annotations.ApiOperation(value = "Get API keys for a user", notes = "This endpoint is used to get API keys for a user. In estuary, each user can be given multiple API keys (tokens). This endpoint can be used to retrieve all available API keys for a given user.", response = MainGetApiKeysResp.class, responseContainer = "List", authorizations = {
+        @io.swagger.annotations.Authorization(value = "bearerAuth")
+    }, tags={ "User", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = MainGetApiKeysResp.class, responseContainer = "List"),
         
-        @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class),
         
-        @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
+        @io.swagger.annotations.ApiResponse(code = 404, message = "Not Found", response = UtilHttpError.class),
         
-        @ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))) })
+        @io.swagger.annotations.ApiResponse(code = 500, message = "Internal Server Error", response = UtilHttpError.class) })
     public Response userApiKeysGet(@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.userApiKeysGet(securityContext);
@@ -58,11 +55,11 @@ import javax.validation.constraints.*;
     @DELETE
     @Path("/api-keys/{key}")
     
-    
-    @Operation(summary = "Revoke a User API Key.", description = "This endpoint is used to revoke a user API key. In estuary, every user is assigned with an API key, this API key is generated and issued for each user and is primarily use to access all estuary features. This endpoint can be used to revoke the API key thats assigned to the user.", security = {
-        @SecurityRequirement(name = "bearerAuth")
-    }, tags={ "User" })
-    @ApiResponses(value = {  })
+    @Produces({ "application/json" })
+    @io.swagger.annotations.ApiOperation(value = "Revoke a User API Key.", notes = "This endpoint is used to revoke a user API key. In estuary, every user is assigned with an API key, this API key is generated and issued for each user and is primarily use to access all estuary features. This endpoint can be used to revoke the API key thats assigned to the user.", response = Void.class, authorizations = {
+        @io.swagger.annotations.Authorization(value = "bearerAuth")
+    }, tags={ "User", })
+    @io.swagger.annotations.ApiResponses(value = {  })
     public Response userApiKeysKeyDelete( @PathParam("key") String key,@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.userApiKeysKeyDelete(key,securityContext);
@@ -71,17 +68,17 @@ import javax.validation.constraints.*;
     @Path("/api-keys")
     
     @Produces({ "application/json" })
-    @Operation(summary = "Create API keys for a user", description = "This endpoint is used to create API keys for a user. In estuary, each user is given an API key to access all features.", security = {
-        @SecurityRequirement(name = "bearerAuth")
-    }, tags={ "User" })
-    @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = MainGetApiKeysResp.class))),
+    @io.swagger.annotations.ApiOperation(value = "Create API keys for a user", notes = "This endpoint is used to create API keys for a user. In estuary, each user is given an API key to access all features.", response = MainGetApiKeysResp.class, authorizations = {
+        @io.swagger.annotations.Authorization(value = "bearerAuth")
+    }, tags={ "User", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = MainGetApiKeysResp.class),
         
-        @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class),
         
-        @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
+        @io.swagger.annotations.ApiResponse(code = 404, message = "Not Found", response = UtilHttpError.class),
         
-        @ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))) })
+        @io.swagger.annotations.ApiResponse(code = 500, message = "Internal Server Error", response = UtilHttpError.class) })
     public Response userApiKeysPost(@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.userApiKeysPost(securityContext);
@@ -90,11 +87,11 @@ import javax.validation.constraints.*;
     @Path("/export")
     
     @Produces({ "application/json" })
-    @Operation(summary = "Export user data", description = "This endpoint is used to get API keys for a user.", security = {
-        @SecurityRequirement(name = "bearerAuth")
-    }, tags={ "User" })
-    @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))) })
+    @io.swagger.annotations.ApiOperation(value = "Export user data", notes = "This endpoint is used to get API keys for a user.", response = String.class, authorizations = {
+        @io.swagger.annotations.Authorization(value = "bearerAuth")
+    }, tags={ "User", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class) })
     public Response userExportGet(@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.userExportGet(securityContext);
@@ -103,11 +100,11 @@ import javax.validation.constraints.*;
     @Path("/stats")
     
     @Produces({ "application/json" })
-    @Operation(summary = "Create API keys for a user", description = "This endpoint is used to create API keys for a user.", security = {
-        @SecurityRequirement(name = "bearerAuth")
-    }, tags={ "User" })
-    @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = MainUserStatsResponse.class))) })
+    @io.swagger.annotations.ApiOperation(value = "Create API keys for a user", notes = "This endpoint is used to create API keys for a user.", response = MainUserStatsResponse.class, authorizations = {
+        @io.swagger.annotations.Authorization(value = "bearerAuth")
+    }, tags={ "User", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = MainUserStatsResponse.class) })
     public Response userStatsGet(@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.userStatsGet(securityContext);

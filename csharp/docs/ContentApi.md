@@ -1,6 +1,6 @@
 # IO.Swagger.Api.ContentApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**ContentStagingZonesGet**](ContentApi.md#contentstagingzonesget) | **GET** /content/staging-zones | Get staging zone for user
 [**ContentStatsGet**](ContentApi.md#contentstatsget) | **GET** /content/stats | Get content statistics
 [**ContentStatusIdGet**](ContentApi.md#contentstatusidget) | **GET** /content/status/{id} | Content Status
+
 
 <a name="contentaddcarpost"></a>
 # **ContentAddCarPost**
@@ -49,7 +50,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ContentApi();
-            var body = new string(); // string | Car
+            var body = body_example;  // string | Car
             var filename = filename_example;  // string | Filename (optional) 
             var commp = commp_example;  // string | Commp (optional) 
             var size = size_example;  // string | Size (optional) 
@@ -72,7 +73,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**string**](string.md)| Car | 
+ **body** | **string**| Car | 
  **filename** | **string**| Filename | [optional] 
  **commp** | **string**| Commp | [optional] 
  **size** | **string**| Size | [optional] 
@@ -87,10 +88,11 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentaddipfspost"></a>
 # **ContentAddIpfsPost**
 > void ContentAddIpfsPost (UtilContentAddIpfsBody body)
@@ -151,13 +153,14 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentaddpost"></a>
 # **ContentAddPost**
-> UtilContentAddResponse ContentAddPost (byte[] file, string coluuid, string dir)
+> UtilContentAddResponse ContentAddPost (System.IO.Stream _file, string coluuid, string dir)
 
 Add new content
 
@@ -183,14 +186,14 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ContentApi();
-            var file = file_example;  // byte[] | 
+            var _file = new System.IO.Stream(); // System.IO.Stream | File to upload
             var coluuid = coluuid_example;  // string | Collection UUID
             var dir = dir_example;  // string | Directory
 
             try
             {
                 // Add new content
-                UtilContentAddResponse result = apiInstance.ContentAddPost(file, coluuid, dir);
+                UtilContentAddResponse result = apiInstance.ContentAddPost(_file, coluuid, dir);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -206,7 +209,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **byte[]****byte[]**|  | 
+ **_file** | **System.IO.Stream**| File to upload | 
  **coluuid** | **string**| Collection UUID | 
  **dir** | **string**| Directory | 
 
@@ -224,6 +227,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentaggregatedcontentget"></a>
 # **ContentAggregatedContentGet**
 > string ContentAggregatedContentGet (string content)
@@ -289,6 +293,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentalldealsget"></a>
 # **ContentAllDealsGet**
 > void ContentAllDealsGet (string begin, string duration, string all)
@@ -354,9 +359,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentbwusagecontentget"></a>
 # **ContentBwUsageContentGet**
 > void ContentBwUsageContentGet (string content)
@@ -418,9 +424,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentcreatepost"></a>
 # **ContentCreatePost**
 > void ContentCreatePost (string body)
@@ -449,7 +456,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ContentApi();
-            var body = new string(); // string | Content
+            var body = body_example;  // string | Content
 
             try
             {
@@ -469,7 +476,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**string**](string.md)| Content | 
+ **body** | **string**| Content | 
 
 ### Return type
 
@@ -481,10 +488,11 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentdealsget"></a>
 # **ContentDealsGet**
 > void ContentDealsGet (int? limit = null, int? offset = null)
@@ -548,9 +556,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentensurereplicationdatacidget"></a>
 # **ContentEnsureReplicationDatacidGet**
 > void ContentEnsureReplicationDatacidGet (string datacid)
@@ -612,9 +621,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentfailurescontentget"></a>
 # **ContentFailuresContentGet**
 > string ContentFailuresContentGet (string content)
@@ -680,6 +690,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentimportdealpost"></a>
 # **ContentImportdealPost**
 > void ContentImportdealPost (MainImportDealBody body)
@@ -740,10 +751,11 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentlistget"></a>
 # **ContentListGet**
 > List<string> ContentListGet ()
@@ -805,6 +817,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentreadcontget"></a>
 # **ContentReadContGet**
 > void ContentReadContGet (string cont)
@@ -866,9 +879,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentstagingzonesget"></a>
 # **ContentStagingZonesGet**
 > void ContentStagingZonesGet ()
@@ -926,9 +940,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentstatsget"></a>
 # **ContentStatsGet**
 > void ContentStatsGet (string limit)
@@ -990,9 +1005,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="contentstatusidget"></a>
 # **ContentStatusIdGet**
 > void ContentStatusIdGet (int? id)
@@ -1054,6 +1070,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

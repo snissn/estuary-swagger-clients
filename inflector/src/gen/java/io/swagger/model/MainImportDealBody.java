@@ -1,23 +1,31 @@
 package io.swagger.model;
+
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaInflectorServerCodegen", date = "2022-09-27T20:40:25.355549-10:00[Pacific/Honolulu]")
+
+
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T01:52:32.839Z")
 public class MainImportDealBody   {
   @JsonProperty("coluuid")
   private String coluuid = null;
+
   @JsonProperty("dealIDs")
   private List<Integer> dealIDs = null;
+
   @JsonProperty("dir")
   private String dir = null;
+
   @JsonProperty("name")
   private String name = null;
+
   /**
    **/
   public MainImportDealBody coluuid(String coluuid) {
@@ -26,7 +34,7 @@ public class MainImportDealBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("coluuid")
   public String getColuuid() {
     return coluuid;
@@ -43,7 +51,7 @@ public class MainImportDealBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("dealIDs")
   public List<Integer> getDealIDs() {
     return dealIDs;
@@ -60,7 +68,7 @@ public class MainImportDealBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("dir")
   public String getDir() {
     return dir;
@@ -77,7 +85,7 @@ public class MainImportDealBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -111,6 +119,7 @@ public class MainImportDealBody   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MainImportDealBody {\n");
+    
     sb.append("    coluuid: ").append(toIndentedString(coluuid)).append("\n");
     sb.append("    dealIDs: ").append(toIndentedString(dealIDs)).append("\n");
     sb.append("    dir: ").append(toIndentedString(dir)).append("\n");
@@ -130,3 +139,4 @@ public class MainImportDealBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

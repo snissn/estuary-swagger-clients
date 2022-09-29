@@ -1,6 +1,6 @@
 # IO.Swagger.Api.CollectionsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**CollectionsFsAddPost**](CollectionsApi.md#collectionsfsaddpost) | **POST** /collections/fs/add | Add a file to a collection
 [**CollectionsGet**](CollectionsApi.md#collectionsget) | **GET** /collections/ | List all collections
 [**CollectionsPost**](CollectionsApi.md#collectionspost) | **POST** /collections/ | Create a new collection
+
 
 <a name="collectionscoluuidcommitpost"></a>
 # **CollectionsColuuidCommitPost**
@@ -34,7 +35,7 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -101,7 +102,7 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -167,7 +168,7 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -236,14 +237,14 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
 
             var apiInstance = new CollectionsApi();
-            var body = new List<int?>(); // List<int?> | Content IDs to add to collection
+            var body = ;  // List<int?> | Content IDs to add to collection
 
             try
             {
@@ -264,7 +265,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**List<int?>**](int?.md)| Content IDs to add to collection | 
+ **body** | **List<int?>**| Content IDs to add to collection | 
 
 ### Return type
 
@@ -303,7 +304,7 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -347,7 +348,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -373,7 +374,7 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -440,7 +441,7 @@ namespace Example
     {
         public void main()
         {
-
+            
             // Configure API key authorization: bearerAuth
             Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -480,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -9,13 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 package io.swagger.client.api
 
 import java.text.SimpleDateFormat
 
-import io.swagger.client.model.main.getApiKeysResp
-import io.swagger.client.model.main.userStatsResponse
-import io.swagger.client.model.util.HttpError
+import io.swagger.client.model.GetApiKeysResp
+import io.swagger.client.model.HttpError
+import io.swagger.client.model.UserStatsResponse
 import io.swagger.client.{ApiInvoker, ApiException}
 
 import com.sun.jersey.multipart.FormDataMultiPart
@@ -46,7 +47,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class UserApi(
-  val defBasePath: String = "//api.estuary.tech/",
+  val defBasePath: String = "https://api.estuary.tech",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {
@@ -84,9 +85,9 @@ class UserApi(
    * Get API keys for a user
    * This endpoint is used to get API keys for a user. In estuary, each user can be given multiple API keys (tokens). This endpoint can be used to retrieve all available API keys for a given user.
    *
-   * @return List[main.getApiKeysResp]
+   * @return List[GetApiKeysResp]
    */
-  def userApiKeysGet(): Option[List[main.getApiKeysResp]] = {
+  def userApiKeysGet(): Option[List[GetApiKeysResp]] = {
     val await = Try(Await.result(userApiKeysGetAsync(), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
@@ -98,9 +99,9 @@ class UserApi(
    * Get API keys for a user asynchronously
    * This endpoint is used to get API keys for a user. In estuary, each user can be given multiple API keys (tokens). This endpoint can be used to retrieve all available API keys for a given user.
    *
-   * @return Future(List[main.getApiKeysResp])
+   * @return Future(List[GetApiKeysResp])
    */
-  def userApiKeysGetAsync(): Future[List[main.getApiKeysResp]] = {
+  def userApiKeysGetAsync(): Future[List[GetApiKeysResp]] = {
       helper.userApiKeysGet()
   }
 
@@ -134,9 +135,9 @@ class UserApi(
    * Create API keys for a user
    * This endpoint is used to create API keys for a user. In estuary, each user is given an API key to access all features.
    *
-   * @return main.getApiKeysResp
+   * @return GetApiKeysResp
    */
-  def userApiKeysPost(): Option[main.getApiKeysResp] = {
+  def userApiKeysPost(): Option[GetApiKeysResp] = {
     val await = Try(Await.result(userApiKeysPostAsync(), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
@@ -148,9 +149,9 @@ class UserApi(
    * Create API keys for a user asynchronously
    * This endpoint is used to create API keys for a user. In estuary, each user is given an API key to access all features.
    *
-   * @return Future(main.getApiKeysResp)
+   * @return Future(GetApiKeysResp)
    */
-  def userApiKeysPostAsync(): Future[main.getApiKeysResp] = {
+  def userApiKeysPostAsync(): Future[GetApiKeysResp] = {
       helper.userApiKeysPost()
   }
 
@@ -182,9 +183,9 @@ class UserApi(
    * Create API keys for a user
    * This endpoint is used to create API keys for a user.
    *
-   * @return main.userStatsResponse
+   * @return UserStatsResponse
    */
-  def userStatsGet(): Option[main.userStatsResponse] = {
+  def userStatsGet(): Option[UserStatsResponse] = {
     val await = Try(Await.result(userStatsGetAsync(), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
@@ -196,9 +197,9 @@ class UserApi(
    * Create API keys for a user asynchronously
    * This endpoint is used to create API keys for a user.
    *
-   * @return Future(main.userStatsResponse)
+   * @return Future(UserStatsResponse)
    */
-  def userStatsGetAsync(): Future[main.userStatsResponse] = {
+  def userStatsGetAsync(): Future[UserStatsResponse] = {
       helper.userStatsGet()
   }
 
@@ -206,7 +207,7 @@ class UserApi(
 
 class UserApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extends ApiClient(client, config) {
 
-  def userApiKeysGet()(implicit reader: ClientResponseReader[List[main.getApiKeysResp]]): Future[List[main.getApiKeysResp]] = {
+  def userApiKeysGet()(implicit reader: ClientResponseReader[List[GetApiKeysResp]]): Future[List[GetApiKeysResp]] = {
     // create path and map variables
     val path = (addFmt("/user/api-keys"))
 
@@ -239,7 +240,7 @@ class UserApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extends
     }
   }
 
-  def userApiKeysPost()(implicit reader: ClientResponseReader[main.getApiKeysResp]): Future[main.getApiKeysResp] = {
+  def userApiKeysPost()(implicit reader: ClientResponseReader[GetApiKeysResp]): Future[GetApiKeysResp] = {
     // create path and map variables
     val path = (addFmt("/user/api-keys"))
 
@@ -269,7 +270,7 @@ class UserApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extends
     }
   }
 
-  def userStatsGet()(implicit reader: ClientResponseReader[main.userStatsResponse]): Future[main.userStatsResponse] = {
+  def userStatsGet()(implicit reader: ClientResponseReader[UserStatsResponse]): Future[UserStatsResponse] = {
     // create path and map variables
     val path = (addFmt("/user/stats"))
 

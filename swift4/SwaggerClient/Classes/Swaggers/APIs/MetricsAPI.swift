@@ -13,7 +13,7 @@ import Alamofire
 open class MetricsAPI {
     /**
      Get deal metrics
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func publicMetricsDealsOnChainGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -41,7 +41,7 @@ open class MetricsAPI {
         let path = "/public/metrics/deals-on-chain"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()

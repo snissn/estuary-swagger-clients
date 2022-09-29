@@ -9,6 +9,7 @@ import Foundation
 
 
 open class MainCollection: JSONEncodable {
+
     public var cid: String?
     public var createdAt: String?
     public var description: String?
@@ -32,3 +33,4 @@ open class MainCollection: JSONEncodable {
         return dictionary
     }
 }
+

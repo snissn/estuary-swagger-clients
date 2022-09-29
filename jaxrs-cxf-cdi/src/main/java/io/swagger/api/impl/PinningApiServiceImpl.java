@@ -16,7 +16,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-27T20:40:33.778721-10:00[Pacific/Honolulu]")public class PinningApiServiceImpl implements PinningApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:52:40.454Z")
+public class PinningApiServiceImpl implements PinningApiService {
       @Override
       public Response pinningPinsGet(SecurityContext securityContext) {
       // do some magic!

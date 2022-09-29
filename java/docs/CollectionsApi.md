@@ -1,6 +1,6 @@
 # CollectionsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**collectionsFsAddPost**](CollectionsApi.md#collectionsFsAddPost) | **POST** /collections/fs/add | Add a file to a collection
 [**collectionsGet**](CollectionsApi.md#collectionsGet) | **GET** /collections/ | List all collections
 [**collectionsPost**](CollectionsApi.md#collectionsPost) | **POST** /collections/ | Create a new collection
+
 
 <a name="collectionsColuuidCommitPost"></a>
 # **collectionsColuuidCommitPost**
@@ -204,7 +205,7 @@ bearerAuth.setApiKey("YOUR API KEY");
 //bearerAuth.setApiKeyPrefix("Token");
 
 CollectionsApi apiInstance = new CollectionsApi();
-List<Integer> body = Arrays.asList(56); // List<Integer> | Content IDs to add to collection
+List<Integer> body = Arrays.asList(new List<Integer>()); // List<Integer> | Content IDs to add to collection
 try {
     Map<String, String> result = apiInstance.collectionsColuuidPost(body);
     System.out.println(result);
@@ -218,7 +219,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;Integer&gt;**](Integer.md)| Content IDs to add to collection |
+ **body** | **List&lt;Integer&gt;**| Content IDs to add to collection |
 
 ### Return type
 
@@ -289,7 +290,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="collectionsGet"></a>
 # **collectionsGet**
@@ -398,6 +399,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 

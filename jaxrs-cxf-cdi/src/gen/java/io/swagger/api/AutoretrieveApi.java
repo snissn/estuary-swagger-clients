@@ -9,14 +9,7 @@ import javax.ws.rs.core.SecurityContext;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.annotations.*;
 import java.io.InputStream;
 
 import org.apache.cxf.jaxrs.ext.multipart.Attachment;
@@ -28,10 +21,11 @@ import javax.validation.constraints.*;
 @Path("/autoretrieve")
 @RequestScoped
 
+@Api(description = "the autoretrieve API")
 
 
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:52:40.454Z")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-27T20:40:33.778721-10:00[Pacific/Honolulu]")
 public class AutoretrieveApi  {
 
   @Context SecurityContext securityContext;
@@ -42,13 +36,12 @@ public class AutoretrieveApi  {
     @POST
     @Path("/heartbeat")
     
-    
-    @Operation(summary = "Marks autoretrieve server as up", description = "This endpoint updates the lastConnection field for autoretrieve", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "autoretrieve" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Marks autoretrieve server as up", notes = "This endpoint updates the lastConnection field for autoretrieve", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "autoretrieve" })
     @ApiResponses(value = {  })
-    public Response autoretrieveHeartbeatPost(
-@Parameter(description = "Autoretrieve's auth token" ,required=true)@HeaderParam("token") String token
-) {
+    public Response autoretrieveHeartbeatPost(@ApiParam(value = "Autoretrieve's auth token" ,required=true)@HeaderParam("token") String token) {
         return delegate.autoretrieveHeartbeatPost(token, securityContext);
     }
 }

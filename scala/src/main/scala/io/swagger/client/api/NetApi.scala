@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 package io.swagger.client.api
 
 import java.text.SimpleDateFormat
@@ -43,7 +44,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class NetApi(
-  val defBasePath: String = "//api.estuary.tech/",
+  val defBasePath: String = "https://api.estuary.tech",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {

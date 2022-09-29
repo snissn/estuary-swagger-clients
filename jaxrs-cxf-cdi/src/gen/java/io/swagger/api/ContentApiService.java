@@ -7,6 +7,7 @@ import org.apache.cxf.jaxrs.ext.multipart.Attachment;
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 
 import java.io.File;
+import java.io.InputStream;
 import io.swagger.model.MainImportDealBody;
 import io.swagger.model.UtilContentAddIpfsBody;
 import io.swagger.model.UtilContentAddResponse;
@@ -18,7 +19,8 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-27T20:40:33.778721-10:00[Pacific/Honolulu]")public interface ContentApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:52:40.454Z")
+public interface ContentApiService {
       public Response contentAddCarPost(String body, String filename, String commp, String size, SecurityContext securityContext);
       public Response contentAddIpfsPost(UtilContentAddIpfsBody body, SecurityContext securityContext);
       public Response contentAddPost(InputStream fileInputStream, Attachment fileDetail, String coluuid, String dir, SecurityContext securityContext);

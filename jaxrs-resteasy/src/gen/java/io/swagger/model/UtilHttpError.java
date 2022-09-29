@@ -5,16 +5,20 @@ import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.*;
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyServerCodegen", date = "2022-09-27T20:40:41.950348-10:00[Pacific/Honolulu]")public class UtilHttpError   {
-  private Integer code = null;  private String details = null;  private String reason = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:52:43.427Z")
+public class UtilHttpError   {
+  
+  private Integer code = null;
+  private String details = null;
+  private String reason = null;
 
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("code")
   public Integer getCode() {
     return code;
@@ -26,7 +30,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("details")
   public String getDetails() {
     return details;
@@ -38,7 +42,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   /**
    **/
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("reason")
   public String getReason() {
     return reason;
@@ -90,3 +94,4 @@ import io.swagger.v3.oas.annotations.media.Schema;
     return o.toString().replace("\n", "\n    ");
   }
 }
+

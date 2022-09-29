@@ -9,10 +9,11 @@ import Foundation
 import Alamofire
 
 
+
 open class UserAPI {
     /**
      Get API keys for a user
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userApiKeysGet(completion: @escaping ((_ data: [MainGetApiKeysResp]?,_ error: Error?) -> Void)) {
@@ -25,17 +26,11 @@ open class UserAPI {
     /**
      Get API keys for a user
      - GET /user/api-keys
-
+     - This endpoint is used to get API keys for a user. In estuary, each user can be given multiple API keys (tokens). This endpoint can be used to retrieve all available API keys for a given user.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ {
-  "expiry" : "expiry",
-  "token" : "token"
-}, {
-  "expiry" : "expiry",
-  "token" : "token"
-} ]}]
+     - examples: [{contentType=application/json, example={}}]
 
      - returns: RequestBuilder<[MainGetApiKeysResp]> 
      */
@@ -43,16 +38,17 @@ open class UserAPI {
         let path = "/user/api-keys"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         let url = URLComponents(string: URLString)
-
 
         let requestBuilder: RequestBuilder<[MainGetApiKeysResp]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      Revoke a User API Key.
-
+     
      - parameter key: (path) Key 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -70,10 +66,11 @@ open class UserAPI {
     /**
      Revoke a User API Key.
      - DELETE /user/api-keys/{key}
-
+     - This endpoint is used to revoke a user API key. In estuary, every user is assigned with an API key, this API key is generated and issued for each user and is primarily use to access all estuary features. This endpoint can be used to revoke the API key thats assigned to the user.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter key: (path) Key 
 
      - returns: RequestBuilder<Void> 
@@ -85,16 +82,17 @@ open class UserAPI {
         path = path.replacingOccurrences(of: "{key}", with: keyPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         let url = URLComponents(string: URLString)
-
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      Create API keys for a user
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userApiKeysPost(completion: @escaping ((_ data: MainGetApiKeysResp?,_ error: Error?) -> Void)) {
@@ -107,14 +105,11 @@ open class UserAPI {
     /**
      Create API keys for a user
      - POST /user/api-keys
-
+     - This endpoint is used to create API keys for a user. In estuary, each user is given an API key to access all features.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "expiry" : "expiry",
-  "token" : "token"
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
 
      - returns: RequestBuilder<MainGetApiKeysResp> 
      */
@@ -122,16 +117,17 @@ open class UserAPI {
         let path = "/user/api-keys"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         let url = URLComponents(string: URLString)
-
 
         let requestBuilder: RequestBuilder<MainGetApiKeysResp>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      Export user data
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userExportGet(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
@@ -144,11 +140,14 @@ open class UserAPI {
     /**
      Export user data
      - GET /user/export
-
+     - This endpoint is used to get API keys for a user.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
 
      - returns: RequestBuilder<String> 
      */
@@ -156,16 +155,17 @@ open class UserAPI {
         let path = "/user/export"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         let url = URLComponents(string: URLString)
-
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      Create API keys for a user
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userStatsGet(completion: @escaping ((_ data: MainUserStatsResponse?,_ error: Error?) -> Void)) {
@@ -178,14 +178,11 @@ open class UserAPI {
     /**
      Create API keys for a user
      - GET /user/stats
-
+     - This endpoint is used to create API keys for a user.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "totalSize" : 6,
-  "numPins" : 0
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
 
      - returns: RequestBuilder<MainUserStatsResponse> 
      */
@@ -193,11 +190,12 @@ open class UserAPI {
         let path = "/user/stats"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         let url = URLComponents(string: URLString)
-
 
         let requestBuilder: RequestBuilder<MainUserStatsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
 }

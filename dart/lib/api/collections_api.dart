@@ -34,6 +34,7 @@ class CollectionsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -52,7 +53,7 @@ class CollectionsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'String') as String ;
     } else {
       return null;
@@ -85,6 +86,7 @@ class CollectionsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -103,7 +105,7 @@ class CollectionsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -140,6 +142,7 @@ class CollectionsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -158,7 +161,7 @@ class CollectionsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'String') as String ;
     } else {
       return null;
@@ -191,6 +194,7 @@ class CollectionsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -209,7 +213,7 @@ class CollectionsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           new Map<String, String>.from(apiClient.deserialize(response.body, 'Map<String, String>')) ;
     } else {
       return null;
@@ -251,6 +255,7 @@ class CollectionsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -269,7 +274,7 @@ class CollectionsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -302,6 +307,7 @@ class CollectionsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -320,7 +326,7 @@ class CollectionsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
         (apiClient.deserialize(response.body, 'List<MainCollection>') as List).map((item) => item as MainCollection).toList();
     } else {
       return null;
@@ -345,7 +351,7 @@ class CollectionsApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     
-    List<String> contentTypes = ["*/*"];
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
     List<String> authNames = ["bearerAuth"];
@@ -353,6 +359,7 @@ class CollectionsApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -371,7 +378,7 @@ class CollectionsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           apiClient.deserialize(response.body, 'MainCollection') as MainCollection ;
     } else {
       return null;

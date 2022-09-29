@@ -1,11 +1,12 @@
 # SwaggerClient::MinerApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**public_miners_deals_miner_get**](MinerApi.md#public_miners_deals_miner_get) | **GET** /public/miners/deals/{miner} | Get all miners deals
 [**public_miners_stats_miner_get**](MinerApi.md#public_miners_stats_miner_get) | **GET** /public/miners/stats/{miner} | Get miner stats
+
 
 # **public_miners_deals_miner_get**
 > public_miners_deals_miner_get(miner)
@@ -27,6 +28,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::MinerApi.new
+
 miner = 'miner_example' # String | Filter by miner
 
 
@@ -55,7 +57,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -79,6 +81,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::MinerApi.new
+
 miner = 'miner_example' # String | Filter by miner
 
 
@@ -107,7 +110,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

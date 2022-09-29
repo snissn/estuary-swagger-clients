@@ -4,6 +4,7 @@ import io.swagger.api.*;
 import io.swagger.model.*;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 
+
 import java.io.File;
 import io.swagger.model.MainImportDealBody;
 import io.swagger.model.UtilContentAddIpfsBody;
@@ -16,7 +17,8 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyEapServerCodegen", date = "2022-09-27T20:40:44.339579-10:00[Pacific/Honolulu]")public class ContentApiServiceImpl implements ContentApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T01:52:44.565Z")
+public class ContentApiServiceImpl implements ContentApi {
       public Response contentAddCarPost(String body,String filename,String commp,String size,SecurityContext securityContext) {
       // do some magic!
       return Response.ok().build();

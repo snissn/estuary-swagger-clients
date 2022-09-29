@@ -1,6 +1,6 @@
 # IO.Swagger.Api.NetApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**PublicMinersGet**](NetApi.md#publicminersget) | **GET** /public/miners | Get all miners
 [**PublicNetAddrsGet**](NetApi.md#publicnetaddrsget) | **GET** /public/net/addrs | Net Addrs
 [**PublicNetPeersGet**](NetApi.md#publicnetpeersget) | **GET** /public/net/peers | Net Peers
+
 
 <a name="netaddrsget"></a>
 # **NetAddrsGet**
@@ -71,6 +72,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="publicminersfailuresminerget"></a>
 # **PublicMinersFailuresMinerGet**
 > void PublicMinersFailuresMinerGet (string miner)
@@ -132,9 +134,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="publicminersget"></a>
 # **PublicMinersGet**
 > void PublicMinersGet ()
@@ -192,9 +195,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="publicnetaddrsget"></a>
 # **PublicNetAddrsGet**
 > List<string> PublicNetAddrsGet ()
@@ -256,6 +260,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="publicnetpeersget"></a>
 # **PublicNetPeersGet**
 > List<string> PublicNetPeersGet ()
@@ -317,3 +322,4 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

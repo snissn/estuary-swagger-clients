@@ -1,31 +1,22 @@
 package io.swagger.api;
 
+import java.util.List;
 import io.swagger.model.MainCollection;
 import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.*;
@@ -33,10 +24,9 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T01:53:12.142Z")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-09-27T20:41:13.008650-10:00[Pacific/Honolulu]")
-@RestController
+@Controller
 public class CollectionsApiController implements CollectionsApi {
 
     private static final Logger log = LoggerFactory.getLogger(CollectionsApiController.class);
@@ -51,11 +41,11 @@ public class CollectionsApiController implements CollectionsApi {
         this.request = request;
     }
 
-    public ResponseEntity<String> collectionsColuuidCommitPost(@Parameter(in = ParameterIn.PATH, description = "coluuid", required=true, schema=@Schema()) @PathVariable("coluuid") String coluuid) {
+    public ResponseEntity<String> collectionsColuuidCommitPost(@ApiParam(value = "coluuid",required=true) @PathVariable("coluuid") String coluuid) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<String>(objectMapper.readValue("\"\"", String.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<String>(objectMapper.readValue("{  \"bytes\": [],  \"empty\": true}", String.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -65,16 +55,16 @@ public class CollectionsApiController implements CollectionsApi {
         return new ResponseEntity<String>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Void> collectionsColuuidDelete(@Parameter(in = ParameterIn.PATH, description = "Collection ID", required=true, schema=@Schema()) @PathVariable("coluuid") String coluuid) {
+    public ResponseEntity<Void> collectionsColuuidDelete(@ApiParam(value = "Collection ID",required=true) @PathVariable("coluuid") String coluuid) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<String> collectionsColuuidGet(@NotNull @Parameter(in = ParameterIn.QUERY, description = "Collection UUID" ,required=true,schema=@Schema()) @Valid @RequestParam(value = "coluuid", required = true) String coluuid,@Parameter(in = ParameterIn.QUERY, description = "Directory" ,schema=@Schema()) @Valid @RequestParam(value = "dir", required = false) String dir) {
+    public ResponseEntity<String> collectionsColuuidGet(@NotNull @ApiParam(value = "Collection UUID", required = true) @Valid @RequestParam(value = "coluuid", required = true) String coluuid,@ApiParam(value = "Directory") @Valid @RequestParam(value = "dir", required = false) String dir) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<String>(objectMapper.readValue("\"\"", String.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<String>(objectMapper.readValue("{  \"bytes\": [],  \"empty\": true}", String.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -84,11 +74,11 @@ public class CollectionsApiController implements CollectionsApi {
         return new ResponseEntity<String>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Map<String, String>> collectionsColuuidPost(@Parameter(in = ParameterIn.DEFAULT, description = "Content IDs to add to collection", required=true, schema=@Schema()) @Valid @RequestBody List<Integer> body) {
+    public ResponseEntity<Map<String, String>> collectionsColuuidPost(@ApiParam(value = "Content IDs to add to collection" ,required=true )  @Valid @RequestBody List<Integer> body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<Map<String, String>>(objectMapper.readValue("{\n  \"key\" : \"\"\n}", Map.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<Map<String, String>>(objectMapper.readValue("{\"empty\": false}", Map.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<Map<String, String>>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -98,16 +88,16 @@ public class CollectionsApiController implements CollectionsApi {
         return new ResponseEntity<Map<String, String>>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Void> collectionsFsAddPost(@NotNull @Parameter(in = ParameterIn.QUERY, description = "Collection ID" ,required=true,schema=@Schema()) @Valid @RequestParam(value = "coluuid", required = true) String coluuid,@NotNull @Parameter(in = ParameterIn.QUERY, description = "Content" ,required=true,schema=@Schema()) @Valid @RequestParam(value = "content", required = true) String content,@NotNull @Parameter(in = ParameterIn.QUERY, description = "Path to file" ,required=true,schema=@Schema()) @Valid @RequestParam(value = "path", required = true) String path) {
+    public ResponseEntity<Void> collectionsFsAddPost(@NotNull @ApiParam(value = "Collection ID", required = true) @Valid @RequestParam(value = "coluuid", required = true) String coluuid,@NotNull @ApiParam(value = "Content", required = true) @Valid @RequestParam(value = "content", required = true) String content,@NotNull @ApiParam(value = "Path to file", required = true) @Valid @RequestParam(value = "path", required = true) String path) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<List<MainCollection>> collectionsGet(@Parameter(in = ParameterIn.PATH, description = "User ID", required=true, schema=@Schema()) @PathVariable("id") Integer id) {
+    public ResponseEntity<List<MainCollection>> collectionsGet(@ApiParam(value = "User ID",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<List<MainCollection>>(objectMapper.readValue("[ {\n  \"createdAt\" : \"createdAt\",\n  \"name\" : \"name\",\n  \"description\" : \"description\",\n  \"userId\" : 0,\n  \"uuid\" : \"uuid\",\n  \"cid\" : \"cid\"\n}, {\n  \"createdAt\" : \"createdAt\",\n  \"name\" : \"name\",\n  \"description\" : \"description\",\n  \"userId\" : 0,\n  \"uuid\" : \"uuid\",\n  \"cid\" : \"cid\"\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<List<MainCollection>>(objectMapper.readValue("{}", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<List<MainCollection>>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -117,11 +107,11 @@ public class CollectionsApiController implements CollectionsApi {
         return new ResponseEntity<List<MainCollection>>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<MainCollection> collectionsPost(@Parameter(in = ParameterIn.DEFAULT, description = "Collection name and description", required=true, schema=@Schema()) @Valid @RequestBody MainCreateCollectionBody body) {
+    public ResponseEntity<MainCollection> collectionsPost(@ApiParam(value = "Collection name and description" ,required=true )  @Valid @RequestBody MainCreateCollectionBody body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<MainCollection>(objectMapper.readValue("{\n  \"createdAt\" : \"createdAt\",\n  \"name\" : \"name\",\n  \"description\" : \"description\",\n  \"userId\" : 0,\n  \"uuid\" : \"uuid\",\n  \"cid\" : \"cid\"\n}", MainCollection.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<MainCollection>(objectMapper.readValue("{\"empty\": false}", MainCollection.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<MainCollection>(HttpStatus.INTERNAL_SERVER_ERROR);

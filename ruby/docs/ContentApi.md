@@ -1,6 +1,6 @@
 # SwaggerClient::ContentApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**content_staging_zones_get**](ContentApi.md#content_staging_zones_get) | **GET** /content/staging-zones | Get staging zone for user
 [**content_stats_get**](ContentApi.md#content_stats_get) | **GET** /content/stats | Get content statistics
 [**content_status_id_get**](ContentApi.md#content_status_id_get) | **GET** /content/status/{id} | Content Status
+
 
 # **content_add_car_post**
 > content_add_car_post(body, opts)
@@ -41,10 +42,12 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 body = 'body_example' # String | Car
+
 opts = { 
-  filename: 'filename_example' # String | Filename
-  commp: 'commp_example' # String | Commp
+  filename: 'filename_example', # String | Filename
+  commp: 'commp_example', # String | Commp
   size: 'size_example' # String | Size
 }
 
@@ -60,7 +63,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Car | 
+ **body** | **String**| Car | 
  **filename** | **String**| Filename | [optional] 
  **commp** | **String**| Commp | [optional] 
  **size** | **String**| Size | [optional] 
@@ -75,8 +78,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -100,6 +103,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 body = SwaggerClient::UtilContentAddIpfsBody.new # UtilContentAddIpfsBody | IPFS Body
 
 
@@ -127,13 +131,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 
 # **content_add_post**
-> UtilContentAddResponse content_add_post(filecoluuiddir)
+> UtilContentAddResponse content_add_post(file, coluuid, dir)
 
 Add new content
 
@@ -152,14 +156,17 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
-file = 'file_example' # String | 
+
+file = File.new('/path/to/file.txt') # File | File to upload
+
 coluuid = 'coluuid_example' # String | Collection UUID
+
 dir = 'dir_example' # String | Directory
 
 
 begin
   #Add new content
-  result = api_instance.content_add_post(filecoluuiddir)
+  result = api_instance.content_add_post(file, coluuid, dir)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling ContentApi->content_add_post: #{e}"
@@ -170,7 +177,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **String**|  | 
+ **file** | **File**| File to upload | 
  **coluuid** | **String**| Collection UUID | 
  **dir** | **String**| Directory | 
 
@@ -209,6 +216,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 content = 'content_example' # String | Content ID
 
 
@@ -262,8 +270,11 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 _begin = '_begin_example' # String | Begin
+
 duration = 'duration_example' # String | Duration
+
 all = 'all_example' # String | All
 
 
@@ -294,7 +305,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -318,6 +329,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 content = 'content_example' # String | Content ID
 
 
@@ -346,7 +358,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -370,6 +382,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 body = 'body_example' # String | Content
 
 
@@ -385,7 +398,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Content | 
+ **body** | **String**| Content | 
 
 ### Return type
 
@@ -397,8 +410,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -422,6 +435,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 opts = { 
   limit: 56, # Integer | Limit
   offset: 56 # Integer | Offset
@@ -453,7 +467,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -477,6 +491,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 datacid = 'datacid_example' # String | Data CID
 
 
@@ -505,7 +520,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -529,6 +544,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 content = 'content_example' # String | Content ID
 
 
@@ -582,6 +598,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 body = SwaggerClient::MainImportDealBody.new # MainImportDealBody | Import a deal
 
 
@@ -609,8 +626,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -682,6 +699,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 cont = 'cont_example' # String | CID
 
 
@@ -710,7 +728,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -757,7 +775,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -781,6 +799,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 limit = 'limit_example' # String | limit
 
 
@@ -809,7 +828,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -833,6 +852,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::ContentApi.new
+
 id = 56 # Integer | Content ID
 
 
@@ -861,7 +881,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

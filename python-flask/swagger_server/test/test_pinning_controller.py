@@ -18,7 +18,7 @@ class TestPinningController(BaseTestCase):
         List all pin status objects
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/pinning/pins',
+            '//pinning/pins',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -29,7 +29,7 @@ class TestPinningController(BaseTestCase):
         Delete a pinned object
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/pinning/pins/{pinid}'.format(pinid='pinid_example'),
+            '//pinning/pins/{pinid}'.format(pinid='pinid_example'),
             method='DELETE')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -40,7 +40,7 @@ class TestPinningController(BaseTestCase):
         Get a pin status object
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/pinning/pins/{pinid}'.format(pinid='pinid_example'),
+            '//pinning/pins/{pinid}'.format(pinid='pinid_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -51,7 +51,7 @@ class TestPinningController(BaseTestCase):
         Replace a pinned object
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/pinning/pins/{pinid}'.format(pinid='pinid_example'),
+            '//pinning/pins/{pinid}'.format(pinid='pinid_example'),
             method='POST')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -62,7 +62,7 @@ class TestPinningController(BaseTestCase):
         Add and pin object
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/pinning/pins'.format(cid='cid_example', name='name_example'),
+            '//pinning/pins'.format(cid='cid_example', name='name_example'),
             method='POST')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

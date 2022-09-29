@@ -3,8 +3,10 @@ package io.swagger.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+
+import io.swagger.annotations.*;
 import java.util.Objects;
 
 import javax.xml.bind.annotation.*;
@@ -12,6 +14,7 @@ import javax.xml.bind.annotation.*;
 
 
 public class UtilHttpError   {
+  
   private Integer code = null;
   private String details = null;
   private String reason = null;
@@ -24,8 +27,7 @@ public class UtilHttpError   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("code")
   public Integer getCode() {
     return code;
@@ -42,8 +44,7 @@ public class UtilHttpError   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("details")
   public String getDetails() {
     return details;
@@ -60,8 +61,7 @@ public class UtilHttpError   {
   }
 
   
-  
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("reason")
   public String getReason() {
     return reason;
@@ -113,3 +113,4 @@ public class UtilHttpError   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

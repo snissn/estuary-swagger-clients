@@ -13,9 +13,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Register autoretrieve server This endpoint registers a new autoretrieve server
         /// </summary>
-        /// <param name="body">Autoretrieve&#x27;s public key</param>
+        /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param>
+        /// <param name="pubKey">Autoretrieve&#39;s public key</param>
         /// <returns></returns>
-        void AdminAutoretrieveInitPost (string body);
+        void AdminAutoretrieveInitPost (string addresses, string pubKey);
         /// <summary>
         /// List autoretrieve servers This endpoint lists all registered autoretrieve servers
         /// </summary>
@@ -24,7 +25,7 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Marks autoretrieve server as up This endpoint updates the lastConnection field for autoretrieve
         /// </summary>
-        /// <param name="token">Autoretrieve&#x27;s auth token</param>
+        /// <param name="token">Autoretrieve&#39;s auth token</param>
         /// <returns></returns>
         void AutoretrieveHeartbeatPost (string token);
     }
@@ -85,12 +86,18 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Register autoretrieve server This endpoint registers a new autoretrieve server
         /// </summary>
-        /// <param name="body">Autoretrieve&#x27;s public key</param>
-        /// <returns></returns>
-        public void AdminAutoretrieveInitPost (string body)
+        /// <param name="addresses">Autoretrieve&#39;s comma-separated list of addresses</param> 
+        /// <param name="pubKey">Autoretrieve&#39;s public key</param> 
+        /// <returns></returns>            
+        public void AdminAutoretrieveInitPost (string addresses, string pubKey)
         {
-            // verify the required parameter 'body' is set
-            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling AdminAutoretrieveInitPost");
+            
+            // verify the required parameter 'addresses' is set
+            if (addresses == null) throw new ApiException(400, "Missing required parameter 'addresses' when calling AdminAutoretrieveInitPost");
+            
+            // verify the required parameter 'pubKey' is set
+            if (pubKey == null) throw new ApiException(400, "Missing required parameter 'pubKey' when calling AdminAutoretrieveInitPost");
+            
     
             var path = "/admin/autoretrieve/init";
             path = path.Replace("{format}", "json");
@@ -101,8 +108,8 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    postBody = ApiClient.Serialize(body); // http body (model) parameter
-
+                                                postBody = ApiClient.Serialize(pubKey); // http body (model) parameter
+    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -120,9 +127,10 @@ namespace IO.Swagger.Api
         /// <summary>
         /// List autoretrieve servers This endpoint lists all registered autoretrieve servers
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>            
         public void AdminAutoretrieveListGet ()
         {
+            
     
             var path = "/admin/autoretrieve/list";
             path = path.Replace("{format}", "json");
@@ -133,7 +141,7 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    
+                                                    
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     
@@ -151,12 +159,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Marks autoretrieve server as up This endpoint updates the lastConnection field for autoretrieve
         /// </summary>
-        /// <param name="token">Autoretrieve&#x27;s auth token</param>
-        /// <returns></returns>
+        /// <param name="token">Autoretrieve&#39;s auth token</param> 
+        /// <returns></returns>            
         public void AutoretrieveHeartbeatPost (string token)
         {
+            
             // verify the required parameter 'token' is set
             if (token == null) throw new ApiException(400, "Missing required parameter 'token' when calling AutoretrieveHeartbeatPost");
+            
     
             var path = "/autoretrieve/heartbeat";
             path = path.Replace("{format}", "json");
@@ -168,7 +178,7 @@ namespace IO.Swagger.Api
             String postBody = null;
     
                          if (token != null) headerParams.Add("token", ApiClient.ParameterToString(token)); // header parameter
-            
+                            
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

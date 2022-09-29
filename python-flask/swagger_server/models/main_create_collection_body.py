@@ -14,6 +14,7 @@ class MainCreateCollectionBody(Model):
 
     Do not edit the class manually.
     """
+
     def __init__(self, description: str=None, name: str=None):  # noqa: E501
         """MainCreateCollectionBody - a model defined in Swagger
 
@@ -31,6 +32,7 @@ class MainCreateCollectionBody(Model):
             'description': 'description',
             'name': 'name'
         }
+
         self._description = description
         self._name = name
 

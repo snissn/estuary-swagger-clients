@@ -10,12 +10,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.jaxrs.PATCH;
 
 /**
  * Estuary API
@@ -24,6 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  *
  */
 @Path("/")
+@Api(value = "/", description = "")
 public interface MinerApi  {
 
     /**
@@ -34,7 +34,8 @@ public interface MinerApi  {
      */
     @GET
     @Path("/public/miners/deals/{miner}")
-    @Operation(summary = "Get all miners deals", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get all miners deals", tags={  })
     @ApiResponses(value = {  })
     public void publicMinersDealsMinerGet(@PathParam("miner") String miner);
 
@@ -46,7 +47,9 @@ public interface MinerApi  {
      */
     @GET
     @Path("/public/miners/stats/{miner}")
-    @Operation(summary = "Get miner stats", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get miner stats", tags={  })
     @ApiResponses(value = {  })
     public void publicMinersStatsMinerGet(@PathParam("miner") String miner);
 }
+

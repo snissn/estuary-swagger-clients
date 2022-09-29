@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,13 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
 /**
  * MainCreateCollectionBody
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-27T20:40:26.717738-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T01:52:34.053Z")
 public class MainCreateCollectionBody {
   @SerializedName("description")
   private String description = null;
@@ -42,7 +44,7 @@ public class MainCreateCollectionBody {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
@@ -60,7 +62,7 @@ public class MainCreateCollectionBody {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -112,3 +114,4 @@ public class MainCreateCollectionBody {
   }
 
 }
+

@@ -24,10 +24,10 @@ class TestContentController(BaseTestCase):
                         ('commp', 'commp_example'),
                         ('size', 'size_example')]
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/add-car',
+            '//content/add-car',
             method='POST',
             data=json.dumps(body),
-            content_type='*/*',
+            content_type='application/json',
             query_string=query_string)
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -39,10 +39,10 @@ class TestContentController(BaseTestCase):
         """
         body = UtilContentAddIpfsBody()
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/add-ipfs',
+            '//content/add-ipfs',
             method='POST',
             data=json.dumps(body),
-            content_type='*/*')
+            content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
@@ -51,9 +51,9 @@ class TestContentController(BaseTestCase):
 
         Add new content
         """
-        data = dict(file='file_example')
+        data = dict(file=(BytesIO(b'some file data'), 'file.txt'))
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/add'.format(coluuid='coluuid_example', dir='dir_example'),
+            '//content/add'.format(coluuid='coluuid_example', dir='dir_example'),
             method='POST',
             data=data,
             content_type='multipart/form-data')
@@ -66,7 +66,7 @@ class TestContentController(BaseTestCase):
         Get aggregated content stats
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/aggregated/{content}'.format(content='content_example'),
+            '//content/aggregated/{content}'.format(content='content_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -80,7 +80,7 @@ class TestContentController(BaseTestCase):
                         ('duration', 'duration_example'),
                         ('all', 'all_example')]
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/all-deals',
+            '//content/all-deals',
             method='GET',
             query_string=query_string)
         self.assert200(response,
@@ -92,7 +92,7 @@ class TestContentController(BaseTestCase):
         Get content bandwidth
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/bw-usage/{content}'.format(content='content_example'),
+            '//content/bw-usage/{content}'.format(content='content_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -104,10 +104,10 @@ class TestContentController(BaseTestCase):
         """
         body = 'body_example'
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/create',
+            '//content/create',
             method='POST',
             data=json.dumps(body),
-            content_type='*/*')
+            content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
@@ -119,7 +119,7 @@ class TestContentController(BaseTestCase):
         query_string = [('limit', 56),
                         ('offset', 56)]
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/deals',
+            '//content/deals',
             method='GET',
             query_string=query_string)
         self.assert200(response,
@@ -131,7 +131,7 @@ class TestContentController(BaseTestCase):
         Ensure Replication
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/ensure-replication/{datacid}'.format(datacid='datacid_example'),
+            '//content/ensure-replication/{datacid}'.format(datacid='datacid_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -142,7 +142,7 @@ class TestContentController(BaseTestCase):
         List all failures for a content
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/failures/{content}'.format(content='content_example'),
+            '//content/failures/{content}'.format(content='content_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -154,10 +154,10 @@ class TestContentController(BaseTestCase):
         """
         body = MainImportDealBody()
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/importdeal',
+            '//content/importdeal',
             method='POST',
             data=json.dumps(body),
-            content_type='*/*')
+            content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
@@ -167,7 +167,7 @@ class TestContentController(BaseTestCase):
         List all pinned content
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/list',
+            '//content/list',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -178,7 +178,7 @@ class TestContentController(BaseTestCase):
         Read content
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/read/{cont}'.format(cont='cont_example'),
+            '//content/read/{cont}'.format(cont='cont_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -189,7 +189,7 @@ class TestContentController(BaseTestCase):
         Get staging zone for user
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/staging-zones',
+            '//content/staging-zones',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -200,7 +200,7 @@ class TestContentController(BaseTestCase):
         Get content statistics
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/stats'.format(limit='limit_example'),
+            '//content/stats'.format(limit='limit_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -211,7 +211,7 @@ class TestContentController(BaseTestCase):
         Content Status
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/content/status/{id}'.format(id=56),
+            '//content/status/{id}'.format(id=56),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

@@ -1,7 +1,7 @@
 package io.swagger.model;
 
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -10,15 +10,13 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class MainUserStatsResponse   {
+public class MainUserStatsResponse  {
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   private Integer numPins = null;
-  
-  @Schema(description = "")
+
+  @ApiModelProperty(value = "")
   private Integer totalSize = null;
  /**
    * Get numPins
@@ -79,3 +77,4 @@ public class MainUserStatsResponse   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

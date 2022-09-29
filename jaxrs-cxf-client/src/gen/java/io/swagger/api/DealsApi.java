@@ -11,12 +11,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.jaxrs.PATCH;
 
 /**
  * Estuary API
@@ -25,6 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  *
  */
 @Path("/")
+@Api(value = "/", description = "")
 public interface DealsApi  {
 
     /**
@@ -35,8 +35,8 @@ public interface DealsApi  {
      */
     @POST
     @Path("/deal/estimate")
-    @Consumes({ "*/*" })
-    @Operation(summary = "Estimate the cost of a deal", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Estimate the cost of a deal", tags={  })
     @ApiResponses(value = {  })
     public void dealEstimatePost(MainEstimateDealBody body);
 
@@ -48,7 +48,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/deal/info/{dealid}")
-    @Operation(summary = "Get Deal Info", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get Deal Info", tags={  })
     @ApiResponses(value = {  })
     public void dealInfoDealidGet(@PathParam("dealid") Integer dealid);
 
@@ -60,7 +61,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/deal/proposal/{propcid}")
-    @Operation(summary = "Get Proposal", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get Proposal", tags={  })
     @ApiResponses(value = {  })
     public void dealProposalPropcidGet(@PathParam("propcid") String propcid);
 
@@ -72,7 +74,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/deal/query/{miner}")
-    @Operation(summary = "Query Ask", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Query Ask", tags={  })
     @ApiResponses(value = {  })
     public void dealQueryMinerGet(@PathParam("miner") String miner);
 
@@ -84,7 +87,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/deal/status-by-proposal/{propcid}")
-    @Operation(summary = "Get Deal Status by PropCid", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get Deal Status by PropCid", tags={  })
     @ApiResponses(value = {  })
     public void dealStatusByProposalPropcidGet(@PathParam("propcid") String propcid);
 
@@ -96,7 +100,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/deal/status/{miner}/{propcid}")
-    @Operation(summary = "Deal Status", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Deal Status", tags={  })
     @ApiResponses(value = {  })
     public void dealStatusMinerPropcidGet(@PathParam("miner") String miner, @PathParam("propcid") String propcid);
 
@@ -108,7 +113,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/deal/transfer/in-progress")
-    @Operation(summary = "Transfer In Progress", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Transfer In Progress", tags={  })
     @ApiResponses(value = {  })
     public void dealTransferInProgressGet();
 
@@ -120,7 +126,8 @@ public interface DealsApi  {
      */
     @POST
     @Path("/deal/transfer/status")
-    @Operation(summary = "Transfer Status", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Transfer Status", tags={  })
     @ApiResponses(value = {  })
     public void dealTransferStatusPost();
 
@@ -132,7 +139,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/deals/failures")
-    @Operation(summary = "Get storage failures for user", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get storage failures for user", tags={  })
     @ApiResponses(value = {  })
     public void dealsFailuresGet();
 
@@ -144,10 +152,10 @@ public interface DealsApi  {
      */
     @POST
     @Path("/deals/make/{miner}")
-    @Consumes({ "*/*" })
-    @Operation(summary = "Make Deal", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Make Deal", tags={  })
     @ApiResponses(value = {  })
-    public void dealsMakeMinerPost(String body, @PathParam("miner") String miner);
+    public void dealsMakeMinerPost(@PathParam("miner") String miner, String dealRequest);
 
     /**
      * Get Deal Status
@@ -157,7 +165,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/deals/status/{deal}")
-    @Operation(summary = "Get Deal Status", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get Deal Status", tags={  })
     @ApiResponses(value = {  })
     public void dealsStatusDealGet(@PathParam("deal") Integer deal);
 
@@ -169,7 +178,8 @@ public interface DealsApi  {
      */
     @GET
     @Path("/public/deals/failures")
-    @Operation(summary = "Get storage failures", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get storage failures", tags={  })
     @ApiResponses(value = {  })
     public void publicDealsFailuresGet();
 
@@ -181,7 +191,9 @@ public interface DealsApi  {
      */
     @GET
     @Path("/public/miners/storage/query/{miner}")
-    @Operation(summary = "Query Ask", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Query Ask", tags={  })
     @ApiResponses(value = {  })
     public void publicMinersStorageQueryMinerGet(@PathParam("miner") String miner);
 }
+

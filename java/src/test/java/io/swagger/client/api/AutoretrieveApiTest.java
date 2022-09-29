@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import org.junit.Test;
@@ -21,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * API tests for AutoretrieveApi
  */
@@ -30,6 +30,7 @@ public class AutoretrieveApiTest {
 
     private final AutoretrieveApi api = new AutoretrieveApi();
 
+    
     /**
      * Register autoretrieve server
      *
@@ -40,11 +41,13 @@ public class AutoretrieveApiTest {
      */
     @Test
     public void adminAutoretrieveInitPostTest() throws Exception {
-        String body = null;
-        api.adminAutoretrieveInitPost(body);
+        String addresses = null;
+        String pubKey = null;
+        api.adminAutoretrieveInitPost(addresses, pubKey);
 
         // TODO: test validations
     }
+    
     /**
      * List autoretrieve servers
      *
@@ -59,6 +62,7 @@ public class AutoretrieveApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Marks autoretrieve server as up
      *
@@ -74,4 +78,5 @@ public class AutoretrieveApiTest {
 
         // TODO: test validations
     }
+    
 }

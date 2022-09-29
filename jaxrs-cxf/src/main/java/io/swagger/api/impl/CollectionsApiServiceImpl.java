@@ -1,6 +1,7 @@
 package io.swagger.api.impl;
 
 import io.swagger.api.*;
+import java.util.List;
 import io.swagger.model.MainCollection;
 import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
@@ -17,6 +18,7 @@ import org.apache.cxf.jaxrs.model.wadl.DocTarget;
 
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
+import io.swagger.annotations.Api;
 
 /**
  * Estuary API

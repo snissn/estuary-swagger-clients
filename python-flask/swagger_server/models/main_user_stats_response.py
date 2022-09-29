@@ -14,6 +14,7 @@ class MainUserStatsResponse(Model):
 
     Do not edit the class manually.
     """
+
     def __init__(self, num_pins: int=None, total_size: int=None):  # noqa: E501
         """MainUserStatsResponse - a model defined in Swagger
 
@@ -31,6 +32,7 @@ class MainUserStatsResponse(Model):
             'num_pins': 'numPins',
             'total_size': 'totalSize'
         }
+
         self._num_pins = num_pins
         self._total_size = total_size
 

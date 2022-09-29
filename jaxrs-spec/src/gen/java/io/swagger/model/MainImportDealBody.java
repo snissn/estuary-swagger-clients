@@ -12,13 +12,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class MainImportDealBody   {
-
+  
   private @Valid String coluuid = null;
-
   private @Valid List<Integer> dealIDs = new ArrayList<Integer>();
-
   private @Valid String dir = null;
-
   private @Valid String name = null;
 
   /**
@@ -31,7 +28,6 @@ public class MainImportDealBody   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("coluuid")
-
   public String getColuuid() {
     return coluuid;
   }
@@ -49,7 +45,6 @@ public class MainImportDealBody   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("dealIDs")
-
   public List<Integer> getDealIDs() {
     return dealIDs;
   }
@@ -67,7 +62,6 @@ public class MainImportDealBody   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("dir")
-
   public String getDir() {
     return dir;
   }
@@ -85,7 +79,6 @@ public class MainImportDealBody   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("name")
-
   public String getName() {
     return name;
   }
@@ -138,3 +131,4 @@ public class MainImportDealBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

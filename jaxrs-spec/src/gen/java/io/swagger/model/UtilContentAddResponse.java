@@ -12,13 +12,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class UtilContentAddResponse   {
-
+  
   private @Valid String cid = null;
-
   private @Valid Integer estuaryId = null;
-
   private @Valid List<String> providers = new ArrayList<String>();
-
   private @Valid String retrievalUrl = null;
 
   /**
@@ -31,7 +28,6 @@ public class UtilContentAddResponse   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("cid")
-
   public String getCid() {
     return cid;
   }
@@ -49,7 +45,6 @@ public class UtilContentAddResponse   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("estuaryId")
-
   public Integer getEstuaryId() {
     return estuaryId;
   }
@@ -67,7 +62,6 @@ public class UtilContentAddResponse   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("providers")
-
   public List<String> getProviders() {
     return providers;
   }
@@ -85,7 +79,6 @@ public class UtilContentAddResponse   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("retrieval_url")
-
   public String getRetrievalUrl() {
     return retrievalUrl;
   }
@@ -138,3 +131,4 @@ public class UtilContentAddResponse   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

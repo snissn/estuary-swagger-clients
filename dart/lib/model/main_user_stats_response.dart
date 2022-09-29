@@ -3,9 +3,10 @@ part of swagger.api;
 class MainUserStatsResponse {
   
   int numPins = null;
+  
 
   int totalSize = null;
-
+  
   MainUserStatsResponse();
 
   @override
@@ -15,8 +16,12 @@ class MainUserStatsResponse {
 
   MainUserStatsResponse.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    numPins = json['numPins'];
-    totalSize = json['totalSize'];
+    numPins =
+        json['numPins']
+    ;
+    totalSize =
+        json['totalSize']
+    ;
   }
 
   Map<String, dynamic> toJson() {
@@ -38,3 +43,4 @@ class MainUserStatsResponse {
     return map;
   }
 }
+

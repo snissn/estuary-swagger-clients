@@ -10,12 +10,15 @@ class AutoretrieveApi {
   /// Register autoretrieve server
   ///
   /// This endpoint registers a new autoretrieve server
-  Future adminAutoretrieveInitPost(String body) async {
-    Object postBody = body;
+  Future adminAutoretrieveInitPost(String addresses, String pubKey) async {
+    Object postBody = pubKey;
 
     // verify required params are set
-    if(body == null) {
-     throw new ApiException(400, "Missing required param: body");
+    if(addresses == null) {
+     throw new ApiException(400, "Missing required param: addresses");
+    }
+    if(pubKey == null) {
+     throw new ApiException(400, "Missing required param: pubKey");
     }
 
     // create path and map variables
@@ -26,7 +29,7 @@ class AutoretrieveApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     
-    List<String> contentTypes = ["*/*"];
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
     List<String> authNames = ["bearerAuth"];
@@ -34,6 +37,7 @@ class AutoretrieveApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -52,7 +56,7 @@ class AutoretrieveApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -82,6 +86,7 @@ class AutoretrieveApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -100,7 +105,7 @@ class AutoretrieveApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;
@@ -134,6 +139,7 @@ class AutoretrieveApi {
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
+      
       if(hasFields)
         postBody = mp;
     }
@@ -152,7 +158,7 @@ class AutoretrieveApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return
+      return 
           ;
     } else {
       return ;

@@ -1,6 +1,6 @@
 # IO.Swagger.Api.UserApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**UserApiKeysPost**](UserApi.md#userapikeyspost) | **POST** /user/api-keys | Create API keys for a user
 [**UserExportGet**](UserApi.md#userexportget) | **GET** /user/export | Export user data
 [**UserStatsGet**](UserApi.md#userstatsget) | **GET** /user/stats | Create API keys for a user
+
 
 <a name="userapikeysget"></a>
 # **UserApiKeysGet**
@@ -71,6 +72,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="userapikeyskeydelete"></a>
 # **UserApiKeysKeyDelete**
 > void UserApiKeysKeyDelete (string key)
@@ -132,9 +134,10 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="userapikeyspost"></a>
 # **UserApiKeysPost**
 > MainGetApiKeysResp UserApiKeysPost ()
@@ -196,6 +199,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="userexportget"></a>
 # **UserExportGet**
 > string UserExportGet ()
@@ -257,6 +261,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="userstatsget"></a>
 # **UserStatsGet**
 > MainUserStatsResponse UserStatsGet ()
@@ -318,3 +323,4 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

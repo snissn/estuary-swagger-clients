@@ -13,12 +13,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.jaxrs.PATCH;
 
 /**
  * Estuary API
@@ -27,6 +26,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  *
  */
 @Path("/")
+@Api(value = "/", description = "")
 public interface CollectionsApi  {
 
     /**
@@ -38,9 +38,9 @@ public interface CollectionsApi  {
     @POST
     @Path("/collections/{coluuid}/commit")
     @Produces({ "application/json" })
-    @Operation(summary = "Produce a CID of the collection contents", tags={  })
+    @ApiOperation(value = "Produce a CID of the collection contents", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))) })
+        @ApiResponse(code = 200, message = "OK", response = String.class) })
     public String collectionsColuuidCommitPost(@PathParam("coluuid") String coluuid);
 
     /**
@@ -51,7 +51,7 @@ public interface CollectionsApi  {
      */
     @DELETE
     @Path("/collections/{coluuid}")
-    @Operation(summary = "Deletes a collection", tags={  })
+    @ApiOperation(value = "Deletes a collection", tags={  })
     @ApiResponses(value = {  })
     public void collectionsColuuidDelete(@PathParam("coluuid") String coluuid);
 
@@ -64,9 +64,9 @@ public interface CollectionsApi  {
     @GET
     @Path("/collections/{coluuid}")
     @Produces({ "application/json" })
-    @Operation(summary = "Get contents in a collection", tags={  })
+    @ApiOperation(value = "Get contents in a collection", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))) })
+        @ApiResponse(code = 200, message = "OK", response = String.class) })
     public String collectionsColuuidGet(@QueryParam("coluuid")String coluuid, @QueryParam("dir")String dir);
 
     /**
@@ -79,9 +79,9 @@ public interface CollectionsApi  {
     @Path("/collections/{coluuid}")
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
-    @Operation(summary = "Add contents to a collection", tags={  })
+    @ApiOperation(value = "Add contents to a collection", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Map.class)))) })
+        @ApiResponse(code = 200, message = "OK", response = Map.class, responseContainer = "Map") })
     public Map<String, String> collectionsColuuidPost(List<Integer> body);
 
     /**
@@ -92,7 +92,8 @@ public interface CollectionsApi  {
      */
     @POST
     @Path("/collections/fs/add")
-    @Operation(summary = "Add a file to a collection", tags={  })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Add a file to a collection", tags={  })
     @ApiResponses(value = {  })
     public void collectionsFsAddPost(@QueryParam("coluuid")String coluuid, @QueryParam("content")String content, @QueryParam("path")String path);
 
@@ -105,12 +106,12 @@ public interface CollectionsApi  {
     @GET
     @Path("/collections/")
     @Produces({ "application/json" })
-    @Operation(summary = "List all collections", tags={  })
+    @ApiOperation(value = "List all collections", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = MainCollection.class)))),
-        @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
-        @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
-        @ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))) })
+        @ApiResponse(code = 200, message = "OK", response = MainCollection.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class),
+        @ApiResponse(code = 404, message = "Not Found", response = UtilHttpError.class),
+        @ApiResponse(code = 500, message = "Internal Server Error", response = UtilHttpError.class) })
     public List<MainCollection> collectionsGet(@PathParam("id") Integer id);
 
     /**
@@ -121,13 +122,13 @@ public interface CollectionsApi  {
      */
     @POST
     @Path("/collections/")
-    @Consumes({ "*/*" })
     @Produces({ "application/json" })
-    @Operation(summary = "Create a new collection", tags={  })
+    @ApiOperation(value = "Create a new collection", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = MainCollection.class))),
-        @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
-        @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))),
-        @ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UtilHttpError.class))) })
+        @ApiResponse(code = 200, message = "OK", response = MainCollection.class),
+        @ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class),
+        @ApiResponse(code = 404, message = "Not Found", response = UtilHttpError.class),
+        @ApiResponse(code = 500, message = "Internal Server Error", response = UtilHttpError.class) })
     public MainCollection collectionsPost(MainCreateCollectionBody body);
 }
+

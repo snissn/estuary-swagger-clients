@@ -5,12 +5,13 @@
 import 'package:swagger/api.dart';
 ```
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**publicMinersDealsMinerGet**](MinerApi.md#publicMinersDealsMinerGet) | **GET** /public/miners/deals/{miner} | Get all miners deals
 [**publicMinersStatsMinerGet**](MinerApi.md#publicMinersStatsMinerGet) | **GET** /public/miners/stats/{miner} | Get miner stats
+
 
 # **publicMinersDealsMinerGet**
 > publicMinersDealsMinerGet(miner)
@@ -19,7 +20,7 @@ Get all miners deals
 
 This endpoint returns all miners deals
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -30,7 +31,7 @@ import 'package:swagger/api.dart';
 var api_instance = new MinerApi();
 var miner = miner_example; // String | Filter by miner
 
-try {
+try { 
     api_instance.publicMinersDealsMinerGet(miner);
 } catch (e) {
     print("Exception when calling MinerApi->publicMinersDealsMinerGet: $e\n");
@@ -54,7 +55,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -65,7 +66,7 @@ Get miner stats
 
 This endpoint returns miner stats
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -76,7 +77,7 @@ import 'package:swagger/api.dart';
 var api_instance = new MinerApi();
 var miner = miner_example; // String | Filter by miner
 
-try {
+try { 
     api_instance.publicMinersStatsMinerGet(miner);
 } catch (e) {
     print("Exception when calling MinerApi->publicMinersStatsMinerGet: $e\n");
@@ -100,7 +101,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

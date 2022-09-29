@@ -1,17 +1,23 @@
 package io.swagger.model;
+
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaInflectorServerCodegen", date = "2022-09-27T20:40:25.355549-10:00[Pacific/Honolulu]")
+
+
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T01:52:32.839Z")
 public class MainCreateCollectionBody   {
   @JsonProperty("description")
   private String description = null;
+
   @JsonProperty("name")
   private String name = null;
+
   /**
    **/
   public MainCreateCollectionBody description(String description) {
@@ -20,7 +26,7 @@ public class MainCreateCollectionBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("description")
   public String getDescription() {
     return description;
@@ -37,7 +43,7 @@ public class MainCreateCollectionBody   {
   }
 
   
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -69,6 +75,7 @@ public class MainCreateCollectionBody   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MainCreateCollectionBody {\n");
+    
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
@@ -86,3 +93,4 @@ public class MainCreateCollectionBody   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

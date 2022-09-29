@@ -5,19 +5,15 @@
  * Add new content
  * This endpoint is used to upload new content.
  *
+ * file File File to upload
  * coluuid String Collection UUID
  * dir String Directory
  * returns util.ContentAddResponse
  **/
-exports.contentAddPOST = function(coluuid,dir) {
+exports.contentAddPOST = function(file,coluuid,dir) {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = {
-  "retrieval_url" : "retrieval_url",
-  "estuaryId" : 0,
-  "providers" : [ "providers", "providers" ],
-  "cid" : "cid"
-};
+    examples['application/json'] = {"empty": false};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -68,7 +64,10 @@ exports.contentAdd_ipfsPOST = function(body) {
 exports.contentAggregatedContentGET = function(content) {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = "";
+    examples['application/json'] = {
+  "bytes": [],
+  "empty": true
+};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -161,7 +160,10 @@ exports.contentEnsure_replicationDatacidGET = function(datacid) {
 exports.contentFailuresContentGET = function(content) {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = "";
+    examples['application/json'] = {
+  "bytes": [],
+  "empty": true
+};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -194,7 +196,7 @@ exports.contentImportdealPOST = function(body) {
 exports.contentListGET = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = [ "", "" ];
+    examples['application/json'] = {};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {

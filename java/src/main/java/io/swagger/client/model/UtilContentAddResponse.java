@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,15 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * UtilContentAddResponse
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-27T20:40:26.717738-10:00[Pacific/Honolulu]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T01:52:34.053Z")
 public class UtilContentAddResponse {
   @SerializedName("cid")
   private String cid = null;
@@ -50,7 +52,7 @@ public class UtilContentAddResponse {
    * Get cid
    * @return cid
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getCid() {
     return cid;
   }
@@ -68,7 +70,7 @@ public class UtilContentAddResponse {
    * Get estuaryId
    * @return estuaryId
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Integer getEstuaryId() {
     return estuaryId;
   }
@@ -94,7 +96,7 @@ public class UtilContentAddResponse {
    * Get providers
    * @return providers
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public List<String> getProviders() {
     return providers;
   }
@@ -112,7 +114,7 @@ public class UtilContentAddResponse {
    * Get retrievalUrl
    * @return retrievalUrl
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getRetrievalUrl() {
     return retrievalUrl;
   }
@@ -168,3 +170,4 @@ public class UtilContentAddResponse {
   }
 
 }
+

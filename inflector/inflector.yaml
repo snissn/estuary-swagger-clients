@@ -1,11 +1,10 @@
 controllerPackage: io.swagger.controllers
 modelPackage:  io.swagger.model
-swaggerUrl: ./src/main/resources/openapi3.yaml
+swaggerUrl: ./src/main/swagger/swagger.yaml
 modelMappings:
   # to enable explicit mappings, use this syntax:
   DefinitionFromSwaggerSpecification: fully.qualified.path.to.Model
-  ContentAddBody : io.swagger.model.ContentAddBody
-MainCollection : io.swagger.model.MainCollection
+  MainCollection : io.swagger.model.MainCollection
 MainCreateCollectionBody : io.swagger.model.MainCreateCollectionBody
 MainEstimateDealBody : io.swagger.model.MainEstimateDealBody
 MainGetApiKeysResp : io.swagger.model.MainGetApiKeysResp

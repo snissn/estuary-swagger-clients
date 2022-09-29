@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import java.io.File;
@@ -25,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * API tests for ContentApi
  */
@@ -34,6 +34,7 @@ public class ContentApiTest {
 
     private final ContentApi api = new ContentApi();
 
+    
     /**
      * Add Car object
      *
@@ -52,6 +53,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Add IPFS object
      *
@@ -67,6 +69,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Add new content
      *
@@ -84,6 +87,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get aggregated content stats
      *
@@ -99,6 +103,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get all deals for a user
      *
@@ -116,6 +121,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get content bandwidth
      *
@@ -131,6 +137,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Add a new content
      *
@@ -146,6 +153,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Content with deals
      *
@@ -162,6 +170,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Ensure Replication
      *
@@ -177,6 +186,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * List all failures for a content
      *
@@ -192,6 +202,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Import a deal
      *
@@ -207,6 +218,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * List all pinned content
      *
@@ -221,6 +233,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Read content
      *
@@ -236,6 +249,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get staging zone for user
      *
@@ -250,6 +264,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get content statistics
      *
@@ -265,6 +280,7 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Content Status
      *
@@ -280,4 +296,5 @@ public class ContentApiTest {
 
         // TODO: test validations
     }
+    
 }

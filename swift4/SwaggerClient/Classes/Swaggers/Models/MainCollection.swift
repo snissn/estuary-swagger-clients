@@ -8,21 +8,17 @@
 import Foundation
 
 
+
 public struct MainCollection: Codable {
 
-
     public var cid: String?
-
     public var createdAt: String?
-
     public var _description: String?
-
     public var name: String?
-
     public var userId: Int?
-
     public var uuid: String?
-    public init(cid: String? = nil, createdAt: String? = nil, _description: String? = nil, name: String? = nil, userId: Int? = nil, uuid: String? = nil) { 
+
+    public init(cid: String?, createdAt: String?, _description: String?, name: String?, userId: Int?, uuid: String?) {
         self.cid = cid
         self.createdAt = createdAt
         self._description = _description
@@ -30,6 +26,7 @@ public struct MainCollection: Codable {
         self.userId = userId
         self.uuid = uuid
     }
+
     public enum CodingKeys: String, CodingKey { 
         case cid
         case createdAt
@@ -39,4 +36,6 @@ public struct MainCollection: Codable {
         case uuid
     }
 
+
 }
+

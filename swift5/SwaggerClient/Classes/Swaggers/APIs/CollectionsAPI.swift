@@ -9,10 +9,11 @@ import Foundation
 import Alamofire
 
 
+
 open class CollectionsAPI {
     /**
      Produce a CID of the collection contents
-
+     
      - parameter coluuid: (path) coluuid 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,11 +27,15 @@ open class CollectionsAPI {
     /**
      Produce a CID of the collection contents
      - POST /collections/{coluuid}/commit
-
+     - This endpoint is used to save the contents in a collection, producing a top-level CID that references all the current CIDs in the collection.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
+     
      - parameter coluuid: (path) coluuid 
 
      - returns: RequestBuilder<String> 
@@ -42,16 +47,17 @@ open class CollectionsAPI {
         path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         let url = URLComponents(string: URLString)
-
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      Deletes a collection
-
+     
      - parameter coluuid: (path) Collection ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -69,10 +75,11 @@ open class CollectionsAPI {
     /**
      Deletes a collection
      - DELETE /collections/{coluuid}
-
+     - This endpoint is used to delete an existing collection.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter coluuid: (path) Collection ID 
 
      - returns: RequestBuilder<Void> 
@@ -84,16 +91,17 @@ open class CollectionsAPI {
         path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         let url = URLComponents(string: URLString)
-
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      Get contents in a collection
-
+     
      - parameter coluuid: (query) Collection UUID 
      - parameter dir: (query) Directory (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -108,11 +116,15 @@ open class CollectionsAPI {
     /**
      Get contents in a collection
      - GET /collections/{coluuid}
-
+     - This endpoint is used to get contents in a collection. If no colpath query param is passed
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
+     
      - parameter coluuid: (query) Collection UUID 
      - parameter dir: (query) Directory (optional)
 
@@ -122,20 +134,21 @@ open class CollectionsAPI {
         let path = "/collections/{coluuid}"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "coluuid": coluuid, 
-                        "dir": dir
+            "coluuid": coluuid, 
+            "dir": dir
         ])
-
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      Add contents to a collection
-
+     
      - parameter body: (body) Content IDs to add to collection 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -149,13 +162,12 @@ open class CollectionsAPI {
     /**
      Add contents to a collection
      - POST /collections/{coluuid}
-
+     - This endpoint adds already-pinned contents (that have ContentIDs) to a collection.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "key" : ""
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
+     
      - parameter body: (body) Content IDs to add to collection 
 
      - returns: RequestBuilder<[String:String]> 
@@ -164,16 +176,17 @@ open class CollectionsAPI {
         let path = "/collections/{coluuid}"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
-        let url = URLComponents(string: URLString)
 
+        let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[String:String]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+
     /**
      Add a file to a collection
-
+     
      - parameter coluuid: (query) Collection ID 
      - parameter content: (query) Content 
      - parameter path: (query) Path to file 
@@ -193,10 +206,11 @@ open class CollectionsAPI {
     /**
      Add a file to a collection
      - POST /collections/fs/add
-
+     - This endpoint adds a file to a collection
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter coluuid: (query) Collection ID 
      - parameter content: (query) Content 
      - parameter path: (query) Path to file 
@@ -207,21 +221,22 @@ open class CollectionsAPI {
         let path = "/collections/fs/add"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "coluuid": coluuid, 
-                        "content": content, 
-                        "path": path
+            "coluuid": coluuid, 
+            "content": content, 
+            "path": path
         ])
-
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      List all collections
-
+     
      - parameter _id: (path) User ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -235,25 +250,12 @@ open class CollectionsAPI {
     /**
      List all collections
      - GET /collections/
-
+     - This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ {
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-}, {
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-} ]}]
+     - examples: [{contentType=application/json, example={}}]
+     
      - parameter _id: (path) User ID 
 
      - returns: RequestBuilder<[MainCollection]> 
@@ -265,16 +267,17 @@ open class CollectionsAPI {
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         let url = URLComponents(string: URLString)
-
 
         let requestBuilder: RequestBuilder<[MainCollection]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+
     /**
      Create a new collection
-
+     
      - parameter body: (body) Collection name and description 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -288,18 +291,12 @@ open class CollectionsAPI {
     /**
      Create a new collection
      - POST /collections/
-
+     - This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
+     
      - parameter body: (body) Collection name and description 
 
      - returns: RequestBuilder<MainCollection> 
@@ -308,11 +305,12 @@ open class CollectionsAPI {
         let path = "/collections/"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
-        let url = URLComponents(string: URLString)
 
+        let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<MainCollection>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+
 }

@@ -3,6 +3,7 @@ package io.swagger.api.impl;
 import io.swagger.api.*;
 import io.swagger.model.*;
 
+
 import io.swagger.model.MainEstimateDealBody;
 
 import java.util.List;
@@ -15,7 +16,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyServerCodegen", date = "2022-09-27T20:40:41.950348-10:00[Pacific/Honolulu]")public class DealApiServiceImpl implements DealApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:52:43.427Z")
+public class DealApiServiceImpl implements DealApiService {
       public Response dealEstimatePost(MainEstimateDealBody body,SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!

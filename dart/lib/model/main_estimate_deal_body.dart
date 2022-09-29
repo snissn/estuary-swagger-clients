@@ -3,13 +3,16 @@ part of swagger.api;
 class MainEstimateDealBody {
   
   int durationBlks = null;
+  
 
   int replication = null;
+  
 
   int size = null;
+  
 
   bool verified = null;
-
+  
   MainEstimateDealBody();
 
   @override
@@ -19,10 +22,18 @@ class MainEstimateDealBody {
 
   MainEstimateDealBody.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    durationBlks = json['durationBlks'];
-    replication = json['replication'];
-    size = json['size'];
-    verified = json['verified'];
+    durationBlks =
+        json['durationBlks']
+    ;
+    replication =
+        json['replication']
+    ;
+    size =
+        json['size']
+    ;
+    verified =
+        json['verified']
+    ;
   }
 
   Map<String, dynamic> toJson() {
@@ -46,3 +57,4 @@ class MainEstimateDealBody {
     return map;
   }
 }
+

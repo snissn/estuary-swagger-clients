@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 package io.swagger.client.api
 
 import java.text.SimpleDateFormat
@@ -43,7 +44,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class AutoretrieveApi(
-  val defBasePath: String = "//api.estuary.tech/",
+  val defBasePath: String = "https://api.estuary.tech",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {
@@ -81,11 +82,12 @@ class AutoretrieveApi(
    * Register autoretrieve server
    * This endpoint registers a new autoretrieve server
    *
-   * @param body Autoretrieve&#x27;s public key 
+   * @param addresses Autoretrieve&#39;s comma-separated list of addresses 
+   * @param pubKey Autoretrieve&#39;s public key 
    * @return void
    */
-  def adminAutoretrieveInitPost(body: String) = {
-    val await = Try(Await.result(adminAutoretrieveInitPostAsync(body), Duration.Inf))
+  def adminAutoretrieveInitPost(addresses: String, pubKey: String) = {
+    val await = Try(Await.result(adminAutoretrieveInitPostAsync(addresses, pubKey), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -96,11 +98,12 @@ class AutoretrieveApi(
    * Register autoretrieve server asynchronously
    * This endpoint registers a new autoretrieve server
    *
-   * @param body Autoretrieve&#x27;s public key 
+   * @param addresses Autoretrieve&#39;s comma-separated list of addresses 
+   * @param pubKey Autoretrieve&#39;s public key 
    * @return Future(void)
    */
-  def adminAutoretrieveInitPostAsync(body: String) = {
-      helper.adminAutoretrieveInitPost(body)
+  def adminAutoretrieveInitPostAsync(addresses: String, pubKey: String) = {
+      helper.adminAutoretrieveInitPost(addresses, pubKey)
   }
 
   /**
@@ -131,7 +134,7 @@ class AutoretrieveApi(
    * Marks autoretrieve server as up
    * This endpoint updates the lastConnection field for autoretrieve
    *
-   * @param token Autoretrieve&#x27;s auth token 
+   * @param token Autoretrieve&#39;s auth token 
    * @return void
    */
   def autoretrieveHeartbeatPost(token: String) = {
@@ -146,7 +149,7 @@ class AutoretrieveApi(
    * Marks autoretrieve server as up asynchronously
    * This endpoint updates the lastConnection field for autoretrieve
    *
-   * @param token Autoretrieve&#x27;s auth token 
+   * @param token Autoretrieve&#39;s auth token 
    * @return Future(void)
    */
   def autoretrieveHeartbeatPostAsync(token: String) = {
@@ -157,7 +160,8 @@ class AutoretrieveApi(
 
 class AutoretrieveApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extends ApiClient(client, config) {
 
-  def adminAutoretrieveInitPost(body: String)(implicit reader: ClientResponseReader[Unit], writer: RequestWriter[String]): Future[Unit] = {
+  def adminAutoretrieveInitPost(addresses: String,
+    pubKey: String)(implicit reader: ClientResponseReader[Unit], writer: RequestWriter[String], writer: RequestWriter[String]): Future[Unit] = {
     // create path and map variables
     val path = (addFmt("/admin/autoretrieve/init"))
 
@@ -165,9 +169,12 @@ class AutoretrieveApiAsyncHelper(client: TransportClient, config: SwaggerConfig)
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (body == null) throw new Exception("Missing required parameter 'body' when calling AutoretrieveApi->adminAutoretrieveInitPost")
+    if (addresses == null) throw new Exception("Missing required parameter 'addresses' when calling AutoretrieveApi->adminAutoretrieveInitPost")
 
-    val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, writer.write(body))
+    if (pubKey == null) throw new Exception("Missing required parameter 'pubKey' when calling AutoretrieveApi->adminAutoretrieveInitPost")
+
+
+    val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, writer.write(pubKey))
     resFuture flatMap { resp =>
       process(reader.read(resp))
     }

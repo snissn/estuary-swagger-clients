@@ -16,12 +16,12 @@ class TestAutoretrieveController(BaseTestCase):
 
         Register autoretrieve server
         """
-        body = 'body_example'
+        pubKey = 'pubKey_example'
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/admin/autoretrieve/init',
+            '//admin/autoretrieve/init',
             method='POST',
-            data=json.dumps(body),
-            content_type='*/*')
+            data=json.dumps(pubKey),
+            content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
@@ -31,7 +31,7 @@ class TestAutoretrieveController(BaseTestCase):
         List autoretrieve servers
         """
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/admin/autoretrieve/list',
+            '//admin/autoretrieve/list',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -43,7 +43,7 @@ class TestAutoretrieveController(BaseTestCase):
         """
         headers = [('token', 'token_example')]
         response = self.client.open(
-            '/application-research/estuary/master/docs/swagger.json/autoretrieve/heartbeat',
+            '//autoretrieve/heartbeat',
             method='POST',
             headers=headers)
         self.assert200(response,

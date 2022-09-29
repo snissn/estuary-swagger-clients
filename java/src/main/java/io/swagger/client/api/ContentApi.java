@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -69,7 +70,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentAddCarPostCall(String body, String filename, String commp, String size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/content/add-car";
 
@@ -87,13 +88,13 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -113,21 +114,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentAddCarPostValidateBeforeCall(String body, String filename, String commp, String size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling contentAddCarPost(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentAddCarPostCall(body, filename, commp, size, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -204,7 +203,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentAddIpfsPostCall(UtilContentAddIpfsBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/content/add-ipfs";
 
@@ -216,13 +215,13 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -242,21 +241,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentAddIpfsPostValidateBeforeCall(UtilContentAddIpfsBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling contentAddIpfsPost(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentAddIpfsPostCall(body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -316,7 +313,7 @@ public class ContentApi {
     }
     /**
      * Build call for contentAddPost
-     * @param file  (required)
+     * @param file File to upload (required)
      * @param coluuid Collection UUID (required)
      * @param dir Directory (required)
      * @param progressListener Progress listener
@@ -326,7 +323,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentAddPostCall(File file, String coluuid, String dir, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/add"
             .replaceAll("\\{" + "coluuid" + "\\}", apiClient.escapeString(coluuid.toString()))
@@ -368,35 +365,35 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentAddPostValidateBeforeCall(File file, String coluuid, String dir, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'file' is set
         if (file == null) {
             throw new ApiException("Missing the required parameter 'file' when calling contentAddPost(Async)");
         }
+        
         // verify the required parameter 'coluuid' is set
         if (coluuid == null) {
             throw new ApiException("Missing the required parameter 'coluuid' when calling contentAddPost(Async)");
         }
+        
         // verify the required parameter 'dir' is set
         if (dir == null) {
             throw new ApiException("Missing the required parameter 'dir' when calling contentAddPost(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentAddPostCall(file, coluuid, dir, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Add new content
      * This endpoint is used to upload new content.
-     * @param file  (required)
+     * @param file File to upload (required)
      * @param coluuid Collection UUID (required)
      * @param dir Directory (required)
      * @return UtilContentAddResponse
@@ -410,7 +407,7 @@ public class ContentApi {
     /**
      * Add new content
      * This endpoint is used to upload new content.
-     * @param file  (required)
+     * @param file File to upload (required)
      * @param coluuid Collection UUID (required)
      * @param dir Directory (required)
      * @return ApiResponse&lt;UtilContentAddResponse&gt;
@@ -425,7 +422,7 @@ public class ContentApi {
     /**
      * Add new content (asynchronously)
      * This endpoint is used to upload new content.
-     * @param file  (required)
+     * @param file File to upload (required)
      * @param coluuid Collection UUID (required)
      * @param dir Directory (required)
      * @param callback The callback to be executed when the API call finishes
@@ -468,7 +465,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentAggregatedContentGetCall(String content, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/aggregated/{content}"
             .replaceAll("\\{" + "content" + "\\}", apiClient.escapeString(content.toString()));
@@ -507,21 +504,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentAggregatedContentGetValidateBeforeCall(String content, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'content' is set
         if (content == null) {
             throw new ApiException("Missing the required parameter 'content' when calling contentAggregatedContentGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentAggregatedContentGetCall(content, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -595,7 +590,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentAllDealsGetCall(String begin, String duration, String all, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/all-deals";
 
@@ -613,7 +608,7 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -639,29 +634,29 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentAllDealsGetValidateBeforeCall(String begin, String duration, String all, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'begin' is set
         if (begin == null) {
             throw new ApiException("Missing the required parameter 'begin' when calling contentAllDealsGet(Async)");
         }
+        
         // verify the required parameter 'duration' is set
         if (duration == null) {
             throw new ApiException("Missing the required parameter 'duration' when calling contentAllDealsGet(Async)");
         }
+        
         // verify the required parameter 'all' is set
         if (all == null) {
             throw new ApiException("Missing the required parameter 'all' when calling contentAllDealsGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentAllDealsGetCall(begin, duration, all, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -735,7 +730,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentBwUsageContentGetCall(String content, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/bw-usage/{content}"
             .replaceAll("\\{" + "content" + "\\}", apiClient.escapeString(content.toString()));
@@ -748,7 +743,7 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -774,21 +769,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentBwUsageContentGetValidateBeforeCall(String content, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'content' is set
         if (content == null) {
             throw new ApiException("Missing the required parameter 'content' when calling contentBwUsageContentGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentBwUsageContentGetCall(content, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -856,7 +849,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentCreatePostCall(String body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/content/create";
 
@@ -868,13 +861,13 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -894,21 +887,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentCreatePostValidateBeforeCall(String body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling contentCreatePost(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentCreatePostCall(body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -977,7 +968,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentDealsGetCall(Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/deals";
 
@@ -993,7 +984,7 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1019,17 +1010,14 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentDealsGetValidateBeforeCall(Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = contentDealsGetCall(limit, offset, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1100,7 +1088,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentEnsureReplicationDatacidGetCall(String datacid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/ensure-replication/{datacid}"
             .replaceAll("\\{" + "datacid" + "\\}", apiClient.escapeString(datacid.toString()));
@@ -1113,7 +1101,7 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1139,21 +1127,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentEnsureReplicationDatacidGetValidateBeforeCall(String datacid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'datacid' is set
         if (datacid == null) {
             throw new ApiException("Missing the required parameter 'datacid' when calling contentEnsureReplicationDatacidGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentEnsureReplicationDatacidGetCall(datacid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1221,7 +1207,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentFailuresContentGetCall(String content, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/failures/{content}"
             .replaceAll("\\{" + "content" + "\\}", apiClient.escapeString(content.toString()));
@@ -1260,21 +1246,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentFailuresContentGetValidateBeforeCall(String content, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'content' is set
         if (content == null) {
             throw new ApiException("Missing the required parameter 'content' when calling contentFailuresContentGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentFailuresContentGetCall(content, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1346,7 +1330,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentImportdealPostCall(MainImportDealBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/content/importdeal";
 
@@ -1358,13 +1342,13 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1384,21 +1368,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentImportdealPostValidateBeforeCall(MainImportDealBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling contentImportdealPost(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentImportdealPostCall(body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1465,7 +1447,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentListGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/list";
 
@@ -1503,17 +1485,14 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentListGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = contentListGetCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1582,7 +1561,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentReadContGetCall(String cont, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/read/{cont}"
             .replaceAll("\\{" + "cont" + "\\}", apiClient.escapeString(cont.toString()));
@@ -1595,7 +1574,7 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1621,21 +1600,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentReadContGetValidateBeforeCall(String cont, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'cont' is set
         if (cont == null) {
             throw new ApiException("Missing the required parameter 'cont' when calling contentReadContGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentReadContGetCall(cont, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1702,7 +1679,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentStagingZonesGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/staging-zones";
 
@@ -1714,7 +1691,7 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1740,17 +1717,14 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentStagingZonesGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = contentStagingZonesGetCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1815,7 +1789,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentStatsGetCall(String limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/stats"
             .replaceAll("\\{" + "limit" + "\\}", apiClient.escapeString(limit.toString()));
@@ -1828,7 +1802,7 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1854,21 +1828,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentStatsGetValidateBeforeCall(String limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'limit' is set
         if (limit == null) {
             throw new ApiException("Missing the required parameter 'limit' when calling contentStatsGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentStatsGetCall(limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1936,7 +1908,7 @@ public class ContentApi {
      */
     public com.squareup.okhttp.Call contentStatusIdGetCall(Integer id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/content/status/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -1949,7 +1921,7 @@ public class ContentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1975,21 +1947,19 @@ public class ContentApi {
         String[] localVarAuthNames = new String[] { "bearerAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call contentStatusIdGetValidateBeforeCall(Integer id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling contentStatusIdGet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = contentStatusIdGetCall(id, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

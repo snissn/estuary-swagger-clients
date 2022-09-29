@@ -13,7 +13,7 @@ import Alamofire
 open class AdminAPI {
     /**
      Remove peers on Peering Service
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminPeeringPeersDelete(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -41,7 +41,7 @@ open class AdminAPI {
         let path = "/admin/peering/peers"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -51,7 +51,7 @@ open class AdminAPI {
 
     /**
      List all Peering peers
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminPeeringPeersGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -79,7 +79,7 @@ open class AdminAPI {
         let path = "/admin/peering/peers"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -89,7 +89,7 @@ open class AdminAPI {
 
     /**
      Add peers on Peering Service
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminPeeringPeersPost(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -117,7 +117,7 @@ open class AdminAPI {
         let path = "/admin/peering/peers"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -127,7 +127,7 @@ open class AdminAPI {
 
     /**
      Start Peering
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminPeeringStartPost(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -155,7 +155,7 @@ open class AdminAPI {
         let path = "/admin/peering/start"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -165,7 +165,7 @@ open class AdminAPI {
 
     /**
      Check Peering Status
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminPeeringStatusGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -193,7 +193,7 @@ open class AdminAPI {
         let path = "/admin/peering/status"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -203,7 +203,7 @@ open class AdminAPI {
 
     /**
      Stop Peering
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminPeeringStopPost(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -231,7 +231,7 @@ open class AdminAPI {
         let path = "/admin/peering/stop"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -241,7 +241,7 @@ open class AdminAPI {
 
     /**
      Get systems(estuary/shuttle) config
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminSystemConfigGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -269,7 +269,7 @@ open class AdminAPI {
         let path = "/admin/system/config"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -279,7 +279,7 @@ open class AdminAPI {
 
     /**
      Get all users
-
+     
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminUsersGet(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -307,7 +307,7 @@ open class AdminAPI {
         let path = "/admin/users"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()

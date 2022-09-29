@@ -1,6 +1,6 @@
 # EstuaryApi.DealsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**publicDealsFailuresGet**](DealsApi.md#publicDealsFailuresGet) | **GET** /public/deals/failures | Get storage failures
 [**publicMinersStorageQueryMinerGet**](DealsApi.md#publicMinersStorageQueryMinerGet) | **GET** /public/miners/storage/query/{miner} | Query Ask
 
+
 <a name="dealEstimatePost"></a>
 # **dealEstimatePost**
 > dealEstimatePost(body)
@@ -28,25 +29,28 @@ This endpoint estimates the cost of a deal
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let body = new EstuaryApi.MainEstimateDealBody(); // MainEstimateDealBody | The size of the deal in bytes, the replication factor, and the duration of the deal in blocks
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.dealEstimatePost(body, (error, data, response) => {
+var body = new EstuaryApi.MainEstimateDealBody(); // MainEstimateDealBody | The size of the deal in bytes, the replication factor, and the duration of the deal in blocks
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealEstimatePost(body, callback);
 ```
 
 ### Parameters
@@ -65,8 +69,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="dealInfoDealidGet"></a>
 # **dealInfoDealidGet**
@@ -78,25 +82,28 @@ This endpoint returns the deal info for a deal
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let dealid = 56; // Number | Deal ID
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.dealInfoDealidGet(dealid, (error, data, response) => {
+var dealid = 56; // Number | Deal ID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealInfoDealidGet(dealid, callback);
 ```
 
 ### Parameters
@@ -116,7 +123,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealProposalPropcidGet"></a>
 # **dealProposalPropcidGet**
@@ -128,25 +135,28 @@ This endpoint returns the proposal for a deal
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let propcid = "propcid_example"; // String | Proposal CID
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.dealProposalPropcidGet(propcid, (error, data, response) => {
+var propcid = "propcid_example"; // String | Proposal CID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealProposalPropcidGet(propcid, callback);
 ```
 
 ### Parameters
@@ -166,7 +176,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealQueryMinerGet"></a>
 # **dealQueryMinerGet**
@@ -178,25 +188,28 @@ This endpoint returns the ask for a given CID
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let miner = "miner_example"; // String | CID
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.dealQueryMinerGet(miner, (error, data, response) => {
+var miner = "miner_example"; // String | CID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealQueryMinerGet(miner, callback);
 ```
 
 ### Parameters
@@ -216,7 +229,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealStatusByProposalPropcidGet"></a>
 # **dealStatusByProposalPropcidGet**
@@ -228,25 +241,28 @@ Get Deal Status by PropCid
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let propcid = "propcid_example"; // String | PropCid
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.dealStatusByProposalPropcidGet(propcid, (error, data, response) => {
+var propcid = "propcid_example"; // String | PropCid
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealStatusByProposalPropcidGet(propcid, callback);
 ```
 
 ### Parameters
@@ -266,7 +282,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealStatusMinerPropcidGet"></a>
 # **dealStatusMinerPropcidGet**
@@ -278,26 +294,30 @@ This endpoint returns the status of a deal
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let miner = "miner_example"; // String | Miner
-let propcid = "propcid_example"; // String | Proposal CID
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.dealStatusMinerPropcidGet(miner, propcid, (error, data, response) => {
+var miner = "miner_example"; // String | Miner
+
+var propcid = "propcid_example"; // String | Proposal CID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealStatusMinerPropcidGet(miner, propcid, callback);
 ```
 
 ### Parameters
@@ -318,7 +338,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealTransferInProgressGet"></a>
 # **dealTransferInProgressGet**
@@ -330,23 +350,25 @@ This endpoint returns the in-progress transfers
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-apiInstance.dealTransferInProgressGet((error, data, response) => {
+var apiInstance = new EstuaryApi.DealsApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealTransferInProgressGet(callback);
 ```
 
 ### Parameters
@@ -363,7 +385,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealTransferStatusPost"></a>
 # **dealTransferStatusPost**
@@ -375,23 +397,25 @@ This endpoint returns the status of a transfer
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-apiInstance.dealTransferStatusPost((error, data, response) => {
+var apiInstance = new EstuaryApi.DealsApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealTransferStatusPost(callback);
 ```
 
 ### Parameters
@@ -408,7 +432,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealsFailuresGet"></a>
 # **dealsFailuresGet**
@@ -420,23 +444,25 @@ This endpoint returns a list of storage failures for user
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-apiInstance.dealsFailuresGet((error, data, response) => {
+var apiInstance = new EstuaryApi.DealsApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealsFailuresGet(callback);
 ```
 
 ### Parameters
@@ -453,11 +479,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="dealsMakeMinerPost"></a>
 # **dealsMakeMinerPost**
-> dealsMakeMinerPost(body, miner)
+> dealsMakeMinerPost(miner, dealRequest)
 
 Make Deal
 
@@ -465,34 +491,38 @@ This endpoint makes a deal for a given content and miner
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let body = "body_example"; // String | Deal Request
-let miner = "miner_example"; // String | Miner
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.dealsMakeMinerPost(body, miner, (error, data, response) => {
+var miner = "miner_example"; // String | Miner
+
+var dealRequest = "dealRequest_example"; // String | Deal Request
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealsMakeMinerPost(miner, dealRequest, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**String**](String.md)| Deal Request | 
  **miner** | **String**| Miner | 
+ **dealRequest** | **String**| Deal Request | 
 
 ### Return type
 
@@ -504,8 +534,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="dealsStatusDealGet"></a>
 # **dealsStatusDealGet**
@@ -517,25 +547,28 @@ This endpoint returns the status of a deal
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let deal = 56; // Number | Deal ID
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.dealsStatusDealGet(deal, (error, data, response) => {
+var deal = 56; // Number | Deal ID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.dealsStatusDealGet(deal, callback);
 ```
 
 ### Parameters
@@ -555,7 +588,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="publicDealsFailuresGet"></a>
 # **publicDealsFailuresGet**
@@ -567,23 +600,25 @@ This endpoint returns a list of storage failures
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-apiInstance.publicDealsFailuresGet((error, data, response) => {
+var apiInstance = new EstuaryApi.DealsApi();
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.publicDealsFailuresGet(callback);
 ```
 
 ### Parameters
@@ -600,7 +635,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="publicMinersStorageQueryMinerGet"></a>
 # **publicMinersStorageQueryMinerGet**
@@ -612,25 +647,28 @@ This endpoint returns the ask for a given CID
 
 ### Example
 ```javascript
-import {EstuaryApi} from 'estuary_api';
-let defaultClient = EstuaryApi.ApiClient.instance;
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
 
 // Configure API key authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
+var bearerAuth = defaultClient.authentications['bearerAuth'];
 bearerAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearerAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new EstuaryApi.DealsApi();
-let miner = "miner_example"; // String | CID
+var apiInstance = new EstuaryApi.DealsApi();
 
-apiInstance.publicMinersStorageQueryMinerGet(miner, (error, data, response) => {
+var miner = "miner_example"; // String | CID
+
+
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-});
+};
+apiInstance.publicMinersStorageQueryMinerGet(miner, callback);
 ```
 
 ### Parameters
@@ -650,5 +688,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 

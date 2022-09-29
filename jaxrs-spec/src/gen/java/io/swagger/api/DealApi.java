@@ -5,14 +5,7 @@ import io.swagger.model.MainEstimateDealBody;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.annotations.*;
 
 import java.util.Map;
 import java.util.List;
@@ -20,98 +13,103 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 @Path("/deal")
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2022-09-27T20:40:46.691587-10:00[Pacific/Honolulu]")
+@Api(description = "the deal API")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-09-29T01:52:45.795Z")
 public class DealApi {
 
     @POST
     @Path("/estimate")
-    @Consumes({ "*/*" })
-    @Operation(summary = "Estimate the cost of a deal", description = "This endpoint estimates the cost of a deal", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "deals" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Estimate the cost of a deal", notes = "This endpoint estimates the cost of a deal", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "deals",  })
     @ApiResponses(value = { 
     })
     public Response dealEstimatePost(@Valid MainEstimateDealBody body) {
         return Response.ok().entity("magic!").build();
     }
+
     @GET
     @Path("/info/{dealid}")
-    @Operation(summary = "Get Deal Info", description = "This endpoint returns the deal info for a deal", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "deals" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get Deal Info", notes = "This endpoint returns the deal info for a deal", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "deals",  })
     @ApiResponses(value = { 
     })
-    public Response dealInfoDealidGet( @PathParam("dealid")
-
- @Parameter(description = "Deal ID") Integer dealid
-) {
+    public Response dealInfoDealidGet(@PathParam("dealid") @ApiParam("Deal ID") Integer dealid) {
         return Response.ok().entity("magic!").build();
     }
+
     @GET
     @Path("/proposal/{propcid}")
-    @Operation(summary = "Get Proposal", description = "This endpoint returns the proposal for a deal", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "deals" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get Proposal", notes = "This endpoint returns the proposal for a deal", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "deals",  })
     @ApiResponses(value = { 
     })
-    public Response dealProposalPropcidGet( @PathParam("propcid")
-
- @Parameter(description = "Proposal CID") String propcid
-) {
+    public Response dealProposalPropcidGet(@PathParam("propcid") @ApiParam("Proposal CID") String propcid) {
         return Response.ok().entity("magic!").build();
     }
+
     @GET
     @Path("/query/{miner}")
-    @Operation(summary = "Query Ask", description = "This endpoint returns the ask for a given CID", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "deals" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Query Ask", notes = "This endpoint returns the ask for a given CID", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "deals",  })
     @ApiResponses(value = { 
     })
-    public Response dealQueryMinerGet( @PathParam("miner")
-
- @Parameter(description = "CID") String miner
-) {
+    public Response dealQueryMinerGet(@PathParam("miner") @ApiParam("CID") String miner) {
         return Response.ok().entity("magic!").build();
     }
+
     @GET
     @Path("/status-by-proposal/{propcid}")
-    @Operation(summary = "Get Deal Status by PropCid", description = "Get Deal Status by PropCid", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "deals" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get Deal Status by PropCid", notes = "Get Deal Status by PropCid", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "deals",  })
     @ApiResponses(value = { 
     })
-    public Response dealStatusByProposalPropcidGet( @PathParam("propcid")
-
- @Parameter(description = "PropCid") String propcid
-) {
+    public Response dealStatusByProposalPropcidGet(@PathParam("propcid") @ApiParam("PropCid") String propcid) {
         return Response.ok().entity("magic!").build();
     }
+
     @GET
     @Path("/status/{miner}/{propcid}")
-    @Operation(summary = "Deal Status", description = "This endpoint returns the status of a deal", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "deals" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Deal Status", notes = "This endpoint returns the status of a deal", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "deals",  })
     @ApiResponses(value = { 
     })
-    public Response dealStatusMinerPropcidGet( @PathParam("miner")
-
- @Parameter(description = "Miner") String miner
-, @PathParam("propcid")
-
- @Parameter(description = "Proposal CID") String propcid
-) {
+    public Response dealStatusMinerPropcidGet(@PathParam("miner") @ApiParam("Miner") String miner,@PathParam("propcid") @ApiParam("Proposal CID") String propcid) {
         return Response.ok().entity("magic!").build();
     }
+
     @GET
     @Path("/transfer/in-progress")
-    @Operation(summary = "Transfer In Progress", description = "This endpoint returns the in-progress transfers", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "deals" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Transfer In Progress", notes = "This endpoint returns the in-progress transfers", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "deals",  })
     @ApiResponses(value = { 
     })
     public Response dealTransferInProgressGet() {
         return Response.ok().entity("magic!").build();
     }
+
     @POST
     @Path("/transfer/status")
-    @Operation(summary = "Transfer Status", description = "This endpoint returns the status of a transfer", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "deals" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Transfer Status", notes = "This endpoint returns the status of a transfer", response = Void.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "deals" })
     @ApiResponses(value = { 
     })
     public Response dealTransferStatusPost() {
         return Response.ok().entity("magic!").build();
-    }}
+    }
+}

@@ -8,3 +8,4 @@ Name | Type | Description | Notes
 **providers** | **Array&lt;String&gt;** |  | [optional] 
 **retrieval_url** | **String** |  | [optional] 
 
+

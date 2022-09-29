@@ -9,14 +9,7 @@ import javax.ws.rs.core.SecurityContext;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.annotations.*;
 import java.io.InputStream;
 
 import org.apache.cxf.jaxrs.ext.multipart.Attachment;
@@ -28,10 +21,11 @@ import javax.validation.constraints.*;
 @Path("/net")
 @RequestScoped
 
+@Api(description = "the net API")
 
 
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:52:40.454Z")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-27T20:40:33.778721-10:00[Pacific/Honolulu]")
 public class NetApi  {
 
   @Context SecurityContext securityContext;
@@ -43,10 +37,11 @@ public class NetApi  {
     @Path("/addrs")
     
     @Produces({ "application/json" })
-    @Operation(summary = "Net Addrs", description = "This endpoint is used to get net addrs", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "net" })
+    @ApiOperation(value = "Net Addrs", notes = "This endpoint is used to get net addrs", response = String.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={ "net" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = String.class)))) })
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     public Response netAddrsGet() {
         return delegate.netAddrsGet(securityContext);
     }

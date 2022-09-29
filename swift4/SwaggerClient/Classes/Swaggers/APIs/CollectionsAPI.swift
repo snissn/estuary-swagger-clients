@@ -13,6 +13,7 @@ import Alamofire
 open class CollectionsAPI {
     /**
      Produce a CID of the collection contents
+     
      - parameter coluuid: (path) coluuid 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -30,7 +31,11 @@ open class CollectionsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
+     
      - parameter coluuid: (path) coluuid 
 
      - returns: RequestBuilder<String> 
@@ -42,7 +47,7 @@ open class CollectionsAPI {
         path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -52,6 +57,7 @@ open class CollectionsAPI {
 
     /**
      Deletes a collection
+     
      - parameter coluuid: (path) Collection ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -73,6 +79,7 @@ open class CollectionsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
+     
      - parameter coluuid: (path) Collection ID 
 
      - returns: RequestBuilder<Void> 
@@ -84,7 +91,7 @@ open class CollectionsAPI {
         path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -94,7 +101,9 @@ open class CollectionsAPI {
 
     /**
      Get contents in a collection
-     - parameter coluuid: (query) Collection UUID      - parameter dir: (query) Directory (optional)
+     
+     - parameter coluuid: (query) Collection UUID 
+     - parameter dir: (query) Directory (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func collectionsColuuidGet(coluuid: String, dir: String? = nil, completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
@@ -111,8 +120,13 @@ open class CollectionsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=""}]
-     - parameter coluuid: (query) Collection UUID      - parameter dir: (query) Directory (optional)
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
+     
+     - parameter coluuid: (query) Collection UUID 
+     - parameter dir: (query) Directory (optional)
 
      - returns: RequestBuilder<String> 
      */
@@ -120,10 +134,11 @@ open class CollectionsAPI {
         let path = "/collections/{coluuid}"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "coluuid": coluuid, 
-                        "dir": dir
+            "coluuid": coluuid, 
+            "dir": dir
         ])
 
         let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -133,6 +148,7 @@ open class CollectionsAPI {
 
     /**
      Add contents to a collection
+     
      - parameter body: (body) Content IDs to add to collection 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -150,9 +166,8 @@ open class CollectionsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "key" : ""
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
+     
      - parameter body: (body) Content IDs to add to collection 
 
      - returns: RequestBuilder<[String:String]> 
@@ -171,7 +186,10 @@ open class CollectionsAPI {
 
     /**
      Add a file to a collection
-     - parameter coluuid: (query) Collection ID      - parameter content: (query) Content      - parameter path: (query) Path to file 
+     
+     - parameter coluuid: (query) Collection ID 
+     - parameter content: (query) Content 
+     - parameter path: (query) Path to file 
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func collectionsFsAddPost(coluuid: String, content: String, path: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -192,7 +210,10 @@ open class CollectionsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter coluuid: (query) Collection ID      - parameter content: (query) Content      - parameter path: (query) Path to file 
+     
+     - parameter coluuid: (query) Collection ID 
+     - parameter content: (query) Content 
+     - parameter path: (query) Path to file 
 
      - returns: RequestBuilder<Void> 
      */
@@ -200,11 +221,12 @@ open class CollectionsAPI {
         let path = "/collections/fs/add"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
+        
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "coluuid": coluuid, 
-                        "content": content, 
-                        "path": path
+            "coluuid": coluuid, 
+            "content": content, 
+            "path": path
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -214,6 +236,7 @@ open class CollectionsAPI {
 
     /**
      List all collections
+     
      - parameter _id: (path) User ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -231,21 +254,8 @@ open class CollectionsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example=[ {
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-}, {
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-} ]}]
+     - examples: [{contentType=application/json, example={}}]
+     
      - parameter _id: (path) User ID 
 
      - returns: RequestBuilder<[MainCollection]> 
@@ -257,7 +267,7 @@ open class CollectionsAPI {
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[MainCollection]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -267,6 +277,7 @@ open class CollectionsAPI {
 
     /**
      Create a new collection
+     
      - parameter body: (body) Collection name and description 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -284,14 +295,8 @@ open class CollectionsAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - examples: [{contentType=application/json, example={
-  "createdAt" : "createdAt",
-  "name" : "name",
-  "description" : "description",
-  "userId" : 0,
-  "uuid" : "uuid",
-  "cid" : "cid"
-}}]
+     - examples: [{contentType=application/json, example={"empty": false}}]
+     
      - parameter body: (body) Collection name and description 
 
      - returns: RequestBuilder<MainCollection> 

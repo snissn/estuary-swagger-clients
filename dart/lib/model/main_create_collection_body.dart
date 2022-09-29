@@ -3,9 +3,10 @@ part of swagger.api;
 class MainCreateCollectionBody {
   
   String description = null;
+  
 
   String name = null;
-
+  
   MainCreateCollectionBody();
 
   @override
@@ -15,8 +16,12 @@ class MainCreateCollectionBody {
 
   MainCreateCollectionBody.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    description = json['description'];
-    name = json['name'];
+    description =
+        json['description']
+    ;
+    name =
+        json['name']
+    ;
   }
 
   Map<String, dynamic> toJson() {
@@ -38,3 +43,4 @@ class MainCreateCollectionBody {
     return map;
   }
 }
+

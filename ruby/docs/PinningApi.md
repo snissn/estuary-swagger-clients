@@ -1,6 +1,6 @@
 # SwaggerClient::PinningApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**pinning_pins_pinid_get**](PinningApi.md#pinning_pins_pinid_get) | **GET** /pinning/pins/{pinid} | Get a pin status object
 [**pinning_pins_pinid_post**](PinningApi.md#pinning_pins_pinid_post) | **POST** /pinning/pins/{pinid} | Replace a pinned object
 [**pinning_pins_post**](PinningApi.md#pinning_pins_post) | **POST** /pinning/pins | Add and pin object
+
 
 # **pinning_pins_get**
 > pinning_pins_get
@@ -77,6 +78,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::PinningApi.new
+
 pinid = 'pinid_example' # String | Pin ID
 
 
@@ -105,7 +107,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -129,6 +131,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::PinningApi.new
+
 pinid = 'pinid_example' # String | cid
 
 
@@ -157,7 +160,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -181,6 +184,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::PinningApi.new
+
 pinid = 'pinid_example' # String | Pin ID
 
 
@@ -209,7 +213,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -233,7 +237,9 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::PinningApi.new
+
 cid = 'cid_example' # String | cid
+
 name = 'name_example' # String | name
 
 
@@ -263,7 +269,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

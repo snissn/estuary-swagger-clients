@@ -22,6 +22,7 @@
  * limitations under the License.
  */
 
+
 package io.swagger.api;
 
 import org.junit.Test;
@@ -62,12 +63,13 @@ public class NetApiTest {
         List providers = new ArrayList();
         providers.add(provider);
         
-        api = JAXRSClientFactory.create("//api.estuary.tech/", NetApi.class, providers);
+        api = JAXRSClientFactory.create("https://api.estuary.tech", NetApi.class, providers);
         org.apache.cxf.jaxrs.client.Client client = WebClient.client(api);
         
         ClientConfiguration config = WebClient.getConfig(client); 
     }
 
+    
     /**
      * Net Addrs
      *
@@ -84,6 +86,7 @@ public class NetApiTest {
         
         
     }
+    
     /**
      * Get all miners
      *
@@ -101,6 +104,7 @@ public class NetApiTest {
         
         
     }
+    
     /**
      * Get all miners
      *
@@ -117,6 +121,7 @@ public class NetApiTest {
         
         
     }
+    
     /**
      * Net Addrs
      *
@@ -133,6 +138,7 @@ public class NetApiTest {
         
         
     }
+    
     /**
      * Net Peers
      *
@@ -149,4 +155,5 @@ public class NetApiTest {
         
         
     }
+    
 }

@@ -39,7 +39,7 @@ open class MinerAPI: APIBase {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -76,7 +76,7 @@ open class MinerAPI: APIBase {
         path = path.replacingOccurrences(of: "{miner}", with: minerPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
-
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

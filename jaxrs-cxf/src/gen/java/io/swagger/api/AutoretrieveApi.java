@@ -10,12 +10,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 import org.apache.cxf.jaxrs.ext.multipart.*;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.jaxrs.PATCH;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -26,6 +25,7 @@ import javax.validation.Valid;
  *
  */
 @Path("/")
+@Api(value = "/", description = "")
 public interface AutoretrieveApi  {
 
     /**
@@ -36,10 +36,10 @@ public interface AutoretrieveApi  {
      */
     @POST
     @Path("/admin/autoretrieve/init")
-    @Consumes({ "*/*" })
-    @Operation(summary = "Register autoretrieve server", tags={ "autoretrieve" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Register autoretrieve server", tags={ "autoretrieve",  })
     @ApiResponses(value = {  })
-    public void adminAutoretrieveInitPost(@Valid String body);
+    public void adminAutoretrieveInitPost(@Valid String addresses, @Valid String pubKey);
 
     /**
      * List autoretrieve servers
@@ -49,7 +49,8 @@ public interface AutoretrieveApi  {
      */
     @GET
     @Path("/admin/autoretrieve/list")
-    @Operation(summary = "List autoretrieve servers", tags={ "autoretrieve" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "List autoretrieve servers", tags={ "autoretrieve",  })
     @ApiResponses(value = {  })
     public void adminAutoretrieveListGet();
 
@@ -61,7 +62,9 @@ public interface AutoretrieveApi  {
      */
     @POST
     @Path("/autoretrieve/heartbeat")
-    @Operation(summary = "Marks autoretrieve server as up", tags={ "autoretrieve" })
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Marks autoretrieve server as up", tags={ "autoretrieve" })
     @ApiResponses(value = {  })
     public void autoretrieveHeartbeatPost(@HeaderParam("token") String token);
 }
+

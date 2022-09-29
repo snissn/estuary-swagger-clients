@@ -1,6 +1,6 @@
 # SwaggerClient::PublicApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**public_net_addrs_get**](PublicApi.md#public_net_addrs_get) | **GET** /public/net/addrs | Net Addrs
 [**public_net_peers_get**](PublicApi.md#public_net_peers_get) | **GET** /public/net/peers | Net Peers
 [**public_stats_get**](PublicApi.md#public_stats_get) | **GET** /public/stats | Public stats
+
 
 # **public_by_cid_cid_get**
 > public_by_cid_cid_get(cid)
@@ -35,6 +36,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::PublicApi.new
+
 cid = 'cid_example' # String | Cid
 
 
@@ -63,7 +65,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -110,7 +112,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -157,7 +159,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -181,6 +183,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::PublicApi.new
+
 miner = 'miner_example' # String | Filter by miner
 
 
@@ -209,7 +212,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -233,6 +236,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::PublicApi.new
+
 miner = 'miner_example' # String | Filter by miner
 
 
@@ -261,7 +265,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -308,7 +312,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -332,6 +336,7 @@ SwaggerClient.configure do |config|
 end
 
 api_instance = SwaggerClient::PublicApi.new
+
 miner = 'miner_example' # String | Filter by miner
 
 
@@ -360,7 +365,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -503,7 +508,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

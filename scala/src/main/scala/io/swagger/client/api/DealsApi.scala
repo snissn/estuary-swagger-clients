@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 package io.swagger.client.api
 
 import java.text.SimpleDateFormat
@@ -44,7 +45,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class DealsApi(
-  val defBasePath: String = "//api.estuary.tech/",
+  val defBasePath: String = "https://api.estuary.tech",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {
@@ -312,12 +313,12 @@ class DealsApi(
    * Make Deal
    * This endpoint makes a deal for a given content and miner
    *
-   * @param body Deal Request 
    * @param miner Miner 
+   * @param dealRequest Deal Request 
    * @return void
    */
-  def dealsMakeMinerPost(body: String, miner: String) = {
-    val await = Try(Await.result(dealsMakeMinerPostAsync(body, miner), Duration.Inf))
+  def dealsMakeMinerPost(miner: String, dealRequest: String) = {
+    val await = Try(Await.result(dealsMakeMinerPostAsync(miner, dealRequest), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -328,12 +329,12 @@ class DealsApi(
    * Make Deal asynchronously
    * This endpoint makes a deal for a given content and miner
    *
-   * @param body Deal Request 
    * @param miner Miner 
+   * @param dealRequest Deal Request 
    * @return Future(void)
    */
-  def dealsMakeMinerPostAsync(body: String, miner: String) = {
-      helper.dealsMakeMinerPost(body, miner)
+  def dealsMakeMinerPostAsync(miner: String, dealRequest: String) = {
+      helper.dealsMakeMinerPost(miner, dealRequest)
   }
 
   /**
@@ -569,8 +570,8 @@ class DealsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extend
     }
   }
 
-  def dealsMakeMinerPost(body: String,
-    miner: String)(implicit reader: ClientResponseReader[Unit], writer: RequestWriter[String]): Future[Unit] = {
+  def dealsMakeMinerPost(miner: String,
+    dealRequest: String)(implicit reader: ClientResponseReader[Unit], writer: RequestWriter[String]): Future[Unit] = {
     // create path and map variables
     val path = (addFmt("/deals/make/{miner}")
       replaceAll("\\{" + "miner" + "\\}", miner.toString))
@@ -579,11 +580,12 @@ class DealsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extend
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (body == null) throw new Exception("Missing required parameter 'body' when calling DealsApi->dealsMakeMinerPost")
     if (miner == null) throw new Exception("Missing required parameter 'miner' when calling DealsApi->dealsMakeMinerPost")
 
+    if (dealRequest == null) throw new Exception("Missing required parameter 'dealRequest' when calling DealsApi->dealsMakeMinerPost")
 
-    val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, writer.write(body))
+
+    val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, writer.write(dealRequest))
     resFuture flatMap { resp =>
       process(reader.read(resp))
     }

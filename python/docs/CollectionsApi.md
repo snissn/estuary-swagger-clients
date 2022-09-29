@@ -1,6 +1,6 @@
 # swagger_client.CollectionsApi
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**collections_fs_add_post**](CollectionsApi.md#collections_fs_add_post) | **POST** /collections/fs/add | Add a file to a collection
 [**collections_get**](CollectionsApi.md#collections_get) | **GET** /collections/ | List all collections
 [**collections_post**](CollectionsApi.md#collections_post) | **POST** /collections/ | Create a new collection
+
 
 # **collections_coluuid_commit_post**
 > str collections_coluuid_commit_post(coluuid)
@@ -198,7 +199,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.CollectionsApi(swagger_client.ApiClient(configuration))
-body = [56] # list[int] | Content IDs to add to collection
+body = [swagger_client.list[int]()] # list[int] | Content IDs to add to collection
 
 try:
     # Add contents to a collection
@@ -212,7 +213,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**list[int]**](int.md)| Content IDs to add to collection | 
+ **body** | **list[int]**| Content IDs to add to collection | 
 
 ### Return type
 
@@ -282,7 +283,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -389,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

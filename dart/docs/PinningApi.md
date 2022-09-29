@@ -5,7 +5,7 @@
 import 'package:swagger/api.dart';
 ```
 
-All URIs are relative to *//api.estuary.tech/*
+All URIs are relative to *https://api.estuary.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**pinningPinsPinidPost**](PinningApi.md#pinningPinsPinidPost) | **POST** /pinning/pins/{pinid} | Replace a pinned object
 [**pinningPinsPost**](PinningApi.md#pinningPinsPost) | **POST** /pinning/pins | Add and pin object
 
+
 # **pinningPinsGet**
 > pinningPinsGet()
 
@@ -22,7 +23,7 @@ List all pin status objects
 
 This endpoint lists all pin status objects
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -32,7 +33,7 @@ import 'package:swagger/api.dart';
 
 var api_instance = new PinningApi();
 
-try {
+try { 
     api_instance.pinningPinsGet();
 } catch (e) {
     print("Exception when calling PinningApi->pinningPinsGet: $e\n");
@@ -64,7 +65,7 @@ Delete a pinned object
 
 This endpoint deletes a pinned object.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -75,7 +76,7 @@ import 'package:swagger/api.dart';
 var api_instance = new PinningApi();
 var pinid = pinid_example; // String | Pin ID
 
-try {
+try { 
     api_instance.pinningPinsPinidDelete(pinid);
 } catch (e) {
     print("Exception when calling PinningApi->pinningPinsPinidDelete: $e\n");
@@ -99,7 +100,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -110,7 +111,7 @@ Get a pin status object
 
 This endpoint returns a pin status object.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -121,7 +122,7 @@ import 'package:swagger/api.dart';
 var api_instance = new PinningApi();
 var pinid = pinid_example; // String | cid
 
-try {
+try { 
     api_instance.pinningPinsPinidGet(pinid);
 } catch (e) {
     print("Exception when calling PinningApi->pinningPinsPinidGet: $e\n");
@@ -145,7 +146,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -156,7 +157,7 @@ Replace a pinned object
 
 This endpoint replaces a pinned object.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -167,7 +168,7 @@ import 'package:swagger/api.dart';
 var api_instance = new PinningApi();
 var pinid = pinid_example; // String | Pin ID
 
-try {
+try { 
     api_instance.pinningPinsPinidPost(pinid);
 } catch (e) {
     print("Exception when calling PinningApi->pinningPinsPinidPost: $e\n");
@@ -191,7 +192,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -202,7 +203,7 @@ Add and pin object
 
 This endpoint adds a pin to the IPFS daemon.
 
-### Example
+### Example 
 ```dart
 import 'package:swagger/api.dart';
 // TODO Configure API key authorization: bearerAuth
@@ -214,7 +215,7 @@ var api_instance = new PinningApi();
 var cid = cid_example; // String | cid
 var name = name_example; // String | name
 
-try {
+try { 
     api_instance.pinningPinsPost(cid, name);
 } catch (e) {
     print("Exception when calling PinningApi->pinningPinsPost: $e\n");
@@ -239,7 +240,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
