@@ -19,6 +19,7 @@ jobs:
           name: "Say hello"
           command: |
             find | grep swagger
+            apt-get install -y git
             java -jar /opt/swagger-codegen-cli/swagger-codegen-cli.jar generate  -i https://petstore.swagger.io/v2/swagger.json  -l go  -o /tmp/go
 
 
