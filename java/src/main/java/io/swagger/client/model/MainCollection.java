@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MainCollection
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T07:41:31.230Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T08:05:20.222Z")
 public class MainCollection {
   @SerializedName("cid")
   private String cid = null;

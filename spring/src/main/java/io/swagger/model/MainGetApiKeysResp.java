@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * MainGetApiKeysResp
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T07:42:20.210Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T08:06:16.216Z")
 
 
 public class MainGetApiKeysResp   {
