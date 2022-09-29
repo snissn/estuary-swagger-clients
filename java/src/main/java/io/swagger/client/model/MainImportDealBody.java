@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MainImportDealBody
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T01:59:00.405Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-29T02:00:50.565Z")
 public class MainImportDealBody {
   @SerializedName("coluuid")
   private String coluuid = null;

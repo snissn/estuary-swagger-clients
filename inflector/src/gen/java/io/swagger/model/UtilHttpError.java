@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T01:58:59.242Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:00:49.114Z")
 public class UtilHttpError   {
   @JsonProperty("code")
   private Integer code = null;

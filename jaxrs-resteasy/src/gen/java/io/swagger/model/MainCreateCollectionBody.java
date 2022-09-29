@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:59:09.712Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T02:01:02.450Z")
 public class MainCreateCollectionBody   {
   
   private String description = null;

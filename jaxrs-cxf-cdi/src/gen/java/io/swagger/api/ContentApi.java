@@ -29,7 +29,7 @@ import javax.validation.constraints.*;
 @Api(description = "the content API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:59:06.738Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T02:00:58.647Z")
 
 public class ContentApi  {
 

@@ -13,7 +13,7 @@ To see how to make this your own, look here:
 [README](https://github.com/swagger-api/swagger-codegen/blob/master/README.md)
 
 - API version: 0.0.0
-- Build date: 2022-09-29T01:58:53.540Z
+- Build date: 2022-09-29T02:00:42.057Z
 For more information, please visit [https://docs.estuary.tech/feedback](https://docs.estuary.tech/feedback)
 
 

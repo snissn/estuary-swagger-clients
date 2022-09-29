@@ -14,7 +14,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:59:09.712Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T02:01:02.450Z")
 public interface DealApiService {
       Response dealEstimatePost(MainEstimateDealBody body,SecurityContext securityContext)
       throws NotFoundException;

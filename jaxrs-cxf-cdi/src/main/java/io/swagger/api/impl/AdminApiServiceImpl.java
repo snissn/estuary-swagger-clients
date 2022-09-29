@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:59:06.738Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T02:00:58.647Z")
 public class AdminApiServiceImpl implements AdminApiService {
       @Override
       public Response adminAutoretrieveInitPost(String addresses, String pubKey, SecurityContext securityContext) {

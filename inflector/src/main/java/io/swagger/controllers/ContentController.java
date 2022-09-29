@@ -15,7 +15,7 @@ import io.swagger.model.MainImportDealBody;
 import io.swagger.model.UtilContentAddIpfsBody;
 import io.swagger.model.UtilContentAddResponse;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T01:58:59.242Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T02:00:49.114Z")
 public class ContentController  {
   /** 
    * Uncomment and implement as you see fit.  These operations will map

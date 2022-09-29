@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-16-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-16-0 http://www.eiffel.com/developers/xml/configuration-1-16-0.xsd" name="swagger_eiffel_client" uuid="748e3b07-a48f-4fe5-a511-7620ebd559c1" library_target="swagger_eiffel_client">	
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-16-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-16-0 http://www.eiffel.com/developers/xml/configuration-1-16-0.xsd" name="swagger_eiffel_client" uuid="0e2c314d-0f28-40db-a895-39f8851c4005" library_target="swagger_eiffel_client">	
 	<target name="swagger_eiffel_client">
 		<root all_classes="true"/>
 		<file_rule>
