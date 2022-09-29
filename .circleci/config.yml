@@ -10,7 +10,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       #- image: cimg/base:stable
-      - image: swaggerapi/swagger-generator
+      - image: swaggerapi/swagger-codegen-cli
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -18,7 +18,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            swagger-codegen generate  -i https://petstore.swagger.io/v2/swagger.json  -l go  -o /tmp/go
+            java - jar ./opt/swagger-codegen-cli/swagger-codegen-cli.jar generate  -i https://petstore.swagger.io/v2/swagger.json  -l go  -o /tmp/go
 
 
 
