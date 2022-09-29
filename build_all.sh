@@ -5,7 +5,7 @@
 #the java command is supported by the docker image swaggerapi/swagger-codegen-cli
 
 cmd="swagger-codegen"
-$cmd || cmd="java -jar /opt/swagger-codegen-cli/swagger-codegen-cli.jar generate"
+$cmd || cmd="java -jar /opt/swagger-codegen-cli/swagger-codegen-cli.jar"
 
 for lang in $(cat supported_langs); do
   $cmd generate \
