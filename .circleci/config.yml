@@ -23,7 +23,7 @@ jobs:
           command: |
             find | grep swagger
             apk add git
-            apk add ssh
+            apk add openssh
             git clone git@github.com:snissn/estuary-swagger-clients.git
             cd estuary-swagger-clients
             sh build_all.sh
