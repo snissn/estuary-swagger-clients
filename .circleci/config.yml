@@ -20,10 +20,10 @@ jobs:
           command: |
             find | grep swagger
             apk add git
-            git --version
-            java -jar /opt/swagger-codegen-cli/swagger-codegen-cli.jar generate  -i https://raw.githubusercontent.com/application-research/estuary/master/docs/swagger.json -l go  -o go
-            find go
-
+            git clone https://github.com/snissn/estuary-swagger-clients.git
+            cd estuary-swagger-clients
+            sh build_all.sh
+            git status 
 
 
 # Invoke jobs via workflows
