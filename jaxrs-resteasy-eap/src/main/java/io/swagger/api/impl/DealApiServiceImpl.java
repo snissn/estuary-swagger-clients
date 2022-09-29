@@ -13,7 +13,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T01:54:23.681Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T01:55:57.697Z")
 public class DealApiServiceImpl implements DealApi {
       public Response dealEstimatePost(MainEstimateDealBody body,SecurityContext securityContext) {
       // do some magic!

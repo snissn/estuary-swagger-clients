@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:54:22.531Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T01:55:56.557Z")
 public class ContentApiServiceImpl implements ContentApiService {
       public Response contentAddCarPost(String body,String filename,String commp,String size,SecurityContext securityContext)
       throws NotFoundException {
