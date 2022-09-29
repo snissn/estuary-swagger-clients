@@ -15,7 +15,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T02:02:42.194Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T08:05:29.960Z")
 public interface PinningApiService {
       public Response pinningPinsGet(SecurityContext securityContext);
       public Response pinningPinsPinidDelete(String pinid, SecurityContext securityContext);

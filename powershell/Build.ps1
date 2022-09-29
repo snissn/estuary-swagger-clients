@@ -58,7 +58,7 @@ $Manifest = @{
     Description = 'IO.Swagger - the PowerShell module for Estuary API'
 
     RootModule = 'IO.Swagger.psm1'
-    Guid = '{A03C53BD-5E99-473D-AF8D-EFD69019E0E0}' # Has to be static, otherwise each new build will be considered different module
+    Guid = '{7CB62B9B-5B98-40DA-A80D-B5D8CDF7363C}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '3.0'
 
