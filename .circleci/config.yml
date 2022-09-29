@@ -22,7 +22,6 @@ jobs:
             apk add git
             git --version
             java -jar /opt/swagger-codegen-cli/swagger-codegen-cli.jar generate  -i https://raw.githubusercontent.com/application-research/estuary/master/docs/swagger.json -l go  -o /tmp/go
-            java -jar /opt/swagger-codegen-cli/swagger-codegen-cli.jar generate --help
             java -jar /opt/swagger-codegen-cli/swagger-codegen-cli.jar --help
 
 
