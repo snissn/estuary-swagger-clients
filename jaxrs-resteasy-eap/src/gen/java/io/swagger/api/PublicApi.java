@@ -21,7 +21,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the public API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T01:52:44.565Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-29T01:54:23.681Z")
 public interface PublicApi  {
    
     @GET

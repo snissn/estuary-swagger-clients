@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 @Api(description = "the autoretrieve API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:52:40.454Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T01:54:19.514Z")
 
 public class AutoretrieveApi  {
 
