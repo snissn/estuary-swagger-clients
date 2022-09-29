@@ -12,7 +12,7 @@ import io.swagger.model.*;
 
 import io.swagger.model.MainEstimateDealBody;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T01:57:21.335Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T01:58:59.242Z")
 public class DealController  {
   /** 
    * Uncomment and implement as you see fit.  These operations will map
