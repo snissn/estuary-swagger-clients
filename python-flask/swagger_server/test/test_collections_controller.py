@@ -5,7 +5,7 @@ from __future__ import absolute_import
 from flask import json
 from six import BytesIO
 
-from swagger_server.models.main_collection import MainCollection  # noqa: E501
+from swagger_server.models.collections_collection import CollectionsCollection  # noqa: E501
 from swagger_server.models.main_create_collection_body import MainCreateCollectionBody  # noqa: E501
 from swagger_server.models.util_http_error import UtilHttpError  # noqa: E501
 from swagger_server.test import BaseTestCase
@@ -22,6 +22,20 @@ class TestCollectionsController(BaseTestCase):
         response = self.client.open(
             '//collections/{coluuid}/commit'.format(coluuid='coluuid_example'),
             method='POST')
+        self.assert200(response,
+                       'Response body is : ' + response.data.decode('utf-8'))
+
+    def test_collections_coluuid_contents_delete(self):
+        """Test case for collections_coluuid_contents_delete
+
+        Deletes a content from a collection
+        """
+        value = 'value_example'
+        response = self.client.open(
+            '//collections/{coluuid}/contents'.format(coluuid='coluuid_example', contentid='contentid_example'),
+            method='DELETE',
+            data=json.dumps(value),
+            content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
@@ -85,7 +99,7 @@ class TestCollectionsController(BaseTestCase):
         List all collections
         """
         response = self.client.open(
-            '//collections/'.format(id=56),
+            '//collections/',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

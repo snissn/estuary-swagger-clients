@@ -46,6 +46,33 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> CollectionsColuuidCommitPostWithHttpInfo (string coluuid);
         /// <summary>
+        /// Deletes a content from a collection
+        /// </summary>
+        /// <remarks>
+        /// This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>string</returns>
+        string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value);
+
+        /// <summary>
+        /// Deletes a content from a collection
+        /// </summary>
+        /// <remarks>
+        /// This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> CollectionsColuuidContentsDeleteWithHttpInfo (string coluuid, string contentid, string by, string value);
+        /// <summary>
         /// Deletes a collection
         /// </summary>
         /// <remarks>
@@ -142,9 +169,8 @@ namespace IO.Swagger.Api
         /// This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">User ID</param>
-        /// <returns>List&lt;MainCollection&gt;</returns>
-        List<MainCollection> CollectionsGet (int? id);
+        /// <returns>List&lt;CollectionsCollection&gt;</returns>
+        List<CollectionsCollection> CollectionsGet ();
 
         /// <summary>
         /// List all collections
@@ -153,9 +179,8 @@ namespace IO.Swagger.Api
         /// This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">User ID</param>
-        /// <returns>ApiResponse of List&lt;MainCollection&gt;</returns>
-        ApiResponse<List<MainCollection>> CollectionsGetWithHttpInfo (int? id);
+        /// <returns>ApiResponse of List&lt;CollectionsCollection&gt;</returns>
+        ApiResponse<List<CollectionsCollection>> CollectionsGetWithHttpInfo ();
         /// <summary>
         /// Create a new collection
         /// </summary>
@@ -164,8 +189,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Collection name and description</param>
-        /// <returns>MainCollection</returns>
-        MainCollection CollectionsPost (MainCreateCollectionBody body);
+        /// <returns>CollectionsCollection</returns>
+        CollectionsCollection CollectionsPost (MainCreateCollectionBody body);
 
         /// <summary>
         /// Create a new collection
@@ -175,8 +200,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Collection name and description</param>
-        /// <returns>ApiResponse of MainCollection</returns>
-        ApiResponse<MainCollection> CollectionsPostWithHttpInfo (MainCreateCollectionBody body);
+        /// <returns>ApiResponse of CollectionsCollection</returns>
+        ApiResponse<CollectionsCollection> CollectionsPostWithHttpInfo (MainCreateCollectionBody body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -200,6 +225,33 @@ namespace IO.Swagger.Api
         /// <param name="coluuid">coluuid</param>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> CollectionsColuuidCommitPostAsyncWithHttpInfo (string coluuid);
+        /// <summary>
+        /// Deletes a content from a collection
+        /// </summary>
+        /// <remarks>
+        /// This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> CollectionsColuuidContentsDeleteAsync (string coluuid, string contentid, string by, string value);
+
+        /// <summary>
+        /// Deletes a content from a collection
+        /// </summary>
+        /// <remarks>
+        /// This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> CollectionsColuuidContentsDeleteAsyncWithHttpInfo (string coluuid, string contentid, string by, string value);
         /// <summary>
         /// Deletes a collection
         /// </summary>
@@ -297,9 +349,8 @@ namespace IO.Swagger.Api
         /// This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">User ID</param>
-        /// <returns>Task of List&lt;MainCollection&gt;</returns>
-        System.Threading.Tasks.Task<List<MainCollection>> CollectionsGetAsync (int? id);
+        /// <returns>Task of List&lt;CollectionsCollection&gt;</returns>
+        System.Threading.Tasks.Task<List<CollectionsCollection>> CollectionsGetAsync ();
 
         /// <summary>
         /// List all collections
@@ -308,9 +359,8 @@ namespace IO.Swagger.Api
         /// This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">User ID</param>
-        /// <returns>Task of ApiResponse (List&lt;MainCollection&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<MainCollection>>> CollectionsGetAsyncWithHttpInfo (int? id);
+        /// <returns>Task of ApiResponse (List&lt;CollectionsCollection&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<CollectionsCollection>>> CollectionsGetAsyncWithHttpInfo ();
         /// <summary>
         /// Create a new collection
         /// </summary>
@@ -319,8 +369,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Collection name and description</param>
-        /// <returns>Task of MainCollection</returns>
-        System.Threading.Tasks.Task<MainCollection> CollectionsPostAsync (MainCreateCollectionBody body);
+        /// <returns>Task of CollectionsCollection</returns>
+        System.Threading.Tasks.Task<CollectionsCollection> CollectionsPostAsync (MainCreateCollectionBody body);
 
         /// <summary>
         /// Create a new collection
@@ -330,8 +380,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Collection name and description</param>
-        /// <returns>Task of ApiResponse (MainCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MainCollection>> CollectionsPostAsyncWithHttpInfo (MainCreateCollectionBody body);
+        /// <returns>Task of ApiResponse (CollectionsCollection)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CollectionsCollection>> CollectionsPostAsyncWithHttpInfo (MainCreateCollectionBody body);
         #endregion Asynchronous Operations
     }
 
@@ -567,6 +617,197 @@ namespace IO.Swagger.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CollectionsColuuidCommitPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Deletes a content from a collection This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>string</returns>
+        public string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value)
+        {
+             ApiResponse<string> localVarResponse = CollectionsColuuidContentsDeleteWithHttpInfo(coluuid, contentid, by, value);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Deletes a content from a collection This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse< string > CollectionsColuuidContentsDeleteWithHttpInfo (string coluuid, string contentid, string by, string value)
+        {
+            // verify the required parameter 'coluuid' is set
+            if (coluuid == null)
+                throw new ApiException(400, "Missing required parameter 'coluuid' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+            // verify the required parameter 'contentid' is set
+            if (contentid == null)
+                throw new ApiException(400, "Missing required parameter 'contentid' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+            // verify the required parameter 'by' is set
+            if (by == null)
+                throw new ApiException(400, "Missing required parameter 'by' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+            // verify the required parameter 'value' is set
+            if (value == null)
+                throw new ApiException(400, "Missing required parameter 'value' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+
+            var localVarPath = "/collections/{coluuid}/contents";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (coluuid != null) localVarPathParams.Add("coluuid", this.Configuration.ApiClient.ParameterToString(coluuid)); // path parameter
+            if (contentid != null) localVarPathParams.Add("contentid", this.Configuration.ApiClient.ParameterToString(contentid)); // path parameter
+            if (value != null && value.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(value); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = value; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CollectionsColuuidContentsDelete", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Deletes a content from a collection This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> CollectionsColuuidContentsDeleteAsync (string coluuid, string contentid, string by, string value)
+        {
+             ApiResponse<string> localVarResponse = await CollectionsColuuidContentsDeleteAsyncWithHttpInfo(coluuid, contentid, by, value);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Deletes a content from a collection This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> CollectionsColuuidContentsDeleteAsyncWithHttpInfo (string coluuid, string contentid, string by, string value)
+        {
+            // verify the required parameter 'coluuid' is set
+            if (coluuid == null)
+                throw new ApiException(400, "Missing required parameter 'coluuid' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+            // verify the required parameter 'contentid' is set
+            if (contentid == null)
+                throw new ApiException(400, "Missing required parameter 'contentid' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+            // verify the required parameter 'by' is set
+            if (by == null)
+                throw new ApiException(400, "Missing required parameter 'by' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+            // verify the required parameter 'value' is set
+            if (value == null)
+                throw new ApiException(400, "Missing required parameter 'value' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+
+            var localVarPath = "/collections/{coluuid}/contents";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (coluuid != null) localVarPathParams.Add("coluuid", this.Configuration.ApiClient.ParameterToString(coluuid)); // path parameter
+            if (contentid != null) localVarPathParams.Add("contentid", this.Configuration.ApiClient.ParameterToString(contentid)); // path parameter
+            if (value != null && value.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(value); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = value; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CollectionsColuuidContentsDelete", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1191,11 +1432,10 @@ namespace IO.Swagger.Api
         /// List all collections This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">User ID</param>
-        /// <returns>List&lt;MainCollection&gt;</returns>
-        public List<MainCollection> CollectionsGet (int? id)
+        /// <returns>List&lt;CollectionsCollection&gt;</returns>
+        public List<CollectionsCollection> CollectionsGet ()
         {
-             ApiResponse<List<MainCollection>> localVarResponse = CollectionsGetWithHttpInfo(id);
+             ApiResponse<List<CollectionsCollection>> localVarResponse = CollectionsGetWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -1203,13 +1443,9 @@ namespace IO.Swagger.Api
         /// List all collections This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">User ID</param>
-        /// <returns>ApiResponse of List&lt;MainCollection&gt;</returns>
-        public ApiResponse< List<MainCollection> > CollectionsGetWithHttpInfo (int? id)
+        /// <returns>ApiResponse of List&lt;CollectionsCollection&gt;</returns>
+        public ApiResponse< List<CollectionsCollection> > CollectionsGetWithHttpInfo ()
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling CollectionsApi->CollectionsGet");
 
             var localVarPath = "/collections/";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1232,7 +1468,6 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (bearerAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -1253,20 +1488,19 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<MainCollection>>(localVarStatusCode,
+            return new ApiResponse<List<CollectionsCollection>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<MainCollection>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<MainCollection>)));
+                (List<CollectionsCollection>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CollectionsCollection>)));
         }
 
         /// <summary>
         /// List all collections This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">User ID</param>
-        /// <returns>Task of List&lt;MainCollection&gt;</returns>
-        public async System.Threading.Tasks.Task<List<MainCollection>> CollectionsGetAsync (int? id)
+        /// <returns>Task of List&lt;CollectionsCollection&gt;</returns>
+        public async System.Threading.Tasks.Task<List<CollectionsCollection>> CollectionsGetAsync ()
         {
-             ApiResponse<List<MainCollection>> localVarResponse = await CollectionsGetAsyncWithHttpInfo(id);
+             ApiResponse<List<CollectionsCollection>> localVarResponse = await CollectionsGetAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -1275,13 +1509,9 @@ namespace IO.Swagger.Api
         /// List all collections This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">User ID</param>
-        /// <returns>Task of ApiResponse (List&lt;MainCollection&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<MainCollection>>> CollectionsGetAsyncWithHttpInfo (int? id)
+        /// <returns>Task of ApiResponse (List&lt;CollectionsCollection&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<CollectionsCollection>>> CollectionsGetAsyncWithHttpInfo ()
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling CollectionsApi->CollectionsGet");
 
             var localVarPath = "/collections/";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1304,7 +1534,6 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (bearerAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -1325,9 +1554,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<MainCollection>>(localVarStatusCode,
+            return new ApiResponse<List<CollectionsCollection>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<MainCollection>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<MainCollection>)));
+                (List<CollectionsCollection>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CollectionsCollection>)));
         }
 
         /// <summary>
@@ -1335,10 +1564,10 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Collection name and description</param>
-        /// <returns>MainCollection</returns>
-        public MainCollection CollectionsPost (MainCreateCollectionBody body)
+        /// <returns>CollectionsCollection</returns>
+        public CollectionsCollection CollectionsPost (MainCreateCollectionBody body)
         {
-             ApiResponse<MainCollection> localVarResponse = CollectionsPostWithHttpInfo(body);
+             ApiResponse<CollectionsCollection> localVarResponse = CollectionsPostWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
@@ -1347,8 +1576,8 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Collection name and description</param>
-        /// <returns>ApiResponse of MainCollection</returns>
-        public ApiResponse< MainCollection > CollectionsPostWithHttpInfo (MainCreateCollectionBody body)
+        /// <returns>ApiResponse of CollectionsCollection</returns>
+        public ApiResponse< CollectionsCollection > CollectionsPostWithHttpInfo (MainCreateCollectionBody body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1403,9 +1632,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<MainCollection>(localVarStatusCode,
+            return new ApiResponse<CollectionsCollection>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MainCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MainCollection)));
+                (CollectionsCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionsCollection)));
         }
 
         /// <summary>
@@ -1413,10 +1642,10 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Collection name and description</param>
-        /// <returns>Task of MainCollection</returns>
-        public async System.Threading.Tasks.Task<MainCollection> CollectionsPostAsync (MainCreateCollectionBody body)
+        /// <returns>Task of CollectionsCollection</returns>
+        public async System.Threading.Tasks.Task<CollectionsCollection> CollectionsPostAsync (MainCreateCollectionBody body)
         {
-             ApiResponse<MainCollection> localVarResponse = await CollectionsPostAsyncWithHttpInfo(body);
+             ApiResponse<CollectionsCollection> localVarResponse = await CollectionsPostAsyncWithHttpInfo(body);
              return localVarResponse.Data;
 
         }
@@ -1426,8 +1655,8 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Collection name and description</param>
-        /// <returns>Task of ApiResponse (MainCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MainCollection>> CollectionsPostAsyncWithHttpInfo (MainCreateCollectionBody body)
+        /// <returns>Task of ApiResponse (CollectionsCollection)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionsCollection>> CollectionsPostAsyncWithHttpInfo (MainCreateCollectionBody body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1482,9 +1711,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<MainCollection>(localVarStatusCode,
+            return new ApiResponse<CollectionsCollection>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MainCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MainCollection)));
+                (CollectionsCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionsCollection)));
         }
 
     }

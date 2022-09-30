@@ -149,13 +149,13 @@ ContentApi <- R6::R6Class(
       }
 
     },
-    content_add_post = function(file, coluuid, dir, ...){
+    content_add_post = function(data, coluuid, dir, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       body <- list(
-          "file" = httr::upload_file(file)
+          "data" = httr::upload_file(data)
       )
 
       urlPath <- "/content/add"

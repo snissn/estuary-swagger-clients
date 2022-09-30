@@ -34,6 +34,42 @@ private class SwagCollectionsApiTest {
     }
 
     /**
+     * Deletes a content from a collection
+     *
+     * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     */
+    @isTest
+    private static void collectionsColuuidContentsDeleteTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'coluuid' => 'coluuid_example',
+            'contentid' => 'contentid_example',
+            'r_by' => 'r_by_example',
+            'value' => 'value_example'
+        };
+
+        SwagClient client;
+        SwagCollectionsApi api;
+        String response;
+        String expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagCollectionsApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('bearerAuth');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\n  "bytes": [],\n  "empty": true\n}');
+        expectedResponse = 'aeiou';
+        response = (String) api.collectionsColuuidContentsDelete(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Deletes a collection
      *
      * This endpoint is used to delete an existing collection.
@@ -168,14 +204,10 @@ private class SwagCollectionsApiTest {
         res.setStatus('OK');
         Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
 
-        Map<String, Object> params = new Map<String, Object>{
-            'id' => 56
-        };
-
         SwagClient client;
         SwagCollectionsApi api;
-        List<SwagMainCollection> response;
-        List<SwagMainCollection> expectedResponse;
+        List<SwagCollectionsCollection> response;
+        List<SwagCollectionsCollection> expectedResponse;
 
         client = new SwagClient();
         api = new SwagCollectionsApi(client);
@@ -184,8 +216,8 @@ private class SwagCollectionsApiTest {
 
         res.setHeader('Content-Type', 'application/json');
         res.setBody('{}');
-        expectedResponse = new List<SwagMainCollection>{SwagMainCollection.getExample()};
-        response = (List<SwagMainCollection>) api.collectionsGet(params);
+        expectedResponse = new List<SwagCollectionsCollection>{SwagCollectionsCollection.getExample()};
+        response = (List<SwagCollectionsCollection>) api.collectionsGet();
         System.assertEquals(expectedResponse, response);
     }
 
@@ -207,8 +239,8 @@ private class SwagCollectionsApiTest {
 
         SwagClient client;
         SwagCollectionsApi api;
-        SwagMainCollection response;
-        SwagMainCollection expectedResponse;
+        SwagCollectionsCollection response;
+        SwagCollectionsCollection expectedResponse;
 
         client = new SwagClient();
         api = new SwagCollectionsApi(client);
@@ -217,8 +249,8 @@ private class SwagCollectionsApiTest {
 
         res.setHeader('Content-Type', 'application/json');
         res.setBody('{"empty": false}');
-        expectedResponse = SwagMainCollection.getExample();
-        response = (SwagMainCollection) api.collectionsPost(params);
+        expectedResponse = SwagCollectionsCollection.getExample();
+        response = (SwagCollectionsCollection) api.collectionsPost(params);
         System.assertEquals(expectedResponse, response);
     }
 }

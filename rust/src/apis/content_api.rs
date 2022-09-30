@@ -37,7 +37,7 @@ impl<C: hyper::client::Connect> ContentApiClient<C> {
 pub trait ContentApi {
     fn content_add_car_post(&self, body: &str, filename: &str, commp: &str, size: &str) -> Box<Future<Item = (), Error = Error<serde_json::Value>>>;
     fn content_add_ipfs_post(&self, body: ::models::UtilContentAddIpfsBody) -> Box<Future<Item = (), Error = Error<serde_json::Value>>>;
-    fn content_add_post(&self, file: ::models::File, coluuid: &str, dir: &str) -> Box<Future<Item = ::models::UtilContentAddResponse, Error = Error<serde_json::Value>>>;
+    fn content_add_post(&self, data: ::models::File, coluuid: &str, dir: &str) -> Box<Future<Item = ::models::UtilContentAddResponse, Error = Error<serde_json::Value>>>;
     fn content_aggregated_content_get(&self, content: &str) -> Box<Future<Item = String, Error = Error<serde_json::Value>>>;
     fn content_all_deals_get(&self, begin: &str, duration: &str, all: &str) -> Box<Future<Item = (), Error = Error<serde_json::Value>>>;
     fn content_bw_usage_content_get(&self, content: &str) -> Box<Future<Item = (), Error = Error<serde_json::Value>>>;
@@ -192,7 +192,7 @@ impl<C: hyper::client::Connect>ContentApi for ContentApiClient<C> {
         )
     }
 
-    fn content_add_post(&self, file: ::models::File, coluuid: &str, dir: &str) -> Box<Future<Item = ::models::UtilContentAddResponse, Error = Error<serde_json::Value>>> {
+    fn content_add_post(&self, data: ::models::File, coluuid: &str, dir: &str) -> Box<Future<Item = ::models::UtilContentAddResponse, Error = Error<serde_json::Value>>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let mut auth_headers = HashMap::<String, String>::new();

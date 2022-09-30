@@ -93,13 +93,13 @@ public class ContentAPI: APIBase {
     /**
      Add new content
      
-     - parameter file: (form) File to upload 
+     - parameter data: (form) File to upload 
      - parameter coluuid: (path) Collection UUID 
      - parameter dir: (path) Directory 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func contentAddPost(file file: NSURL, coluuid: String, dir: String, completion: ((data: UtilContentAddResponse?, error: ErrorType?) -> Void)) {
-        contentAddPostWithRequestBuilder(file: file, coluuid: coluuid, dir: dir).execute { (response, error) -> Void in
+    public class func contentAddPost(data data: NSURL, coluuid: String, dir: String, completion: ((data: UtilContentAddResponse?, error: ErrorType?) -> Void)) {
+        contentAddPostWithRequestBuilder(data: data, coluuid: coluuid, dir: dir).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -114,20 +114,20 @@ public class ContentAPI: APIBase {
        - name: bearerAuth
      - examples: [{contentType=application/json, example={"empty": false}}]
      
-     - parameter file: (form) File to upload 
+     - parameter data: (form) File to upload 
      - parameter coluuid: (path) Collection UUID 
      - parameter dir: (path) Directory 
 
      - returns: RequestBuilder<UtilContentAddResponse> 
      */
-    public class func contentAddPostWithRequestBuilder(file file: NSURL, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
+    public class func contentAddPostWithRequestBuilder(data data: NSURL, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
         var path = "/content/add"
         path = path.stringByReplacingOccurrencesOfString("{coluuid}", withString: "\(coluuid)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{dir}", withString: "\(dir)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
 
         let nillableParameters: [String:AnyObject?] = [
-            "file": file
+            "data": data
         ]
  
         let parameters = APIHelper.rejectNil(nillableParameters)

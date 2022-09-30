@@ -1,7 +1,7 @@
 package io.swagger.api;
 
+import io.swagger.model.CollectionsCollection;
 import java.util.List;
-import io.swagger.model.MainCollection;
 import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
@@ -24,7 +24,7 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-29T08:49:46.056Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-30T06:36:34.887Z")
 
 @Controller
 public class CollectionsApiController implements CollectionsApi {
@@ -42,6 +42,20 @@ public class CollectionsApiController implements CollectionsApi {
     }
 
     public ResponseEntity<String> collectionsColuuidCommitPost(@ApiParam(value = "coluuid",required=true) @PathVariable("coluuid") String coluuid) {
+        String accept = request.getHeader("Accept");
+        if (accept != null && accept.contains("application/json")) {
+            try {
+                return new ResponseEntity<String>(objectMapper.readValue("{  \"bytes\": [],  \"empty\": true}", String.class), HttpStatus.NOT_IMPLEMENTED);
+            } catch (IOException e) {
+                log.error("Couldn't serialize response for content type application/json", e);
+                return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+
+        return new ResponseEntity<String>(HttpStatus.NOT_IMPLEMENTED);
+    }
+
+    public ResponseEntity<String> collectionsColuuidContentsDelete(@ApiParam(value = "Collection ID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Content ID",required=true) @PathVariable("contentid") String contentid,@ApiParam(value = "Variable to use when filtering for files (must be either 'path' or 'content_id')" ,required=true )  @Valid @RequestBody String by,@ApiParam(value = "Value of content_id or path to look for" ,required=true )  @Valid @RequestBody String value) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -93,32 +107,32 @@ public class CollectionsApiController implements CollectionsApi {
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<List<MainCollection>> collectionsGet(@ApiParam(value = "User ID",required=true) @PathVariable("id") Integer id) {
+    public ResponseEntity<List<CollectionsCollection>> collectionsGet() {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<List<MainCollection>>(objectMapper.readValue("{}", List.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<List<CollectionsCollection>>(objectMapper.readValue("{}", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<MainCollection>>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<List<CollectionsCollection>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<List<MainCollection>>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<List<CollectionsCollection>>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<MainCollection> collectionsPost(@ApiParam(value = "Collection name and description" ,required=true )  @Valid @RequestBody MainCreateCollectionBody body) {
+    public ResponseEntity<CollectionsCollection> collectionsPost(@ApiParam(value = "Collection name and description" ,required=true )  @Valid @RequestBody MainCreateCollectionBody body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<MainCollection>(objectMapper.readValue("{\"empty\": false}", MainCollection.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<CollectionsCollection>(objectMapper.readValue("{\"empty\": false}", CollectionsCollection.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<MainCollection>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<CollectionsCollection>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<MainCollection>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<CollectionsCollection>(HttpStatus.NOT_IMPLEMENTED);
     }
 
 }

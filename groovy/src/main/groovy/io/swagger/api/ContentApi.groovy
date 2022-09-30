@@ -67,7 +67,7 @@ if (!"null".equals(String.valueOf(size)))
                     null )
                     
     }
-    def contentAddPost ( File file, String coluuid, String dir, Closure onSuccess, Closure onFailure)  {
+    def contentAddPost ( File data, String coluuid, String dir, Closure onSuccess, Closure onFailure)  {
         // create path and map path parameters (TODO)
         String resourcePath = "/content/add"
 
@@ -76,8 +76,8 @@ if (!"null".equals(String.valueOf(size)))
         def headerParams = [:]
     
         // verify required params are set
-        if (file == null) {
-            throw new RuntimeException("missing required params file")
+        if (data == null) {
+            throw new RuntimeException("missing required params data")
         }
         // verify required params are set
         if (coluuid == null) {

@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 *AutoretrieveApi* | [**AdminAutoretrieveListGet**](docs/AutoretrieveApi.md#adminautoretrievelistget) | **GET** /admin/autoretrieve/list | List autoretrieve servers
 *AutoretrieveApi* | [**AutoretrieveHeartbeatPost**](docs/AutoretrieveApi.md#autoretrieveheartbeatpost) | **POST** /autoretrieve/heartbeat | Marks autoretrieve server as up
 *CollectionsApi* | [**CollectionsColuuidCommitPost**](docs/CollectionsApi.md#collectionscoluuidcommitpost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+*CollectionsApi* | [**CollectionsColuuidContentsDelete**](docs/CollectionsApi.md#collectionscoluuidcontentsdelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 *CollectionsApi* | [**CollectionsColuuidDelete**](docs/CollectionsApi.md#collectionscoluuiddelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 *CollectionsApi* | [**CollectionsColuuidGet**](docs/CollectionsApi.md#collectionscoluuidget) | **GET** /collections/{coluuid} | Get contents in a collection
 *CollectionsApi* | [**CollectionsColuuidPost**](docs/CollectionsApi.md#collectionscoluuidpost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -170,7 +171,7 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
- - [IO.Swagger.Model.MainCollection](docs/MainCollection.md)
+ - [IO.Swagger.Model.CollectionsCollection](docs/CollectionsCollection.md)
  - [IO.Swagger.Model.MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
  - [IO.Swagger.Model.MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [IO.Swagger.Model.MainGetApiKeysResp](docs/MainGetApiKeysResp.md)

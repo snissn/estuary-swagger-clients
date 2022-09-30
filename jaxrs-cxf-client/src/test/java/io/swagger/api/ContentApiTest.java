@@ -123,10 +123,10 @@ public class ContentApiTest {
      */
     @Test
     public void contentAddPostTest() {
-        org.apache.cxf.jaxrs.ext.multipart.Attachment file = null;
+        org.apache.cxf.jaxrs.ext.multipart.Attachment data = null;
         String coluuid = null;
         String dir = null;
-        //UtilContentAddResponse response = api.contentAddPost(file, coluuid, dir);
+        //UtilContentAddResponse response = api.contentAddPost(data, coluuid, dir);
         //assertNotNull(response);
         // TODO: test validations
         

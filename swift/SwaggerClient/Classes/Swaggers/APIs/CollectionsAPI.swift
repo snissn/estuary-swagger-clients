@@ -56,6 +56,55 @@ public class CollectionsAPI: APIBase {
     }
 
     /**
+     Deletes a content from a collection
+     
+     - parameter coluuid: (path) Collection ID 
+     - parameter contentid: (path) Content ID 
+     - parameter by: (body) Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
+     - parameter value: (body) Value of content_id or path to look for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func collectionsColuuidContentsDelete(coluuid coluuid: String, contentid: String, by: String, value: String, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: coluuid, contentid: contentid, by: by, value: value).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Deletes a content from a collection
+     - DELETE /collections/{coluuid}/contents
+     - This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     - API Key:
+       - type: apiKey Authorization 
+       - name: bearerAuth
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
+     
+     - parameter coluuid: (path) Collection ID 
+     - parameter contentid: (path) Content ID 
+     - parameter by: (body) Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
+     - parameter value: (body) Value of content_id or path to look for 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func collectionsColuuidContentsDeleteWithRequestBuilder(coluuid coluuid: String, contentid: String, by: String, value: String) -> RequestBuilder<String> {
+        var path = "/collections/{coluuid}/contents"
+        path = path.stringByReplacingOccurrencesOfString("{coluuid}", withString: "\(coluuid)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{contentid}", withString: "\(contentid)", options: .LiteralSearch, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = value.encodeToJSON() as? [String:AnyObject]
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
      Deletes a collection
      
      - parameter coluuid: (path) Collection ID 
@@ -234,11 +283,10 @@ public class CollectionsAPI: APIBase {
     /**
      List all collections
      
-     - parameter id: (path) User ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func collectionsGet(id id: Int32, completion: ((data: [MainCollection]?, error: ErrorType?) -> Void)) {
-        collectionsGetWithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func collectionsGet(completion: ((data: [CollectionsCollection]?, error: ErrorType?) -> Void)) {
+        collectionsGetWithRequestBuilder().execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -252,14 +300,11 @@ public class CollectionsAPI: APIBase {
        - type: apiKey Authorization 
        - name: bearerAuth
      - examples: [{contentType=application/json, example={}}]
-     
-     - parameter id: (path) User ID 
 
-     - returns: RequestBuilder<[MainCollection]> 
+     - returns: RequestBuilder<[CollectionsCollection]> 
      */
-    public class func collectionsGetWithRequestBuilder(id id: Int32) -> RequestBuilder<[MainCollection]> {
-        var path = "/collections/"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+    public class func collectionsGetWithRequestBuilder() -> RequestBuilder<[CollectionsCollection]> {
+        let path = "/collections/"
         let URLString = SwaggerClientAPI.basePath + path
 
         let nillableParameters: [String:AnyObject?] = [:]
@@ -268,7 +313,7 @@ public class CollectionsAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<[MainCollection]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<[CollectionsCollection]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
@@ -279,7 +324,7 @@ public class CollectionsAPI: APIBase {
      - parameter body: (body) Collection name and description 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func collectionsPost(body body: MainCreateCollectionBody, completion: ((data: MainCollection?, error: ErrorType?) -> Void)) {
+    public class func collectionsPost(body body: MainCreateCollectionBody, completion: ((data: CollectionsCollection?, error: ErrorType?) -> Void)) {
         collectionsPostWithRequestBuilder(body: body).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -297,16 +342,16 @@ public class CollectionsAPI: APIBase {
      
      - parameter body: (body) Collection name and description 
 
-     - returns: RequestBuilder<MainCollection> 
+     - returns: RequestBuilder<CollectionsCollection> 
      */
-    public class func collectionsPostWithRequestBuilder(body body: MainCreateCollectionBody) -> RequestBuilder<MainCollection> {
+    public class func collectionsPostWithRequestBuilder(body body: MainCreateCollectionBody) -> RequestBuilder<CollectionsCollection> {
         let path = "/collections/"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = body.encodeToJSON() as? [String:AnyObject]
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<MainCollection>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CollectionsCollection>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }

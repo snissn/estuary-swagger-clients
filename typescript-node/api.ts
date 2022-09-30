@@ -136,7 +136,7 @@ class ObjectSerializer {
     }
 }
 
-export class MainCollection {
+export class CollectionsCollection {
     'cid'?: string;
     'createdAt'?: string;
     'description'?: string;
@@ -179,7 +179,7 @@ export class MainCollection {
         }    ];
 
     static getAttributeTypeMap() {
-        return MainCollection.attributeTypeMap;
+        return CollectionsCollection.attributeTypeMap;
     }
 }
 
@@ -432,7 +432,7 @@ let enumsMap: {[index: string]: any} = {
 }
 
 let typeMap: {[index: string]: any} = {
-    "MainCollection": MainCollection,
+    "CollectionsCollection": CollectionsCollection,
     "MainCreateCollectionBody": MainCreateCollectionBody,
     "MainEstimateDealBody": MainEstimateDealBody,
     "MainGetApiKeysResp": MainGetApiKeysResp,
@@ -1252,6 +1252,83 @@ export class CollectionsApi {
         });
     }
     /**
+     * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     * @summary Deletes a content from a collection
+     * @param coluuid Collection ID
+     * @param contentid Content ID
+     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+     * @param value Value of content_id or path to look for
+     * @param {*} [options] Override http request options.
+     */
+    public collectionsColuuidContentsDelete (coluuid: string, contentid: string, by: string, value: string, options: any = {}) : Promise<{ response: http.ClientResponse; body: string;  }> {
+        const localVarPath = this.basePath + '/collections/{coluuid}/contents'
+            .replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid)))
+            .replace('{' + 'contentid' + '}', encodeURIComponent(String(contentid)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'coluuid' is not null or undefined
+        if (coluuid === null || coluuid === undefined) {
+            throw new Error('Required parameter coluuid was null or undefined when calling collectionsColuuidContentsDelete.');
+        }
+
+        // verify required parameter 'contentid' is not null or undefined
+        if (contentid === null || contentid === undefined) {
+            throw new Error('Required parameter contentid was null or undefined when calling collectionsColuuidContentsDelete.');
+        }
+
+        // verify required parameter 'by' is not null or undefined
+        if (by === null || by === undefined) {
+            throw new Error('Required parameter by was null or undefined when calling collectionsColuuidContentsDelete.');
+        }
+
+        // verify required parameter 'value' is not null or undefined
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling collectionsColuuidContentsDelete.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'DELETE',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(value, "string")
+        };
+
+        this.authentications.bearerAuth.applyToRequest(localVarRequestOptions);
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.ClientResponse; body: string;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "string");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * This endpoint is used to delete an existing collection.
      * @summary Deletes a collection
      * @param coluuid Collection ID
@@ -1511,20 +1588,13 @@ export class CollectionsApi {
     /**
      * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
      * @summary List all collections
-     * @param id User ID
      * @param {*} [options] Override http request options.
      */
-    public collectionsGet (id: number, options: any = {}) : Promise<{ response: http.ClientResponse; body: Array<MainCollection>;  }> {
-        const localVarPath = this.basePath + '/collections/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+    public collectionsGet (options: any = {}) : Promise<{ response: http.ClientResponse; body: Array<CollectionsCollection>;  }> {
+        const localVarPath = this.basePath + '/collections/';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
-
-        // verify required parameter 'id' is not null or undefined
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling collectionsGet.');
-        }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
 
@@ -1550,12 +1620,12 @@ export class CollectionsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ClientResponse; body: Array<MainCollection>;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: Array<CollectionsCollection>;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
                 } else {
-                    body = ObjectSerializer.deserialize(body, "Array<MainCollection>");
+                    body = ObjectSerializer.deserialize(body, "Array<CollectionsCollection>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {
@@ -1571,7 +1641,7 @@ export class CollectionsApi {
      * @param body Collection name and description
      * @param {*} [options] Override http request options.
      */
-    public collectionsPost (body: MainCreateCollectionBody, options: any = {}) : Promise<{ response: http.ClientResponse; body: MainCollection;  }> {
+    public collectionsPost (body: MainCreateCollectionBody, options: any = {}) : Promise<{ response: http.ClientResponse; body: CollectionsCollection;  }> {
         const localVarPath = this.basePath + '/collections/';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1607,12 +1677,12 @@ export class CollectionsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ClientResponse; body: MainCollection;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: CollectionsCollection;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
                 } else {
-                    body = ObjectSerializer.deserialize(body, "MainCollection");
+                    body = ObjectSerializer.deserialize(body, "CollectionsCollection");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {
@@ -1799,12 +1869,12 @@ export class ContentApi {
     /**
      * This endpoint is used to upload new content.
      * @summary Add new content
-     * @param file File to upload
+     * @param data File to upload
      * @param coluuid Collection UUID
      * @param dir Directory
      * @param {*} [options] Override http request options.
      */
-    public contentAddPost (file: Buffer, coluuid: string, dir: string, options: any = {}) : Promise<{ response: http.ClientResponse; body: UtilContentAddResponse;  }> {
+    public contentAddPost (data: Buffer, coluuid: string, dir: string, options: any = {}) : Promise<{ response: http.ClientResponse; body: UtilContentAddResponse;  }> {
         const localVarPath = this.basePath + '/content/add'
             .replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid)))
             .replace('{' + 'dir' + '}', encodeURIComponent(String(dir)));
@@ -1812,9 +1882,9 @@ export class ContentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
-        // verify required parameter 'file' is not null or undefined
-        if (file === null || file === undefined) {
-            throw new Error('Required parameter file was null or undefined when calling contentAddPost.');
+        // verify required parameter 'data' is not null or undefined
+        if (data === null || data === undefined) {
+            throw new Error('Required parameter data was null or undefined when calling contentAddPost.');
         }
 
         // verify required parameter 'coluuid' is not null or undefined
@@ -1831,8 +1901,8 @@ export class ContentApi {
 
         let localVarUseFormData = false;
 
-        if (file !== undefined) {
-            localVarFormParams['file'] = file;
+        if (data !== undefined) {
+            localVarFormParams['data'] = data;
         }
         localVarUseFormData = true;
 

@@ -10,6 +10,7 @@ All URIs are relative to *https://api.estuary.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**collectionsColuuidCommitPost**](CollectionsApi.md#collectionsColuuidCommitPost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+[**collectionsColuuidContentsDelete**](CollectionsApi.md#collectionsColuuidContentsDelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 [**collectionsColuuidDelete**](CollectionsApi.md#collectionsColuuidDelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 [**collectionsColuuidGet**](CollectionsApi.md#collectionsColuuidGet) | **GET** /collections/{coluuid} | Get contents in a collection
 [**collectionsColuuidPost**](CollectionsApi.md#collectionsColuuidPost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -49,6 +50,59 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **String**| coluuid | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **collectionsColuuidContentsDelete**
+> String collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+
+Deletes a content from a collection
+
+This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+
+### Example 
+```dart
+import 'package:swagger/api.dart';
+// TODO Configure API key authorization: bearerAuth
+//swagger.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+
+var api_instance = new CollectionsApi();
+var coluuid = coluuid_example; // String | Collection ID
+var contentid = contentid_example; // String | Content ID
+var by = new String(); // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+var value = new String(); // String | Value of content_id or path to look for
+
+try { 
+    var result = api_instance.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
+    print(result);
+} catch (e) {
+    print("Exception when calling CollectionsApi->collectionsColuuidContentsDelete: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coluuid** | **String**| Collection ID | 
+ **contentid** | **String**| Content ID | 
+ **by** | **String**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
+ **value** | **String**| Value of content_id or path to look for | 
 
 ### Return type
 
@@ -258,7 +312,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionsGet**
-> List<MainCollection> collectionsGet(id)
+> List<CollectionsCollection> collectionsGet()
 
 List all collections
 
@@ -273,10 +327,9 @@ import 'package:swagger/api.dart';
 //swagger.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
 
 var api_instance = new CollectionsApi();
-var id = 56; // int | User ID
 
 try { 
-    var result = api_instance.collectionsGet(id);
+    var result = api_instance.collectionsGet();
     print(result);
 } catch (e) {
     print("Exception when calling CollectionsApi->collectionsGet: $e\n");
@@ -284,14 +337,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| User ID | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<MainCollection>**](MainCollection.md)
+[**List<CollectionsCollection>**](CollectionsCollection.md)
 
 ### Authorization
 
@@ -305,7 +355,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionsPost**
-> MainCollection collectionsPost(body)
+> CollectionsCollection collectionsPost(body)
 
 Create a new collection
 
@@ -338,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainCollection**](MainCollection.md)
+[**CollectionsCollection**](CollectionsCollection.md)
 
 ### Authorization
 

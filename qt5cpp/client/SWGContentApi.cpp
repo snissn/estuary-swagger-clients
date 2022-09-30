@@ -158,7 +158,7 @@ SWGContentApi::contentAddIpfsPostCallback(SWGHttpRequestWorker * worker) {
 }
 
 void
-SWGContentApi::contentAddPost(SWGHttpRequestInputFileElement* file, QString* coluuid, QString* dir) {
+SWGContentApi::contentAddPost(SWGHttpRequestInputFileElement* data, QString* coluuid, QString* dir) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/content/add");
 
@@ -171,8 +171,8 @@ SWGContentApi::contentAddPost(SWGHttpRequestInputFileElement* file, QString* col
     SWGHttpRequestWorker *worker = new SWGHttpRequestWorker();
     SWGHttpRequestInput input(fullPath, "POST");
 
-    if (file != nullptr) {
-        input.add_file("file", (*file).local_filename, (*file).request_filename, (*file).mime_type);
+    if (data != nullptr) {
+        input.add_file("data", (*data).local_filename, (*data).request_filename, (*data).mime_type);
     }
 
 

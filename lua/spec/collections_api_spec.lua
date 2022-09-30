@@ -22,6 +22,13 @@ describe("collections_api", function()
     end)
   end)
 
+  -- unit tests for collections_coluuid_contents_delete
+  describe("collections_coluuid_contents_delete test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
   -- unit tests for collections_coluuid_delete
   describe("collections_coluuid_delete test", function()
     it("should work", function()

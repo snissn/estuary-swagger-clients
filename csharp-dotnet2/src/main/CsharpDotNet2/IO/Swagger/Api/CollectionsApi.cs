@@ -18,6 +18,15 @@ namespace IO.Swagger.Api
         /// <returns>string</returns>
         string CollectionsColuuidCommitPost (string coluuid);
         /// <summary>
+        /// Deletes a content from a collection This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </summary>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <returns>string</returns>
+        string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value);
+        /// <summary>
         /// Deletes a collection This endpoint is used to delete an existing collection.
         /// </summary>
         /// <param name="coluuid">Collection ID</param>
@@ -47,15 +56,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// List all collections This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </summary>
-        /// <param name="id">User ID</param>
-        /// <returns>List&lt;MainCollection&gt;</returns>
-        List<MainCollection> CollectionsGet (int? id);
+        /// <returns>List&lt;CollectionsCollection&gt;</returns>
+        List<CollectionsCollection> CollectionsGet ();
         /// <summary>
         /// Create a new collection This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
         /// </summary>
         /// <param name="body">Collection name and description</param>
-        /// <returns>MainCollection</returns>
-        MainCollection CollectionsPost (MainCreateCollectionBody body);
+        /// <returns>CollectionsCollection</returns>
+        CollectionsCollection CollectionsPost (MainCreateCollectionBody body);
     }
   
     /// <summary>
@@ -144,6 +152,57 @@ namespace IO.Swagger.Api
                 throw new ApiException ((int)response.StatusCode, "Error calling CollectionsColuuidCommitPost: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling CollectionsColuuidCommitPost: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (string) ApiClient.Deserialize(response.Content, typeof(string), response.Headers);
+        }
+    
+        /// <summary>
+        /// Deletes a content from a collection This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+        /// </summary>
+        /// <param name="coluuid">Collection ID</param> 
+        /// <param name="contentid">Content ID</param> 
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param> 
+        /// <param name="value">Value of content_id or path to look for</param> 
+        /// <returns>string</returns>            
+        public string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value)
+        {
+            
+            // verify the required parameter 'coluuid' is set
+            if (coluuid == null) throw new ApiException(400, "Missing required parameter 'coluuid' when calling CollectionsColuuidContentsDelete");
+            
+            // verify the required parameter 'contentid' is set
+            if (contentid == null) throw new ApiException(400, "Missing required parameter 'contentid' when calling CollectionsColuuidContentsDelete");
+            
+            // verify the required parameter 'by' is set
+            if (by == null) throw new ApiException(400, "Missing required parameter 'by' when calling CollectionsColuuidContentsDelete");
+            
+            // verify the required parameter 'value' is set
+            if (value == null) throw new ApiException(400, "Missing required parameter 'value' when calling CollectionsColuuidContentsDelete");
+            
+    
+            var path = "/collections/{coluuid}/contents";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "coluuid" + "}", ApiClient.ParameterToString(coluuid));
+path = path.Replace("{" + "contentid" + "}", ApiClient.ParameterToString(contentid));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                                postBody = ApiClient.Serialize(value); // http body (model) parameter
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] { "bearerAuth" };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling CollectionsColuuidContentsDelete: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling CollectionsColuuidContentsDelete: " + response.ErrorMessage, response.ErrorMessage);
     
             return (string) ApiClient.Deserialize(response.Content, typeof(string), response.Headers);
         }
@@ -311,19 +370,14 @@ namespace IO.Swagger.Api
         /// <summary>
         /// List all collections This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
         /// </summary>
-        /// <param name="id">User ID</param> 
-        /// <returns>List&lt;MainCollection&gt;</returns>            
-        public List<MainCollection> CollectionsGet (int? id)
+        /// <returns>List&lt;CollectionsCollection&gt;</returns>            
+        public List<CollectionsCollection> CollectionsGet ()
         {
-            
-            // verify the required parameter 'id' is set
-            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling CollectionsGet");
             
     
             var path = "/collections/";
             path = path.Replace("{format}", "json");
-            path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
-    
+                
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, String>();
@@ -342,15 +396,15 @@ namespace IO.Swagger.Api
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling CollectionsGet: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (List<MainCollection>) ApiClient.Deserialize(response.Content, typeof(List<MainCollection>), response.Headers);
+            return (List<CollectionsCollection>) ApiClient.Deserialize(response.Content, typeof(List<CollectionsCollection>), response.Headers);
         }
     
         /// <summary>
         /// Create a new collection This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
         /// </summary>
         /// <param name="body">Collection name and description</param> 
-        /// <returns>MainCollection</returns>            
-        public MainCollection CollectionsPost (MainCreateCollectionBody body)
+        /// <returns>CollectionsCollection</returns>            
+        public CollectionsCollection CollectionsPost (MainCreateCollectionBody body)
         {
             
             // verify the required parameter 'body' is set
@@ -379,7 +433,7 @@ namespace IO.Swagger.Api
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling CollectionsPost: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (MainCollection) ApiClient.Deserialize(response.Content, typeof(MainCollection), response.Headers);
+            return (CollectionsCollection) ApiClient.Deserialize(response.Content, typeof(CollectionsCollection), response.Headers);
         }
     
     }

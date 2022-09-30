@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-export interface MainCollection {
+export interface CollectionsCollection {
   cid?: string;
   createdAt?: string;
   description?: string;

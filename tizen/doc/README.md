@@ -73,6 +73,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 *collectionsColuuidCommitPostSync* | *POST* /collections/{coluuid}/commit | Produce a CID of the collection contents.
 *collectionsColuuidCommitPostASync* | *POST* /collections/{coluuid}/commit | Produce a CID of the collection contents.
+*collectionsColuuidContentsDeleteSync* | *DELETE* /collections/{coluuid}/contents | Deletes a content from a collection.
+*collectionsColuuidContentsDeleteASync* | *DELETE* /collections/{coluuid}/contents | Deletes a content from a collection.
 *collectionsColuuidDeleteSync* | *DELETE* /collections/{coluuid} | Deletes a collection.
 *collectionsColuuidDeleteASync* | *DELETE* /collections/{coluuid} | Deletes a collection.
 *collectionsColuuidGetSync* | *GET* /collections/{coluuid} | Get contents in a collection.
@@ -268,7 +270,7 @@ Method | HTTP request | Description
 ## What are the Model files for the data structures/objects?
 Class | Description
 ------------- | -------------
- *Main.Collection* | 
+ *Collections.Collection* | 
  *Main.createCollectionBody* | 
  *Main.estimateDealBody* | 
  *Main.getApiKeysResp* | 

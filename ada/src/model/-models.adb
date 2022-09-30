@@ -225,7 +225,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in Main_Collection_Type) is
+                        Value : in Collections_Collection_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("cid", Value.Cid);
@@ -239,7 +239,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in Main_Collection_Type_Vectors.Vector) is
+                        Value : in Collections_Collection_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -250,7 +250,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out Main_Collection_Type) is
+                          Value : out Collections_Collection_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -264,9 +264,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out Main_Collection_Type_Vectors.Vector) is
+                          Value : out Collections_Collection_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : Main_Collection_Type;
+      Item : Collections_Collection_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);

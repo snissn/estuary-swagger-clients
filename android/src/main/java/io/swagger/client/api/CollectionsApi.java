@@ -23,8 +23,8 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import io.swagger.client.model.CollectionsCollection;
 import java.util.*;
-import io.swagger.client.model.MainCollection;
 import io.swagger.client.model.MainCreateCollectionBody;
 import java.util.Map;
 import io.swagger.client.model.UtilHttpError;
@@ -167,6 +167,166 @@ public class CollectionsApi {
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((String) ApiInvoker.deserialize(localVarResponse,  "", String.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Deletes a content from a collection
+  * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+   * @param coluuid Collection ID
+   * @param contentid Content ID
+   * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+   * @param value Value of content_id or path to look for
+   * @return String
+  */
+  public String collectionsColuuidContentsDelete (String coluuid, String contentid, String by, String value) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = value;
+    // verify the required parameter 'coluuid' is set
+    if (coluuid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'coluuid' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'coluuid' when calling collectionsColuuidContentsDelete"));
+    }
+    // verify the required parameter 'contentid' is set
+    if (contentid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete"));
+    }
+    // verify the required parameter 'by' is set
+    if (by == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'by' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'by' when calling collectionsColuuidContentsDelete"));
+    }
+    // verify the required parameter 'value' is set
+    if (value == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'value' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'value' when calling collectionsColuuidContentsDelete"));
+    }
+
+    // create path and map variables
+    String path = "/collections/{coluuid}/contents".replaceAll("\\{" + "coluuid" + "\\}", apiInvoker.escapeString(coluuid.toString())).replaceAll("\\{" + "contentid" + "\\}", apiInvoker.escapeString(contentid.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "bearerAuth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (String) ApiInvoker.deserialize(localVarResponse, "", String.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Deletes a content from a collection
+   * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+   * @param coluuid Collection ID   * @param contentid Content ID   * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)   * @param value Value of content_id or path to look for
+  */
+  public void collectionsColuuidContentsDelete (String coluuid, String contentid, String by, String value, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = value;
+
+    // verify the required parameter 'coluuid' is set
+    if (coluuid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'coluuid' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'coluuid' when calling collectionsColuuidContentsDelete"));
+    }
+    // verify the required parameter 'contentid' is set
+    if (contentid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete"));
+    }
+    // verify the required parameter 'by' is set
+    if (by == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'by' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'by' when calling collectionsColuuidContentsDelete"));
+    }
+    // verify the required parameter 'value' is set
+    if (value == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'value' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'value' when calling collectionsColuuidContentsDelete"));
+    }
+
+    // create path and map variables
+    String path = "/collections/{coluuid}/contents".replaceAll("\\{format\\}","json").replaceAll("\\{" + "coluuid" + "\\}", apiInvoker.escapeString(coluuid.toString())).replaceAll("\\{" + "contentid" + "\\}", apiInvoker.escapeString(contentid.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "bearerAuth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames,
         new Response.Listener<String>() {
           @Override
           public void onResponse(String localVarResponse) {
@@ -723,19 +883,13 @@ public class CollectionsApi {
   /**
   * List all collections
   * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
-   * @param id User ID
-   * @return List<MainCollection>
+   * @return List<CollectionsCollection>
   */
-  public List<MainCollection> collectionsGet (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<CollectionsCollection> collectionsGet () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'id' when calling collectionsGet",
-        new ApiException(400, "Missing the required parameter 'id' when calling collectionsGet"));
-    }
 
     // create path and map variables
-    String path = "/collections/".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/collections/";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -761,7 +915,7 @@ public class CollectionsApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (List<MainCollection>) ApiInvoker.deserialize(localVarResponse, "array", MainCollection.class);
+         return (List<CollectionsCollection>) ApiInvoker.deserialize(localVarResponse, "array", CollectionsCollection.class);
       } else {
          return null;
       }
@@ -785,19 +939,14 @@ public class CollectionsApi {
       /**
    * List all collections
    * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
-   * @param id User ID
+
   */
-  public void collectionsGet (Integer id, final Response.Listener<List<MainCollection>> responseListener, final Response.ErrorListener errorListener) {
+  public void collectionsGet (final Response.Listener<List<CollectionsCollection>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'id' when calling collectionsGet",
-        new ApiException(400, "Missing the required parameter 'id' when calling collectionsGet"));
-    }
 
     // create path and map variables
-    String path = "/collections/".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/collections/".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -832,7 +981,7 @@ public class CollectionsApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((List<MainCollection>) ApiInvoker.deserialize(localVarResponse,  "array", MainCollection.class));
+              responseListener.onResponse((List<CollectionsCollection>) ApiInvoker.deserialize(localVarResponse,  "array", CollectionsCollection.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -851,9 +1000,9 @@ public class CollectionsApi {
   * Create a new collection
   * This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
    * @param body Collection name and description
-   * @return MainCollection
+   * @return CollectionsCollection
   */
-  public MainCollection collectionsPost (MainCreateCollectionBody body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CollectionsCollection collectionsPost (MainCreateCollectionBody body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
     // verify the required parameter 'body' is set
     if (body == null) {
@@ -888,7 +1037,7 @@ public class CollectionsApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (MainCollection) ApiInvoker.deserialize(localVarResponse, "", MainCollection.class);
+         return (CollectionsCollection) ApiInvoker.deserialize(localVarResponse, "", CollectionsCollection.class);
       } else {
          return null;
       }
@@ -914,7 +1063,7 @@ public class CollectionsApi {
    * This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
    * @param body Collection name and description
   */
-  public void collectionsPost (MainCreateCollectionBody body, final Response.Listener<MainCollection> responseListener, final Response.ErrorListener errorListener) {
+  public void collectionsPost (MainCreateCollectionBody body, final Response.Listener<CollectionsCollection> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
     // verify the required parameter 'body' is set
@@ -959,7 +1108,7 @@ public class CollectionsApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((MainCollection) ApiInvoker.deserialize(localVarResponse,  "", MainCollection.class));
+              responseListener.onResponse((CollectionsCollection) ApiInvoker.deserialize(localVarResponse,  "", CollectionsCollection.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

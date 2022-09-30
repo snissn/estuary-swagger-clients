@@ -79,11 +79,11 @@ namespace IO.Swagger.Api
         /// This endpoint is used to upload new content.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>UtilContentAddResponse</returns>
-        UtilContentAddResponse ContentAddPost (System.IO.Stream _file, string coluuid, string dir);
+        UtilContentAddResponse ContentAddPost (System.IO.Stream data, string coluuid, string dir);
 
         /// <summary>
         /// Add new content
@@ -92,11 +92,11 @@ namespace IO.Swagger.Api
         /// This endpoint is used to upload new content.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>ApiResponse of UtilContentAddResponse</returns>
-        ApiResponse<UtilContentAddResponse> ContentAddPostWithHttpInfo (System.IO.Stream _file, string coluuid, string dir);
+        ApiResponse<UtilContentAddResponse> ContentAddPostWithHttpInfo (System.IO.Stream data, string coluuid, string dir);
         /// <summary>
         /// Get aggregated content stats
         /// </summary>
@@ -429,11 +429,11 @@ namespace IO.Swagger.Api
         /// This endpoint is used to upload new content.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>Task of UtilContentAddResponse</returns>
-        System.Threading.Tasks.Task<UtilContentAddResponse> ContentAddPostAsync (System.IO.Stream _file, string coluuid, string dir);
+        System.Threading.Tasks.Task<UtilContentAddResponse> ContentAddPostAsync (System.IO.Stream data, string coluuid, string dir);
 
         /// <summary>
         /// Add new content
@@ -442,11 +442,11 @@ namespace IO.Swagger.Api
         /// This endpoint is used to upload new content.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>Task of ApiResponse (UtilContentAddResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UtilContentAddResponse>> ContentAddPostAsyncWithHttpInfo (System.IO.Stream _file, string coluuid, string dir);
+        System.Threading.Tasks.Task<ApiResponse<UtilContentAddResponse>> ContentAddPostAsyncWithHttpInfo (System.IO.Stream data, string coluuid, string dir);
         /// <summary>
         /// Get aggregated content stats
         /// </summary>
@@ -1154,13 +1154,13 @@ namespace IO.Swagger.Api
         /// Add new content This endpoint is used to upload new content.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>UtilContentAddResponse</returns>
-        public UtilContentAddResponse ContentAddPost (System.IO.Stream _file, string coluuid, string dir)
+        public UtilContentAddResponse ContentAddPost (System.IO.Stream data, string coluuid, string dir)
         {
-             ApiResponse<UtilContentAddResponse> localVarResponse = ContentAddPostWithHttpInfo(_file, coluuid, dir);
+             ApiResponse<UtilContentAddResponse> localVarResponse = ContentAddPostWithHttpInfo(data, coluuid, dir);
              return localVarResponse.Data;
         }
 
@@ -1168,15 +1168,15 @@ namespace IO.Swagger.Api
         /// Add new content This endpoint is used to upload new content.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>ApiResponse of UtilContentAddResponse</returns>
-        public ApiResponse< UtilContentAddResponse > ContentAddPostWithHttpInfo (System.IO.Stream _file, string coluuid, string dir)
+        public ApiResponse< UtilContentAddResponse > ContentAddPostWithHttpInfo (System.IO.Stream data, string coluuid, string dir)
         {
-            // verify the required parameter '_file' is set
-            if (_file == null)
-                throw new ApiException(400, "Missing required parameter '_file' when calling ContentApi->ContentAddPost");
+            // verify the required parameter 'data' is set
+            if (data == null)
+                throw new ApiException(400, "Missing required parameter 'data' when calling ContentApi->ContentAddPost");
             // verify the required parameter 'coluuid' is set
             if (coluuid == null)
                 throw new ApiException(400, "Missing required parameter 'coluuid' when calling ContentApi->ContentAddPost");
@@ -1208,7 +1208,7 @@ namespace IO.Swagger.Api
 
             if (coluuid != null) localVarPathParams.Add("coluuid", this.Configuration.ApiClient.ParameterToString(coluuid)); // path parameter
             if (dir != null) localVarPathParams.Add("dir", this.Configuration.ApiClient.ParameterToString(dir)); // path parameter
-            if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
+            if (data != null) localVarFileParams.Add("data", this.Configuration.ApiClient.ParameterToFile("data", data));
 
             // authentication (bearerAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -1238,13 +1238,13 @@ namespace IO.Swagger.Api
         /// Add new content This endpoint is used to upload new content.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>Task of UtilContentAddResponse</returns>
-        public async System.Threading.Tasks.Task<UtilContentAddResponse> ContentAddPostAsync (System.IO.Stream _file, string coluuid, string dir)
+        public async System.Threading.Tasks.Task<UtilContentAddResponse> ContentAddPostAsync (System.IO.Stream data, string coluuid, string dir)
         {
-             ApiResponse<UtilContentAddResponse> localVarResponse = await ContentAddPostAsyncWithHttpInfo(_file, coluuid, dir);
+             ApiResponse<UtilContentAddResponse> localVarResponse = await ContentAddPostAsyncWithHttpInfo(data, coluuid, dir);
              return localVarResponse.Data;
 
         }
@@ -1253,15 +1253,15 @@ namespace IO.Swagger.Api
         /// Add new content This endpoint is used to upload new content.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>Task of ApiResponse (UtilContentAddResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UtilContentAddResponse>> ContentAddPostAsyncWithHttpInfo (System.IO.Stream _file, string coluuid, string dir)
+        public async System.Threading.Tasks.Task<ApiResponse<UtilContentAddResponse>> ContentAddPostAsyncWithHttpInfo (System.IO.Stream data, string coluuid, string dir)
         {
-            // verify the required parameter '_file' is set
-            if (_file == null)
-                throw new ApiException(400, "Missing required parameter '_file' when calling ContentApi->ContentAddPost");
+            // verify the required parameter 'data' is set
+            if (data == null)
+                throw new ApiException(400, "Missing required parameter 'data' when calling ContentApi->ContentAddPost");
             // verify the required parameter 'coluuid' is set
             if (coluuid == null)
                 throw new ApiException(400, "Missing required parameter 'coluuid' when calling ContentApi->ContentAddPost");
@@ -1293,7 +1293,7 @@ namespace IO.Swagger.Api
 
             if (coluuid != null) localVarPathParams.Add("coluuid", this.Configuration.ApiClient.ParameterToString(coluuid)); // path parameter
             if (dir != null) localVarPathParams.Add("dir", this.Configuration.ApiClient.ParameterToString(dir)); // path parameter
-            if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
+            if (data != null) localVarFileParams.Add("data", this.Configuration.ApiClient.ParameterToFile("data", data));
 
             // authentication (bearerAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

@@ -36,6 +36,13 @@ class TestCollectionsApi(unittest.TestCase):
         """
         pass
 
+    def test_collections_coluuid_contents_delete(self):
+        """Test case for collections_coluuid_contents_delete
+
+        Deletes a content from a collection  # noqa: E501
+        """
+        pass
+
     def test_collections_coluuid_delete(self):
         """Test case for collections_coluuid_delete
 

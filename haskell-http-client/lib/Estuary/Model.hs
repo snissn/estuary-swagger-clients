@@ -81,6 +81,9 @@ newtype Body = Body { unBody :: [Int] } deriving (P.Eq, P.Show, A.ToJSON)
 -- ** BodyText
 newtype BodyText = BodyText { unBodyText :: Text } deriving (P.Eq, P.Show, A.ToJSON)
 
+-- ** By2
+newtype By2 = By2 { unBy2 :: Text } deriving (P.Eq, P.Show, A.ToJSON)
+
 -- ** Cid
 newtype Cid = Cid { unCid :: Text } deriving (P.Eq, P.Show)
 
@@ -95,6 +98,9 @@ newtype Cont = Cont { unCont :: Text } deriving (P.Eq, P.Show)
 
 -- ** Content
 newtype Content = Content { unContent :: Text } deriving (P.Eq, P.Show)
+
+-- ** Contentid
+newtype Contentid = Contentid { unContentid :: Text } deriving (P.Eq, P.Show)
 
 -- ** Datacid
 newtype Datacid = Datacid { unDatacid :: Text } deriving (P.Eq, P.Show)
@@ -113,9 +119,6 @@ newtype Dir = Dir { unDir :: Text } deriving (P.Eq, P.Show)
 
 -- ** Duration
 newtype Duration = Duration { unDuration :: Text } deriving (P.Eq, P.Show)
-
--- ** File
-newtype File = File { unFile :: FilePath } deriving (P.Eq, P.Show)
 
 -- ** Filename
 newtype Filename = Filename { unFilename :: Text } deriving (P.Eq, P.Show)
@@ -141,6 +144,9 @@ newtype Name = Name { unName :: Text } deriving (P.Eq, P.Show)
 -- ** Offset
 newtype Offset = Offset { unOffset :: Int } deriving (P.Eq, P.Show)
 
+-- ** ParamData
+newtype ParamData = ParamData { unParamData :: FilePath } deriving (P.Eq, P.Show)
+
 -- ** Path
 newtype Path = Path { unPath :: Text } deriving (P.Eq, P.Show)
 
@@ -159,24 +165,27 @@ newtype Size = Size { unSize :: Text } deriving (P.Eq, P.Show)
 -- ** Token
 newtype Token = Token { unToken :: Text } deriving (P.Eq, P.Show)
 
+-- ** Value2
+newtype Value2 = Value2 { unValue2 :: Text } deriving (P.Eq, P.Show, A.ToJSON)
+
 -- * Models
 
 
--- ** MainCollection
--- | MainCollection
-data MainCollection = MainCollection
-  { mainCollectionCid :: !(Maybe Text) -- ^ "cid"
-  , mainCollectionCreatedAt :: !(Maybe Text) -- ^ "createdAt"
-  , mainCollectionDescription :: !(Maybe Text) -- ^ "description"
-  , mainCollectionName :: !(Maybe Text) -- ^ "name"
-  , mainCollectionUserId :: !(Maybe Int) -- ^ "userId"
-  , mainCollectionUuid :: !(Maybe Text) -- ^ "uuid"
+-- ** CollectionsCollection
+-- | CollectionsCollection
+data CollectionsCollection = CollectionsCollection
+  { collectionsCollectionCid :: !(Maybe Text) -- ^ "cid"
+  , collectionsCollectionCreatedAt :: !(Maybe Text) -- ^ "createdAt"
+  , collectionsCollectionDescription :: !(Maybe Text) -- ^ "description"
+  , collectionsCollectionName :: !(Maybe Text) -- ^ "name"
+  , collectionsCollectionUserId :: !(Maybe Int) -- ^ "userId"
+  , collectionsCollectionUuid :: !(Maybe Text) -- ^ "uuid"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON MainCollection
-instance A.FromJSON MainCollection where
-  parseJSON = A.withObject "MainCollection" $ \o ->
-    MainCollection
+-- | FromJSON CollectionsCollection
+instance A.FromJSON CollectionsCollection where
+  parseJSON = A.withObject "CollectionsCollection" $ \o ->
+    CollectionsCollection
       <$> (o .:? "cid")
       <*> (o .:? "createdAt")
       <*> (o .:? "description")
@@ -184,30 +193,30 @@ instance A.FromJSON MainCollection where
       <*> (o .:? "userId")
       <*> (o .:? "uuid")
 
--- | ToJSON MainCollection
-instance A.ToJSON MainCollection where
-  toJSON MainCollection {..} =
+-- | ToJSON CollectionsCollection
+instance A.ToJSON CollectionsCollection where
+  toJSON CollectionsCollection {..} =
    _omitNulls
-      [ "cid" .= mainCollectionCid
-      , "createdAt" .= mainCollectionCreatedAt
-      , "description" .= mainCollectionDescription
-      , "name" .= mainCollectionName
-      , "userId" .= mainCollectionUserId
-      , "uuid" .= mainCollectionUuid
+      [ "cid" .= collectionsCollectionCid
+      , "createdAt" .= collectionsCollectionCreatedAt
+      , "description" .= collectionsCollectionDescription
+      , "name" .= collectionsCollectionName
+      , "userId" .= collectionsCollectionUserId
+      , "uuid" .= collectionsCollectionUuid
       ]
 
 
--- | Construct a value of type 'MainCollection' (by applying it's required fields, if any)
-mkMainCollection
-  :: MainCollection
-mkMainCollection =
-  MainCollection
-  { mainCollectionCid = Nothing
-  , mainCollectionCreatedAt = Nothing
-  , mainCollectionDescription = Nothing
-  , mainCollectionName = Nothing
-  , mainCollectionUserId = Nothing
-  , mainCollectionUuid = Nothing
+-- | Construct a value of type 'CollectionsCollection' (by applying it's required fields, if any)
+mkCollectionsCollection
+  :: CollectionsCollection
+mkCollectionsCollection =
+  CollectionsCollection
+  { collectionsCollectionCid = Nothing
+  , collectionsCollectionCreatedAt = Nothing
+  , collectionsCollectionDescription = Nothing
+  , collectionsCollectionName = Nothing
+  , collectionsCollectionUserId = Nothing
+  , collectionsCollectionUuid = Nothing
   }
 
 -- ** MainCreateCollectionBody

@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **content_add_post**
-> ::models::UtilContentAddResponse content_add_post(ctx, file, coluuid, dir)
+> ::models::UtilContentAddResponse content_add_post(ctx, data, coluuid, dir)
 Add new content
 
 This endpoint is used to upload new content.
@@ -100,7 +100,7 @@ This endpoint is used to upload new content.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **file** | **File**| File to upload | 
+  **data** | **File**| File to upload | 
   **coluuid** | **String**| Collection UUID | 
   **dir** | **String**| Directory | 
 

@@ -137,7 +137,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **contentAddPost**
-> \Swagger\Client\Model\UtilContentAddResponse contentAddPost($file, $coluuid, $dir)
+> \Swagger\Client\Model\UtilContentAddResponse contentAddPost($data, $coluuid, $dir)
 
 Add new content
 
@@ -159,12 +159,12 @@ $apiInstance = new Swagger\Client\Api\ContentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$file = "/path/to/file.txt"; // \SplFileObject | File to upload
+$data = "/path/to/file.txt"; // \SplFileObject | File to upload
 $coluuid = "coluuid_example"; // string | Collection UUID
 $dir = "dir_example"; // string | Directory
 
 try {
-    $result = $apiInstance->contentAddPost($file, $coluuid, $dir);
+    $result = $apiInstance->contentAddPost($data, $coluuid, $dir);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContentApi->contentAddPost: ', $e->getMessage(), PHP_EOL;
@@ -176,7 +176,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **\SplFileObject**| File to upload |
+ **data** | **\SplFileObject**| File to upload |
  **coluuid** | **string**| Collection UUID |
  **dir** | **string**| Directory |
 

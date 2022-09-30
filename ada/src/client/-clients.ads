@@ -78,6 +78,16 @@ package .Clients is
        Coluuid : in Swagger.UString;
        Result : out Swagger.UString);
 
+   --  Deletes a content from a collection
+   --  This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+   procedure Collections_Coluuid_Contents_Delete
+      (Client : in out Client_Type;
+       Coluuid : in Swagger.UString;
+       Contentid : in Swagger.UString;
+       By : in Swagger.UString;
+       Value : in Swagger.UString;
+       Result : out Swagger.UString);
+
    --  Deletes a collection
    --  This endpoint is used to delete an existing collection.
    procedure Collections_Coluuid_Delete
@@ -111,15 +121,14 @@ package .Clients is
    --  This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
    procedure Collections_Get
       (Client : in out Client_Type;
-       Id : in Integer;
-       Result : out .Models.Main_Collection_Type_Vectors.Vector);
+       Result : out .Models.Collections_Collection_Type_Vectors.Vector);
 
    --  Create a new collection
    --  This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
    procedure Collections_Post
       (Client : in out Client_Type;
        P_Body : in .Models.Main_createCollectionBody_Type;
-       Result : out .Models.Main_Collection_Type);
+       Result : out .Models.Collections_Collection_Type);
 
    --  Add Car object
    --  This endpoint is used to add a car object to the network. The object can be a file or a directory.
@@ -140,7 +149,7 @@ package .Clients is
    --  This endpoint is used to upload new content.
    procedure Content_Add_Post
       (Client : in out Client_Type;
-       File : in Swagger.File_Part_Type;
+       Data : in Swagger.File_Part_Type;
        Coluuid : in Swagger.UString;
        Dir : in Swagger.UString;
        Result : out .Models.Util_ContentAddResponse_Type);

@@ -21,6 +21,9 @@
 #' collections_coluuid_commit_post Produce a CID of the collection contents
 #'
 #'
+#' collections_coluuid_contents_delete Deletes a content from a collection
+#'
+#'
 #' collections_coluuid_delete Deletes a collection
 #'
 #'
@@ -66,6 +69,50 @@ CollectionsApi <- R6::R6Class(
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+      
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        returnObject <- Character$new()
+        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+        Response$new(returnObject, resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    collections_coluuid_contents_delete = function(coluuid, contentid, by, value, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`by`)) {
+        body <- `by`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      if (!missing(`value`)) {
+        body <- `value`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/collections/{coluuid}/contents"
+      if (!missing(`coluuid`)) {
+        urlPath <- gsub(paste0("\\{", "coluuid", "\\}"), `coluuid`, urlPath)
+      }
+
+      if (!missing(`contentid`)) {
+        urlPath <- gsub(paste0("\\{", "contentid", "\\}"), `contentid`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
@@ -204,16 +251,12 @@ CollectionsApi <- R6::R6Class(
       }
 
     },
-    collections_get = function(id, ...){
+    collections_get = function(...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/collections/"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
-      }
-
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
                                  queryParams = queryParams,
@@ -222,7 +265,7 @@ CollectionsApi <- R6::R6Class(
                                  ...)
       
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- MainCollection$new()
+        returnObject <- CollectionsCollection$new()
         result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
         Response$new(returnObject, resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -252,7 +295,7 @@ CollectionsApi <- R6::R6Class(
                                  ...)
       
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- MainCollection$new()
+        returnObject <- CollectionsCollection$new()
         result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
         Response$new(returnObject, resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

@@ -208,12 +208,12 @@ sub content_add_ipfs_post {
 #
 # Add new content
 # 
-# @param File $file File to upload (required)
+# @param File $data File to upload (required)
 # @param string $coluuid Collection UUID (required)
 # @param string $dir Directory (required)
 {
     my $params = {
-    'file' => {
+    'data' => {
         data_type => 'File',
         description => 'File to upload',
         required => '1',
@@ -240,9 +240,9 @@ sub content_add_ipfs_post {
 sub content_add_post {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'file' is set
-    unless (exists $args{'file'}) {
-      croak("Missing the required parameter 'file' when calling content_add_post");
+    # verify the required parameter 'data' is set
+    unless (exists $args{'data'}) {
+      croak("Missing the required parameter 'data' when calling content_add_post");
     }
 
     # verify the required parameter 'coluuid' is set
@@ -285,9 +285,9 @@ sub content_add_post {
     }
 
     # form params
-    if ( exists $args{'file'} ) {
-        $form_params->{'file'} = [] unless defined $form_params->{'file'};
-        push @{$form_params->{'file'}}, $args{'file'};
+    if ( exists $args{'data'} ) {
+        $form_params->{'data'} = [] unless defined $form_params->{'data'};
+        push @{$form_params->{'data'}}, $args{'data'};
             }
     
     my $_body_data;

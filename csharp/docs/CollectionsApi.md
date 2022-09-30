@@ -5,6 +5,7 @@ All URIs are relative to *https://api.estuary.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CollectionsColuuidCommitPost**](CollectionsApi.md#collectionscoluuidcommitpost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+[**CollectionsColuuidContentsDelete**](CollectionsApi.md#collectionscoluuidcontentsdelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 [**CollectionsColuuidDelete**](CollectionsApi.md#collectionscoluuiddelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 [**CollectionsColuuidGet**](CollectionsApi.md#collectionscoluuidget) | **GET** /collections/{coluuid} | Get contents in a collection
 [**CollectionsColuuidPost**](CollectionsApi.md#collectionscoluuidpost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -63,6 +64,78 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **string**| coluuid | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="collectionscoluuidcontentsdelete"></a>
+# **CollectionsColuuidContentsDelete**
+> string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value)
+
+Deletes a content from a collection
+
+This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class CollectionsColuuidContentsDeleteExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: bearerAuth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new CollectionsApi();
+            var coluuid = coluuid_example;  // string | Collection ID
+            var contentid = contentid_example;  // string | Content ID
+            var by = by_example;  // string | Variable to use when filtering for files (must be either 'path' or 'content_id')
+            var value = value_example;  // string | Value of content_id or path to look for
+
+            try
+            {
+                // Deletes a content from a collection
+                string result = apiInstance.CollectionsColuuidContentsDelete(coluuid, contentid, by, value);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CollectionsApi.CollectionsColuuidContentsDelete: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coluuid** | **string**| Collection ID | 
+ **contentid** | **string**| Content ID | 
+ **by** | **string**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
+ **value** | **string**| Value of content_id or path to look for | 
 
 ### Return type
 
@@ -349,7 +422,7 @@ void (empty response body)
 
 <a name="collectionsget"></a>
 # **CollectionsGet**
-> List<MainCollection> CollectionsGet (int? id)
+> List<CollectionsCollection> CollectionsGet ()
 
 List all collections
 
@@ -375,12 +448,11 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new CollectionsApi();
-            var id = 56;  // int? | User ID
 
             try
             {
                 // List all collections
-                List&lt;MainCollection&gt; result = apiInstance.CollectionsGet(id);
+                List&lt;CollectionsCollection&gt; result = apiInstance.CollectionsGet();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -393,14 +465,11 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int?**| User ID | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<MainCollection>**](MainCollection.md)
+[**List<CollectionsCollection>**](CollectionsCollection.md)
 
 ### Authorization
 
@@ -415,7 +484,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionspost"></a>
 # **CollectionsPost**
-> MainCollection CollectionsPost (MainCreateCollectionBody body)
+> CollectionsCollection CollectionsPost (MainCreateCollectionBody body)
 
 Create a new collection
 
@@ -446,7 +515,7 @@ namespace Example
             try
             {
                 // Create a new collection
-                MainCollection result = apiInstance.CollectionsPost(body);
+                CollectionsCollection result = apiInstance.CollectionsPost(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -466,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainCollection**](MainCollection.md)
+[**CollectionsCollection**](CollectionsCollection.md)
 
 ### Authorization
 

@@ -51,7 +51,7 @@ function Invoke-ContentApiContentAddPost {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
-        ${file},
+        ${data},
         [Parameter(Position = 1, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${coluuid},
@@ -65,7 +65,7 @@ function Invoke-ContentApiContentAddPost {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $Script:ContentApi.ContentAddPost(
-            ${file},
+            ${data},
             ${coluuid},
             ${dir}
         )

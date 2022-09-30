@@ -1,4 +1,4 @@
-export * from './mainCollection';
+export * from './collectionsCollection';
 export * from './mainCreateCollectionBody';
 export * from './mainEstimateDealBody';
 export * from './mainGetApiKeysResp';

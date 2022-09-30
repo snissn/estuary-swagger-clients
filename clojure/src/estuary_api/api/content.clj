@@ -49,13 +49,13 @@
 (defn content-add-post-with-http-info
   "Add new content
   This endpoint is used to upload new content."
-  [^File file coluuid dir ]
-  (check-required-params file coluuid dir)
+  [^File data coluuid dir ]
+  (check-required-params data coluuid dir)
   (call-api "/content/add" :post
             {:path-params   {"coluuid" coluuid "dir" dir }
              :header-params {}
              :query-params  {}
-             :form-params   {"file" file }
+             :form-params   {"data" data }
              :content-types ["multipart/form-data"]
              :accepts       ["application/json"]
              :auth-names    ["bearerAuth"]}))
@@ -63,8 +63,8 @@
 (defn content-add-post
   "Add new content
   This endpoint is used to upload new content."
-  [^File file coluuid dir ]
-  (:data (content-add-post-with-http-info file coluuid dir)))
+  [^File data coluuid dir ]
+  (:data (content-add-post-with-http-info data coluuid dir)))
 
 (defn content-aggregated-content-get-with-http-info
   "Get aggregated content stats

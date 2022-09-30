@@ -29,11 +29,11 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Add new content This endpoint is used to upload new content.
         /// </summary>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <returns>UtilContentAddResponse</returns>
-        UtilContentAddResponse ContentAddPost (System.IO.Stream _file, string coluuid, string dir);
+        UtilContentAddResponse ContentAddPost (System.IO.Stream data, string coluuid, string dir);
         /// <summary>
         /// Get aggregated content stats This endpoint returns aggregated content stats
         /// </summary>
@@ -251,15 +251,15 @@ namespace IO.Swagger.Api
         /// <summary>
         /// Add new content This endpoint is used to upload new content.
         /// </summary>
-        /// <param name="_file">File to upload</param> 
+        /// <param name="data">File to upload</param> 
         /// <param name="coluuid">Collection UUID</param> 
         /// <param name="dir">Directory</param> 
         /// <returns>UtilContentAddResponse</returns>            
-        public UtilContentAddResponse ContentAddPost (System.IO.Stream _file, string coluuid, string dir)
+        public UtilContentAddResponse ContentAddPost (System.IO.Stream data, string coluuid, string dir)
         {
             
-            // verify the required parameter '_file' is set
-            if (_file == null) throw new ApiException(400, "Missing required parameter '_file' when calling ContentAddPost");
+            // verify the required parameter 'data' is set
+            if (data == null) throw new ApiException(400, "Missing required parameter 'data' when calling ContentAddPost");
             
             // verify the required parameter 'coluuid' is set
             if (coluuid == null) throw new ApiException(400, "Missing required parameter 'coluuid' when calling ContentAddPost");
@@ -279,7 +279,7 @@ path = path.Replace("{" + "dir" + "}", ApiClient.ParameterToString(dir));
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    if (_file != null) fileParams.Add("file", ApiClient.ParameterToFile("file", _file));
+                                    if (data != null) fileParams.Add("data", ApiClient.ParameterToFile("data", data));
                 
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };

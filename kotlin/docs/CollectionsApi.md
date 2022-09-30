@@ -5,6 +5,7 @@ All URIs are relative to *https://api.estuary.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**collectionsColuuidCommitPost**](CollectionsApi.md#collectionsColuuidCommitPost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+[**collectionsColuuidContentsDelete**](CollectionsApi.md#collectionsColuuidContentsDelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 [**collectionsColuuidDelete**](CollectionsApi.md#collectionsColuuidDelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 [**collectionsColuuidGet**](CollectionsApi.md#collectionsColuuidGet) | **GET** /collections/{coluuid} | Get contents in a collection
 [**collectionsColuuidPost**](CollectionsApi.md#collectionsColuuidPost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -46,6 +47,59 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **kotlin.String**| coluuid |
+
+### Return type
+
+**kotlin.String**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="collectionsColuuidContentsDelete"></a>
+# **collectionsColuuidContentsDelete**
+> kotlin.String collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+
+Deletes a content from a collection
+
+This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import io.swagger.client.models.*
+
+val apiInstance = CollectionsApi()
+val coluuid : kotlin.String = coluuid_example // kotlin.String | Collection ID
+val contentid : kotlin.String = contentid_example // kotlin.String | Content ID
+val by : kotlin.String = by_example // kotlin.String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+val value : kotlin.String = value_example // kotlin.String | Value of content_id or path to look for
+try {
+    val result : kotlin.String = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CollectionsApi#collectionsColuuidContentsDelete")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CollectionsApi#collectionsColuuidContentsDelete")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coluuid** | **kotlin.String**| Collection ID |
+ **contentid** | **kotlin.String**| Content ID |
+ **by** | **kotlin.String**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) |
+ **value** | **kotlin.String**| Value of content_id or path to look for |
 
 ### Return type
 
@@ -254,7 +308,7 @@ null (empty response body)
 
 <a name="collectionsGet"></a>
 # **collectionsGet**
-> kotlin.Array&lt;MainCollection&gt; collectionsGet(id)
+> kotlin.Array&lt;CollectionsCollection&gt; collectionsGet()
 
 List all collections
 
@@ -267,9 +321,8 @@ This endpoint is used to list all collections. Whenever a user logs on estuary, 
 //import io.swagger.client.models.*
 
 val apiInstance = CollectionsApi()
-val id : kotlin.Int = 56 // kotlin.Int | User ID
 try {
-    val result : kotlin.Array<MainCollection> = apiInstance.collectionsGet(id)
+    val result : kotlin.Array<CollectionsCollection> = apiInstance.collectionsGet()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CollectionsApi#collectionsGet")
@@ -281,14 +334,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| User ID |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**kotlin.Array&lt;MainCollection&gt;**](MainCollection.md)
+[**kotlin.Array&lt;CollectionsCollection&gt;**](CollectionsCollection.md)
 
 ### Authorization
 
@@ -301,7 +351,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionsPost"></a>
 # **collectionsPost**
-> MainCollection collectionsPost(body)
+> CollectionsCollection collectionsPost(body)
 
 Create a new collection
 
@@ -316,7 +366,7 @@ This endpoint is used to create a new collection. A collection is a representaio
 val apiInstance = CollectionsApi()
 val body : MaincreateCollectionBody =  // MaincreateCollectionBody | Collection name and description
 try {
-    val result : MainCollection = apiInstance.collectionsPost(body)
+    val result : CollectionsCollection = apiInstance.collectionsPost(body)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CollectionsApi#collectionsPost")
@@ -335,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainCollection**](MainCollection.md)
+[**CollectionsCollection**](CollectionsCollection.md)
 
 ### Authorization
 

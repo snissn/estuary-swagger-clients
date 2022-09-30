@@ -89,15 +89,15 @@ instance ApproxEq TI.Day where
 
 -- * Models
  
-instance Arbitrary MainCollection where
+instance Arbitrary CollectionsCollection where
   arbitrary =
-    MainCollection
-      <$> arbitrary -- mainCollectionCid :: Maybe Text
-      <*> arbitrary -- mainCollectionCreatedAt :: Maybe Text
-      <*> arbitrary -- mainCollectionDescription :: Maybe Text
-      <*> arbitrary -- mainCollectionName :: Maybe Text
-      <*> arbitrary -- mainCollectionUserId :: Maybe Int
-      <*> arbitrary -- mainCollectionUuid :: Maybe Text
+    CollectionsCollection
+      <$> arbitrary -- collectionsCollectionCid :: Maybe Text
+      <*> arbitrary -- collectionsCollectionCreatedAt :: Maybe Text
+      <*> arbitrary -- collectionsCollectionDescription :: Maybe Text
+      <*> arbitrary -- collectionsCollectionName :: Maybe Text
+      <*> arbitrary -- collectionsCollectionUserId :: Maybe Int
+      <*> arbitrary -- collectionsCollectionUuid :: Maybe Text
     
 instance Arbitrary MainCreateCollectionBody where
   arbitrary =

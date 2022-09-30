@@ -57,6 +57,31 @@
           done();
         });
       });
+      describe('collectionsColuuidContentsDelete', function() {
+        it('should call collectionsColuuidContentsDelete successfully', function(done) {
+          // TODO: uncomment, update parameter values for collectionsColuuidContentsDelete call and complete the assertions
+          /*
+          var coluuid = "coluuid_example";
+          var contentid = "contentid_example";
+          var by = "by_example";
+          var value = "value_example";
+
+          instance.collectionsColuuidContentsDelete(coluuid, contentid, by, value, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a('string');
+            // expect(data).to.be(null);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('collectionsColuuidDelete', function() {
         it('should call collectionsColuuidDelete successfully', function(done) {
           // TODO: uncomment, update parameter values for collectionsColuuidDelete call
@@ -151,11 +176,10 @@
       });
       describe('collectionsGet', function() {
         it('should call collectionsGet successfully', function(done) {
-          // TODO: uncomment, update parameter values for collectionsGet call and complete the assertions
+          // TODO: uncomment collectionsGet call and complete the assertions
           /*
-          var id = 56;
 
-          instance.collectionsGet(id, function(error, data, response) {
+          instance.collectionsGet(function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -166,7 +190,7 @@
             expect(dataCtr).to.not.be.empty();
             for (let p in dataCtr) {
               let data = dataCtr[p];
-              expect(data).to.be.a(EstuaryApi.MainCollection);
+              expect(data).to.be.a(EstuaryApi.CollectionsCollection);
               expect(data.cid).to.be.a('string');
               expect(data.cid).to.be("");
               expect(data.createdAt).to.be.a('string');
@@ -202,7 +226,7 @@
               return;
             }
             // TODO: update response assertions
-            expect(data).to.be.a(EstuaryApi.MainCollection);
+            expect(data).to.be.a(EstuaryApi.CollectionsCollection);
             expect(data.cid).to.be.a('string');
             expect(data.cid).to.be("");
             expect(data.createdAt).to.be.a('string');

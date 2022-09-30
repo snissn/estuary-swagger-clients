@@ -72,6 +72,7 @@ Class | Method | HTTP request | Description
 *SwagAutoretrieveApi* | [**adminAutoretrieveListGet**](docs/SwagAutoretrieveApi.md#adminAutoretrieveListGet) | **GET** /admin/autoretrieve/list | List autoretrieve servers
 *SwagAutoretrieveApi* | [**autoretrieveHeartbeatPost**](docs/SwagAutoretrieveApi.md#autoretrieveHeartbeatPost) | **POST** /autoretrieve/heartbeat | Marks autoretrieve server as up
 *SwagCollectionsApi* | [**collectionsColuuidCommitPost**](docs/SwagCollectionsApi.md#collectionsColuuidCommitPost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+*SwagCollectionsApi* | [**collectionsColuuidContentsDelete**](docs/SwagCollectionsApi.md#collectionsColuuidContentsDelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 *SwagCollectionsApi* | [**collectionsColuuidDelete**](docs/SwagCollectionsApi.md#collectionsColuuidDelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 *SwagCollectionsApi* | [**collectionsColuuidGet**](docs/SwagCollectionsApi.md#collectionsColuuidGet) | **GET** /collections/{coluuid} | Get contents in a collection
 *SwagCollectionsApi* | [**collectionsColuuidPost**](docs/SwagCollectionsApi.md#collectionsColuuidPost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -151,7 +152,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [SwagMainCollection](docs/SwagMainCollection.md)
+ - [SwagCollectionsCollection](docs/SwagCollectionsCollection.md)
  - [SwagMainCreateCollectionBody](docs/SwagMainCreateCollectionBody.md)
  - [SwagMainEstimateDealBody](docs/SwagMainEstimateDealBody.md)
  - [SwagMainGetApiKeysResp](docs/SwagMainGetApiKeysResp.md)

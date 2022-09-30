@@ -67,6 +67,16 @@ object Paths {
     @Location("/admin/autoretrieve/list") class adminAutoretrieveListGet()
 
     /**
+     * Deletes a content from a collection
+     * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     * @param coluuid Collection ID 
+     * @param contentid Content ID 
+     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
+     * @param value Value of content_id or path to look for 
+     */
+    @Location("/collections/{coluuid}/contents") class collectionsColuuidContentsDelete(val coluuid: kotlin.String, val contentid: kotlin.String, val by: kotlin.String, val value: kotlin.String)
+
+    /**
      * Deletes a collection
      * This endpoint is used to delete an existing collection.
      * @param coluuid Collection ID 
@@ -84,9 +94,8 @@ object Paths {
     /**
      * List all collections
      * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
-     * @param id User ID 
      */
-    @Location("/collections/") class collectionsGet(val id: kotlin.Int)
+    @Location("/collections/") class collectionsGet()
 
     /**
      * Get aggregated content stats

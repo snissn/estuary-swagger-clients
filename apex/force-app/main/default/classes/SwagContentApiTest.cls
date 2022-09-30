@@ -70,7 +70,7 @@ private class SwagContentApiTest {
         Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'file' => Blob.valueOf('Sample text file\nContents'),
+            'data' => Blob.valueOf('Sample text file\nContents'),
             'coluuid' => 'coluuid_example',
             'dir' => 'dir_example'
         };

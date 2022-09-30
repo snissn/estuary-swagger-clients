@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SWGMainCollection.h"
+#import "SWGCollectionsCollection.h"
 #import "SWGMainCreateCollectionBody.h"
 #import "SWGUtilHttpError.h"
 #import "SWGApi.h"
@@ -34,6 +34,25 @@ extern NSInteger kSWGCollectionsApiMissingParamErrorCode;
 ///
 /// @return NSString*
 -(NSURLSessionTask*) collectionsColuuidCommitPostWithColuuid: (NSString*) coluuid
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Deletes a content from a collection
+/// This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+///
+/// @param coluuid Collection ID
+/// @param contentid Content ID
+/// @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+/// @param value Value of content_id or path to look for
+/// 
+///  code:200 message:"OK",
+///  code:400 message:"Bad Request"
+///
+/// @return NSString*
+-(NSURLSessionTask*) collectionsColuuidContentsDeleteWithColuuid: (NSString*) coluuid
+    contentid: (NSString*) contentid
+    by: (NSString*) by
+    value: (NSString*) value
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -92,16 +111,15 @@ extern NSInteger kSWGCollectionsApiMissingParamErrorCode;
 /// List all collections
 /// This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
 ///
-/// @param _id User ID
 /// 
 ///  code:200 message:"OK",
 ///  code:400 message:"Bad Request",
 ///  code:404 message:"Not Found",
 ///  code:500 message:"Internal Server Error"
 ///
-/// @return NSArray<SWGMainCollection>*
--(NSURLSessionTask*) collectionsGetWithId: (NSNumber*) _id
-    completionHandler: (void (^)(NSArray<SWGMainCollection>* output, NSError* error)) handler;
+/// @return NSArray<SWGCollectionsCollection>*
+-(NSURLSessionTask*) collectionsGetWithCompletionHandler: 
+    (void (^)(NSArray<SWGCollectionsCollection>* output, NSError* error)) handler;
 
 
 /// Create a new collection
@@ -114,9 +132,9 @@ extern NSInteger kSWGCollectionsApiMissingParamErrorCode;
 ///  code:404 message:"Not Found",
 ///  code:500 message:"Internal Server Error"
 ///
-/// @return SWGMainCollection*
+/// @return SWGCollectionsCollection*
 -(NSURLSessionTask*) collectionsPostWithBody: (SWGMainCreateCollectionBody*) body
-    completionHandler: (void (^)(SWGMainCollection* output, NSError* error)) handler;
+    completionHandler: (void (^)(SWGCollectionsCollection* output, NSError* error)) handler;
 
 
 

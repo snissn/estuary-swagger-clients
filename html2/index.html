@@ -696,7 +696,7 @@ margin-bottom: 20px;
   <script>
     // Script section to load models into a JS Var
     var defs = {}
-        defs["main.Collection"] = {"type":"object","properties":{"cid":{"type":"string"},"createdAt":{"type":"string"},"description":{"type":"string"},"name":{"type":"string"},"userId":{"type":"integer"},"uuid":{"type":"string"}}};
+        defs["collections.Collection"] = {"type":"object","properties":{"cid":{"type":"string"},"createdAt":{"type":"string"},"description":{"type":"string"},"name":{"type":"string"},"userId":{"type":"integer"},"uuid":{"type":"string"}}};
         defs["main.createCollectionBody"] = {"type":"object","properties":{"description":{"type":"string"},"name":{"type":"string"}}};
         defs["main.estimateDealBody"] = {"type":"object","properties":{"durationBlks":{"type":"integer"},"replication":{"type":"integer"},"size":{"type":"integer"},"verified":{"type":"boolean"}}};
         defs["main.getApiKeysResp"] = {"type":"object","properties":{"expiry":{"type":"string"},"token":{"type":"string"}}};
@@ -759,6 +759,9 @@ margin-bottom: 20px;
                   <li class="nav-header" data-group="Collections"><a href="#api-Collections">API Methods - Collections</a></li>
                     <li data-group="Collections" data-name="collectionsColuuidCommitPost" class="">
                       <a href="#api-Collections-collectionsColuuidCommitPost">collectionsColuuidCommitPost</a>
+                    </li>
+                    <li data-group="Collections" data-name="collectionsColuuidContentsDelete" class="">
+                      <a href="#api-Collections-collectionsColuuidContentsDelete">collectionsColuuidContentsDelete</a>
                     </li>
                     <li data-group="Collections" data-name="collectionsColuuidDelete" class="">
                       <a href="#api-Collections-collectionsColuuidDelete">collectionsColuuidDelete</a>
@@ -4143,6 +4146,512 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-Collections-collectionsColuuidContentsDelete">
+                      <article id="api-Collections-collectionsColuuidContentsDelete-0" data-group="User" data-name="collectionsColuuidContentsDelete" data-version="0">
+                        <div class="pull-left">
+                          <h1>collectionsColuuidContentsDelete</h1>
+                          <p>Deletes a content from a collection</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/collections/{coluuid}/contents</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Collections-collectionsColuuidContentsDelete-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Collections-collectionsColuuidContentsDelete-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Collections-collectionsColuuidContentsDelete-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE -H "Authorization: [[apiKey]]" "https://api.estuary.tech/collections/{coluuid}/contents"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.CollectionsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class CollectionsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure API key authorization: bearerAuth
+        ApiKeyAuth bearerAuth = (ApiKeyAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //bearerAuth.setApiKeyPrefix("Token");
+
+        CollectionsApi apiInstance = new CollectionsApi();
+        String coluuid = coluuid_example; // String | Collection ID
+        String contentid = contentid_example; // String | Content ID
+        String by = by_example; // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+        String value = value_example; // String | Value of content_id or path to look for
+        try {
+            'String' result = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CollectionsApi#collectionsColuuidContentsDelete");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.CollectionsApi;
+
+public class CollectionsApiExample {
+
+    public static void main(String[] args) {
+        CollectionsApi apiInstance = new CollectionsApi();
+        String coluuid = coluuid_example; // String | Collection ID
+        String contentid = contentid_example; // String | Content ID
+        String by = by_example; // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+        String value = value_example; // String | Value of content_id or path to look for
+        try {
+            'String' result = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CollectionsApi#collectionsColuuidContentsDelete");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+// Configure API key authorization: (authentication scheme: bearerAuth)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"Authorization"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"Authorization"];
+
+String *coluuid = coluuid_example; // Collection ID
+String *contentid = contentid_example; // Content ID
+String *by = by_example; // Variable to use when filtering for files (must be either 'path' or 'content_id')
+String *value = value_example; // Value of content_id or path to look for
+
+CollectionsApi *apiInstance = [[CollectionsApi alloc] init];
+
+// Deletes a content from a collection
+[apiInstance collectionsColuuidContentsDeleteWith:coluuid
+    contentid:contentid
+    by:by
+    value:value
+              completionHandler: ^('String' output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
+
+// Configure API key authorization: bearerAuth
+var bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.apiKeyPrefix['Authorization'] = "Token"
+
+var api = new EstuaryApi.CollectionsApi()
+
+var coluuid = coluuid_example; // {String} Collection ID
+
+var contentid = contentid_example; // {String} Content ID
+
+var by = by_example; // {String} Variable to use when filtering for files (must be either 'path' or 'content_id')
+
+var value = value_example; // {String} Value of content_id or path to look for
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.collectionsColuuidContentsDelete(coluuid, contentid, by, value, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class collectionsColuuidContentsDeleteExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: bearerAuth
+            Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
+
+            var apiInstance = new CollectionsApi();
+            var coluuid = coluuid_example;  // String | Collection ID
+            var contentid = contentid_example;  // String | Content ID
+            var by = by_example;  // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+            var value = value_example;  // String | Value of content_id or path to look for
+
+            try
+            {
+                // Deletes a content from a collection
+                'String' result = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CollectionsApi.collectionsColuuidContentsDelete: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: bearerAuth
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\CollectionsApi();
+$coluuid = coluuid_example; // String | Collection ID
+$contentid = contentid_example; // String | Content ID
+$by = by_example; // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+$value = value_example; // String | Value of content_id or path to look for
+
+try {
+    $result = $api_instance->collectionsColuuidContentsDelete($coluuid, $contentid, $by, $value);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CollectionsApi->collectionsColuuidContentsDelete: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::CollectionsApi;
+
+# Configure API key authorization: bearerAuth
+$WWW::SwaggerClient::Configuration::api_key->{'Authorization'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'Authorization'} = "Bearer";
+
+my $api_instance = WWW::SwaggerClient::CollectionsApi->new();
+my $coluuid = coluuid_example; # String | Collection ID
+my $contentid = contentid_example; # String | Content ID
+my $by = WWW::SwaggerClient::Object::String->new(); # String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+my $value = WWW::SwaggerClient::Object::String->new(); # String | Value of content_id or path to look for
+
+eval { 
+    my $result = $api_instance->collectionsColuuidContentsDelete(coluuid => $coluuid, contentid => $contentid, by => $by, value => $value);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CollectionsApi->collectionsColuuidContentsDelete: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Collections-collectionsColuuidContentsDelete-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: bearerAuth
+swagger_client.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.CollectionsApi()
+coluuid = coluuid_example # String | Collection ID
+contentid = contentid_example # String | Content ID
+by = by_example # String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+value = value_example # String | Value of content_id or path to look for
+
+try: 
+    # Deletes a content from a collection
+    api_response = api_instance.collections_coluuid_contents_delete(coluuid, contentid, by, value)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CollectionsApi->collectionsColuuidContentsDelete: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">coluuid*</td>
+<td>
+
+
+    <div id="d2e199_collectionsColuuidContentsDelete_coluuid">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description">
+                        Collection ID
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">contentid*</td>
+<td>
+
+
+    <div id="d2e199_collectionsColuuidContentsDelete_contentid">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description">
+                        Content ID
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">by <span style="color:red;">*</span></td>
+<td>
+
+
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "in" : "body",
+  "name" : "by",
+  "description" : "Variable to use when filtering for files (must be either 'path' or 'content_id')",
+  "required" : true,
+  "schema" : {
+    "type" : "string"
+  }
+};
+  var schema = schemaWrapper.schema;
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_collectionsColuuidContentsDelete_by');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_collectionsColuuidContentsDelete_by"></div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">value <span style="color:red;">*</span></td>
+<td>
+
+
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "in" : "body",
+  "name" : "value",
+  "description" : "Value of content_id or path to look for",
+  "required" : true,
+  "schema" : {
+    "type" : "string"
+  }
+};
+  var schema = schemaWrapper.schema;
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_collectionsColuuidContentsDelete_value');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_collectionsColuuidContentsDelete_value"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-collectionsColuuidContentsDelete-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-collectionsColuuidContentsDelete-200-schema">
+                                  <div id='responses-collectionsColuuidContentsDelete-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "schema" : {
+    "type" : "string"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-collectionsColuuidContentsDelete-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-collectionsColuuidContentsDelete-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-collectionsColuuidContentsDelete-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - Bad Request </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-collectionsColuuidContentsDelete-400-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-collectionsColuuidContentsDelete-400-schema">
+                                  <div id='responses-collectionsColuuidContentsDelete-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Bad Request",
+  "schema" : {
+    "$ref" : "#/definitions/util.HttpError"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-collectionsColuuidContentsDelete-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-collectionsColuuidContentsDelete-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-collectionsColuuidContentsDelete-400-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Collections-collectionsColuuidDelete">
                       <article id="api-Collections-collectionsColuuidDelete-0" data-group="User" data-name="collectionsColuuidDelete" data-version="0">
                         <div class="pull-left">
@@ -5541,9 +6050,8 @@ public class CollectionsApiExample {
         //bearerAuth.setApiKeyPrefix("Token");
 
         CollectionsApi apiInstance = new CollectionsApi();
-        Integer id = 56; // Integer | User ID
         try {
-            array[main.Collection] result = apiInstance.collectionsGet(id);
+            array[collections.Collection] result = apiInstance.collectionsGet();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CollectionsApi#collectionsGet");
@@ -5560,9 +6068,8 @@ public class CollectionsApiExample {
 
     public static void main(String[] args) {
         CollectionsApi apiInstance = new CollectionsApi();
-        Integer id = 56; // Integer | User ID
         try {
-            array[main.Collection] result = apiInstance.collectionsGet(id);
+            array[collections.Collection] result = apiInstance.collectionsGet();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CollectionsApi#collectionsGet");
@@ -5583,13 +6090,12 @@ public class CollectionsApiExample {
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"Authorization"];
 
-Integer *id = 56; // User ID
 
 CollectionsApi *apiInstance = [[CollectionsApi alloc] init];
 
 // List all collections
-[apiInstance collectionsGetWith:id
-              completionHandler: ^(array[main.Collection] output, NSError* error) {
+[apiInstance collectionsGetWithCompletionHandler: 
+              ^(array[collections.Collection] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -5612,9 +6118,6 @@ bearerAuth.apiKey = "YOUR API KEY"
 
 var api = new EstuaryApi.CollectionsApi()
 
-var id = 56; // {Integer} User ID
-
-
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -5622,7 +6125,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.collectionsGet(id, callback);
+api.collectionsGet(callback);
 </code></pre>
                             </div>
 
@@ -5649,12 +6152,11 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
 
             var apiInstance = new CollectionsApi();
-            var id = 56;  // Integer | User ID
 
             try
             {
                 // List all collections
-                array[main.Collection] result = apiInstance.collectionsGet(id);
+                array[collections.Collection] result = apiInstance.collectionsGet();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5677,10 +6179,9 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\CollectionsApi();
-$id = 56; // Integer | User ID
 
 try {
-    $result = $api_instance->collectionsGet($id);
+    $result = $api_instance->collectionsGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionsApi->collectionsGet: ', $e->getMessage(), PHP_EOL;
@@ -5699,10 +6200,9 @@ $WWW::SwaggerClient::Configuration::api_key->{'Authorization'} = 'YOUR_API_KEY';
 #$WWW::SwaggerClient::Configuration::api_key_prefix->{'Authorization'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::CollectionsApi->new();
-my $id = 56; # Integer | User ID
 
 eval { 
-    my $result = $api_instance->collectionsGet(id => $id);
+    my $result = $api_instance->collectionsGet();
     print Dumper($result);
 };
 if ($@) {
@@ -5724,11 +6224,10 @@ swagger_client.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.CollectionsApi()
-id = 56 # Integer | User ID
 
 try: 
     # List all collections
-    api_response = api_instance.collections_get(id)
+    api_response = api_instance.collections_get()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CollectionsApi->collectionsGet: %s\n" % e)</code></pre>
@@ -5737,36 +6236,6 @@ except ApiException as e:
 
                           <h2>Parameters</h2>
 
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">id*</td>
-<td>
-
-
-    <div id="d2e199_collectionsGet_id">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    Integer
-                </span>
-
-                    <div class="inner description">
-                        User ID
-                    </div>
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                            </table>
 
 
 
@@ -5792,7 +6261,7 @@ except ApiException as e:
   "schema" : {
     "type" : "array",
     "items" : {
-      "$ref" : "#/definitions/main.Collection"
+      "$ref" : "#/definitions/collections.Collection"
     }
   }
 };
@@ -6008,7 +6477,7 @@ public class CollectionsApiExample {
         CollectionsApi apiInstance = new CollectionsApi();
         Main.createCollectionBody body = ; // Main.createCollectionBody | Collection name and description
         try {
-            main.Collection result = apiInstance.collectionsPost(body);
+            collections.Collection result = apiInstance.collectionsPost(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CollectionsApi#collectionsPost");
@@ -6027,7 +6496,7 @@ public class CollectionsApiExample {
         CollectionsApi apiInstance = new CollectionsApi();
         Main.createCollectionBody body = ; // Main.createCollectionBody | Collection name and description
         try {
-            main.Collection result = apiInstance.collectionsPost(body);
+            collections.Collection result = apiInstance.collectionsPost(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CollectionsApi#collectionsPost");
@@ -6054,7 +6523,7 @@ CollectionsApi *apiInstance = [[CollectionsApi alloc] init];
 
 // Create a new collection
 [apiInstance collectionsPostWith:body
-              completionHandler: ^(main.Collection output, NSError* error) {
+              completionHandler: ^(collections.Collection output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -6119,7 +6588,7 @@ namespace Example
             try
             {
                 // Create a new collection
-                main.Collection result = apiInstance.collectionsPost(body);
+                collections.Collection result = apiInstance.collectionsPost(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -6267,7 +6736,7 @@ $(document).ready(function() {
                                         var schemaWrapper = {
   "description" : "OK",
   "schema" : {
-    "$ref" : "#/definitions/main.Collection"
+    "$ref" : "#/definitions/collections.Collection"
   }
 };
                                         var schema = schemaWrapper.schema;
@@ -7165,11 +7634,11 @@ public class ContentApiExample {
         //bearerAuth.setApiKeyPrefix("Token");
 
         ContentApi apiInstance = new ContentApi();
-        File file = /path/to/file.txt; // File | File to upload
+        File data = /path/to/file.txt; // File | File to upload
         String coluuid = coluuid_example; // String | Collection UUID
         String dir = dir_example; // String | Directory
         try {
-            util.ContentAddResponse result = apiInstance.contentAddPost(file, coluuid, dir);
+            util.ContentAddResponse result = apiInstance.contentAddPost(data, coluuid, dir);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ContentApi#contentAddPost");
@@ -7186,11 +7655,11 @@ public class ContentApiExample {
 
     public static void main(String[] args) {
         ContentApi apiInstance = new ContentApi();
-        File file = /path/to/file.txt; // File | File to upload
+        File data = /path/to/file.txt; // File | File to upload
         String coluuid = coluuid_example; // String | Collection UUID
         String dir = dir_example; // String | Directory
         try {
-            util.ContentAddResponse result = apiInstance.contentAddPost(file, coluuid, dir);
+            util.ContentAddResponse result = apiInstance.contentAddPost(data, coluuid, dir);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ContentApi#contentAddPost");
@@ -7211,14 +7680,14 @@ public class ContentApiExample {
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"Authorization"];
 
-File *file = /path/to/file.txt; // File to upload
+File *data = /path/to/file.txt; // File to upload
 String *coluuid = coluuid_example; // Collection UUID
 String *dir = dir_example; // Directory
 
 ContentApi *apiInstance = [[ContentApi alloc] init];
 
 // Add new content
-[apiInstance contentAddPostWith:file
+[apiInstance contentAddPostWith:data
     coluuid:coluuid
     dir:dir
               completionHandler: ^(util.ContentAddResponse output, NSError* error) {
@@ -7244,7 +7713,7 @@ bearerAuth.apiKey = "YOUR API KEY"
 
 var api = new EstuaryApi.ContentApi()
 
-var file = /path/to/file.txt; // {File} File to upload
+var data = /path/to/file.txt; // {File} File to upload
 
 var coluuid = coluuid_example; // {String} Collection UUID
 
@@ -7258,7 +7727,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.contentAddPost(file, coluuid, dir, callback);
+api.contentAddPost(data, coluuid, dir, callback);
 </code></pre>
                             </div>
 
@@ -7285,14 +7754,14 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
 
             var apiInstance = new ContentApi();
-            var file = new File(); // File | File to upload
+            var data = new File(); // File | File to upload
             var coluuid = coluuid_example;  // String | Collection UUID
             var dir = dir_example;  // String | Directory
 
             try
             {
                 // Add new content
-                util.ContentAddResponse result = apiInstance.contentAddPost(file, coluuid, dir);
+                util.ContentAddResponse result = apiInstance.contentAddPost(data, coluuid, dir);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -7315,12 +7784,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\ContentApi();
-$file = /path/to/file.txt; // File | File to upload
+$data = /path/to/file.txt; // File | File to upload
 $coluuid = coluuid_example; // String | Collection UUID
 $dir = dir_example; // String | Directory
 
 try {
-    $result = $api_instance->contentAddPost($file, $coluuid, $dir);
+    $result = $api_instance->contentAddPost($data, $coluuid, $dir);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContentApi->contentAddPost: ', $e->getMessage(), PHP_EOL;
@@ -7339,12 +7808,12 @@ $WWW::SwaggerClient::Configuration::api_key->{'Authorization'} = 'YOUR_API_KEY';
 #$WWW::SwaggerClient::Configuration::api_key_prefix->{'Authorization'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::ContentApi->new();
-my $file = /path/to/file.txt; # File | File to upload
+my $data = /path/to/file.txt; # File | File to upload
 my $coluuid = coluuid_example; # String | Collection UUID
 my $dir = dir_example; # String | Directory
 
 eval { 
-    my $result = $api_instance->contentAddPost(file => $file, coluuid => $coluuid, dir => $dir);
+    my $result = $api_instance->contentAddPost(data => $data, coluuid => $coluuid, dir => $dir);
     print Dumper($result);
 };
 if ($@) {
@@ -7366,13 +7835,13 @@ swagger_client.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.ContentApi()
-file = /path/to/file.txt # File | File to upload
+data = /path/to/file.txt # File | File to upload
 coluuid = coluuid_example # String | Collection UUID
 dir = dir_example # String | Directory
 
 try: 
     # Add new content
-    api_response = api_instance.content_add_post(file, coluuid, dir)
+    api_response = api_instance.content_add_post(data, coluuid, dir)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ContentApi->contentAddPost: %s\n" % e)</code></pre>
@@ -7443,11 +7912,11 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                  <tr><td style="width:150px;">file*</td>
+                                  <tr><td style="width:150px;">data*</td>
 <td>
 
 
-    <div id="d2e199_contentAddPost_file">
+    <div id="d2e199_contentAddPost_data">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">

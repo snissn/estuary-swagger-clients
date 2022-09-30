@@ -56,7 +56,7 @@ public class ContentApiServiceImpl implements ContentApi {
      * This endpoint is used to upload new content.
      *
      */
-    public UtilContentAddResponse contentAddPost( Attachment fileDetail, String coluuid, String dir) {
+    public UtilContentAddResponse contentAddPost( Attachment dataDetail, String coluuid, String dir) {
         // TODO: Implement...
         
         return null;

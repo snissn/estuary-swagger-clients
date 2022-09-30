@@ -5,7 +5,7 @@
 #include <cstring>
 #include <list>
 #include <glib.h>
-#include "Main.Collection.h"
+#include "Collections.Collection.h"
 #include "Main.createCollectionBody.h"
 #include "Util.HttpError.h"
 #include <list>
@@ -51,6 +51,39 @@ bool collectionsColuuidCommitPostSync(char * accessToken,
  */
 bool collectionsColuuidCommitPostAsync(char * accessToken,
 	std::string coluuid, 
+	void(* handler)(std::string, Error, void* )
+	, void* userData);
+
+
+/*! \brief Deletes a content from a collection. *Synchronous*
+ *
+ * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+ * \param coluuid Collection ID *Required*
+ * \param contentid Content ID *Required*
+ * \param by Variable to use when filtering for files (must be either 'path' or 'content_id') *Required*
+ * \param value Value of content_id or path to look for *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool collectionsColuuidContentsDeleteSync(char * accessToken,
+	std::string coluuid, std::string contentid, std::string by, std::string value, 
+	void(* handler)(std::string, Error, void* )
+	, void* userData);
+
+/*! \brief Deletes a content from a collection. *Asynchronous*
+ *
+ * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+ * \param coluuid Collection ID *Required*
+ * \param contentid Content ID *Required*
+ * \param by Variable to use when filtering for files (must be either 'path' or 'content_id') *Required*
+ * \param value Value of content_id or path to look for *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool collectionsColuuidContentsDeleteAsync(char * accessToken,
+	std::string coluuid, std::string contentid, std::string by, std::string value, 
 	void(* handler)(std::string, Error, void* )
 	, void* userData);
 
@@ -172,27 +205,25 @@ bool collectionsFsAddPostAsync(char * accessToken,
 /*! \brief List all collections. *Synchronous*
  *
  * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
- * \param id User ID *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool collectionsGetSync(char * accessToken,
-	int id, 
-	void(* handler)(std::list<Main.Collection>, Error, void* )
+	
+	void(* handler)(std::list<Collections.Collection>, Error, void* )
 	, void* userData);
 
 /*! \brief List all collections. *Asynchronous*
  *
  * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
- * \param id User ID *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool collectionsGetAsync(char * accessToken,
-	int id, 
-	void(* handler)(std::list<Main.Collection>, Error, void* )
+	
+	void(* handler)(std::list<Collections.Collection>, Error, void* )
 	, void* userData);
 
 
@@ -206,7 +237,7 @@ bool collectionsGetAsync(char * accessToken,
  */
 bool collectionsPostSync(char * accessToken,
 	Main.createCollectionBody body, 
-	void(* handler)(Main.Collection, Error, void* )
+	void(* handler)(Collections.Collection, Error, void* )
 	, void* userData);
 
 /*! \brief Create a new collection. *Asynchronous*
@@ -219,7 +250,7 @@ bool collectionsPostSync(char * accessToken,
  */
 bool collectionsPostAsync(char * accessToken,
 	Main.createCollectionBody body, 
-	void(* handler)(Main.Collection, Error, void* )
+	void(* handler)(Collections.Collection, Error, void* )
 	, void* userData);
 
 

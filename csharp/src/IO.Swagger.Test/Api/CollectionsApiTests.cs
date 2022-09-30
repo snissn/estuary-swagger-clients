@@ -77,6 +77,21 @@ namespace IO.Swagger.Test
         }
         
         /// <summary>
+        /// Test CollectionsColuuidContentsDelete
+        /// </summary>
+        [Test]
+        public void CollectionsColuuidContentsDeleteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string coluuid = null;
+            //string contentid = null;
+            //string by = null;
+            //string value = null;
+            //var response = instance.CollectionsColuuidContentsDelete(coluuid, contentid, by, value);
+            //Assert.IsInstanceOf<string> (response, "response is string");
+        }
+        
+        /// <summary>
         /// Test CollectionsColuuidDelete
         /// </summary>
         [Test]
@@ -134,9 +149,8 @@ namespace IO.Swagger.Test
         public void CollectionsGetTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int? id = null;
-            //var response = instance.CollectionsGet(id);
-            //Assert.IsInstanceOf<List<MainCollection>> (response, "response is List<MainCollection>");
+            //var response = instance.CollectionsGet();
+            //Assert.IsInstanceOf<List<CollectionsCollection>> (response, "response is List<CollectionsCollection>");
         }
         
         /// <summary>
@@ -148,7 +162,7 @@ namespace IO.Swagger.Test
             // TODO uncomment below to test the method and replace null with proper value
             //MainCreateCollectionBody body = null;
             //var response = instance.CollectionsPost(body);
-            //Assert.IsInstanceOf<MainCollection> (response, "response is MainCollection");
+            //Assert.IsInstanceOf<CollectionsCollection> (response, "response is CollectionsCollection");
         }
         
     }

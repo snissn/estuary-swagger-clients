@@ -85,6 +85,69 @@ SWGCollectionsApi::collectionsColuuidCommitPostCallback(SWGHttpRequestWorker * w
 }
 
 void
+SWGCollectionsApi::collectionsColuuidContentsDelete(QString* coluuid, QString* contentid, QString*& by, QString*& value) {
+    QString fullPath;
+    fullPath.append(this->host).append(this->basePath).append("/collections/{coluuid}/contents");
+
+    QString coluuidPathParam("{"); coluuidPathParam.append("coluuid").append("}");
+    fullPath.replace(coluuidPathParam, stringValue(coluuid));
+    QString contentidPathParam("{"); contentidPathParam.append("contentid").append("}");
+    fullPath.replace(contentidPathParam, stringValue(contentid));
+
+
+    SWGHttpRequestWorker *worker = new SWGHttpRequestWorker();
+    SWGHttpRequestInput input(fullPath, "DELETE");
+
+
+    
+    QString output(*by);
+    input.request_body.append(output);
+        
+    QString output(*value);
+    input.request_body.append(output);
+    
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
+
+    connect(worker,
+            &SWGHttpRequestWorker::on_execution_finished,
+            this,
+            &SWGCollectionsApi::collectionsColuuidContentsDeleteCallback);
+
+    worker->execute(&input);
+}
+
+void
+SWGCollectionsApi::collectionsColuuidContentsDeleteCallback(SWGHttpRequestWorker * worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    }
+    else {
+        msg = "Error: " + worker->error_str;
+    }
+
+    QString json(worker->response);
+    QString* output = static_cast<QString*>(create(json, QString("QString")));
+    auto wrapper = new SWGQObjectWrapper<QString*> (output);
+    wrapper->deleteLater();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit collectionsColuuidContentsDeleteSignal(output);
+    } else {
+        emit collectionsColuuidContentsDeleteSignalE(output, error_type, error_str);
+        emit collectionsColuuidContentsDeleteSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void
 SWGCollectionsApi::collectionsColuuidDelete(QString* coluuid) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/collections/{coluuid}");
@@ -345,12 +408,10 @@ SWGCollectionsApi::collectionsFsAddPostCallback(SWGHttpRequestWorker * worker) {
 }
 
 void
-SWGCollectionsApi::collectionsGet(qint32 id) {
+SWGCollectionsApi::collectionsGet() {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/collections/");
 
-    QString idPathParam("{"); idPathParam.append("id").append("}");
-    fullPath.replace(idPathParam, stringValue(id));
 
 
     SWGHttpRequestWorker *worker = new SWGHttpRequestWorker();
@@ -385,19 +446,19 @@ SWGCollectionsApi::collectionsGetCallback(SWGHttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    QList<SWGMain.Collection*>* output = new QList<SWGMain.Collection*>();
+    QList<SWGCollections.Collection*>* output = new QList<SWGCollections.Collection*>();
     QString json(worker->response);
     QByteArray array (json.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonArray jsonArray = doc.array();
-    auto wrapper = new SWGQObjectWrapper<QList<SWGMain.Collection*>*> (output);
+    auto wrapper = new SWGQObjectWrapper<QList<SWGCollections.Collection*>*> (output);
     wrapper->deleteLater();
     foreach(QJsonValue obj, jsonArray) {
-        SWGMain.Collection* o = new SWGMain.Collection();
+        SWGCollections.Collection* o = new SWGCollections.Collection();
         QJsonObject jv = obj.toObject();
         QJsonObject * ptr = (QJsonObject*)&jv;
         o->fromJsonObject(*ptr);
-        auto objwrapper = new SWGQObjectWrapper<SWGMain.Collection*> (o);
+        auto objwrapper = new SWGQObjectWrapper<SWGCollections.Collection*> (o);
         objwrapper->deleteLater();
         output->append(o);
     }
@@ -454,8 +515,8 @@ SWGCollectionsApi::collectionsPostCallback(SWGHttpRequestWorker * worker) {
     }
 
     QString json(worker->response);
-    SWGMain.Collection* output = static_cast<SWGMain.Collection*>(create(json, QString("SWGMain.Collection")));
-    auto wrapper = new SWGQObjectWrapper<SWGMain.Collection*> (output);
+    SWGCollections.Collection* output = static_cast<SWGCollections.Collection*>(create(json, QString("SWGCollections.Collection")));
+    auto wrapper = new SWGQObjectWrapper<SWGCollections.Collection*> (output);
     wrapper->deleteLater();
     worker->deleteLater();
 

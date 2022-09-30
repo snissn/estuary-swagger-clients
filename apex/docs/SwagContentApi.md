@@ -126,7 +126,7 @@ null (empty response body)
 
 <a name="contentAddPost"></a>
 # **contentAddPost**
-> SwagUtilContentAddResponse contentAddPost(file, coluuid, dir)
+> SwagUtilContentAddResponse contentAddPost(data, coluuid, dir)
 
 Add new content
 
@@ -142,7 +142,7 @@ ApiKeyAuth bearerAuth = (ApiKeyAuth) client.getAuthentication('bearerAuth');
 bearerAuth.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'file' => Blob.valueOf('Sample text file\nContents'),
+    'data' => Blob.valueOf('Sample text file\nContents'),
     'coluuid' => 'coluuid_example',
     'dir' => 'dir_example'
 };
@@ -160,7 +160,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **Blob**| File to upload |
+ **data** | **Blob**| File to upload |
  **coluuid** | **String**| Collection UUID |
  **dir** | **String**| Directory |
 

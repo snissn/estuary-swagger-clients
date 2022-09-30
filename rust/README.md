@@ -34,6 +34,7 @@ Class | Method | HTTP request | Description
 *AutoretrieveApi* | [**admin_autoretrieve_list_get**](docs/AutoretrieveApi.md#admin_autoretrieve_list_get) | **Get** /admin/autoretrieve/list | List autoretrieve servers
 *AutoretrieveApi* | [**autoretrieve_heartbeat_post**](docs/AutoretrieveApi.md#autoretrieve_heartbeat_post) | **Post** /autoretrieve/heartbeat | Marks autoretrieve server as up
 *CollectionsApi* | [**collections_coluuid_commit_post**](docs/CollectionsApi.md#collections_coluuid_commit_post) | **Post** /collections/{coluuid}/commit | Produce a CID of the collection contents
+*CollectionsApi* | [**collections_coluuid_contents_delete**](docs/CollectionsApi.md#collections_coluuid_contents_delete) | **Delete** /collections/{coluuid}/contents | Deletes a content from a collection
 *CollectionsApi* | [**collections_coluuid_delete**](docs/CollectionsApi.md#collections_coluuid_delete) | **Delete** /collections/{coluuid} | Deletes a collection
 *CollectionsApi* | [**collections_coluuid_get**](docs/CollectionsApi.md#collections_coluuid_get) | **Get** /collections/{coluuid} | Get contents in a collection
 *CollectionsApi* | [**collections_coluuid_post**](docs/CollectionsApi.md#collections_coluuid_post) | **Post** /collections/{coluuid} | Add contents to a collection
@@ -113,7 +114,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [MainCollection](docs/MainCollection.md)
+ - [CollectionsCollection](docs/CollectionsCollection.md)
  - [MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
  - [MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [MainGetApiKeysResp](docs/MainGetApiKeysResp.md)

@@ -162,7 +162,7 @@ void (empty response body)
 
 <a name="contentaddpost"></a>
 # **ContentAddPost**
-> UtilContentAddResponse ContentAddPost (System.IO.Stream _file, string coluuid, string dir)
+> UtilContentAddResponse ContentAddPost (System.IO.Stream data, string coluuid, string dir)
 
 Add new content
 
@@ -189,14 +189,14 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
 
             var apiInstance = new ContentApi();
-            var _file = new System.IO.Stream(); // System.IO.Stream | File to upload
+            var data = new System.IO.Stream(); // System.IO.Stream | File to upload
             var coluuid = coluuid_example;  // string | Collection UUID
             var dir = dir_example;  // string | Directory
 
             try
             {
                 // Add new content
-                UtilContentAddResponse result = apiInstance.ContentAddPost(_file, coluuid, dir);
+                UtilContentAddResponse result = apiInstance.ContentAddPost(data, coluuid, dir);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -212,7 +212,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_file** | **System.IO.Stream**| File to upload | 
+ **data** | **System.IO.Stream**| File to upload | 
  **coluuid** | **string**| Collection UUID | 
  **dir** | **string**| Directory | 
 

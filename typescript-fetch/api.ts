@@ -81,43 +81,43 @@ export class RequiredError extends Error {
 /**
  * 
  * @export
- * @interface MainCollection
+ * @interface CollectionsCollection
  */
-export interface MainCollection {
+export interface CollectionsCollection {
     /**
      * 
      * @type {string}
-     * @memberof MainCollection
+     * @memberof CollectionsCollection
      */
     cid?: string;
     /**
      * 
      * @type {string}
-     * @memberof MainCollection
+     * @memberof CollectionsCollection
      */
     createdAt?: string;
     /**
      * 
      * @type {string}
-     * @memberof MainCollection
+     * @memberof CollectionsCollection
      */
     description?: string;
     /**
      * 
      * @type {string}
-     * @memberof MainCollection
+     * @memberof CollectionsCollection
      */
     name?: string;
     /**
      * 
      * @type {number}
-     * @memberof MainCollection
+     * @memberof CollectionsCollection
      */
     userId?: number;
     /**
      * 
      * @type {string}
-     * @memberof MainCollection
+     * @memberof CollectionsCollection
      */
     uuid?: string;
 }
@@ -1250,6 +1250,63 @@ export const CollectionsApiFetchParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+         * @summary Deletes a content from a collection
+         * @param {string} coluuid Collection ID
+         * @param {string} contentid Content ID
+         * @param {string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+         * @param {string} value Value of content_id or path to look for
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, options: any = {}): FetchArgs {
+            // verify required parameter 'coluuid' is not null or undefined
+            if (coluuid === null || coluuid === undefined) {
+                throw new RequiredError('coluuid','Required parameter coluuid was null or undefined when calling collectionsColuuidContentsDelete.');
+            }
+            // verify required parameter 'contentid' is not null or undefined
+            if (contentid === null || contentid === undefined) {
+                throw new RequiredError('contentid','Required parameter contentid was null or undefined when calling collectionsColuuidContentsDelete.');
+            }
+            // verify required parameter 'by' is not null or undefined
+            if (by === null || by === undefined) {
+                throw new RequiredError('by','Required parameter by was null or undefined when calling collectionsColuuidContentsDelete.');
+            }
+            // verify required parameter 'value' is not null or undefined
+            if (value === null || value === undefined) {
+                throw new RequiredError('value','Required parameter value was null or undefined when calling collectionsColuuidContentsDelete.');
+            }
+            const localVarPath = `/collections/{coluuid}/contents`
+                .replace(`{${"coluuid"}}`, encodeURIComponent(String(coluuid)))
+                .replace(`{${"contentid"}}`, encodeURIComponent(String(contentid)));
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'DELETE' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+            const needsSerialization = (<any>"string" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(value || {}) : (value || "");
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * This endpoint is used to delete an existing collection.
          * @summary Deletes a collection
          * @param {string} coluuid Collection ID
@@ -1432,17 +1489,11 @@ export const CollectionsApiFetchParamCreator = function (configuration?: Configu
         /**
          * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
          * @summary List all collections
-         * @param {number} id User ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        collectionsGet(id: number, options: any = {}): FetchArgs {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling collectionsGet.');
-            }
-            const localVarPath = `/collections/`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        collectionsGet(options: any = {}): FetchArgs {
+            const localVarPath = `/collections/`;
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
             const localVarHeaderParameter = {} as any;
@@ -1535,6 +1586,28 @@ export const CollectionsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+         * @summary Deletes a content from a collection
+         * @param {string} coluuid Collection ID
+         * @param {string} contentid Content ID
+         * @param {string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+         * @param {string} value Value of content_id or path to look for
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<string> {
+            const localVarFetchArgs = CollectionsApiFetchParamCreator(configuration).collectionsColuuidContentsDelete(coluuid, contentid, by, value, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+        /**
          * This endpoint is used to delete an existing collection.
          * @summary Deletes a collection
          * @param {string} coluuid Collection ID
@@ -1616,12 +1689,11 @@ export const CollectionsApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
          * @summary List all collections
-         * @param {number} id User ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        collectionsGet(id: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Array<MainCollection>> {
-            const localVarFetchArgs = CollectionsApiFetchParamCreator(configuration).collectionsGet(id, options);
+        collectionsGet(options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Array<CollectionsCollection>> {
+            const localVarFetchArgs = CollectionsApiFetchParamCreator(configuration).collectionsGet(options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -1639,7 +1711,7 @@ export const CollectionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        collectionsPost(body: MainCreateCollectionBody, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<MainCollection> {
+        collectionsPost(body: MainCreateCollectionBody, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<CollectionsCollection> {
             const localVarFetchArgs = CollectionsApiFetchParamCreator(configuration).collectionsPost(body, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
@@ -1669,6 +1741,19 @@ export const CollectionsApiFactory = function (configuration?: Configuration, fe
          */
         collectionsColuuidCommitPost(coluuid: string, options?: any) {
             return CollectionsApiFp(configuration).collectionsColuuidCommitPost(coluuid, options)(fetch, basePath);
+        },
+        /**
+         * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+         * @summary Deletes a content from a collection
+         * @param {string} coluuid Collection ID
+         * @param {string} contentid Content ID
+         * @param {string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+         * @param {string} value Value of content_id or path to look for
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, options?: any) {
+            return CollectionsApiFp(configuration).collectionsColuuidContentsDelete(coluuid, contentid, by, value, options)(fetch, basePath);
         },
         /**
          * This endpoint is used to delete an existing collection.
@@ -1716,12 +1801,11 @@ export const CollectionsApiFactory = function (configuration?: Configuration, fe
         /**
          * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
          * @summary List all collections
-         * @param {number} id User ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        collectionsGet(id: number, options?: any) {
-            return CollectionsApiFp(configuration).collectionsGet(id, options)(fetch, basePath);
+        collectionsGet(options?: any) {
+            return CollectionsApiFp(configuration).collectionsGet(options)(fetch, basePath);
         },
         /**
          * This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
@@ -1753,6 +1837,21 @@ export class CollectionsApi extends BaseAPI {
      */
     public collectionsColuuidCommitPost(coluuid: string, options?: any) {
         return CollectionsApiFp(this.configuration).collectionsColuuidCommitPost(coluuid, options)(this.fetch, this.basePath);
+    }
+
+    /**
+     * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     * @summary Deletes a content from a collection
+     * @param {string} coluuid Collection ID
+     * @param {string} contentid Content ID
+     * @param {string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+     * @param {string} value Value of content_id or path to look for
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CollectionsApi
+     */
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, options?: any) {
+        return CollectionsApiFp(this.configuration).collectionsColuuidContentsDelete(coluuid, contentid, by, value, options)(this.fetch, this.basePath);
     }
 
     /**
@@ -1809,13 +1908,12 @@ export class CollectionsApi extends BaseAPI {
     /**
      * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
      * @summary List all collections
-     * @param {number} id User ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CollectionsApi
      */
-    public collectionsGet(id: number, options?: any) {
-        return CollectionsApiFp(this.configuration).collectionsGet(id, options)(this.fetch, this.basePath);
+    public collectionsGet(options?: any) {
+        return CollectionsApiFp(this.configuration).collectionsGet(options)(this.fetch, this.basePath);
     }
 
     /**
@@ -1936,16 +2034,16 @@ export const ContentApiFetchParamCreator = function (configuration?: Configurati
         /**
          * This endpoint is used to upload new content.
          * @summary Add new content
-         * @param {any} file File to upload
+         * @param {any} data File to upload
          * @param {string} coluuid Collection UUID
          * @param {string} dir Directory
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contentAddPost(file: any, coluuid: string, dir: string, options: any = {}): FetchArgs {
-            // verify required parameter 'file' is not null or undefined
-            if (file === null || file === undefined) {
-                throw new RequiredError('file','Required parameter file was null or undefined when calling contentAddPost.');
+        contentAddPost(data: any, coluuid: string, dir: string, options: any = {}): FetchArgs {
+            // verify required parameter 'data' is not null or undefined
+            if (data === null || data === undefined) {
+                throw new RequiredError('data','Required parameter data was null or undefined when calling contentAddPost.');
             }
             // verify required parameter 'coluuid' is not null or undefined
             if (coluuid === null || coluuid === undefined) {
@@ -1972,8 +2070,8 @@ export const ContentApiFetchParamCreator = function (configuration?: Configurati
                 localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
             }
 
-            if (file !== undefined) {
-                localVarFormParams.set('file', file as any);
+            if (data !== undefined) {
+                localVarFormParams.set('data', data as any);
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -2542,14 +2640,14 @@ export const ContentApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint is used to upload new content.
          * @summary Add new content
-         * @param {any} file File to upload
+         * @param {any} data File to upload
          * @param {string} coluuid Collection UUID
          * @param {string} dir Directory
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contentAddPost(file: any, coluuid: string, dir: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<UtilContentAddResponse> {
-            const localVarFetchArgs = ContentApiFetchParamCreator(configuration).contentAddPost(file, coluuid, dir, options);
+        contentAddPost(data: any, coluuid: string, dir: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<UtilContentAddResponse> {
+            const localVarFetchArgs = ContentApiFetchParamCreator(configuration).contentAddPost(data, coluuid, dir, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -2843,14 +2941,14 @@ export const ContentApiFactory = function (configuration?: Configuration, fetch?
         /**
          * This endpoint is used to upload new content.
          * @summary Add new content
-         * @param {any} file File to upload
+         * @param {any} data File to upload
          * @param {string} coluuid Collection UUID
          * @param {string} dir Directory
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contentAddPost(file: any, coluuid: string, dir: string, options?: any) {
-            return ContentApiFp(configuration).contentAddPost(file, coluuid, dir, options)(fetch, basePath);
+        contentAddPost(data: any, coluuid: string, dir: string, options?: any) {
+            return ContentApiFp(configuration).contentAddPost(data, coluuid, dir, options)(fetch, basePath);
         },
         /**
          * This endpoint returns aggregated content stats
@@ -3023,15 +3121,15 @@ export class ContentApi extends BaseAPI {
     /**
      * This endpoint is used to upload new content.
      * @summary Add new content
-     * @param {any} file File to upload
+     * @param {any} data File to upload
      * @param {string} coluuid Collection UUID
      * @param {string} dir Directory
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ContentApi
      */
-    public contentAddPost(file: any, coluuid: string, dir: string, options?: any) {
-        return ContentApiFp(this.configuration).contentAddPost(file, coluuid, dir, options)(this.fetch, this.basePath);
+    public contentAddPost(data: any, coluuid: string, dir: string, options?: any) {
+        return ContentApiFp(this.configuration).contentAddPost(data, coluuid, dir, options)(this.fetch, this.basePath);
     }
 
     /**

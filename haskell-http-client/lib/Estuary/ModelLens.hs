@@ -36,37 +36,37 @@ import Estuary.Model
 import Estuary.Core
 
 
--- * MainCollection
+-- * CollectionsCollection
 
--- | 'mainCollectionCid' Lens
-mainCollectionCidL :: Lens_' MainCollection (Maybe Text)
-mainCollectionCidL f MainCollection{..} = (\mainCollectionCid -> MainCollection { mainCollectionCid, ..} ) <$> f mainCollectionCid
-{-# INLINE mainCollectionCidL #-}
+-- | 'collectionsCollectionCid' Lens
+collectionsCollectionCidL :: Lens_' CollectionsCollection (Maybe Text)
+collectionsCollectionCidL f CollectionsCollection{..} = (\collectionsCollectionCid -> CollectionsCollection { collectionsCollectionCid, ..} ) <$> f collectionsCollectionCid
+{-# INLINE collectionsCollectionCidL #-}
 
--- | 'mainCollectionCreatedAt' Lens
-mainCollectionCreatedAtL :: Lens_' MainCollection (Maybe Text)
-mainCollectionCreatedAtL f MainCollection{..} = (\mainCollectionCreatedAt -> MainCollection { mainCollectionCreatedAt, ..} ) <$> f mainCollectionCreatedAt
-{-# INLINE mainCollectionCreatedAtL #-}
+-- | 'collectionsCollectionCreatedAt' Lens
+collectionsCollectionCreatedAtL :: Lens_' CollectionsCollection (Maybe Text)
+collectionsCollectionCreatedAtL f CollectionsCollection{..} = (\collectionsCollectionCreatedAt -> CollectionsCollection { collectionsCollectionCreatedAt, ..} ) <$> f collectionsCollectionCreatedAt
+{-# INLINE collectionsCollectionCreatedAtL #-}
 
--- | 'mainCollectionDescription' Lens
-mainCollectionDescriptionL :: Lens_' MainCollection (Maybe Text)
-mainCollectionDescriptionL f MainCollection{..} = (\mainCollectionDescription -> MainCollection { mainCollectionDescription, ..} ) <$> f mainCollectionDescription
-{-# INLINE mainCollectionDescriptionL #-}
+-- | 'collectionsCollectionDescription' Lens
+collectionsCollectionDescriptionL :: Lens_' CollectionsCollection (Maybe Text)
+collectionsCollectionDescriptionL f CollectionsCollection{..} = (\collectionsCollectionDescription -> CollectionsCollection { collectionsCollectionDescription, ..} ) <$> f collectionsCollectionDescription
+{-# INLINE collectionsCollectionDescriptionL #-}
 
--- | 'mainCollectionName' Lens
-mainCollectionNameL :: Lens_' MainCollection (Maybe Text)
-mainCollectionNameL f MainCollection{..} = (\mainCollectionName -> MainCollection { mainCollectionName, ..} ) <$> f mainCollectionName
-{-# INLINE mainCollectionNameL #-}
+-- | 'collectionsCollectionName' Lens
+collectionsCollectionNameL :: Lens_' CollectionsCollection (Maybe Text)
+collectionsCollectionNameL f CollectionsCollection{..} = (\collectionsCollectionName -> CollectionsCollection { collectionsCollectionName, ..} ) <$> f collectionsCollectionName
+{-# INLINE collectionsCollectionNameL #-}
 
--- | 'mainCollectionUserId' Lens
-mainCollectionUserIdL :: Lens_' MainCollection (Maybe Int)
-mainCollectionUserIdL f MainCollection{..} = (\mainCollectionUserId -> MainCollection { mainCollectionUserId, ..} ) <$> f mainCollectionUserId
-{-# INLINE mainCollectionUserIdL #-}
+-- | 'collectionsCollectionUserId' Lens
+collectionsCollectionUserIdL :: Lens_' CollectionsCollection (Maybe Int)
+collectionsCollectionUserIdL f CollectionsCollection{..} = (\collectionsCollectionUserId -> CollectionsCollection { collectionsCollectionUserId, ..} ) <$> f collectionsCollectionUserId
+{-# INLINE collectionsCollectionUserIdL #-}
 
--- | 'mainCollectionUuid' Lens
-mainCollectionUuidL :: Lens_' MainCollection (Maybe Text)
-mainCollectionUuidL f MainCollection{..} = (\mainCollectionUuid -> MainCollection { mainCollectionUuid, ..} ) <$> f mainCollectionUuid
-{-# INLINE mainCollectionUuidL #-}
+-- | 'collectionsCollectionUuid' Lens
+collectionsCollectionUuidL :: Lens_' CollectionsCollection (Maybe Text)
+collectionsCollectionUuidL f CollectionsCollection{..} = (\collectionsCollectionUuid -> CollectionsCollection { collectionsCollectionUuid, ..} ) <$> f collectionsCollectionUuid
+{-# INLINE collectionsCollectionUuidL #-}
 
 
 

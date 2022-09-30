@@ -89,7 +89,7 @@ bool contentAddIpfsPostAsync(char * accessToken,
 /*! \brief Add new content. *Synchronous*
  *
  * This endpoint is used to upload new content.
- * \param file File to upload *Required*
+ * \param data File to upload *Required*
  * \param coluuid Collection UUID *Required*
  * \param dir Directory *Required*
  * \param handler The callback function to be invoked on completion. *Required*
@@ -97,14 +97,14 @@ bool contentAddIpfsPostAsync(char * accessToken,
  * \param userData The user data to be passed to the callback function.
  */
 bool contentAddPostSync(char * accessToken,
-	std::string file, std::string coluuid, std::string dir, 
+	std::string data, std::string coluuid, std::string dir, 
 	void(* handler)(Util.ContentAddResponse, Error, void* )
 	, void* userData);
 
 /*! \brief Add new content. *Asynchronous*
  *
  * This endpoint is used to upload new content.
- * \param file File to upload *Required*
+ * \param data File to upload *Required*
  * \param coluuid Collection UUID *Required*
  * \param dir Directory *Required*
  * \param handler The callback function to be invoked on completion. *Required*
@@ -112,7 +112,7 @@ bool contentAddPostSync(char * accessToken,
  * \param userData The user data to be passed to the callback function.
  */
 bool contentAddPostAsync(char * accessToken,
-	std::string file, std::string coluuid, std::string dir, 
+	std::string data, std::string coluuid, std::string dir, 
 	void(* handler)(Util.ContentAddResponse, Error, void* )
 	, void* userData);
 

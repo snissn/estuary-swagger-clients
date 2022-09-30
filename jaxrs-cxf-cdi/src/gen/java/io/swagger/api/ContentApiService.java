@@ -19,11 +19,11 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-29T08:49:04.694Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-30T06:35:54.948Z")
 public interface ContentApiService {
       public Response contentAddCarPost(String body, String filename, String commp, String size, SecurityContext securityContext);
       public Response contentAddIpfsPost(UtilContentAddIpfsBody body, SecurityContext securityContext);
-      public Response contentAddPost(InputStream fileInputStream, Attachment fileDetail, String coluuid, String dir, SecurityContext securityContext);
+      public Response contentAddPost(InputStream dataInputStream, Attachment dataDetail, String coluuid, String dir, SecurityContext securityContext);
       public Response contentAggregatedContentGet(String content, SecurityContext securityContext);
       public Response contentAllDealsGet(String begin, String duration, String all, SecurityContext securityContext);
       public Response contentBwUsageContentGet(String content, SecurityContext securityContext);

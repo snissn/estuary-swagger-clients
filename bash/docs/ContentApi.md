@@ -104,7 +104,7 @@ This endpoint is used to upload new content.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **File** | File to upload |
+ **data** | **File** | File to upload |
  **coluuid** | **string** | Collection UUID |
  **dir** | **string** | Directory |
 

@@ -83,21 +83,21 @@ public class SwagContentApi {
     /**
      * Add new content
      * This endpoint is used to upload new content.
-     * @param file File to upload (required)
+     * @param data File to upload (required)
      * @param coluuid Collection UUID (required)
      * @param dir Directory (required)
      * @return SwagUtilContentAddResponse
      * @throws Swagger.ApiException if fails to make API call
      */
     public SwagUtilContentAddResponse contentAddPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('file'), 'file');
+        client.assertNotNull(params.get('data'), 'data');
         client.assertNotNull(params.get('coluuid'), 'coluuid');
         client.assertNotNull(params.get('dir'), 'dir');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
         // cast form params to verify their expected type
-        form.addAll(client.makeParam('file', (Blob) params.get('file')));
+        form.addAll(client.makeParam('data', (Blob) params.get('data')));
 
         return (SwagUtilContentAddResponse) client.invoke(
             'POST', '/content/add', '',

@@ -56,14 +56,14 @@ extern NSInteger kSWGContentApiMissingParamErrorCode;
 /// Add new content
 /// This endpoint is used to upload new content.
 ///
-/// @param file File to upload
+/// @param data File to upload
 /// @param coluuid Collection UUID
 /// @param dir Directory
 /// 
 ///  code:200 message:"OK"
 ///
 /// @return SWGUtilContentAddResponse*
--(NSURLSessionTask*) contentAddPostWithFile: (NSURL*) file
+-(NSURLSessionTask*) contentAddPostWithData: (NSURL*) data
     coluuid: (NSString*) coluuid
     dir: (NSString*) dir
     completionHandler: (void (^)(SWGUtilContentAddResponse* output, NSError* error)) handler;

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.estuary.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**collections_coluuid_commit_post**](CollectionsApi.md#collections_coluuid_commit_post) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+[**collections_coluuid_contents_delete**](CollectionsApi.md#collections_coluuid_contents_delete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 [**collections_coluuid_delete**](CollectionsApi.md#collections_coluuid_delete) | **DELETE** /collections/{coluuid} | Deletes a collection
 [**collections_coluuid_get**](CollectionsApi.md#collections_coluuid_get) | **GET** /collections/{coluuid} | Get contents in a collection
 [**collections_coluuid_post**](CollectionsApi.md#collections_coluuid_post) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -51,6 +52,66 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **str**| coluuid | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **collections_coluuid_contents_delete**
+> str collections_coluuid_contents_delete(coluuid, contentid, by, value)
+
+Deletes a content from a collection
+
+This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: bearerAuth
+configuration = swagger_client.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.CollectionsApi(swagger_client.ApiClient(configuration))
+coluuid = 'coluuid_example' # str | Collection ID
+contentid = 'contentid_example' # str | Content ID
+by = 'by_example' # str | Variable to use when filtering for files (must be either 'path' or 'content_id')
+value = 'value_example' # str | Value of content_id or path to look for
+
+try:
+    # Deletes a content from a collection
+    api_response = api_instance.collections_coluuid_contents_delete(coluuid, contentid, by, value)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CollectionsApi->collections_coluuid_contents_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coluuid** | **str**| Collection ID | 
+ **contentid** | **str**| Content ID | 
+ **by** | **str**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
+ **value** | **str**| Value of content_id or path to look for | 
 
 ### Return type
 
@@ -288,7 +349,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collections_get**
-> list[MainCollection] collections_get(id)
+> list[CollectionsCollection] collections_get()
 
 List all collections
 
@@ -310,25 +371,21 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.CollectionsApi(swagger_client.ApiClient(configuration))
-id = 56 # int | User ID
 
 try:
     # List all collections
-    api_response = api_instance.collections_get(id)
+    api_response = api_instance.collections_get()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CollectionsApi->collections_get: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| User ID | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[MainCollection]**](MainCollection.md)
+[**list[CollectionsCollection]**](CollectionsCollection.md)
 
 ### Authorization
 
@@ -342,7 +399,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collections_post**
-> MainCollection collections_post(body)
+> CollectionsCollection collections_post(body)
 
 Create a new collection
 
@@ -382,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainCollection**](MainCollection.md)
+[**CollectionsCollection**](CollectionsCollection.md)
 
 ### Authorization
 

@@ -74,11 +74,11 @@ public:
     /// <remarks>
     /// This endpoint is used to upload new content.
     /// </remarks>
-    /// <param name="file">File to upload</param>
+    /// <param name="data">File to upload</param>
     /// <param name="coluuid">Collection UUID</param>
     /// <param name="dir">Directory</param>
     pplx::task<std::shared_ptr<Util.ContentAddResponse>> contentAddPost(
-        std::shared_ptr<HttpContent> file,
+        std::shared_ptr<HttpContent> data,
         utility::string_t coluuid,
         utility::string_t dir
     );

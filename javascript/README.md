@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 *EstuaryApi.AutoretrieveApi* | [**adminAutoretrieveListGet**](docs/AutoretrieveApi.md#adminAutoretrieveListGet) | **GET** /admin/autoretrieve/list | List autoretrieve servers
 *EstuaryApi.AutoretrieveApi* | [**autoretrieveHeartbeatPost**](docs/AutoretrieveApi.md#autoretrieveHeartbeatPost) | **POST** /autoretrieve/heartbeat | Marks autoretrieve server as up
 *EstuaryApi.CollectionsApi* | [**collectionsColuuidCommitPost**](docs/CollectionsApi.md#collectionsColuuidCommitPost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+*EstuaryApi.CollectionsApi* | [**collectionsColuuidContentsDelete**](docs/CollectionsApi.md#collectionsColuuidContentsDelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 *EstuaryApi.CollectionsApi* | [**collectionsColuuidDelete**](docs/CollectionsApi.md#collectionsColuuidDelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 *EstuaryApi.CollectionsApi* | [**collectionsColuuidGet**](docs/CollectionsApi.md#collectionsColuuidGet) | **GET** /collections/{coluuid} | Get contents in a collection
 *EstuaryApi.CollectionsApi* | [**collectionsColuuidPost**](docs/CollectionsApi.md#collectionsColuuidPost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -214,7 +215,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [EstuaryApi.MainCollection](docs/MainCollection.md)
+ - [EstuaryApi.CollectionsCollection](docs/CollectionsCollection.md)
  - [EstuaryApi.MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
  - [EstuaryApi.MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [EstuaryApi.MainGetApiKeysResp](docs/MainGetApiKeysResp.md)

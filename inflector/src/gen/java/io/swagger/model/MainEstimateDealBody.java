@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-29T08:48:54.399Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-30T06:35:45.031Z")
 public class MainEstimateDealBody   {
   @JsonProperty("durationBlks")
   private Integer durationBlks = null;

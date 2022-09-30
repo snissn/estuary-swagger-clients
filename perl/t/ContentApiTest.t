@@ -52,10 +52,10 @@ isa_ok($api, 'WWW::SwaggerClient::ContentApi');
 # content_add_post test
 #
 {
-    my $file = undef; # replace NULL with a proper value
+    my $data = undef; # replace NULL with a proper value
     my $coluuid = undef; # replace NULL with a proper value
     my $dir = undef; # replace NULL with a proper value
-    my $result = $api->content_add_post(file => $file, coluuid => $coluuid, dir => $dir);
+    my $result = $api->content_add_post(data => $data, coluuid => $coluuid, dir => $dir);
 }
 
 #

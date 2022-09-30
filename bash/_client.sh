@@ -306,6 +306,7 @@ case $state in
             "adminUsersGet[Get all users]"             "adminAutoretrieveInitPost[Register autoretrieve server]" \
             "adminAutoretrieveListGet[List autoretrieve servers]" \
             "autoretrieveHeartbeatPost[Marks autoretrieve server as up]"             "collectionsColuuidCommitPost[Produce a CID of the collection contents]" \
+            "collectionsColuuidContentsDelete[Deletes a content from a collection]" \
             "collectionsColuuidDelete[Deletes a collection]" \
             "collectionsColuuidGet[Get contents in a collection]" \
             "collectionsColuuidPost[Add contents to a collection]" \
@@ -451,6 +452,14 @@ case $state in
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      collectionsColuuidContentsDelete)
+        local -a _op_arguments
+        _op_arguments=(
+          "coluuid=:[PATH] Collection ID"
+"contentid=:[PATH] Content ID"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       collectionsColuuidDelete)
         local -a _op_arguments
         _op_arguments=(
@@ -484,8 +493,7 @@ case $state in
       collectionsGet)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] User ID"
-                    )
+                              )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       collectionsPost)

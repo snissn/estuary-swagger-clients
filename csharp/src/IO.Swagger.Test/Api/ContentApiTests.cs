@@ -98,10 +98,10 @@ namespace IO.Swagger.Test
         public void ContentAddPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //System.IO.Stream _file = null;
+            //System.IO.Stream data = null;
             //string coluuid = null;
             //string dir = null;
-            //var response = instance.ContentAddPost(_file, coluuid, dir);
+            //var response = instance.ContentAddPost(data, coluuid, dir);
             //Assert.IsInstanceOf<UtilContentAddResponse> (response, "response is UtilContentAddResponse");
         }
         

@@ -123,12 +123,12 @@ class ContentApi {
   /// Add new content
   ///
   /// This endpoint is used to upload new content.
-  Future<UtilContentAddResponse> contentAddPost(MultipartFile file, String coluuid, String dir) async {
+  Future<UtilContentAddResponse> contentAddPost(MultipartFile data, String coluuid, String dir) async {
     Object postBody = null;
 
     // verify required params are set
-    if(file == null) {
-     throw new ApiException(400, "Missing required param: file");
+    if(data == null) {
+     throw new ApiException(400, "Missing required param: data");
     }
     if(coluuid == null) {
      throw new ApiException(400, "Missing required param: coluuid");
@@ -154,10 +154,10 @@ class ContentApi {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
       
-      if (file != null) {
+      if (data != null) {
         hasFields = true;
-        mp.fields['file'] = file.field;
-        mp.files.add(file);
+        mp.fields['data'] = data.field;
+        mp.files.add(data);
       }
       
       if(hasFields)

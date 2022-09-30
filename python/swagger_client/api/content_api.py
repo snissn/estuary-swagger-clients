@@ -235,17 +235,17 @@ class ContentApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def content_add_post(self, file, coluuid, dir, **kwargs):  # noqa: E501
+    def content_add_post(self, data, coluuid, dir, **kwargs):  # noqa: E501
         """Add new content  # noqa: E501
 
         This endpoint is used to upload new content.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.content_add_post(file, coluuid, dir, async_req=True)
+        >>> thread = api.content_add_post(data, coluuid, dir, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file file: File to upload (required)
+        :param file data: File to upload (required)
         :param str coluuid: Collection UUID (required)
         :param str dir: Directory (required)
         :return: UtilContentAddResponse
@@ -254,22 +254,22 @@ class ContentApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.content_add_post_with_http_info(file, coluuid, dir, **kwargs)  # noqa: E501
+            return self.content_add_post_with_http_info(data, coluuid, dir, **kwargs)  # noqa: E501
         else:
-            (data) = self.content_add_post_with_http_info(file, coluuid, dir, **kwargs)  # noqa: E501
+            (data) = self.content_add_post_with_http_info(data, coluuid, dir, **kwargs)  # noqa: E501
             return data
 
-    def content_add_post_with_http_info(self, file, coluuid, dir, **kwargs):  # noqa: E501
+    def content_add_post_with_http_info(self, data, coluuid, dir, **kwargs):  # noqa: E501
         """Add new content  # noqa: E501
 
         This endpoint is used to upload new content.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.content_add_post_with_http_info(file, coluuid, dir, async_req=True)
+        >>> thread = api.content_add_post_with_http_info(data, coluuid, dir, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file file: File to upload (required)
+        :param file data: File to upload (required)
         :param str coluuid: Collection UUID (required)
         :param str dir: Directory (required)
         :return: UtilContentAddResponse
@@ -277,7 +277,7 @@ class ContentApi(object):
                  returns the request thread.
         """
 
-        all_params = ['file', 'coluuid', 'dir']  # noqa: E501
+        all_params = ['data', 'coluuid', 'dir']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -292,10 +292,10 @@ class ContentApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'file' is set
-        if self.api_client.client_side_validation and ('file' not in params or
-                                                       params['file'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `file` when calling `content_add_post`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in params or
+                                                       params['data'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `data` when calling `content_add_post`")  # noqa: E501
         # verify the required parameter 'coluuid' is set
         if self.api_client.client_side_validation and ('coluuid' not in params or
                                                        params['coluuid'] is None):  # noqa: E501
@@ -319,8 +319,8 @@ class ContentApi(object):
 
         form_params = []
         local_var_files = {}
-        if 'file' in params:
-            local_var_files['file'] = params['file']  # noqa: E501
+        if 'data' in params:
+            local_var_files['data'] = params['data']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`

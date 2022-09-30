@@ -38,8 +38,8 @@ class ApiClient {
           return value is bool ? value : '$value'.toLowerCase() == 'true';
         case 'double':
           return value is double ? value : double.parse('$value');
-        case 'MainCollection':
-          return new MainCollection.fromJson(value);
+        case 'CollectionsCollection':
+          return new CollectionsCollection.fromJson(value);
         case 'MainCreateCollectionBody':
           return new MainCreateCollectionBody.fromJson(value);
         case 'MainEstimateDealBody':

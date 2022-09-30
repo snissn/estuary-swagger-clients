@@ -5,6 +5,7 @@ All URIs are relative to *https://api.estuary.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**collectionsColuuidCommitPost**](CollectionsApi.md#collectionsColuuidCommitPost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+[**collectionsColuuidContentsDelete**](CollectionsApi.md#collectionsColuuidContentsDelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 [**collectionsColuuidDelete**](CollectionsApi.md#collectionsColuuidDelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 [**collectionsColuuidGet**](CollectionsApi.md#collectionsColuuidGet) | **GET** /collections/{coluuid} | Get contents in a collection
 [**collectionsColuuidPost**](CollectionsApi.md#collectionsColuuidPost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -42,6 +43,55 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **String**| coluuid |
+
+### Return type
+
+**String**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="collectionsColuuidContentsDelete"></a>
+# **collectionsColuuidContentsDelete**
+> String collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+
+Deletes a content from a collection
+
+This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.api.CollectionsApi;
+
+CollectionsApi apiInstance = new CollectionsApi();
+String coluuid = "coluuid_example"; // String | Collection ID
+String contentid = "contentid_example"; // String | Content ID
+String by = "by_example"; // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+String value = "value_example"; // String | Value of content_id or path to look for
+try {
+    String result = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CollectionsApi#collectionsColuuidContentsDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coluuid** | **String**| Collection ID |
+ **contentid** | **String**| Content ID |
+ **by** | **String**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) |
+ **value** | **String**| Value of content_id or path to look for |
 
 ### Return type
 
@@ -234,7 +284,7 @@ null (empty response body)
 
 <a name="collectionsGet"></a>
 # **collectionsGet**
-> List&lt;MainCollection&gt; collectionsGet(id)
+> List&lt;CollectionsCollection&gt; collectionsGet()
 
 List all collections
 
@@ -246,9 +296,8 @@ This endpoint is used to list all collections. Whenever a user logs on estuary, 
 //import io.swagger.client.api.CollectionsApi;
 
 CollectionsApi apiInstance = new CollectionsApi();
-Integer id = 56; // Integer | User ID
 try {
-    List<MainCollection> result = apiInstance.collectionsGet(id);
+    List<CollectionsCollection> result = apiInstance.collectionsGet();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CollectionsApi#collectionsGet");
@@ -257,14 +306,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**| User ID |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;MainCollection&gt;**](MainCollection.md)
+[**List&lt;CollectionsCollection&gt;**](CollectionsCollection.md)
 
 ### Authorization
 
@@ -277,7 +323,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionsPost"></a>
 # **collectionsPost**
-> MainCollection collectionsPost(body)
+> CollectionsCollection collectionsPost(body)
 
 Create a new collection
 
@@ -291,7 +337,7 @@ This endpoint is used to create a new collection. A collection is a representaio
 CollectionsApi apiInstance = new CollectionsApi();
 MainCreateCollectionBody body = new MainCreateCollectionBody(); // MainCreateCollectionBody | Collection name and description
 try {
-    MainCollection result = apiInstance.collectionsPost(body);
+    CollectionsCollection result = apiInstance.collectionsPost(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CollectionsApi#collectionsPost");
@@ -307,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainCollection**](MainCollection.md)
+[**CollectionsCollection**](CollectionsCollection.md)
 
 ### Authorization
 

@@ -99,14 +99,14 @@ class ContentApi(basePath: kotlin.String = "https://api.estuary.tech") : ApiClie
     /**
     * Add new content
     * This endpoint is used to upload new content.
-    * @param file File to upload 
+    * @param &#x60;data&#x60; File to upload 
     * @param coluuid Collection UUID 
     * @param dir Directory 
     * @return UtilContentAddResponse
     */
     @Suppress("UNCHECKED_CAST")
-    fun contentAddPost(file: java.io.File, coluuid: kotlin.String, dir: kotlin.String) : UtilContentAddResponse {
-        val localVariableBody: kotlin.Any? = mapOf("file" to file)
+    fun contentAddPost(&#x60;data&#x60;: java.io.File, coluuid: kotlin.String, dir: kotlin.String) : UtilContentAddResponse {
+        val localVariableBody: kotlin.Any? = mapOf("data" to &#x60;data&#x60;)
         val localVariableQuery: MultiValueMap = mapOf()
         
         val contentHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Content-Type" to "multipart/form-data")

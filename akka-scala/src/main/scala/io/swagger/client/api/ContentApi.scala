@@ -64,14 +64,14 @@ object ContentApi {
    * Available security schemes:
    *   bearerAuth (apiKey)
    * 
-   * @param file File to upload
+   * @param data File to upload
    * @param coluuid Collection UUID
    * @param dir Directory
    */
-  def contentAddPost(file: File, coluuid: String, dir: String)(implicit apiKey: ApiKeyValue): ApiRequest[UtilContentAddResponse] =
+  def contentAddPost(data: File, coluuid: String, dir: String)(implicit apiKey: ApiKeyValue): ApiRequest[UtilContentAddResponse] =
     ApiRequest[UtilContentAddResponse](ApiMethods.POST, "https://api.estuary.tech", "/content/add", "multipart/form-data")
       .withApiKey(apiKey, "Authorization", HEADER)
-      .withFormParam("file", file)
+      .withFormParam("data", data)
       .withPathParam("coluuid", coluuid)
       .withPathParam("dir", dir)
       .withSuccessResponse[UtilContentAddResponse](200)

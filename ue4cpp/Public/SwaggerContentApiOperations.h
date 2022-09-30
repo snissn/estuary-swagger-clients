@@ -88,7 +88,7 @@ public:
 	FString ComputePath() const final;
     
 	/* File to upload */
-	HttpFileInput File;
+	HttpFileInput Data;
 	/* Collection UUID */
 	FString Coluuid;
 	/* Directory */

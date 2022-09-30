@@ -186,19 +186,14 @@ paths:
       operationId: "collections_get"
       produces:
       - "application/json"
-      parameters:
-      - name: "id"
-        in: "path"
-        description: "User ID"
-        required: true
-        type: "integer"
+      parameters: []
       responses:
         "200":
           description: "OK"
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/main.Collection"
+              $ref: "#/definitions/collections.Collection"
         "400":
           description: "Bad Request"
           schema:
@@ -233,7 +228,7 @@ paths:
         "200":
           description: "OK"
           schema:
-            $ref: "#/definitions/main.Collection"
+            $ref: "#/definitions/collections.Collection"
         "400":
           description: "Bad Request"
           schema:
@@ -365,6 +360,51 @@ paths:
           schema:
             type: "string"
       x-swagger-router-controller: "swagger_server.controllers.collections_controller"
+  /collections/{coluuid}/contents:
+    delete:
+      tags:
+      - "collections"
+      summary: "Deletes a content from a collection"
+      description: "This endpoint is used to delete an existing content from an existing\
+        \ collection. If two or more files with the same contentid exist in the collection,\
+        \ delete the one in the specified path"
+      operationId: "collections_coluuid_contents_delete"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "coluuid"
+        in: "path"
+        description: "Collection ID"
+        required: true
+        type: "string"
+      - name: "contentid"
+        in: "path"
+        description: "Content ID"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "by"
+        description: "Variable to use when filtering for files (must be either 'path'\
+          \ or 'content_id')"
+        required: true
+        schema:
+          type: "string"
+      - in: "body"
+        name: "value"
+        description: "Value of content_id or path to look for"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "400":
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/util.HttpError"
+      x-swagger-router-controller: "swagger_server.controllers.collections_controller"
   /content/add:
     post:
       tags:
@@ -377,7 +417,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "file"
+      - name: "data"
         in: "formData"
         description: "File to upload"
         required: true
@@ -1301,7 +1341,7 @@ securityDefinitions:
     in: "header"
     x-apikeyInfoFunc: "swagger_server.controllers.authorization_controller.check_bearerAuth"
 definitions:
-  main.Collection:
+  collections.Collection:
     type: "object"
     properties:
       cid:

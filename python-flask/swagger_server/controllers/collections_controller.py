@@ -1,7 +1,7 @@
 import connexion
 import six
 
-from swagger_server.models.main_collection import MainCollection  # noqa: E501
+from swagger_server.models.collections_collection import CollectionsCollection  # noqa: E501
 from swagger_server.models.main_create_collection_body import MainCreateCollectionBody  # noqa: E501
 from swagger_server.models.util_http_error import UtilHttpError  # noqa: E501
 from swagger_server import util
@@ -14,6 +14,25 @@ def collections_coluuid_commit_post(coluuid):  # noqa: E501
 
     :param coluuid: coluuid
     :type coluuid: str
+
+    :rtype: str
+    """
+    return 'do some magic!'
+
+
+def collections_coluuid_contents_delete(coluuid, contentid, by, value):  # noqa: E501
+    """Deletes a content from a collection
+
+    This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path # noqa: E501
+
+    :param coluuid: Collection ID
+    :type coluuid: str
+    :param contentid: Content ID
+    :type contentid: str
+    :param by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+    :type by: str
+    :param value: Value of content_id or path to look for
+    :type value: str
 
     :rtype: str
     """
@@ -78,15 +97,13 @@ def collections_fs_add_post(coluuid, content, path):  # noqa: E501
     return 'do some magic!'
 
 
-def collections_get(id):  # noqa: E501
+def collections_get():  # noqa: E501
     """List all collections
 
     This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user. # noqa: E501
 
-    :param id: User ID
-    :type id: int
 
-    :rtype: List[MainCollection]
+    :rtype: List[CollectionsCollection]
     """
     return 'do some magic!'
 
@@ -99,7 +116,7 @@ def collections_post(body):  # noqa: E501
     :param body: Collection name and description
     :type body: dict | bytes
 
-    :rtype: MainCollection
+    :rtype: CollectionsCollection
     """
     if connexion.request.is_json:
         body = MainCreateCollectionBody.from_dict(connexion.request.get_json())  # noqa: E501

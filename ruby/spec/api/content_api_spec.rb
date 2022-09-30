@@ -62,7 +62,7 @@ describe 'ContentApi' do
   # unit tests for content_add_post
   # Add new content
   # This endpoint is used to upload new content.
-  # @param file File to upload
+  # @param data File to upload
   # @param coluuid Collection UUID
   # @param dir Directory
   # @param [Hash] opts the optional parameters

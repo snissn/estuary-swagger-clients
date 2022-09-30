@@ -5,6 +5,7 @@ All URIs are relative to *https://api.estuary.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**collectionsColuuidCommitPost**](CollectionsApi.md#collectionsColuuidCommitPost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+[**collectionsColuuidContentsDelete**](CollectionsApi.md#collectionsColuuidContentsDelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 [**collectionsColuuidDelete**](CollectionsApi.md#collectionsColuuidDelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 [**collectionsColuuidGet**](CollectionsApi.md#collectionsColuuidGet) | **GET** /collections/{coluuid} | Get contents in a collection
 [**collectionsColuuidPost**](CollectionsApi.md#collectionsColuuidPost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -52,6 +53,67 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **string**| coluuid |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **collectionsColuuidContentsDelete**
+> string collectionsColuuidContentsDelete($coluuid, $contentid, $by, $value)
+
+Deletes a content from a collection
+
+This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: bearerAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\CollectionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$coluuid = "coluuid_example"; // string | Collection ID
+$contentid = "contentid_example"; // string | Content ID
+$by = "by_example"; // string | Variable to use when filtering for files (must be either 'path' or 'content_id')
+$value = "value_example"; // string | Value of content_id or path to look for
+
+try {
+    $result = $apiInstance->collectionsColuuidContentsDelete($coluuid, $contentid, $by, $value);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CollectionsApi->collectionsColuuidContentsDelete: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coluuid** | **string**| Collection ID |
+ **contentid** | **string**| Content ID |
+ **by** | **string**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) |
+ **value** | **string**| Value of content_id or path to look for |
 
 ### Return type
 
@@ -293,7 +355,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **collectionsGet**
-> \Swagger\Client\Model\MainCollection[] collectionsGet($id)
+> \Swagger\Client\Model\CollectionsCollection[] collectionsGet()
 
 List all collections
 
@@ -315,10 +377,9 @@ $apiInstance = new Swagger\Client\Api\CollectionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | User ID
 
 try {
-    $result = $apiInstance->collectionsGet($id);
+    $result = $apiInstance->collectionsGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionsApi->collectionsGet: ', $e->getMessage(), PHP_EOL;
@@ -327,14 +388,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| User ID |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\Model\MainCollection[]**](../Model/MainCollection.md)
+[**\Swagger\Client\Model\CollectionsCollection[]**](../Model/CollectionsCollection.md)
 
 ### Authorization
 
@@ -348,7 +406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **collectionsPost**
-> \Swagger\Client\Model\MainCollection collectionsPost($body)
+> \Swagger\Client\Model\CollectionsCollection collectionsPost($body)
 
 Create a new collection
 
@@ -389,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\MainCollection**](../Model/MainCollection.md)
+[**\Swagger\Client\Model\CollectionsCollection**](../Model/CollectionsCollection.md)
 
 ### Authorization
 

@@ -4,10 +4,10 @@ var utils = require('../utils/writer.js');
 var Content = require('../service/ContentService');
 
 module.exports.contentAddPOST = function contentAddPOST (req, res, next) {
-  var file = req.swagger.params['file'].value;
+  var data = req.swagger.params['data'].value;
   var coluuid = req.swagger.params['coluuid'].value;
   var dir = req.swagger.params['dir'].value;
-  Content.contentAddPOST(file,coluuid,dir)
+  Content.contentAddPOST(data,coluuid,dir)
     .then(function (response) {
       utils.writeJson(res, response);
     })

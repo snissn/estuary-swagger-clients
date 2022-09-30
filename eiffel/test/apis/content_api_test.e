@@ -50,16 +50,16 @@ feature -- Test routines
             -- This endpoint is used to upload new content. 
         local
             l_response: UTIL_CONTENT_ADD_RESPONSE
-            l_file: FILE
+            l_data: FILE
             l_coluuid: STRING_32
             l_dir: STRING_32
         do
             -- TODO: Initialize required params.
-            -- l_file
+            -- l_data
             -- l_coluuid
             -- l_dir
                       
-            -- l_response := api.content_add_post(l_file, l_coluuid, l_dir)
+            -- l_response := api.content_add_post(l_data, l_coluuid, l_dir)
             assert ("not_implemented", False)
         end
     

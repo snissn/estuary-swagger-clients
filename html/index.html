@@ -217,6 +217,7 @@ font-style: italic;
   <h4><a href="#Collections">Collections</a></h4>
   <ul>
   <li><a href="#collectionsColuuidCommitPost"><code><span class="http-method">post</span> /collections/{coluuid}/commit</code></a></li>
+  <li><a href="#collectionsColuuidContentsDelete"><code><span class="http-method">delete</span> /collections/{coluuid}/contents</code></a></li>
   <li><a href="#collectionsColuuidDelete"><code><span class="http-method">delete</span> /collections/{coluuid}</code></a></li>
   <li><a href="#collectionsColuuidGet"><code><span class="http-method">get</span> /collections/{coluuid}</code></a></li>
   <li><a href="#collectionsColuuidPost"><code><span class="http-method">post</span> /collections/{coluuid}</code></a></li>
@@ -687,6 +688,68 @@ font-style: italic;
         <a href="#String">String</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="collectionsColuuidContentsDelete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /collections/{coluuid}/contents</code></pre></div>
+    <div class="method-summary">Deletes a content from a collection (<span class="nickname">collectionsColuuidContentsDelete</span>)</div>
+    <div class="method-notes">This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">coluuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Collection ID </div><div class="param">contentid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Content ID </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">by <a href="#string">string</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Variable to use when filtering for files (must be either 'path' or 'content_id') </div>
+<div class="param">value <a href="#string">string</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Value of content_id or path to look for </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bytes": [],
+  "empty": true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#util.HttpError">util.HttpError</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="collectionsColuuidDelete"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -857,12 +920,6 @@ font-style: italic;
     <div class="method-summary">List all collections (<span class="nickname">collectionsGet</span>)</div>
     <div class="method-notes">This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; User ID </div>
-    </div>  <!-- field-items -->
 
 
 
@@ -871,7 +928,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#main.Collection">main.Collection</a>]
+      array[<a href="#collections.Collection">collections.Collection</a>]
       
     </div>
 
@@ -925,7 +982,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#main.Collection">main.Collection</a>
+      <a href="#collections.Collection">collections.Collection</a>
       
     </div>
 
@@ -945,7 +1002,7 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#main.Collection">main.Collection</a>
+        <a href="#collections.Collection">collections.Collection</a>
     <h4 class="field-label">400</h4>
     Bad Request
         <a href="#util.HttpError">util.HttpError</a>
@@ -1063,7 +1120,7 @@ font-style: italic;
 
     <h3 class="field-label">Form parameters</h3>
     <div class="field-items">
-      <div class="param">file (required)</div>
+      <div class="param">data (required)</div>
 
       <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; File to upload </div>
     </div>  <!-- field-items -->
@@ -3270,7 +3327,7 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#main.Collection"><code>main.Collection</code> - </a></li>
+    <li><a href="#collections.Collection"><code>collections.Collection</code> - </a></li>
     <li><a href="#main.createCollectionBody"><code>main.createCollectionBody</code> - </a></li>
     <li><a href="#main.estimateDealBody"><code>main.estimateDealBody</code> - </a></li>
     <li><a href="#main.getApiKeysResp"><code>main.getApiKeysResp</code> - </a></li>
@@ -3282,7 +3339,7 @@ font-style: italic;
   </ol>
 
   <div class="model">
-    <h3><a name="main.Collection"><code>main.Collection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="collections.Collection"><code>collections.Collection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">cid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>

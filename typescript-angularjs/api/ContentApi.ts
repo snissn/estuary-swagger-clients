@@ -102,11 +102,11 @@ export class ContentApi {
     /**
      * This endpoint is used to upload new content.
      * @summary Add new content
-     * @param file File to upload
+     * @param data File to upload
      * @param coluuid Collection UUID
      * @param dir Directory
      */
-    public contentAddPost (file: any, coluuid: string, dir: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.UtilContentAddResponse> {
+    public contentAddPost (data: any, coluuid: string, dir: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.UtilContentAddResponse> {
         const localVarPath = this.basePath + '/content/add'
             .replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid)))
             .replace('{' + 'dir' + '}', encodeURIComponent(String(dir)));
@@ -115,9 +115,9 @@ export class ContentApi {
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let formParams: any = {};
 
-        // verify required parameter 'file' is not null or undefined
-        if (file === null || file === undefined) {
-            throw new Error('Required parameter file was null or undefined when calling contentAddPost.');
+        // verify required parameter 'data' is not null or undefined
+        if (data === null || data === undefined) {
+            throw new Error('Required parameter data was null or undefined when calling contentAddPost.');
         }
 
         // verify required parameter 'coluuid' is not null or undefined
@@ -132,7 +132,7 @@ export class ContentApi {
 
         headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
-        formParams['file'] = file;
+        formParams['data'] = data;
 
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',

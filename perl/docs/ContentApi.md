@@ -134,7 +134,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **content_add_post**
-> UtilContentAddResponse content_add_post(file => $file, coluuid => $coluuid, dir => $dir)
+> UtilContentAddResponse content_add_post(data => $data, coluuid => $coluuid, dir => $dir)
 
 Add new content
 
@@ -152,12 +152,12 @@ my $api_instance = WWW::SwaggerClient::ContentApi->new(
     #api_key_prefix => {'Authorization' => 'Bearer'},
 );
 
-my $file = '/path/to/file.txt'; # File | File to upload
+my $data = '/path/to/file.txt'; # File | File to upload
 my $coluuid = 'coluuid_example'; # string | Collection UUID
 my $dir = 'dir_example'; # string | Directory
 
 eval { 
-    my $result = $api_instance->content_add_post(file => $file, coluuid => $coluuid, dir => $dir);
+    my $result = $api_instance->content_add_post(data => $data, coluuid => $coluuid, dir => $dir);
     print Dumper($result);
 };
 if ($@) {
@@ -169,7 +169,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **File**| File to upload | 
+ **data** | **File**| File to upload | 
  **coluuid** | **string**| Collection UUID | 
  **dir** | **string**| Directory | 
 

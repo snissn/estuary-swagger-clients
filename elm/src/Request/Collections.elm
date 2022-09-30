@@ -11,12 +11,12 @@
 -}
 
 
-module Request.Collections exposing (collectionsColuuidCommitPost, collectionsColuuidDelete, collectionsColuuidGet, collectionsColuuidPost, collectionsFsAddPost, collectionsGet, collectionsPost)
+module Request.Collections exposing (collectionsColuuidCommitPost, collectionsColuuidContentsDelete, collectionsColuuidDelete, collectionsColuuidGet, collectionsColuuidPost, collectionsFsAddPost, collectionsGet, collectionsPost)
 
-import Data.MainCollection exposing (MainCollection, mainCollectionDecoder)
 import Data.MainCreateCollectionBody exposing (MainCreateCollectionBody, mainCreateCollectionBodyEncoder)
+import Data.CollectionsCollection exposing (CollectionsCollection, collectionsCollectionDecoder)
 import Data.UtilHttpError exposing (UtilHttpError, utilHttpErrorDecoder)
-import Data.String exposing (Decode.string, String, stringDecoder)
+import Data.String exposing (Decode.string, Encode.string, String, stringDecoder)
 import Data.Int exposing (Encode.int, Int)
 import Http
 import Json.Decode as Decode
@@ -36,6 +36,22 @@ collectionsColuuidCommitPost coluuid =
     , url = basePath ++ "/collections/" ++ coluuid ++ "/commit"
     , headers = []
     , body = Http.emptyBody
+    , expect = Http.expectJson Decode.string
+    , timeout = Just 30000
+    , withCredentials = False
+    }
+        |> Http.request
+
+
+{-
+   This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+-}
+collectionsColuuidContentsDelete : String -> String -> String -> Http.Request String
+collectionsColuuidContentsDelete coluuid contentid model =
+    { method = "DELETE"
+    , url = basePath ++ "/collections/" ++ coluuid ++ "/contents"
+    , headers = []
+    , body = Http.jsonBody <| Encode.string model
     , expect = Http.expectJson Decode.string
     , timeout = Just 30000
     , withCredentials = False
@@ -110,13 +126,13 @@ collectionsFsAddPost =
 {-
    This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
 -}
-collectionsGet : Int -> Http.Request (List MainCollection)
-collectionsGet id =
+collectionsGet : Http.Request (List CollectionsCollection)
+collectionsGet =
     { method = "GET"
     , url = basePath ++ "/collections/"
     , headers = []
     , body = Http.emptyBody
-    , expect = Http.expectJson (Decode.list mainCollectionDecoder)
+    , expect = Http.expectJson (Decode.list collectionsCollectionDecoder)
     , timeout = Just 30000
     , withCredentials = False
     }
@@ -126,13 +142,13 @@ collectionsGet id =
 {-
    This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
 -}
-collectionsPost : MainCreateCollectionBody -> Http.Request MainCollection
+collectionsPost : MainCreateCollectionBody -> Http.Request CollectionsCollection
 collectionsPost model =
     { method = "POST"
     , url = basePath ++ "/collections/"
     , headers = []
     , body = Http.jsonBody <| mainCreateCollectionBodyEncoder model
-    , expect = Http.expectJson mainCollectionDecoder
+    , expect = Http.expectJson collectionsCollectionDecoder
     , timeout = Just 30000
     , withCredentials = False
     }

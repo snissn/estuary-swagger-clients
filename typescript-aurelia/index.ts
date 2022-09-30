@@ -26,7 +26,7 @@ export { PinningApi } from './PinningApi';
 export { PublicApi } from './PublicApi';
 export { UserApi } from './UserApi';
 export {
-  MainCollection,
+  CollectionsCollection,
   MainCreateCollectionBody,
   MainEstimateDealBody,
   MainGetApiKeysResp,

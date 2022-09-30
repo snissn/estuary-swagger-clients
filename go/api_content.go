@@ -222,13 +222,13 @@ func (a *ContentApiService) ContentAddIpfsPost(ctx context.Context, body UtilCon
 ContentApiService Add new content
 This endpoint is used to upload new content.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param file File to upload
+ * @param data File to upload
  * @param coluuid Collection UUID
  * @param dir Directory
 
 @return UtilContentAddResponse
 */
-func (a *ContentApiService) ContentAddPost(ctx context.Context, file *os.File, coluuid string, dir string) (UtilContentAddResponse, *http.Response, error) {
+func (a *ContentApiService) ContentAddPost(ctx context.Context, data *os.File, coluuid string, dir string) (UtilContentAddResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -263,7 +263,7 @@ func (a *ContentApiService) ContentAddPost(ctx context.Context, file *os.File, c
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-    localVarFile := file
+    localVarFile := data
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs

@@ -72,6 +72,74 @@ bool SwaggerCollectionsApi::CollectionsColuuidCommitPostResponse::FromJson(const
 	return TryGetJsonValue(JsonValue, Content);
 }
 
+FString SwaggerCollectionsApi::CollectionsColuuidContentsDeleteRequest::ComputePath() const
+{
+	TMap<FString, FStringFormatArg> PathParams = { 
+	{ TEXT("coluuid"), ToStringFormatArg(Coluuid) },
+	{ TEXT("contentid"), ToStringFormatArg(Contentid) } };
+
+	FString Path = FString::Format(TEXT("/collections/{coluuid}/contents"), PathParams);
+	
+	return Path;
+}
+
+void SwaggerCollectionsApi::CollectionsColuuidContentsDeleteRequest::SetupHttpRequest(const TSharedRef<IHttpRequest>& HttpRequest) const
+{
+	static const TArray<FString> Consumes = {  };
+	//static const TArray<FString> Produces = { TEXT("application/json") };
+
+	HttpRequest->SetVerb(TEXT("DELETE"));
+
+	// Default to Json Body request
+	if (Consumes.Num() == 0 || Consumes.Contains(TEXT("application/json")))
+	{
+		// Body parameters
+		FString JsonBody;
+		JsonWriter Writer = TJsonWriterFactory<>::Create(&JsonBody);
+
+		WriteJsonValue(Writer, By);
+		WriteJsonValue(Writer, Value);
+		Writer->Close();
+
+		HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json; charset=utf-8"));
+		HttpRequest->SetContentAsString(JsonBody);
+	}
+	else if (Consumes.Contains(TEXT("multipart/form-data")))
+	{
+		UE_LOG(LogSwagger, Error, TEXT("Body parameter (by) was ignored, not supported in multipart form"));
+		UE_LOG(LogSwagger, Error, TEXT("Body parameter (value) was ignored, not supported in multipart form"));
+	}
+	else if (Consumes.Contains(TEXT("application/x-www-form-urlencoded")))
+	{
+		UE_LOG(LogSwagger, Error, TEXT("Body parameter (by) was ignored, not supported in urlencoded requests"));
+		UE_LOG(LogSwagger, Error, TEXT("Body parameter (value) was ignored, not supported in urlencoded requests"));
+	}
+	else
+	{
+		UE_LOG(LogSwagger, Error, TEXT("Request ContentType not supported (%s)"), *FString::Join(Consumes, TEXT(",")));
+	}
+}
+
+void SwaggerCollectionsApi::CollectionsColuuidContentsDeleteResponse::SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode)
+{
+	Response::SetHttpResponseCode(InHttpResponseCode);
+	switch ((int)InHttpResponseCode)
+	{
+	case 200:
+	default:
+		SetResponseString(TEXT("OK"));
+		break;
+	case 400:
+		SetResponseString(TEXT("Bad Request"));
+		break;
+	}
+}
+
+bool SwaggerCollectionsApi::CollectionsColuuidContentsDeleteResponse::FromJson(const TSharedPtr<FJsonValue>& JsonValue)
+{
+	return TryGetJsonValue(JsonValue, Content);
+}
+
 FString SwaggerCollectionsApi::CollectionsColuuidDeleteRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
@@ -267,11 +335,7 @@ bool SwaggerCollectionsApi::CollectionsFsAddPostResponse::FromJson(const TShared
 
 FString SwaggerCollectionsApi::CollectionsGetRequest::ComputePath() const
 {
-	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
-
-	FString Path = FString::Format(TEXT("/collections/"), PathParams);
-	
+	FString Path(TEXT("/collections/"));
 	return Path;
 }
 

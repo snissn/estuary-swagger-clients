@@ -181,19 +181,19 @@ export class ContentService {
     /**
      * Add new content
      * This endpoint is used to upload new content.
-     * @param file File to upload
+     * @param data File to upload
      * @param coluuid Collection UUID
      * @param dir Directory
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public contentAddPost(file: Blob, coluuid: string, dir: string, observe?: 'body', reportProgress?: boolean): Observable<UtilContentAddResponse>;
-    public contentAddPost(file: Blob, coluuid: string, dir: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UtilContentAddResponse>>;
-    public contentAddPost(file: Blob, coluuid: string, dir: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UtilContentAddResponse>>;
-    public contentAddPost(file: Blob, coluuid: string, dir: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'body', reportProgress?: boolean): Observable<UtilContentAddResponse>;
+    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UtilContentAddResponse>>;
+    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UtilContentAddResponse>>;
+    public contentAddPost(data: Blob, coluuid: string, dir: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
-        if (file === null || file === undefined) {
-            throw new Error('Required parameter file was null or undefined when calling contentAddPost.');
+        if (data === null || data === undefined) {
+            throw new Error('Required parameter data was null or undefined when calling contentAddPost.');
         }
 
         if (coluuid === null || coluuid === undefined) {
@@ -239,8 +239,8 @@ export class ContentService {
             formParams = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
         }
 
-        if (file !== undefined) {
-            formParams = formParams.append('file', <any>file) || formParams;
+        if (data !== undefined) {
+            formParams = formParams.append('data', <any>data) || formParams;
         }
 
         return this.httpClient.post<UtilContentAddResponse>(`${this.basePath}/content/add`,

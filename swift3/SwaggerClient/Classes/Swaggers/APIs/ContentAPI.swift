@@ -91,13 +91,13 @@ open class ContentAPI: APIBase {
 
     /**
      Add new content
-     - parameter file: (form) File to upload 
+     - parameter data: (form) File to upload 
      - parameter coluuid: (path) Collection UUID 
      - parameter dir: (path) Directory 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func contentAddPost(file: URL, coluuid: String, dir: String, completion: @escaping ((_ data: UtilContentAddResponse?, _ error: ErrorResponse?) -> Void)) {
-        contentAddPostWithRequestBuilder(file: file, coluuid: coluuid, dir: dir).execute { (response, error) -> Void in
+    open class func contentAddPost(data: URL, coluuid: String, dir: String, completion: @escaping ((_ data: UtilContentAddResponse?, _ error: ErrorResponse?) -> Void)) {
+        contentAddPostWithRequestBuilder(data: data, coluuid: coluuid, dir: dir).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -111,12 +111,12 @@ open class ContentAPI: APIBase {
        - type: apiKey Authorization 
        - name: bearerAuth
      - examples: [{contentType=application/json, example={"empty": false}}]
-     - parameter file: (form) File to upload 
+     - parameter data: (form) File to upload 
      - parameter coluuid: (path) Collection UUID 
      - parameter dir: (path) Directory 
      - returns: RequestBuilder<UtilContentAddResponse> 
      */
-    open class func contentAddPostWithRequestBuilder(file: URL, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
+    open class func contentAddPostWithRequestBuilder(data: URL, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
         var path = "/content/add"
         let coluuidPreEscape = "\(coluuid)"
         let coluuidPostEscape = coluuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -126,7 +126,7 @@ open class ContentAPI: APIBase {
         path = path.replacingOccurrences(of: "{dir}", with: dirPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let formParams: [String:Any?] = [
-            "file": file
+            "data": data
         ]
 
         let nonNullParameters = APIHelper.rejectNil(formParams)

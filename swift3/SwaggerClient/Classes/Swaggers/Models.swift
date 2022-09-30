@@ -288,15 +288,15 @@ class Decoders {
             }
         }
 
-        // Decoder for [MainCollection]
-        Decoders.addDecoder(clazz: [MainCollection].self) { (source: AnyObject, instance: AnyObject?) -> Decoded<[MainCollection]> in
-            return Decoders.decode(clazz: [MainCollection].self, source: source)
+        // Decoder for [CollectionsCollection]
+        Decoders.addDecoder(clazz: [CollectionsCollection].self) { (source: AnyObject, instance: AnyObject?) -> Decoded<[CollectionsCollection]> in
+            return Decoders.decode(clazz: [CollectionsCollection].self, source: source)
         }
 
-        // Decoder for MainCollection
-        Decoders.addDecoder(clazz: MainCollection.self) { (source: AnyObject, instance: AnyObject?) -> Decoded<MainCollection> in
+        // Decoder for CollectionsCollection
+        Decoders.addDecoder(clazz: CollectionsCollection.self) { (source: AnyObject, instance: AnyObject?) -> Decoded<CollectionsCollection> in
             if let sourceDictionary = source as? [AnyHashable: Any] {
-                let _result = instance == nil ? MainCollection() : instance as! MainCollection
+                let _result = instance == nil ? CollectionsCollection() : instance as! CollectionsCollection
                 switch Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cid"] as AnyObject?) {
                 
                 case let .success(value): _result.cid = value
@@ -335,7 +335,7 @@ class Decoders {
                 }
                 return .success(_result)
             } else {
-                return .failure(.typeMismatch(expected: "MainCollection", actual: "\(source)"))
+                return .failure(.typeMismatch(expected: "CollectionsCollection", actual: "\(source)"))
             }
         }
         // Decoder for [MainCreateCollectionBody]

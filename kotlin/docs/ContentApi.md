@@ -122,7 +122,7 @@ null (empty response body)
 
 <a name="contentAddPost"></a>
 # **contentAddPost**
-> UtilContentAddResponse contentAddPost(file, coluuid, dir)
+> UtilContentAddResponse contentAddPost(`data`, coluuid, dir)
 
 Add new content
 
@@ -135,11 +135,11 @@ This endpoint is used to upload new content.
 //import io.swagger.client.models.*
 
 val apiInstance = ContentApi()
-val file : java.io.File = /path/to/file.txt // java.io.File | File to upload
+val `data` : java.io.File = /path/to/file.txt // java.io.File | File to upload
 val coluuid : kotlin.String = coluuid_example // kotlin.String | Collection UUID
 val dir : kotlin.String = dir_example // kotlin.String | Directory
 try {
-    val result : UtilContentAddResponse = apiInstance.contentAddPost(file, coluuid, dir)
+    val result : UtilContentAddResponse = apiInstance.contentAddPost(`data`, coluuid, dir)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContentApi#contentAddPost")
@@ -154,7 +154,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **java.io.File**| File to upload |
+ **&#x60;data&#x60;** | **java.io.File**| File to upload |
  **coluuid** | **kotlin.String**| Collection UUID |
  **dir** | **kotlin.String**| Directory |
 

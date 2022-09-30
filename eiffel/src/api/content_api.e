@@ -93,11 +93,11 @@ feature -- API Access
 			end
 		end	
 
-	content_add_post (file: FILE; coluuid: STRING_32; dir: STRING_32): detachable UTIL_CONTENT_ADD_RESPONSE
+	content_add_post (data: FILE; coluuid: STRING_32; dir: STRING_32): detachable UTIL_CONTENT_ADD_RESPONSE
 			-- Add new content
 			-- This endpoint is used to upload new content.
 			-- 
-			-- argument: file File to upload (required)
+			-- argument: data File to upload (required)
 			-- 
 			-- argument: coluuid Collection UUID (required)
 			-- 
@@ -118,8 +118,8 @@ feature -- API Access
 			l_path.replace_substring_all ("{"+"coluuid"+"}", api_client.url_encode (coluuid.out))
 			l_path.replace_substring_all ("{"+"dir"+"}", api_client.url_encode (dir.out))
 
-			if attached file as l_file then
-				l_request.add_form(l_file,"file");
+			if attached data as l_data then
+				l_request.add_form(l_data,"data");
 			end
 
 			if attached {STRING} api_client.select_header_accept (<<"application/json">>)  as l_accept then

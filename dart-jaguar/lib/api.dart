@@ -21,7 +21,7 @@ import 'package:swagger/api/pinning_api.dart';
 import 'package:swagger/api/public_api.dart';
 import 'package:swagger/api/user_api.dart';
 
-import 'package:swagger/model/main_collection.dart';
+import 'package:swagger/model/collections_collection.dart';
 import 'package:swagger/model/main_create_collection_body.dart';
 import 'package:swagger/model/main_estimate_deal_body.dart';
 import 'package:swagger/model/main_get_api_keys_resp.dart';
@@ -33,7 +33,7 @@ import 'package:swagger/model/util_http_error.dart';
 
 
 final jsonJaguarRepo = JsonRepo()
-..add(MainCollectionSerializer())
+..add(CollectionsCollectionSerializer())
 ..add(MainCreateCollectionBodySerializer())
 ..add(MainEstimateDealBodySerializer())
 ..add(MainGetApiKeysRespSerializer())

@@ -80,6 +80,7 @@ _()
     operations["adminAutoretrieveListGet"]=1
     operations["autoretrieveHeartbeatPost"]=1
     operations["collectionsColuuidCommitPost"]=1
+    operations["collectionsColuuidContentsDelete"]=1
     operations["collectionsColuuidDelete"]=1
     operations["collectionsColuuidGet"]=1
     operations["collectionsColuuidPost"]=1
@@ -171,11 +172,12 @@ _()
     operation_parameters["adminAutoretrieveListGet"]=""
     operation_parameters["autoretrieveHeartbeatPost"]="token: "
     operation_parameters["collectionsColuuidCommitPost"]="coluuid= "
+    operation_parameters["collectionsColuuidContentsDelete"]="coluuid= contentid= "
     operation_parameters["collectionsColuuidDelete"]="coluuid= "
     operation_parameters["collectionsColuuidGet"]="coluuid= dir= "
     operation_parameters["collectionsColuuidPost"]=""
     operation_parameters["collectionsFsAddPost"]="coluuid= content= path= "
-    operation_parameters["collectionsGet"]="id= "
+    operation_parameters["collectionsGet"]=""
     operation_parameters["collectionsPost"]=""
     operation_parameters["contentAddCarPost"]="filename= commp= size= "
     operation_parameters["contentAddIpfsPost"]=""

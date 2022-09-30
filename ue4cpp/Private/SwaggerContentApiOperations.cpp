@@ -151,19 +151,19 @@ void SwaggerContentApi::ContentAddPostRequest::SetupHttpRequest(const TSharedRef
 	// Default to Json Body request
 	if (Consumes.Num() == 0 || Consumes.Contains(TEXT("application/json")))
 	{
-		UE_LOG(LogSwagger, Error, TEXT("Form parameter (file) was ignored, cannot be used in JsonBody"));
+		UE_LOG(LogSwagger, Error, TEXT("Form parameter (data) was ignored, cannot be used in JsonBody"));
 	}
 	else if (Consumes.Contains(TEXT("multipart/form-data")))
 	{
 		HttpMultipartFormData FormData;
-		FormData.AddFilePart(TEXT("file"), File);
+		FormData.AddFilePart(TEXT("data"), Data);
 
 		FormData.SetupHttpRequest(HttpRequest);
 	}
 	else if (Consumes.Contains(TEXT("application/x-www-form-urlencoded")))
 	{
 		TArray<FString> FormParams;
-		UE_LOG(LogSwagger, Error, TEXT("Form parameter (file) was ignored, Files are not supported in urlencoded requests"));
+		UE_LOG(LogSwagger, Error, TEXT("Form parameter (data) was ignored, Files are not supported in urlencoded requests"));
 		
 		HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/x-www-form-urlencoded; charset=utf-8"));
 		HttpRequest->SetContentAsString(FString::Join(FormParams, TEXT("&")));

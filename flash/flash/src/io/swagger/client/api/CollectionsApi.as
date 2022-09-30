@@ -6,7 +6,7 @@ import io.swagger.exception.ApiError;
 import io.swagger.common.ApiUserCredentials;
 import io.swagger.event.Response;
 import io.swagger.common.SwaggerApi;
-import io.swagger.client.model.MainCollection;
+import io.swagger.client.model.CollectionsCollection;
 import io.swagger.client.model.MainCreateCollectionBody;
 import io.swagger.client.model.UtilHttpError;
 
@@ -26,6 +26,7 @@ public class CollectionsApi extends SwaggerApi {
     }
 
         public static const event_collections_coluuid_commit_post: String = "collections_coluuid_commit_post";
+        public static const event_collections_coluuid_contents_delete: String = "collections_coluuid_contents_delete";
         public static const event_collections_coluuid_delete: String = "collections_coluuid_delete";
         public static const event_collections_coluuid_get: String = "collections_coluuid_get";
         public static const event_collections_coluuid_post: String = "collections_coluuid_post";
@@ -58,6 +59,48 @@ public class CollectionsApi extends SwaggerApi {
 
         token.requestId = requestId;
         token.completionEventType = "collections_coluuid_commit_post";
+
+        token.returnType = String;
+        return requestId;
+
+    }
+
+    /*
+     * Returns String 
+     */
+    public function collections_coluuid_contents_delete (coluuid: String, contentid: String, by: String, value: String): String {
+        // create path and map variables
+        var path: String = "/collections/{coluuid}/contents".replace(/{format}/g,"xml").replace("{" + "coluuid" + "}", getApiInvoker().escapeString(coluuid)).replace("{" + "contentid" + "}", getApiInvoker().escapeString(contentid));
+
+        // query params
+        var queryParams: Dictionary = new Dictionary();
+        var headerParams: Dictionary = new Dictionary();
+
+        // verify required params are set
+        if(        // verify required params are set
+        if(        // verify required params are set
+        if(        // verify required params are set
+        if() {
+            throw new ApiError(400, "missing required params");
+        }
+) {
+            throw new ApiError(400, "missing required params");
+        }
+) {
+            throw new ApiError(400, "missing required params");
+        }
+) {
+            throw new ApiError(400, "missing required params");
+        }
+
+        
+        
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "DELETE", queryParams, value, headerParams);
+
+        var requestId: String = getUniqueId();
+
+        token.requestId = requestId;
+        token.completionEventType = "collections_coluuid_contents_delete";
 
         token.returnType = String;
         return requestId;
@@ -209,18 +252,14 @@ if("null" != String(path))
     /*
      * Returns Array 
      */
-    public function collections_get (id: Number): String {
+    public function collections_get (): String {
         // create path and map variables
-        var path: String = "/collections/".replace(/{format}/g,"xml").replace("{" + "id" + "}", getApiInvoker().escapeString(id));
+        var path: String = "/collections/".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
         var headerParams: Dictionary = new Dictionary();
 
-        // verify required params are set
-        if() {
-            throw new ApiError(400, "missing required params");
-        }
 
         
         
@@ -237,7 +276,7 @@ if("null" != String(path))
     }
 
     /*
-     * Returns MainCollection 
+     * Returns CollectionsCollection 
      */
     public function collections_post (body: MainCreateCollectionBody): String {
         // create path and map variables
@@ -261,7 +300,7 @@ if("null" != String(path))
         token.requestId = requestId;
         token.completionEventType = "collections_post";
 
-        token.returnType = MainCollection;
+        token.returnType = CollectionsCollection;
         return requestId;
 
     }

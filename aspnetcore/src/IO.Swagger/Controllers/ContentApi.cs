@@ -67,7 +67,7 @@ namespace IO.Swagger.Controllers
         /// Add new content
         /// </summary>
         /// <remarks>This endpoint is used to upload new content.</remarks>
-        /// <param name="_file">File to upload</param>
+        /// <param name="data">File to upload</param>
         /// <param name="coluuid">Collection UUID</param>
         /// <param name="dir">Directory</param>
         /// <response code="200">OK</response>
@@ -77,7 +77,7 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("ContentAddPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(UtilContentAddResponse), description: "OK")]
-        public virtual IActionResult ContentAddPost([FromForm][Required()]System.IO.Stream _file, [FromRoute][Required]string coluuid, [FromRoute][Required]string dir)
+        public virtual IActionResult ContentAddPost([FromForm][Required()]System.IO.Stream data, [FromRoute][Required]string coluuid, [FromRoute][Required]string dir)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(UtilContentAddResponse));

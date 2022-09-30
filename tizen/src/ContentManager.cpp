@@ -395,7 +395,7 @@ static bool contentAddPostProcessor(MemoryStruct_s p_chunk, long code, char* err
 }
 
 static bool contentAddPostHelper(char * accessToken,
-	std::string file, std::string coluuid, std::string dir, 
+	std::string data, std::string coluuid, std::string dir, 
 	void(* handler)(Util.ContentAddResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -478,22 +478,22 @@ static bool contentAddPostHelper(char * accessToken,
 
 
 bool ContentManager::contentAddPostAsync(char * accessToken,
-	std::string file, std::string coluuid, std::string dir, 
+	std::string data, std::string coluuid, std::string dir, 
 	void(* handler)(Util.ContentAddResponse, Error, void* )
 	, void* userData)
 {
 	return contentAddPostHelper(accessToken,
-	file, coluuid, dir, 
+	data, coluuid, dir, 
 	handler, userData, true);
 }
 
 bool ContentManager::contentAddPostSync(char * accessToken,
-	std::string file, std::string coluuid, std::string dir, 
+	std::string data, std::string coluuid, std::string dir, 
 	void(* handler)(Util.ContentAddResponse, Error, void* )
 	, void* userData)
 {
 	return contentAddPostHelper(accessToken,
-	file, coluuid, dir, 
+	data, coluuid, dir, 
 	handler, userData, false);
 }
 

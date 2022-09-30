@@ -25,8 +25,8 @@
 
 package io.swagger.api;
 
+import io.swagger.model.CollectionsCollection;
 import java.util.List;
-import io.swagger.model.MainCollection;
 import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
@@ -87,6 +87,27 @@ public class CollectionsApiTest {
     public void collectionsColuuidCommitPostTest() {
         String coluuid = null;
         //String response = api.collectionsColuuidCommitPost(coluuid);
+        //assertNotNull(response);
+        // TODO: test validations
+        
+        
+    }
+    
+    /**
+     * Deletes a content from a collection
+     *
+     * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void collectionsColuuidContentsDeleteTest() {
+        String coluuid = null;
+        String contentid = null;
+        String by = null;
+        String value = null;
+        //String response = api.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -178,8 +199,7 @@ public class CollectionsApiTest {
      */
     @Test
     public void collectionsGetTest() {
-        Integer id = null;
-        //List<MainCollection> response = api.collectionsGet(id);
+        //List<CollectionsCollection> response = api.collectionsGet();
         //assertNotNull(response);
         // TODO: test validations
         
@@ -197,7 +217,7 @@ public class CollectionsApiTest {
     @Test
     public void collectionsPostTest() {
         MainCreateCollectionBody body = null;
-        //MainCollection response = api.collectionsPost(body);
+        //CollectionsCollection response = api.collectionsPost(body);
         //assertNotNull(response);
         // TODO: test validations
         

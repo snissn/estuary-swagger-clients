@@ -1,5 +1,5 @@
-mod main_collection;
-pub use self::main_collection::MainCollection;
+mod collections_collection;
+pub use self::collections_collection::CollectionsCollection;
 mod main_create_collection_body;
 pub use self::main_create_collection_body::MainCreateCollectionBody;
 mod main_estimate_deal_body;

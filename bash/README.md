@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *AutoretrieveApi* | [**adminAutoretrieveListGet**](docs/AutoretrieveApi.md#adminautoretrievelistget) | **GET** /admin/autoretrieve/list | List autoretrieve servers
 *AutoretrieveApi* | [**autoretrieveHeartbeatPost**](docs/AutoretrieveApi.md#autoretrieveheartbeatpost) | **POST** /autoretrieve/heartbeat | Marks autoretrieve server as up
 *CollectionsApi* | [**collectionsColuuidCommitPost**](docs/CollectionsApi.md#collectionscoluuidcommitpost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+*CollectionsApi* | [**collectionsColuuidContentsDelete**](docs/CollectionsApi.md#collectionscoluuidcontentsdelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 *CollectionsApi* | [**collectionsColuuidDelete**](docs/CollectionsApi.md#collectionscoluuiddelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 *CollectionsApi* | [**collectionsColuuidGet**](docs/CollectionsApi.md#collectionscoluuidget) | **GET** /collections/{coluuid} | Get contents in a collection
 *CollectionsApi* | [**collectionsColuuidPost**](docs/CollectionsApi.md#collectionscoluuidpost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -185,7 +186,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [Main.Collection](docs/Main.Collection.md)
+ - [Collections.Collection](docs/Collections.Collection.md)
  - [Main.createCollectionBody](docs/Main.createCollectionBody.md)
  - [Main.estimateDealBody](docs/Main.estimateDealBody.md)
  - [Main.getApiKeysResp](docs/Main.getApiKeysResp.md)

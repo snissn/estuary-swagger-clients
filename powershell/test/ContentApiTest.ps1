@@ -20,7 +20,7 @@ Describe 'IO.Swagger ContentApi' {
 
     Context 'ContentApi' {
         It 'Invoke-ContentApiContentAddPost' {
-            $ret = Invoke-PetApiGetPetById -file "TEST_VALUE" -coluuid "TEST_VALUE" -dir "TEST_VALUE"
+            $ret = Invoke-PetApiGetPetById -data "TEST_VALUE" -coluuid "TEST_VALUE" -dir "TEST_VALUE"
             #$ret | Should BeOfType IO.Swagger.Model.ModelNameHere
             #$ret.property | Should Be 0
         }

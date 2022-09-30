@@ -64,11 +64,11 @@ content_add_ipfs_post(Ctx, Body, Optional) ->
 %% @doc Add new content
 %% This endpoint is used to upload new content.
 -spec content_add_post(ctx:ctx(), binary(), binary(), binary()) -> {ok, swagger_util_content_add_response:swagger_util_content_add_response(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
-content_add_post(Ctx, File, Coluuid, Dir) ->
-    content_add_post(Ctx, File, Coluuid, Dir, #{}).
+content_add_post(Ctx, Data, Coluuid, Dir) ->
+    content_add_post(Ctx, Data, Coluuid, Dir, #{}).
 
 -spec content_add_post(ctx:ctx(), binary(), binary(), binary(), maps:map()) -> {ok, swagger_util_content_add_response:swagger_util_content_add_response(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
-content_add_post(Ctx, File, Coluuid, Dir, Optional) ->
+content_add_post(Ctx, Data, Coluuid, Dir, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -76,7 +76,7 @@ content_add_post(Ctx, File, Coluuid, Dir, Optional) ->
     Path = ["/content/add"],
     QS = [],
     Headers = [],
-    Body1 = {form, [{<<"file">>, File}]++swagger_utils:optional_params([], _OptionalParams)},
+    Body1 = {form, [{<<"data">>, Data}]++swagger_utils:optional_params([], _OptionalParams)},
     ContentTypeHeader = swagger_utils:select_header_content_type([<<"multipart/form-data">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 

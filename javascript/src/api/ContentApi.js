@@ -158,18 +158,18 @@
     /**
      * Add new content
      * This endpoint is used to upload new content.
-     * @param {File} file File to upload
+     * @param {File} data File to upload
      * @param {String} coluuid Collection UUID
      * @param {String} dir Directory
      * @param {module:api/ContentApi~contentAddPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UtilContentAddResponse}
      */
-    this.contentAddPost = function(file, coluuid, dir, callback) {
+    this.contentAddPost = function(data, coluuid, dir, callback) {
       var postBody = null;
 
-      // verify the required parameter 'file' is set
-      if (file === undefined || file === null) {
-        throw new Error("Missing the required parameter 'file' when calling contentAddPost");
+      // verify the required parameter 'data' is set
+      if (data === undefined || data === null) {
+        throw new Error("Missing the required parameter 'data' when calling contentAddPost");
       }
 
       // verify the required parameter 'coluuid' is set
@@ -194,7 +194,7 @@
       var headerParams = {
       };
       var formParams = {
-        'file': file
+        'data': data
       };
 
       var authNames = ['bearerAuth'];

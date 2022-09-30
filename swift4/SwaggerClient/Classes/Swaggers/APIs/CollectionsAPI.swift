@@ -56,6 +56,59 @@ open class CollectionsAPI {
     }
 
     /**
+     Deletes a content from a collection
+     
+     - parameter coluuid: (path) Collection ID 
+     - parameter contentid: (path) Content ID 
+     - parameter by: (body) Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
+     - parameter value: (body) Value of content_id or path to look for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func collectionsColuuidContentsDelete(coluuid: String, contentid: String, by: String, value: String, completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+        collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: coluuid, contentid: contentid, by: by, value: value).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     Deletes a content from a collection
+     - DELETE /collections/{coluuid}/contents
+     - This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     - API Key:
+       - type: apiKey Authorization 
+       - name: bearerAuth
+     - examples: [{contentType=application/json, example={
+  "bytes": [],
+  "empty": true
+}}]
+     
+     - parameter coluuid: (path) Collection ID 
+     - parameter contentid: (path) Content ID 
+     - parameter by: (body) Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
+     - parameter value: (body) Value of content_id or path to look for 
+
+     - returns: RequestBuilder<String> 
+     */
+    open class func collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: String, contentid: String, by: String, value: String) -> RequestBuilder<String> {
+        var path = "/collections/{coluuid}/contents"
+        let coluuidPreEscape = "\(coluuid)"
+        let coluuidPostEscape = coluuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
+        let contentidPreEscape = "\(contentid)"
+        let contentidPostEscape = contentidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{contentid}", with: contentidPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: value)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
      Deletes a collection
      
      - parameter coluuid: (path) Collection ID 
@@ -237,11 +290,10 @@ open class CollectionsAPI {
     /**
      List all collections
      
-     - parameter _id: (path) User ID 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func collectionsGet(_id: Int, completion: @escaping ((_ data: [MainCollection]?,_ error: Error?) -> Void)) {
-        collectionsGetWithRequestBuilder(_id: _id).execute { (response, error) -> Void in
+    open class func collectionsGet(completion: @escaping ((_ data: [CollectionsCollection]?,_ error: Error?) -> Void)) {
+        collectionsGetWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -255,22 +307,17 @@ open class CollectionsAPI {
        - type: apiKey Authorization 
        - name: bearerAuth
      - examples: [{contentType=application/json, example={}}]
-     
-     - parameter _id: (path) User ID 
 
-     - returns: RequestBuilder<[MainCollection]> 
+     - returns: RequestBuilder<[CollectionsCollection]> 
      */
-    open class func collectionsGetWithRequestBuilder(_id: Int) -> RequestBuilder<[MainCollection]> {
-        var path = "/collections/"
-        let _idPreEscape = "\(_id)"
-        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+    open class func collectionsGetWithRequestBuilder() -> RequestBuilder<[CollectionsCollection]> {
+        let path = "/collections/"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<[MainCollection]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<[CollectionsCollection]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -281,7 +328,7 @@ open class CollectionsAPI {
      - parameter body: (body) Collection name and description 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func collectionsPost(body: MainCreateCollectionBody, completion: @escaping ((_ data: MainCollection?,_ error: Error?) -> Void)) {
+    open class func collectionsPost(body: MainCreateCollectionBody, completion: @escaping ((_ data: CollectionsCollection?,_ error: Error?) -> Void)) {
         collectionsPostWithRequestBuilder(body: body).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -299,16 +346,16 @@ open class CollectionsAPI {
      
      - parameter body: (body) Collection name and description 
 
-     - returns: RequestBuilder<MainCollection> 
+     - returns: RequestBuilder<CollectionsCollection> 
      */
-    open class func collectionsPostWithRequestBuilder(body: MainCreateCollectionBody) -> RequestBuilder<MainCollection> {
+    open class func collectionsPostWithRequestBuilder(body: MainCreateCollectionBody) -> RequestBuilder<CollectionsCollection> {
         let path = "/collections/"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
 
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<MainCollection>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CollectionsCollection>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }

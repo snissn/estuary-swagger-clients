@@ -11,7 +11,7 @@
  */
 package io.swagger.client.api
 
-import io.swagger.client.model.MainCollection
+import io.swagger.client.model.CollectionsCollection
 import io.swagger.client.model.MainCreateCollectionBody
 import io.swagger.client.model.UtilHttpError
 import io.swagger.client.core._
@@ -36,6 +36,29 @@ object CollectionsApi {
       .withApiKey(apiKey, "Authorization", HEADER)
       .withPathParam("coluuid", coluuid)
       .withSuccessResponse[String](200)
+        /**
+   * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+   * 
+   * Expected answers:
+   *   code 200 : String (OK)
+   *   code 400 : UtilHttpError (Bad Request)
+   * 
+   * Available security schemes:
+   *   bearerAuth (apiKey)
+   * 
+   * @param coluuid Collection ID
+   * @param contentid Content ID
+   * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+   * @param value Value of content_id or path to look for
+   */
+  def collectionsColuuidContentsDelete(coluuid: String, contentid: String, by: String, value: String)(implicit apiKey: ApiKeyValue): ApiRequest[String] =
+    ApiRequest[String](ApiMethods.DELETE, "https://api.estuary.tech", "/collections/{coluuid}/contents", "application/json")
+      .withApiKey(apiKey, "Authorization", HEADER)
+      .withBody(value)
+      .withPathParam("coluuid", coluuid)
+      .withPathParam("contentid", contentid)
+      .withSuccessResponse[String](200)
+      .withErrorResponse[UtilHttpError](400)
         /**
    * This endpoint is used to delete an existing collection.
    * 
@@ -106,21 +129,18 @@ object CollectionsApi {
    * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
    * 
    * Expected answers:
-   *   code 200 : Seq[MainCollection] (OK)
+   *   code 200 : Seq[CollectionsCollection] (OK)
    *   code 400 : UtilHttpError (Bad Request)
    *   code 404 : UtilHttpError (Not Found)
    *   code 500 : UtilHttpError (Internal Server Error)
    * 
    * Available security schemes:
    *   bearerAuth (apiKey)
-   * 
-   * @param id User ID
    */
-  def collectionsGet(id: Int)(implicit apiKey: ApiKeyValue): ApiRequest[Seq[MainCollection]] =
-    ApiRequest[Seq[MainCollection]](ApiMethods.GET, "https://api.estuary.tech", "/collections/", "application/json")
+  def collectionsGet()(implicit apiKey: ApiKeyValue): ApiRequest[Seq[CollectionsCollection]] =
+    ApiRequest[Seq[CollectionsCollection]](ApiMethods.GET, "https://api.estuary.tech", "/collections/", "application/json")
       .withApiKey(apiKey, "Authorization", HEADER)
-      .withPathParam("id", id)
-      .withSuccessResponse[Seq[MainCollection]](200)
+      .withSuccessResponse[Seq[CollectionsCollection]](200)
       .withErrorResponse[UtilHttpError](400)
       .withErrorResponse[UtilHttpError](404)
       .withErrorResponse[UtilHttpError](500)
@@ -128,7 +148,7 @@ object CollectionsApi {
    * This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
    * 
    * Expected answers:
-   *   code 200 : MainCollection (OK)
+   *   code 200 : CollectionsCollection (OK)
    *   code 400 : UtilHttpError (Bad Request)
    *   code 404 : UtilHttpError (Not Found)
    *   code 500 : UtilHttpError (Internal Server Error)
@@ -138,11 +158,11 @@ object CollectionsApi {
    * 
    * @param body Collection name and description
    */
-  def collectionsPost(body: MainCreateCollectionBody)(implicit apiKey: ApiKeyValue): ApiRequest[MainCollection] =
-    ApiRequest[MainCollection](ApiMethods.POST, "https://api.estuary.tech", "/collections/", "application/json")
+  def collectionsPost(body: MainCreateCollectionBody)(implicit apiKey: ApiKeyValue): ApiRequest[CollectionsCollection] =
+    ApiRequest[CollectionsCollection](ApiMethods.POST, "https://api.estuary.tech", "/collections/", "application/json")
       .withApiKey(apiKey, "Authorization", HEADER)
       .withBody(body)
-      .withSuccessResponse[MainCollection](200)
+      .withSuccessResponse[CollectionsCollection](200)
       .withErrorResponse[UtilHttpError](400)
       .withErrorResponse[UtilHttpError](404)
       .withErrorResponse[UtilHttpError](500)

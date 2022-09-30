@@ -126,7 +126,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contentAddPost**
-> UtilContentAddResponse contentAddPost(file, coluuid, dir)
+> UtilContentAddResponse contentAddPost(data, coluuid, dir)
 
 Add new content
 
@@ -141,12 +141,12 @@ import 'package:swagger/api.dart';
 //swagger.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
 
 var api_instance = new ContentApi();
-var file = /path/to/file.txt; // MultipartFile | File to upload
+var data = /path/to/file.txt; // MultipartFile | File to upload
 var coluuid = coluuid_example; // String | Collection UUID
 var dir = dir_example; // String | Directory
 
 try { 
-    var result = api_instance.contentAddPost(file, coluuid, dir);
+    var result = api_instance.contentAddPost(data, coluuid, dir);
     print(result);
 } catch (e) {
     print("Exception when calling ContentApi->contentAddPost: $e\n");
@@ -157,7 +157,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **MultipartFile**| File to upload | 
+ **data** | **MultipartFile**| File to upload | 
  **coluuid** | **String**| Collection UUID | 
  **dir** | **String**| Directory | 
 

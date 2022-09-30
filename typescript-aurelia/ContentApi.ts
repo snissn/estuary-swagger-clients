@@ -41,7 +41,7 @@ export interface IContentAddIpfsPostParams {
  * contentAddPost - parameters interface
  */
 export interface IContentAddPostParams {
-  file: any;
+  data: any;
   coluuid: string;
   dir: string;
 }
@@ -230,13 +230,13 @@ export class ContentApi extends Api {
   /**
    * Add new content
    * This endpoint is used to upload new content.
-   * @param params.file File to upload
+   * @param params.data File to upload
    * @param params.coluuid Collection UUID
    * @param params.dir Directory
    */
   async contentAddPost(params: IContentAddPostParams): Promise<UtilContentAddResponse> {
     // Verify required parameters are set
-    this.ensureParamIsSet('contentAddPost', params, 'file');
+    this.ensureParamIsSet('contentAddPost', params, 'data');
     this.ensureParamIsSet('contentAddPost', params, 'coluuid');
     this.ensureParamIsSet('contentAddPost', params, 'dir');
 
@@ -251,7 +251,7 @@ export class ContentApi extends Api {
       // Encode form parameters
       .withHeader('content-type', 'application/x-www-form-urlencoded')
       .withContent(this.queryString({ 
-        'file': params['file'],
+        'data': params['data'],
       }))
 
       // Authentication 'bearerAuth' required

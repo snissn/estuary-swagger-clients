@@ -15,7 +15,7 @@
 
 #include "SWGObject.h"
 
-#include "SWGMain.Collection.h"
+#include "SWGCollections.Collection.h"
 #include "SWGMain.createCollectionBody.h"
 #include "SWGMain.estimateDealBody.h"
 #include "SWGMain.getApiKeysResp.h"
@@ -28,8 +28,8 @@
 namespace Swagger {
 
   inline void* create(QString type) {
-    if(QString("SWGMain.Collection").compare(type) == 0) {
-      return new SWGMain.Collection();
+    if(QString("SWGCollections.Collection").compare(type) == 0) {
+      return new SWGCollections.Collection();
     }
     if(QString("SWGMain.createCollectionBody").compare(type) == 0) {
       return new SWGMain.createCollectionBody();

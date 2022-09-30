@@ -316,17 +316,17 @@ public class ContentApi {
   /**
   * Add new content
   * This endpoint is used to upload new content.
-   * @param file File to upload
+   * @param data File to upload
    * @param coluuid Collection UUID
    * @param dir Directory
    * @return UtilContentAddResponse
   */
-  public UtilContentAddResponse contentAddPost (File file, String coluuid, String dir) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public UtilContentAddResponse contentAddPost (File data, String coluuid, String dir) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'file' is set
-    if (file == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'file' when calling contentAddPost",
-        new ApiException(400, "Missing the required parameter 'file' when calling contentAddPost"));
+    // verify the required parameter 'data' is set
+    if (data == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'data' when calling contentAddPost",
+        new ApiException(400, "Missing the required parameter 'data' when calling contentAddPost"));
     }
     // verify the required parameter 'coluuid' is set
     if (coluuid == null) {
@@ -356,8 +356,8 @@ public class ContentApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      if (file != null) {
-        localVarBuilder.addBinaryBody("file", file);
+      if (data != null) {
+        localVarBuilder.addBinaryBody("data", data);
       }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
@@ -394,15 +394,15 @@ public class ContentApi {
       /**
    * Add new content
    * This endpoint is used to upload new content.
-   * @param file File to upload   * @param coluuid Collection UUID   * @param dir Directory
+   * @param data File to upload   * @param coluuid Collection UUID   * @param dir Directory
   */
-  public void contentAddPost (File file, String coluuid, String dir, final Response.Listener<UtilContentAddResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void contentAddPost (File data, String coluuid, String dir, final Response.Listener<UtilContentAddResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'file' is set
-    if (file == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'file' when calling contentAddPost",
-        new ApiException(400, "Missing the required parameter 'file' when calling contentAddPost"));
+    // verify the required parameter 'data' is set
+    if (data == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'data' when calling contentAddPost",
+        new ApiException(400, "Missing the required parameter 'data' when calling contentAddPost"));
     }
     // verify the required parameter 'coluuid' is set
     if (coluuid == null) {
@@ -436,8 +436,8 @@ public class ContentApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
-      if (file != null) {
-        localVarBuilder.addBinaryBody("file", file);
+      if (data != null) {
+        localVarBuilder.addBinaryBody("data", data);
       }
       
 

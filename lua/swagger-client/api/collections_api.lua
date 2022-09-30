@@ -16,7 +16,7 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local swagger-client_main_collection = require "swagger-client.model.main_collection"
+local swagger-client_collections_collection = require "swagger-client.model.collections_collection"
 local swagger-client_main_create_collection_body = require "swagger-client.model.main_create_collection_body"
 local swagger-client_util_http_error = require "swagger-client.model.util_http_error"
 
@@ -58,6 +58,60 @@ function collections_api:collections_coluuid_commit_post(coluuid)
 	-- ref: https://github.com/swagger-api/swagger-codegen/pull/6252#issuecomment-321199879
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
+
+	-- api key in headers 'Authorization'
+	if self.api_key['Authorization'] then
+		req.headers:upsert("bearerAuth", self.api_key['Authorization'])
+	end
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return result, headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function collections_api:collections_coluuid_contents_delete(coluuid, contentid, by, value)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		path = string.format("%s/collections/%s/contents",
+			self.basePath, coluuid, contentid);
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "DELETE")
+	-- TODO: create a function to select proper content-type
+	-- ref: https://github.com/swagger-api/swagger-codegen/pull/6252#issuecomment-321199879
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+	req:set_body(dkjson.encode(by))
+
+	req:set_body(dkjson.encode(value))
 
 	-- api key in headers 'Authorization'
 	if self.api_key['Authorization'] then
@@ -274,12 +328,12 @@ function collections_api:collections_fs_add_post(coluuid, content, path)
 	end
 end
 
-function collections_api:collections_get(id)
+function collections_api:collections_get()
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		path = string.format("%s/collections",
-			self.basePath, id);
+			self.basePath);
 	})
 
 	-- set HTTP verb
@@ -313,7 +367,7 @@ function collections_api:collections_get(id)
 			return nil, err3
 		end
 		for _, ob in ipairs(result) do
-			swagger-client_main_collection.cast(ob)
+			swagger-client_collections_collection.cast(ob)
 		end
 		return result, headers
 	else
@@ -367,7 +421,7 @@ function collections_api:collections_post(body)
 		if result == nil then
 			return nil, err3
 		end
-		return swagger-client_main_collection.cast(result), headers
+		return swagger-client_collections_collection.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

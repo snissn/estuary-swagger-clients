@@ -38,6 +38,17 @@ isa_ok($api, 'WWW::SwaggerClient::CollectionsApi');
 }
 
 #
+# collections_coluuid_contents_delete test
+#
+{
+    my $coluuid = undef; # replace NULL with a proper value
+    my $contentid = undef; # replace NULL with a proper value
+    my $by = undef; # replace NULL with a proper value
+    my $value = undef; # replace NULL with a proper value
+    my $result = $api->collections_coluuid_contents_delete(coluuid => $coluuid, contentid => $contentid, by => $by, value => $value);
+}
+
+#
 # collections_coluuid_delete test
 #
 {
@@ -76,8 +87,7 @@ isa_ok($api, 'WWW::SwaggerClient::CollectionsApi');
 # collections_get test
 #
 {
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->collections_get(id => $id);
+    my $result = $api->collections_get();
 }
 
 #

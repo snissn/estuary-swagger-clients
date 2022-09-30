@@ -138,7 +138,7 @@ null (empty response body)
 
 <a name="contentAddPost"></a>
 # **contentAddPost**
-> UtilContentAddResponse contentAddPost(file, coluuid, dir)
+> UtilContentAddResponse contentAddPost(data, coluuid, dir)
 
 Add new content
 
@@ -157,7 +157,7 @@ bearerAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new EstuaryApi.ContentApi();
 
-var file = "/path/to/file.txt"; // File | File to upload
+var data = "/path/to/file.txt"; // File | File to upload
 
 var coluuid = "coluuid_example"; // String | Collection UUID
 
@@ -171,14 +171,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.contentAddPost(file, coluuid, dir, callback);
+apiInstance.contentAddPost(data, coluuid, dir, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **File**| File to upload | 
+ **data** | **File**| File to upload | 
  **coluuid** | **String**| Collection UUID | 
  **dir** | **String**| Directory | 
 

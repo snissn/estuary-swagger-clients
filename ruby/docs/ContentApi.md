@@ -137,7 +137,7 @@ nil (empty response body)
 
 
 # **content_add_post**
-> UtilContentAddResponse content_add_post(file, coluuid, dir)
+> UtilContentAddResponse content_add_post(data, coluuid, dir)
 
 Add new content
 
@@ -157,7 +157,7 @@ end
 
 api_instance = SwaggerClient::ContentApi.new
 
-file = File.new('/path/to/file.txt') # File | File to upload
+data = File.new('/path/to/file.txt') # File | File to upload
 
 coluuid = 'coluuid_example' # String | Collection UUID
 
@@ -166,7 +166,7 @@ dir = 'dir_example' # String | Directory
 
 begin
   #Add new content
-  result = api_instance.content_add_post(file, coluuid, dir)
+  result = api_instance.content_add_post(data, coluuid, dir)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling ContentApi->content_add_post: #{e}"
@@ -177,7 +177,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **File**| File to upload | 
+ **data** | **File**| File to upload | 
  **coluuid** | **String**| Collection UUID | 
  **dir** | **String**| Directory | 
 

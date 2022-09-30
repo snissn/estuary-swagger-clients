@@ -126,7 +126,7 @@ function content_api:content_add_ipfs_post(body)
 	end
 end
 
-function content_api:content_add_post(file, coluuid, dir)
+function content_api:content_add_post(data, coluuid, dir)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -147,7 +147,7 @@ function content_api:content_add_post(file, coluuid, dir)
 	req.headers:upsert("content-type", "application/json")
 
 	req:set_body(http_util.dict_to_query({
-		["file"] = file;
+		["data"] = data;
 	}))
 	-- api key in headers 'Authorization'
 	if self.api_key['Authorization'] then

@@ -51,7 +51,7 @@ class TestContentController(BaseTestCase):
 
         Add new content
         """
-        data = dict(file=(BytesIO(b'some file data'), 'file.txt'))
+        data = dict(data=(BytesIO(b'some file data'), 'file.txt'))
         response = self.client.open(
             '//content/add'.format(coluuid='coluuid_example', dir='dir_example'),
             method='POST',

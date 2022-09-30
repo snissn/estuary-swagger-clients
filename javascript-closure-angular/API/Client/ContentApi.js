@@ -137,13 +137,13 @@ API.Client.ContentApi.prototype.contentAddIpfsPost = function(body, opt_extraHtt
 /**
  * Add new content
  * This endpoint is used to upload new content.
- * @param {!Object} file File to upload
+ * @param {!Object} data File to upload
  * @param {!string} coluuid Collection UUID
  * @param {!string} dir Directory
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.util.ContentAddResponse>}
  */
-API.Client.ContentApi.prototype.contentAddPost = function(file, coluuid, dir, opt_extraHttpRequestParams) {
+API.Client.ContentApi.prototype.contentAddPost = function(data, coluuid, dir, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/content/add'
       .replace('{' + 'coluuid' + '}', String(coluuid))
@@ -157,9 +157,9 @@ API.Client.ContentApi.prototype.contentAddPost = function(file, coluuid, dir, op
   /** @type {!Object} */
   var formParams = {};
 
-  // verify required parameter 'file' is set
-  if (!file) {
-    throw new Error('Missing required parameter file when calling contentAddPost');
+  // verify required parameter 'data' is set
+  if (!data) {
+    throw new Error('Missing required parameter data when calling contentAddPost');
   }
   // verify required parameter 'coluuid' is set
   if (!coluuid) {
@@ -171,7 +171,7 @@ API.Client.ContentApi.prototype.contentAddPost = function(file, coluuid, dir, op
   }
   headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
-  formParams['file'] = file;
+  formParams['data'] = data;
 
   /** @type {!Object} */
   var httpRequestParams = {

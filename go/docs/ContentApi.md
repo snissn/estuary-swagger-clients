@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ContentAddPost**
-> UtilContentAddResponse ContentAddPost(ctx, file, coluuid, dir)
+> UtilContentAddResponse ContentAddPost(ctx, data, coluuid, dir)
 Add new content
 
 This endpoint is used to upload new content.
@@ -100,7 +100,7 @@ This endpoint is used to upload new content.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **file** | ***os.File**| File to upload | 
+  **data** | ***os.File**| File to upload | 
   **coluuid** | **string**| Collection UUID | 
   **dir** | **string**| Directory | 
 

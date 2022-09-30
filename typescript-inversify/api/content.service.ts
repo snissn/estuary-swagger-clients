@@ -108,16 +108,16 @@ export class ContentService {
     /**
      * Add new content
      * This endpoint is used to upload new content.
-     * @param file File to upload
+     * @param data File to upload
      * @param coluuid Collection UUID
      * @param dir Directory
      
      */
-    public contentAddPost(file: Blob, coluuid: string, dir: string, observe?: 'body', headers?: Headers): Observable<UtilContentAddResponse>;
-    public contentAddPost(file: Blob, coluuid: string, dir: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<UtilContentAddResponse>>;
-    public contentAddPost(file: Blob, coluuid: string, dir: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!file){
-            throw new Error('Required parameter file was null or undefined when calling contentAddPost.');
+    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'body', headers?: Headers): Observable<UtilContentAddResponse>;
+    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<UtilContentAddResponse>>;
+    public contentAddPost(data: Blob, coluuid: string, dir: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (!data){
+            throw new Error('Required parameter data was null or undefined when calling contentAddPost.');
         }
 
         if (!coluuid){
@@ -136,8 +136,8 @@ export class ContentService {
 
         let formData: FormData = new FormData();
         headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-        if (file !== undefined) {
-            formData.append('file', <any>file);
+        if (data !== undefined) {
+            formData.append('data', <any>data);
         }
 
         const response: Observable<HttpResponse<UtilContentAddResponse>> = this.httpClient.post(`${this.APIConfiguration.basePath}/content/add` as any, body, headers);

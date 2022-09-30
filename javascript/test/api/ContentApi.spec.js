@@ -86,11 +86,11 @@
         it('should call contentAddPost successfully', function(done) {
           // TODO: uncomment, update parameter values for contentAddPost call and complete the assertions
           /*
-          var file = "/path/to/file.txt";
+          var data = "/path/to/file.txt";
           var coluuid = "coluuid_example";
           var dir = "dir_example";
 
-          instance.contentAddPost(file, coluuid, dir, function(error, data, response) {
+          instance.contentAddPost(data, coluuid, dir, function(error, data, response) {
             if (error) {
               done(error);
               return;

@@ -166,20 +166,14 @@ paths:
         \ This endpoint provides a way to list all collections to the user."
       produces:
       - "application/json"
-      parameters:
-      - name: "id"
-        in: "path"
-        description: "User ID"
-        required: true
-        type: "integer"
-        x-exportParamName: "Id"
+      parameters: []
       responses:
         "200":
           description: "OK"
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/main.Collection"
+              $ref: "#/definitions/collections.Collection"
         "400":
           description: "Bad Request"
           schema:
@@ -213,7 +207,7 @@ paths:
         "200":
           description: "OK"
           schema:
-            $ref: "#/definitions/main.Collection"
+            $ref: "#/definitions/collections.Collection"
         "400":
           description: "Bad Request"
           schema:
@@ -343,6 +337,53 @@ paths:
           description: "OK"
           schema:
             type: "string"
+  /collections/{coluuid}/contents:
+    delete:
+      tags:
+      - "collections"
+      summary: "Deletes a content from a collection"
+      description: "This endpoint is used to delete an existing content from an existing\
+        \ collection. If two or more files with the same contentid exist in the collection,\
+        \ delete the one in the specified path"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "coluuid"
+        in: "path"
+        description: "Collection ID"
+        required: true
+        type: "string"
+        x-exportParamName: "Coluuid"
+      - name: "contentid"
+        in: "path"
+        description: "Content ID"
+        required: true
+        type: "string"
+        x-exportParamName: "Contentid"
+      - in: "body"
+        name: "by"
+        description: "Variable to use when filtering for files (must be either 'path'\
+          \ or 'content_id')"
+        required: true
+        schema:
+          type: "string"
+        x-exportParamName: "By"
+      - in: "body"
+        name: "value"
+        description: "Value of content_id or path to look for"
+        required: true
+        schema:
+          type: "string"
+        x-exportParamName: "Value"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "400":
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/util.HttpError"
   /content/add:
     post:
       tags:
@@ -354,12 +395,12 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "file"
+      - name: "data"
         in: "formData"
         description: "File to upload"
         required: true
         type: "file"
-        x-exportParamName: "File"
+        x-exportParamName: "Data"
       - name: "coluuid"
         in: "path"
         description: "Collection UUID"
@@ -1226,7 +1267,7 @@ securityDefinitions:
     name: "Authorization"
     in: "header"
 definitions:
-  main.Collection:
+  collections.Collection:
     type: "object"
     properties:
       cid:

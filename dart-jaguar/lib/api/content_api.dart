@@ -50,7 +50,7 @@ class ContentApi extends _$ContentApiClient implements ApiClient {
             @PathParam("coluuid") String coluuid, 
             @PathParam("dir") String dir
         ,
-        @AsMultipartField() MultipartFile file
+        @AsMultipartField() MultipartFile data
     );
 
     /// Get aggregated content stats

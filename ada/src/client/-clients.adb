@@ -166,6 +166,31 @@ package body .Clients is
       Swagger.Streams.Deserialize (Reply, "", Result);
    end Collections_Coluuid_Commit_Post;
 
+   --  Deletes a content from a collection
+   --  This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+   procedure Collections_Coluuid_Contents_Delete
+      (Client : in out Client_Type;
+       Coluuid : in Swagger.UString;
+       Contentid : in Swagger.UString;
+       By : in Swagger.UString;
+       Value : in Swagger.UString;
+       Result : out Swagger.UString) is
+      URI   : Swagger.Clients.URI_Type;
+      Req   : Swagger.Clients.Request_Type;
+      Reply : Swagger.Value_Type;
+   begin
+      Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
+      Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
+      .Models.Serialize (Req.Stream, "", By);
+      .Models.Serialize (Req.Stream, "", Value);
+
+      URI.Set_Path ("/collections/{coluuid}/contents");
+      URI.Set_Path_Param ("coluuid", Coluuid);
+      URI.Set_Path_Param ("contentid", Contentid);
+      Client.Call (Swagger.Clients.DELETE, URI, Req, Reply);
+      Swagger.Streams.Deserialize (Reply, "", Result);
+   end Collections_Coluuid_Contents_Delete;
+
    --  Deletes a collection
    --  This endpoint is used to delete an existing collection.
    procedure Collections_Coluuid_Delete
@@ -240,15 +265,13 @@ package body .Clients is
    --  This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
    procedure Collections_Get
       (Client : in out Client_Type;
-       Id : in Integer;
-       Result : out .Models.Main_Collection_Type_Vectors.Vector) is
+       Result : out .Models.Collections_Collection_Type_Vectors.Vector) is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin
       Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
 
       URI.Set_Path ("/collections/");
-      URI.Set_Path_Param ("id", Swagger.To_String (Id));
       Client.Call (Swagger.Clients.GET, URI, Reply);
       .Models.Deserialize (Reply, "", Result);
    end Collections_Get;
@@ -258,7 +281,7 @@ package body .Clients is
    procedure Collections_Post
       (Client : in out Client_Type;
        P_Body : in .Models.Main_createCollectionBody_Type;
-       Result : out .Models.Main_Collection_Type) is
+       Result : out .Models.Collections_Collection_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
       Reply : Swagger.Value_Type;
@@ -314,7 +337,7 @@ package body .Clients is
    --  This endpoint is used to upload new content.
    procedure Content_Add_Post
       (Client : in out Client_Type;
-       File : in Swagger.File_Part_Type;
+       Data : in Swagger.File_Part_Type;
        Coluuid : in Swagger.UString;
        Dir : in Swagger.UString;
        Result : out .Models.Util_ContentAddResponse_Type) is
@@ -324,7 +347,7 @@ package body .Clients is
    begin
       Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_FORM));
-      .Models.Serialize (Req.Stream, "file", File);
+      .Models.Serialize (Req.Stream, "data", Data);
 
       URI.Set_Path ("/content/add");
       URI.Set_Path_Param ("coluuid", Coluuid);

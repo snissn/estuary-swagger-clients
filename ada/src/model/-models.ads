@@ -137,7 +137,7 @@ package .Models is
 
 
 
-   type Main_Collection_Type is
+   type Collections_Collection_Type is
      record
        Cid : Swagger.Nullable_UString;
        Created_At : Swagger.Nullable_UString;
@@ -147,25 +147,25 @@ package .Models is
        Uuid : Swagger.Nullable_UString;
      end record;
 
-   package Main_Collection_Type_Vectors is
+   package Collections_Collection_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => Main_Collection_Type);
+                                  Element_Type => Collections_Collection_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in Main_Collection_Type);
+                        Value : in Collections_Collection_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in Main_Collection_Type_Vectors.Vector);
+                        Value : in Collections_Collection_Type_Vectors.Vector);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out Main_Collection_Type);
+                          Value : out Collections_Collection_Type);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out Main_Collection_Type_Vectors.Vector);
+                          Value : out Collections_Collection_Type_Vectors.Vector);
 
 
 

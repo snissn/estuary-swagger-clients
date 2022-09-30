@@ -138,7 +138,7 @@ null (empty response body)
 
 <a name="contentAddPost"></a>
 # **contentAddPost**
-> UtilContentAddResponse contentAddPost(file, coluuid, dir)
+> UtilContentAddResponse contentAddPost(data, coluuid, dir)
 
 Add new content
 
@@ -162,11 +162,11 @@ bearerAuth.setApiKey("YOUR API KEY");
 //bearerAuth.setApiKeyPrefix("Token");
 
 ContentApi apiInstance = new ContentApi();
-File file = new File("/path/to/file.txt"); // File | File to upload
+File data = new File("/path/to/file.txt"); // File | File to upload
 String coluuid = "coluuid_example"; // String | Collection UUID
 String dir = "dir_example"; // String | Directory
 try {
-    UtilContentAddResponse result = apiInstance.contentAddPost(file, coluuid, dir);
+    UtilContentAddResponse result = apiInstance.contentAddPost(data, coluuid, dir);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContentApi#contentAddPost");
@@ -178,7 +178,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **File**| File to upload |
+ **data** | **File**| File to upload |
  **coluuid** | **String**| Collection UUID |
  **dir** | **String**| Directory |
 

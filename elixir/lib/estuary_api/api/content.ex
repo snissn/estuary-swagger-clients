@@ -79,7 +79,7 @@ defmodule EstuaryAPI.Api.Content do
   ## Parameters
 
   - connection (EstuaryAPI.Connection): Connection to server
-  - file (String.t): File to upload
+  - data (String.t): File to upload
   - coluuid (String.t): Collection UUID
   - dir (String.t): Directory
   - opts (KeywordList): [optional] Optional parameters
@@ -90,11 +90,11 @@ defmodule EstuaryAPI.Api.Content do
   {:error, info} on failure
   """
   @spec content_add_post(Tesla.Env.client, String.t, String.t, String.t, keyword()) :: {:ok, EstuaryAPI.Model.UtilContentAddResponse.t} | {:error, Tesla.Env.t}
-  def content_add_post(connection, file, coluuid, dir, _opts \\ []) do
+  def content_add_post(connection, data, coluuid, dir, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/content/add")
-    |> add_param(:file, :"file", file)
+    |> add_param(:file, :"data", data)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> decode(%EstuaryAPI.Model.UtilContentAddResponse{})

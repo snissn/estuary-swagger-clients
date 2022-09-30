@@ -59,6 +59,67 @@ class CollectionsApi {
       return null;
     }
   }
+  /// Deletes a content from a collection
+  ///
+  /// This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+  Future<String> collectionsColuuidContentsDelete(String coluuid, String contentid, String by, String value) async {
+    Object postBody = value;
+
+    // verify required params are set
+    if(coluuid == null) {
+     throw new ApiException(400, "Missing required param: coluuid");
+    }
+    if(contentid == null) {
+     throw new ApiException(400, "Missing required param: contentid");
+    }
+    if(by == null) {
+     throw new ApiException(400, "Missing required param: by");
+    }
+    if(value == null) {
+     throw new ApiException(400, "Missing required param: value");
+    }
+
+    // create path and map variables
+    String path = "/collections/{coluuid}/contents".replaceAll("{format}","json").replaceAll("{" + "coluuid" + "}", coluuid.toString()).replaceAll("{" + "contentid" + "}", contentid.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    List<String> authNames = ["bearerAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+          }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'DELETE',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, response.body);
+    } else if(response.body != null) {
+      return 
+          apiClient.deserialize(response.body, 'String') as String ;
+    } else {
+      return null;
+    }
+  }
   /// Deletes a collection
   ///
   /// This endpoint is used to delete an existing collection.
@@ -283,16 +344,13 @@ class CollectionsApi {
   /// List all collections
   ///
   /// This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
-  Future<List<MainCollection>> collectionsGet(int id) async {
+  Future<List<CollectionsCollection>> collectionsGet() async {
     Object postBody = null;
 
     // verify required params are set
-    if(id == null) {
-     throw new ApiException(400, "Missing required param: id");
-    }
 
     // create path and map variables
-    String path = "/collections/".replaceAll("{format}","json").replaceAll("{" + "id" + "}", id.toString());
+    String path = "/collections/".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -327,7 +385,7 @@ class CollectionsApi {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
       return 
-        (apiClient.deserialize(response.body, 'List<MainCollection>') as List).map((item) => item as MainCollection).toList();
+        (apiClient.deserialize(response.body, 'List<CollectionsCollection>') as List).map((item) => item as CollectionsCollection).toList();
     } else {
       return null;
     }
@@ -335,7 +393,7 @@ class CollectionsApi {
   /// Create a new collection
   ///
   /// This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
-  Future<MainCollection> collectionsPost(MainCreateCollectionBody body) async {
+  Future<CollectionsCollection> collectionsPost(MainCreateCollectionBody body) async {
     Object postBody = body;
 
     // verify required params are set
@@ -379,7 +437,7 @@ class CollectionsApi {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
       return 
-          apiClient.deserialize(response.body, 'MainCollection') as MainCollection ;
+          apiClient.deserialize(response.body, 'CollectionsCollection') as CollectionsCollection ;
     } else {
       return null;
     }

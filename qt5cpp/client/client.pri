@@ -2,7 +2,7 @@ QT += network
 
 HEADERS += \
 # Models
-    $${PWD}/SWGMain.Collection.h \
+    $${PWD}/SWGCollections.Collection.h \
     $${PWD}/SWGMain.createCollectionBody.h \
     $${PWD}/SWGMain.estimateDealBody.h \
     $${PWD}/SWGMain.getApiKeysResp.h \
@@ -34,7 +34,7 @@ HEADERS += \
 
 SOURCES += \
 # Models
-    $${PWD}/SWGMain.Collection.cpp \
+    $${PWD}/SWGCollections.Collection.cpp \
     $${PWD}/SWGMain.createCollectionBody.cpp \
     $${PWD}/SWGMain.estimateDealBody.cpp \
     $${PWD}/SWGMain.getApiKeysResp.cpp \

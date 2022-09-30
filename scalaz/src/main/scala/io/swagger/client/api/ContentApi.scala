@@ -65,7 +65,7 @@ object ContentApi {
     } yield resp
   }
   
-  def contentAddPost(host: String, file: File, coluuid: String, dir: String): Task[ContentAddResponse] = {
+  def contentAddPost(host: String, data: File, coluuid: String, dir: String): Task[ContentAddResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ContentAddResponse] = jsonOf[ContentAddResponse]
 
     val path = "/content/add".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString)).replaceAll("\\{" + "dir" + "\\}",escape(dir.toString))
@@ -384,7 +384,7 @@ class HttpServiceContentApi(service: HttpService) {
     } yield resp
   }
   
-  def contentAddPost(file: File, coluuid: String, dir: String): Task[ContentAddResponse] = {
+  def contentAddPost(data: File, coluuid: String, dir: String): Task[ContentAddResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ContentAddResponse] = jsonOf[ContentAddResponse]
 
     val path = "/content/add".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString)).replaceAll("\\{" + "dir" + "\\}",escape(dir.toString))

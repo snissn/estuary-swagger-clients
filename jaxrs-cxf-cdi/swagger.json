@@ -154,20 +154,14 @@
         "summary" : "List all collections",
         "description" : "This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.",
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "description" : "User ID",
-          "required" : true,
-          "type" : "integer"
-        } ],
+        "parameters" : [ ],
         "responses" : {
           "200" : {
             "description" : "OK",
             "schema" : {
               "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/main.Collection"
+                "$ref" : "#/definitions/collections.Collection"
               }
             }
           },
@@ -209,7 +203,7 @@
           "200" : {
             "description" : "OK",
             "schema" : {
-              "$ref" : "#/definitions/main.Collection"
+              "$ref" : "#/definitions/collections.Collection"
             }
           },
           "400" : {
@@ -356,6 +350,57 @@
         }
       }
     },
+    "/collections/{coluuid}/contents" : {
+      "delete" : {
+        "tags" : [ "collections" ],
+        "summary" : "Deletes a content from a collection",
+        "description" : "This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "coluuid",
+          "in" : "path",
+          "description" : "Collection ID",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "contentid",
+          "in" : "path",
+          "description" : "Content ID",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "by",
+          "description" : "Variable to use when filtering for files (must be either 'path' or 'content_id')",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "body",
+          "name" : "value",
+          "description" : "Value of content_id or path to look for",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/util.HttpError"
+            }
+          }
+        }
+      }
+    },
     "/content/add" : {
       "post" : {
         "tags" : [ "content" ],
@@ -364,7 +409,7 @@
         "consumes" : [ "multipart/form-data" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "file",
+          "name" : "data",
           "in" : "formData",
           "description" : "File to upload",
           "required" : true,
@@ -1275,7 +1320,7 @@
     }
   },
   "definitions" : {
-    "main.Collection" : {
+    "collections.Collection" : {
       "type" : "object",
       "properties" : {
         "cid" : {

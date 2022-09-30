@@ -39,7 +39,7 @@ public:
 
     void contentAddCarPost(QString*& body, QString* filename, QString* commp, QString* size);
     void contentAddIpfsPost(SWGUtil.ContentAddIpfsBody& body);
-    void contentAddPost(SWGHttpRequestInputFileElement* file, QString* coluuid, QString* dir);
+    void contentAddPost(SWGHttpRequestInputFileElement* data, QString* coluuid, QString* dir);
     void contentAggregatedContentGet(QString* content);
     void contentAllDealsGet(QString* begin, QString* duration, QString* all);
     void contentBwUsageContentGet(QString* content);

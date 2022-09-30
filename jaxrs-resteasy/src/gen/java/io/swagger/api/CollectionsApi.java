@@ -6,8 +6,8 @@ import io.swagger.api.CollectionsApiService;
 import io.swagger.annotations.ApiParam;
 import io.swagger.jaxrs.*;
 
+import io.swagger.model.CollectionsCollection;
 import java.util.List;
-import io.swagger.model.MainCollection;
 import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
@@ -30,7 +30,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the collections API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-29T08:49:08.650Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-30T06:35:58.982Z")
 public class CollectionsApi  {
 
     @Inject CollectionsApiService service;
@@ -47,6 +47,21 @@ public class CollectionsApi  {
     public Response collectionsColuuidCommitPost( @PathParam("coluuid") String coluuid,@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.collectionsColuuidCommitPost(coluuid,securityContext);
+    }
+    @DELETE
+    @Path("/{coluuid}/contents")
+    
+    @Produces({ "application/json" })
+    @io.swagger.annotations.ApiOperation(value = "Deletes a content from a collection", notes = "This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path", response = String.class, authorizations = {
+        @io.swagger.annotations.Authorization(value = "bearerAuth")
+    }, tags={ "collections", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class),
+        
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class) })
+    public Response collectionsColuuidContentsDelete( @PathParam("coluuid") String coluuid, @PathParam("contentid") String contentid,@ApiParam(value = "Variable to use when filtering for files (must be either 'path' or 'content_id')" ,required=true) String by,@ApiParam(value = "Value of content_id or path to look for" ,required=true) String value,@Context SecurityContext securityContext)
+    throws NotFoundException {
+        return service.collectionsColuuidContentsDelete(coluuid,contentid,by,value,securityContext);
     }
     @DELETE
     @Path("/{coluuid}")
@@ -102,30 +117,30 @@ public class CollectionsApi  {
     @Path("/")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "List all collections", notes = "This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.", response = MainCollection.class, responseContainer = "List", authorizations = {
+    @io.swagger.annotations.ApiOperation(value = "List all collections", notes = "This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.", response = CollectionsCollection.class, responseContainer = "List", authorizations = {
         @io.swagger.annotations.Authorization(value = "bearerAuth")
     }, tags={ "collections", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = MainCollection.class, responseContainer = "List"),
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = CollectionsCollection.class, responseContainer = "List"),
         
         @io.swagger.annotations.ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class),
         
         @io.swagger.annotations.ApiResponse(code = 404, message = "Not Found", response = UtilHttpError.class),
         
         @io.swagger.annotations.ApiResponse(code = 500, message = "Internal Server Error", response = UtilHttpError.class) })
-    public Response collectionsGet( @PathParam("id") Integer id,@Context SecurityContext securityContext)
+    public Response collectionsGet(@Context SecurityContext securityContext)
     throws NotFoundException {
-        return service.collectionsGet(id,securityContext);
+        return service.collectionsGet(securityContext);
     }
     @POST
     @Path("/")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Create a new collection", notes = "This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.", response = MainCollection.class, authorizations = {
+    @io.swagger.annotations.ApiOperation(value = "Create a new collection", notes = "This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.", response = CollectionsCollection.class, authorizations = {
         @io.swagger.annotations.Authorization(value = "bearerAuth")
     }, tags={ "collections", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = MainCollection.class),
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = CollectionsCollection.class),
         
         @io.swagger.annotations.ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class),
         

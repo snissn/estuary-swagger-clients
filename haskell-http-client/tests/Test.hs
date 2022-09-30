@@ -20,7 +20,7 @@ main =
   hspec $ modifyMaxSize (const 5) $ do
     describe "JSON instances" $ do
       pure ()
-      propMimeEq MimeJSON (Proxy :: Proxy MainCollection)
+      propMimeEq MimeJSON (Proxy :: Proxy CollectionsCollection)
       propMimeEq MimeJSON (Proxy :: Proxy MainCreateCollectionBody)
       propMimeEq MimeJSON (Proxy :: Proxy MainEstimateDealBody)
       propMimeEq MimeJSON (Proxy :: Proxy MainGetApiKeysResp)

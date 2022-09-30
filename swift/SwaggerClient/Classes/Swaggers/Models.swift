@@ -151,14 +151,14 @@ class Decoders {
                 fatalError("formatter failed to parse \(source)")
             }) 
 
-            // Decoder for [MainCollection]
-            Decoders.addDecoder(clazz: [MainCollection].self) { (source: AnyObject) -> [MainCollection] in
-                return Decoders.decode(clazz: [MainCollection].self, source: source)
+            // Decoder for [CollectionsCollection]
+            Decoders.addDecoder(clazz: [CollectionsCollection].self) { (source: AnyObject) -> [CollectionsCollection] in
+                return Decoders.decode(clazz: [CollectionsCollection].self, source: source)
             }
-            // Decoder for MainCollection
-            Decoders.addDecoder(clazz: MainCollection.self) { (source: AnyObject) -> MainCollection in
+            // Decoder for CollectionsCollection
+            Decoders.addDecoder(clazz: CollectionsCollection.self) { (source: AnyObject) -> CollectionsCollection in
                 let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = MainCollection()
+                let instance = CollectionsCollection()
                 instance.cid = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cid"])
                 instance.createdAt = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["createdAt"])
                 instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"])

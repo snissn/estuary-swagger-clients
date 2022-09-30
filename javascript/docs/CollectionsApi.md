@@ -5,6 +5,7 @@ All URIs are relative to *https://api.estuary.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**collectionsColuuidCommitPost**](CollectionsApi.md#collectionsColuuidCommitPost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+[**collectionsColuuidContentsDelete**](CollectionsApi.md#collectionsColuuidContentsDelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 [**collectionsColuuidDelete**](CollectionsApi.md#collectionsColuuidDelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 [**collectionsColuuidGet**](CollectionsApi.md#collectionsColuuidGet) | **GET** /collections/{coluuid} | Get contents in a collection
 [**collectionsColuuidPost**](CollectionsApi.md#collectionsColuuidPost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -52,6 +53,68 @@ apiInstance.collectionsColuuidCommitPost(coluuid, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **String**| coluuid | 
+
+### Return type
+
+**'String'**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="collectionsColuuidContentsDelete"></a>
+# **collectionsColuuidContentsDelete**
+> 'String' collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+
+Deletes a content from a collection
+
+This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+
+### Example
+```javascript
+var EstuaryApi = require('estuary_api');
+var defaultClient = EstuaryApi.ApiClient.instance;
+
+// Configure API key authorization: bearerAuth
+var bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearerAuth.apiKeyPrefix = 'Token';
+
+var apiInstance = new EstuaryApi.CollectionsApi();
+
+var coluuid = "coluuid_example"; // String | Collection ID
+
+var contentid = "contentid_example"; // String | Content ID
+
+var by = "by_example"; // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
+
+var value = "value_example"; // String | Value of content_id or path to look for
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coluuid** | **String**| Collection ID | 
+ **contentid** | **String**| Content ID | 
+ **by** | **String**| Variable to use when filtering for files (must be either 'path' or 'content_id') | 
+ **value** | **String**| Value of content_id or path to look for | 
 
 ### Return type
 
@@ -290,7 +353,7 @@ null (empty response body)
 
 <a name="collectionsGet"></a>
 # **collectionsGet**
-> [MainCollection] collectionsGet(id)
+> [CollectionsCollection] collectionsGet()
 
 List all collections
 
@@ -309,9 +372,6 @@ bearerAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new EstuaryApi.CollectionsApi();
 
-var id = 56; // Number | User ID
-
-
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -319,18 +379,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.collectionsGet(id, callback);
+apiInstance.collectionsGet(callback);
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| User ID | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**[MainCollection]**](MainCollection.md)
+[**[CollectionsCollection]**](CollectionsCollection.md)
 
 ### Authorization
 
@@ -343,7 +400,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionsPost"></a>
 # **collectionsPost**
-> MainCollection collectionsPost(body)
+> CollectionsCollection collectionsPost(body)
 
 Create a new collection
 
@@ -383,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainCollection**](MainCollection.md)
+[**CollectionsCollection**](CollectionsCollection.md)
 
 ### Authorization
 

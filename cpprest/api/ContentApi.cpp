@@ -285,13 +285,13 @@ pplx::task<void> ContentApi::contentAddIpfsPost(std::shared_ptr<Util.ContentAddI
         return void();
     });
 }
-pplx::task<std::shared_ptr<Util.ContentAddResponse>> ContentApi::contentAddPost(std::shared_ptr<HttpContent> file, utility::string_t coluuid, utility::string_t dir)
+pplx::task<std::shared_ptr<Util.ContentAddResponse>> ContentApi::contentAddPost(std::shared_ptr<HttpContent> data, utility::string_t coluuid, utility::string_t dir)
 {
 
-    // verify the required parameter 'file' is set
-    if (file == nullptr)
+    // verify the required parameter 'data' is set
+    if (data == nullptr)
     {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'file' when calling ContentApi->contentAddPost"));
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'data' when calling ContentApi->contentAddPost"));
     }
 
 
@@ -335,9 +335,9 @@ boost::replace_all(path, utility::conversions::to_string_t("{") + utility::conve
     std::unordered_set<utility::string_t> consumeHttpContentTypes;
     consumeHttpContentTypes.insert( utility::conversions::to_string_t("multipart/form-data") );
 
-    if (file != nullptr)
+    if (data != nullptr)
     {
-        fileParams[ utility::conversions::to_string_t("file") ] = file;
+        fileParams[ utility::conversions::to_string_t("data") ] = data;
     }
 
     std::shared_ptr<IHttpBody> httpBody;

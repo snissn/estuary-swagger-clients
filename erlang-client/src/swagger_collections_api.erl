@@ -1,11 +1,12 @@
 -module(swagger_collections_api).
 
 -export([collections_coluuid_commit_post/2, collections_coluuid_commit_post/3,
+         collections_coluuid_contents_delete/5, collections_coluuid_contents_delete/6,
          collections_coluuid_delete/2, collections_coluuid_delete/3,
          collections_coluuid_get/2, collections_coluuid_get/3,
          collections_coluuid_post/2, collections_coluuid_post/3,
          collections_fs_add_post/4, collections_fs_add_post/5,
-         collections_get/2, collections_get/3,
+         collections_get/1, collections_get/2,
          collections_post/2, collections_post/3]).
 
 -define(BASE_URL, "/").
@@ -26,6 +27,27 @@ collections_coluuid_commit_post(Ctx, Coluuid, Optional) ->
     QS = [],
     Headers = [],
     Body1 = [],
+    ContentTypeHeader = swagger_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    swagger_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Deletes a content from a collection
+%% This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+-spec collections_coluuid_contents_delete(ctx:ctx(), binary(), binary(), binary(), binary()) -> {ok, binary(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
+collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, By, Value) ->
+    collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, By, Value, #{}).
+
+-spec collections_coluuid_contents_delete(ctx:ctx(), binary(), binary(), binary(), binary(), maps:map()) -> {ok, binary(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
+collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, By, Value, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = delete,
+    Path = ["/collections/", Coluuid, "/contents"],
+    QS = [],
+    Headers = [],
+    Body1 = ByValue,
     ContentTypeHeader = swagger_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -117,12 +139,12 @@ collections_fs_add_post(Ctx, Coluuid, Content, Path, Optional) ->
 
 %% @doc List all collections
 %% This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
--spec collections_get(ctx:ctx(), integer()) -> {ok, [swagger_main_collection:swagger_main_collection()], swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
-collections_get(Ctx, Id) ->
-    collections_get(Ctx, Id, #{}).
+-spec collections_get(ctx:ctx()) -> {ok, [swagger_collections_collection:swagger_collections_collection()], swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
+collections_get(Ctx) ->
+    collections_get(Ctx, #{}).
 
--spec collections_get(ctx:ctx(), integer(), maps:map()) -> {ok, [swagger_main_collection:swagger_main_collection()], swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
-collections_get(Ctx, Id, Optional) ->
+-spec collections_get(ctx:ctx(), maps:map()) -> {ok, [swagger_collections_collection:swagger_collections_collection()], swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
+collections_get(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -138,11 +160,11 @@ collections_get(Ctx, Id, Optional) ->
 
 %% @doc Create a new collection
 %% This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
--spec collections_post(ctx:ctx(), swagger_main_create_collection_body:swagger_main_create_collection_body()) -> {ok, swagger_main_collection:swagger_main_collection(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
+-spec collections_post(ctx:ctx(), swagger_main_create_collection_body:swagger_main_create_collection_body()) -> {ok, swagger_collections_collection:swagger_collections_collection(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
 collections_post(Ctx, Body) ->
     collections_post(Ctx, Body, #{}).
 
--spec collections_post(ctx:ctx(), swagger_main_create_collection_body:swagger_main_create_collection_body(), maps:map()) -> {ok, swagger_main_collection:swagger_main_collection(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
+-spec collections_post(ctx:ctx(), swagger_main_create_collection_body:swagger_main_create_collection_body(), maps:map()) -> {ok, swagger_collections_collection:swagger_collections_collection(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
 collections_post(Ctx, Body, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),

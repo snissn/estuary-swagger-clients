@@ -69,7 +69,7 @@ public interface ContentApi  {
     @ApiOperation(value = "Add new content", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = UtilContentAddResponse.class) })
-    public UtilContentAddResponse contentAddPost( @Multipart(value = "file" ) Attachment fileDetail, @PathParam("coluuid") String coluuid, @PathParam("dir") String dir);
+    public UtilContentAddResponse contentAddPost( @Multipart(value = "data" ) Attachment dataDetail, @PathParam("coluuid") String coluuid, @PathParam("dir") String dir);
 
     /**
      * Get aggregated content stats

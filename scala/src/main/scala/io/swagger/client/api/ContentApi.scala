@@ -144,13 +144,13 @@ class ContentApi(
    * Add new content
    * This endpoint is used to upload new content.
    *
-   * @param file File to upload 
+   * @param data File to upload 
    * @param coluuid Collection UUID 
    * @param dir Directory 
    * @return ContentAddResponse
    */
-  def contentAddPost(file: File, coluuid: String, dir: String): Option[ContentAddResponse] = {
-    val await = Try(Await.result(contentAddPostAsync(file, coluuid, dir), Duration.Inf))
+  def contentAddPost(data: File, coluuid: String, dir: String): Option[ContentAddResponse] = {
+    val await = Try(Await.result(contentAddPostAsync(data, coluuid, dir), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -161,13 +161,13 @@ class ContentApi(
    * Add new content asynchronously
    * This endpoint is used to upload new content.
    *
-   * @param file File to upload 
+   * @param data File to upload 
    * @param coluuid Collection UUID 
    * @param dir Directory 
    * @return Future(ContentAddResponse)
    */
-  def contentAddPostAsync(file: File, coluuid: String, dir: String): Future[ContentAddResponse] = {
-      helper.contentAddPost(file, coluuid, dir)
+  def contentAddPostAsync(data: File, coluuid: String, dir: String): Future[ContentAddResponse] = {
+      helper.contentAddPost(data, coluuid, dir)
   }
 
   /**
@@ -563,7 +563,7 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     }
   }
 
-  def contentAddPost(file: File,
+  def contentAddPost(data: File,
     coluuid: String,
     dir: String)(implicit reader: ClientResponseReader[ContentAddResponse]): Future[ContentAddResponse] = {
     // create path and map variables
@@ -575,7 +575,7 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (file == null) throw new Exception("Missing required parameter 'file' when calling ContentApi->contentAddPost")
+    if (data == null) throw new Exception("Missing required parameter 'data' when calling ContentApi->contentAddPost")
     if (coluuid == null) throw new Exception("Missing required parameter 'coluuid' when calling ContentApi->contentAddPost")
 
     if (dir == null) throw new Exception("Missing required parameter 'dir' when calling ContentApi->contentAddPost")

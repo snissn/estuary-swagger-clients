@@ -135,7 +135,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **content_add_post**
-> UtilContentAddResponse content_add_post(file, coluuid, dir)
+> UtilContentAddResponse content_add_post(data, coluuid, dir)
 
 Add new content
 
@@ -157,13 +157,13 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.ContentApi(swagger_client.ApiClient(configuration))
-file = '/path/to/file.txt' # file | File to upload
+data = '/path/to/file.txt' # file | File to upload
 coluuid = 'coluuid_example' # str | Collection UUID
 dir = 'dir_example' # str | Directory
 
 try:
     # Add new content
-    api_response = api_instance.content_add_post(file, coluuid, dir)
+    api_response = api_instance.content_add_post(data, coluuid, dir)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ContentApi->content_add_post: %s\n" % e)
@@ -173,7 +173,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **file**| File to upload | 
+ **data** | **file**| File to upload | 
  **coluuid** | **str**| Collection UUID | 
  **dir** | **str**| Directory | 
 

@@ -99,6 +99,10 @@ operation_parameters_minimum_occurrences["adminAutoretrieveInitPost:::addresses"
 operation_parameters_minimum_occurrences["adminAutoretrieveInitPost:::pubKey"]=1
 operation_parameters_minimum_occurrences["autoretrieveHeartbeatPost:::token"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidCommitPost:::coluuid"]=1
+operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::coluuid"]=1
+operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::contentid"]=1
+operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::by"]=1
+operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::value"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidDelete:::coluuid"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidGet:::coluuid"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidGet:::dir"]=0
@@ -106,14 +110,13 @@ operation_parameters_minimum_occurrences["collectionsColuuidPost:::body"]=1
 operation_parameters_minimum_occurrences["collectionsFsAddPost:::coluuid"]=1
 operation_parameters_minimum_occurrences["collectionsFsAddPost:::content"]=1
 operation_parameters_minimum_occurrences["collectionsFsAddPost:::path"]=1
-operation_parameters_minimum_occurrences["collectionsGet:::id"]=1
 operation_parameters_minimum_occurrences["collectionsPost:::body"]=1
 operation_parameters_minimum_occurrences["contentAddCarPost:::body"]=1
 operation_parameters_minimum_occurrences["contentAddCarPost:::filename"]=0
 operation_parameters_minimum_occurrences["contentAddCarPost:::commp"]=0
 operation_parameters_minimum_occurrences["contentAddCarPost:::size"]=0
 operation_parameters_minimum_occurrences["contentAddIpfsPost:::body"]=1
-operation_parameters_minimum_occurrences["contentAddPost:::file"]=1
+operation_parameters_minimum_occurrences["contentAddPost:::data"]=1
 operation_parameters_minimum_occurrences["contentAddPost:::coluuid"]=1
 operation_parameters_minimum_occurrences["contentAddPost:::dir"]=1
 operation_parameters_minimum_occurrences["contentAggregatedContentGet:::content"]=1
@@ -166,6 +169,10 @@ operation_parameters_maximum_occurrences["adminAutoretrieveInitPost:::addresses"
 operation_parameters_maximum_occurrences["adminAutoretrieveInitPost:::pubKey"]=0
 operation_parameters_maximum_occurrences["autoretrieveHeartbeatPost:::token"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidCommitPost:::coluuid"]=0
+operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::coluuid"]=0
+operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::contentid"]=0
+operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::by"]=0
+operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::value"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidDelete:::coluuid"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidGet:::coluuid"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidGet:::dir"]=0
@@ -173,14 +180,13 @@ operation_parameters_maximum_occurrences["collectionsColuuidPost:::body"]=0
 operation_parameters_maximum_occurrences["collectionsFsAddPost:::coluuid"]=0
 operation_parameters_maximum_occurrences["collectionsFsAddPost:::content"]=0
 operation_parameters_maximum_occurrences["collectionsFsAddPost:::path"]=0
-operation_parameters_maximum_occurrences["collectionsGet:::id"]=0
 operation_parameters_maximum_occurrences["collectionsPost:::body"]=0
 operation_parameters_maximum_occurrences["contentAddCarPost:::body"]=0
 operation_parameters_maximum_occurrences["contentAddCarPost:::filename"]=0
 operation_parameters_maximum_occurrences["contentAddCarPost:::commp"]=0
 operation_parameters_maximum_occurrences["contentAddCarPost:::size"]=0
 operation_parameters_maximum_occurrences["contentAddIpfsPost:::body"]=0
-operation_parameters_maximum_occurrences["contentAddPost:::file"]=0
+operation_parameters_maximum_occurrences["contentAddPost:::data"]=0
 operation_parameters_maximum_occurrences["contentAddPost:::coluuid"]=0
 operation_parameters_maximum_occurrences["contentAddPost:::dir"]=0
 operation_parameters_maximum_occurrences["contentAggregatedContentGet:::content"]=0
@@ -230,6 +236,10 @@ operation_parameters_collection_type["adminAutoretrieveInitPost:::addresses"]=""
 operation_parameters_collection_type["adminAutoretrieveInitPost:::pubKey"]=""
 operation_parameters_collection_type["autoretrieveHeartbeatPost:::token"]=""
 operation_parameters_collection_type["collectionsColuuidCommitPost:::coluuid"]=""
+operation_parameters_collection_type["collectionsColuuidContentsDelete:::coluuid"]=""
+operation_parameters_collection_type["collectionsColuuidContentsDelete:::contentid"]=""
+operation_parameters_collection_type["collectionsColuuidContentsDelete:::by"]=""
+operation_parameters_collection_type["collectionsColuuidContentsDelete:::value"]=""
 operation_parameters_collection_type["collectionsColuuidDelete:::coluuid"]=""
 operation_parameters_collection_type["collectionsColuuidGet:::coluuid"]=""
 operation_parameters_collection_type["collectionsColuuidGet:::dir"]=""
@@ -237,14 +247,13 @@ operation_parameters_collection_type["collectionsColuuidPost:::body"]=
 operation_parameters_collection_type["collectionsFsAddPost:::coluuid"]=""
 operation_parameters_collection_type["collectionsFsAddPost:::content"]=""
 operation_parameters_collection_type["collectionsFsAddPost:::path"]=""
-operation_parameters_collection_type["collectionsGet:::id"]=""
 operation_parameters_collection_type["collectionsPost:::body"]=""
 operation_parameters_collection_type["contentAddCarPost:::body"]=""
 operation_parameters_collection_type["contentAddCarPost:::filename"]=""
 operation_parameters_collection_type["contentAddCarPost:::commp"]=""
 operation_parameters_collection_type["contentAddCarPost:::size"]=""
 operation_parameters_collection_type["contentAddIpfsPost:::body"]=""
-operation_parameters_collection_type["contentAddPost:::file"]=""
+operation_parameters_collection_type["contentAddPost:::data"]=""
 operation_parameters_collection_type["contentAddPost:::coluuid"]=""
 operation_parameters_collection_type["contentAddPost:::dir"]=""
 operation_parameters_collection_type["contentAggregatedContentGet:::content"]=""
@@ -688,6 +697,7 @@ echo "  $ops" | column -t -s ';'
     echo -e "${BOLD}${WHITE}[collections]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}collectionsColuuidCommitPost${OFF};Produce a CID of the collection contents (AUTH)
+  ${CYAN}collectionsColuuidContentsDelete${OFF};Deletes a content from a collection (AUTH)
   ${CYAN}collectionsColuuidDelete${OFF};Deletes a collection (AUTH)
   ${CYAN}collectionsColuuidGet${OFF};Get contents in a collection (AUTH)
   ${CYAN}collectionsColuuidPost${OFF};Add contents to a collection (AUTH)
@@ -1047,6 +1057,31 @@ print_collectionsColuuidCommitPost_help() {
 }
 ##############################################################################
 #
+# Print help for collectionsColuuidContentsDelete operation
+#
+##############################################################################
+print_collectionsColuuidContentsDelete_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}collectionsColuuidContentsDelete - Deletes a content from a collection${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}coluuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Collection ID ${YELLOW}Specify as: coluuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}contentid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Content ID ${YELLOW}Specify as: contentid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[]${OFF} ${RED}(required)${OFF}${OFF} - Variable to use when filtering for files (must be either 'path' or 'content_id')" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[]${OFF} ${RED}(required)${OFF}${OFF} - Value of content_id or path to look for" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=400
+    echo -e "${result_color_table[${code:0:1}]}  400;Bad Request${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
 # Print help for collectionsColuuidDelete operation
 #
 ##############################################################################
@@ -1133,8 +1168,6 @@ print_collectionsGet_help() {
     echo -e ""
     echo -e "This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user." | paste -sd' ' | fold -sw 80
     echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - User ID ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2744,6 +2777,75 @@ call_collectionsColuuidCommitPost() {
 
 ##############################################################################
 #
+# Call collectionsColuuidContentsDelete operation
+#
+##############################################################################
+call_collectionsColuuidContentsDelete() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(coluuid contentid)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/collections/{coluuid}/contents" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="DELETE"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the Swagger specification
+    # if values produces and consumes are defined unambigously
+    #
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
 # Call collectionsColuuidDelete operation
 #
 ##############################################################################
@@ -2936,7 +3038,7 @@ call_collectionsFsAddPost() {
 call_collectionsGet() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(id)
+    local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local query_parameter_names=(  )
@@ -5848,6 +5950,9 @@ case $key in
     collectionsColuuidCommitPost)
     operation="collectionsColuuidCommitPost"
     ;;
+    collectionsColuuidContentsDelete)
+    operation="collectionsColuuidContentsDelete"
+    ;;
     collectionsColuuidDelete)
     operation="collectionsColuuidDelete"
     ;;
@@ -6192,6 +6297,9 @@ case $operation in
     ;;
     collectionsColuuidCommitPost)
     call_collectionsColuuidCommitPost
+    ;;
+    collectionsColuuidContentsDelete)
+    call_collectionsColuuidContentsDelete
     ;;
     collectionsColuuidDelete)
     call_collectionsColuuidDelete

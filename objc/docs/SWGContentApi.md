@@ -144,7 +144,7 @@ void (empty response body)
 
 # **contentAddPost**
 ```objc
--(NSURLSessionTask*) contentAddPostWithFile: (NSURL*) file
+-(NSURLSessionTask*) contentAddPostWithData: (NSURL*) data
     coluuid: (NSString*) coluuid
     dir: (NSString*) dir
         completionHandler: (void (^)(SWGUtilContentAddResponse* output, NSError* error)) handler;
@@ -164,14 +164,14 @@ SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"Authorization"];
 
 
-NSURL* file = [NSURL fileURLWithPath:@"/path/to/file.txt"]; // File to upload
+NSURL* data = [NSURL fileURLWithPath:@"/path/to/file.txt"]; // File to upload
 NSString* coluuid = @"coluuid_example"; // Collection UUID
 NSString* dir = @"dir_example"; // Directory
 
 SWGContentApi*apiInstance = [[SWGContentApi alloc] init];
 
 // Add new content
-[apiInstance contentAddPostWithFile:file
+[apiInstance contentAddPostWithData:data
               coluuid:coluuid
               dir:dir
           completionHandler: ^(SWGUtilContentAddResponse* output, NSError* error) {
@@ -188,7 +188,7 @@ SWGContentApi*apiInstance = [[SWGContentApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **NSURL***| File to upload | 
+ **data** | **NSURL***| File to upload | 
  **coluuid** | **NSString***| Collection UUID | 
  **dir** | **NSString***| Directory | 
 

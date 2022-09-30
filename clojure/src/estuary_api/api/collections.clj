@@ -22,6 +22,27 @@
   [coluuid ]
   (:data (collections-coluuid-commit-post-with-http-info coluuid)))
 
+(defn collections-coluuid-contents-delete-with-http-info
+  "Deletes a content from a collection
+  This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path"
+  [coluuid contentid by value ]
+  (check-required-params coluuid contentid by value)
+  (call-api "/collections/{coluuid}/contents" :delete
+            {:path-params   {"coluuid" coluuid "contentid" contentid }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    value
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    ["bearerAuth"]}))
+
+(defn collections-coluuid-contents-delete
+  "Deletes a content from a collection
+  This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path"
+  [coluuid contentid by value ]
+  (:data (collections-coluuid-contents-delete-with-http-info coluuid contentid by value)))
+
 (defn collections-coluuid-delete-with-http-info
   "Deletes a collection
   This endpoint is used to delete an existing collection."
@@ -108,10 +129,9 @@
 (defn collections-get-with-http-info
   "List all collections
   This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user."
-  [id ]
-  (check-required-params id)
+  []
   (call-api "/collections/" :get
-            {:path-params   {"id" id }
+            {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -122,8 +142,8 @@
 (defn collections-get
   "List all collections
   This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user."
-  [id ]
-  (:data (collections-get-with-http-info id)))
+  []
+  (:data (collections-get-with-http-info)))
 
 (defn collections-post-with-http-info
   "Create a new collection

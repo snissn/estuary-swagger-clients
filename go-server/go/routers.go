@@ -140,6 +140,13 @@ var routes = Routes{
 	},
 
 	Route{
+		"CollectionsColuuidContentsDelete",
+		strings.ToUpper("Delete"),
+		"//collections/{coluuid}/contents",
+		CollectionsColuuidContentsDelete,
+	},
+
+	Route{
 		"CollectionsColuuidDelete",
 		strings.ToUpper("Delete"),
 		"//collections/{coluuid}",

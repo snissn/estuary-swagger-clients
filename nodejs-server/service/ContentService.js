@@ -5,12 +5,12 @@
  * Add new content
  * This endpoint is used to upload new content.
  *
- * file File File to upload
+ * data File File to upload
  * coluuid String Collection UUID
  * dir String Directory
  * returns util.ContentAddResponse
  **/
-exports.contentAddPOST = function(file,coluuid,dir) {
+exports.contentAddPOST = function(data,coluuid,dir) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {"empty": false};

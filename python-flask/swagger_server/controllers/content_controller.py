@@ -41,13 +41,13 @@ def content_add_ipfs_post(body):  # noqa: E501
     return 'do some magic!'
 
 
-def content_add_post(file, coluuid, dir):  # noqa: E501
+def content_add_post(data, coluuid, dir):  # noqa: E501
     """Add new content
 
     This endpoint is used to upload new content. # noqa: E501
 
-    :param file: File to upload
-    :type file: werkzeug.datastructures.FileStorage
+    :param data: File to upload
+    :type data: werkzeug.datastructures.FileStorage
     :param coluuid: Collection UUID
     :type coluuid: str
     :param dir: Directory

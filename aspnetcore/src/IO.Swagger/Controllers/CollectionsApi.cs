@@ -56,6 +56,41 @@ namespace IO.Swagger.Controllers
         }
 
         /// <summary>
+        /// Deletes a content from a collection
+        /// </summary>
+        /// <remarks>This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path</remarks>
+        /// <param name="coluuid">Collection ID</param>
+        /// <param name="contentid">Content ID</param>
+        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
+        /// <param name="value">Value of content_id or path to look for</param>
+        /// <response code="200">OK</response>
+        /// <response code="400">Bad Request</response>
+        [HttpDelete]
+        [Route("//collections/{coluuid}/contents")]
+        [Authorize(AuthenticationSchemes = ApiKeyAuthenticationHandler.SchemeName)]
+        [ValidateModelState]
+        [SwaggerOperation("CollectionsColuuidContentsDelete")]
+        [SwaggerResponse(statusCode: 200, type: typeof(string), description: "OK")]
+        [SwaggerResponse(statusCode: 400, type: typeof(UtilHttpError), description: "Bad Request")]
+        public virtual IActionResult CollectionsColuuidContentsDelete([FromRoute][Required]string coluuid, [FromRoute][Required]string contentid, [FromBody]string by, [FromBody]string value)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(string));
+
+            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(400, default(UtilHttpError));
+
+            string exampleJson = null;
+            exampleJson = "{\n  \"bytes\": [],\n  \"empty\": true\n}";
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<string>(exampleJson)
+            : default(string);
+            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
         /// Deletes a collection
         /// </summary>
         /// <remarks>This endpoint is used to delete an existing collection.</remarks>
@@ -148,7 +183,6 @@ namespace IO.Swagger.Controllers
         /// List all collections
         /// </summary>
         /// <remarks>This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.</remarks>
-        /// <param name="id">User ID</param>
         /// <response code="200">OK</response>
         /// <response code="400">Bad Request</response>
         /// <response code="404">Not Found</response>
@@ -158,14 +192,14 @@ namespace IO.Swagger.Controllers
         [Authorize(AuthenticationSchemes = ApiKeyAuthenticationHandler.SchemeName)]
         [ValidateModelState]
         [SwaggerOperation("CollectionsGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(List<MainCollection>), description: "OK")]
+        [SwaggerResponse(statusCode: 200, type: typeof(List<CollectionsCollection>), description: "OK")]
         [SwaggerResponse(statusCode: 400, type: typeof(UtilHttpError), description: "Bad Request")]
         [SwaggerResponse(statusCode: 404, type: typeof(UtilHttpError), description: "Not Found")]
         [SwaggerResponse(statusCode: 500, type: typeof(UtilHttpError), description: "Internal Server Error")]
-        public virtual IActionResult CollectionsGet([FromRoute][Required]int? id)
+        public virtual IActionResult CollectionsGet()
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(List<MainCollection>));
+            // return StatusCode(200, default(List<CollectionsCollection>));
 
             //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(400, default(UtilHttpError));
@@ -180,8 +214,8 @@ namespace IO.Swagger.Controllers
             exampleJson = "{}";
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<MainCollection>>(exampleJson)
-            : default(List<MainCollection>);
+            ? JsonConvert.DeserializeObject<List<CollectionsCollection>>(exampleJson)
+            : default(List<CollectionsCollection>);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }
@@ -200,14 +234,14 @@ namespace IO.Swagger.Controllers
         [Authorize(AuthenticationSchemes = ApiKeyAuthenticationHandler.SchemeName)]
         [ValidateModelState]
         [SwaggerOperation("CollectionsPost")]
-        [SwaggerResponse(statusCode: 200, type: typeof(MainCollection), description: "OK")]
+        [SwaggerResponse(statusCode: 200, type: typeof(CollectionsCollection), description: "OK")]
         [SwaggerResponse(statusCode: 400, type: typeof(UtilHttpError), description: "Bad Request")]
         [SwaggerResponse(statusCode: 404, type: typeof(UtilHttpError), description: "Not Found")]
         [SwaggerResponse(statusCode: 500, type: typeof(UtilHttpError), description: "Internal Server Error")]
         public virtual IActionResult CollectionsPost([FromBody]MainCreateCollectionBody body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(MainCollection));
+            // return StatusCode(200, default(CollectionsCollection));
 
             //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(400, default(UtilHttpError));
@@ -222,8 +256,8 @@ namespace IO.Swagger.Controllers
             exampleJson = "{\"empty\": false}";
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<MainCollection>(exampleJson)
-            : default(MainCollection);
+            ? JsonConvert.DeserializeObject<CollectionsCollection>(exampleJson)
+            : default(CollectionsCollection);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

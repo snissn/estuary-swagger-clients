@@ -17,7 +17,7 @@ require 'swagger_client/version'
 require 'swagger_client/configuration'
 
 # Models
-require 'swagger_client/models/main_collection'
+require 'swagger_client/models/collections_collection'
 require 'swagger_client/models/main_create_collection_body'
 require 'swagger_client/models/main_estimate_deal_body'
 require 'swagger_client/models/main_get_api_keys_resp'

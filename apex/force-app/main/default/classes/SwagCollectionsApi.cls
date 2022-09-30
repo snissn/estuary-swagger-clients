@@ -51,6 +51,39 @@ public class SwagCollectionsApi {
         );
     }
     /**
+     * Deletes a content from a collection
+     * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     * @param coluuid Collection ID (required)
+     * @param contentid Content ID (required)
+     * @param r_by Variable to use when filtering for files (must be either \&#39;path\&#39; or \&#39;content_id\&#39;) (required)
+     * @param value Value of content_id or path to look for (required)
+     * @return String
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public String collectionsColuuidContentsDelete(Map<String, Object> params) {
+        client.assertNotNull(params.get('coluuid'), 'coluuid');
+        client.assertNotNull(params.get('contentid'), 'contentid');
+        client.assertNotNull(params.get('r_by'), 'r_by');
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (String) client.invoke(
+            'DELETE', '/collections/{coluuid}/contents',
+            (String) params.get('value'),
+            query, form,
+            new Map<String, Object>{
+                'coluuid' => (String) params.get('coluuid'),
+                'contentid' => (String) params.get('contentid')
+            },
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'bearerAuth' },
+            String.class
+        );
+    }
+    /**
      * Deletes a collection
      * This endpoint is used to delete an existing collection.
      * @param coluuid Collection ID (required)
@@ -162,41 +195,37 @@ public class SwagCollectionsApi {
     /**
      * List all collections
      * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
-     * @param id User ID (required)
-     * @return List<SwagMainCollection>
+     * @return List<SwagCollectionsCollection>
      * @throws Swagger.ApiException if fails to make API call
      */
-    public List<SwagMainCollection> collectionsGet(Map<String, Object> params) {
-        client.assertNotNull(params.get('id'), 'id');
+    public List<SwagCollectionsCollection> collectionsGet() {
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (List<SwagMainCollection>) client.invoke(
+        return (List<SwagCollectionsCollection>) client.invoke(
             'GET', '/collections/', '',
             query, form,
-            new Map<String, Object>{
-                'id' => (Integer) params.get('id')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String> { 'bearerAuth' },
-            List<SwagMainCollection>.class
+            List<SwagCollectionsCollection>.class
         );
     }
     /**
      * Create a new collection
      * This endpoint is used to create a new collection. A collection is a representaion of a group of objects added on the estuary. This endpoint can be used to create a new collection.
      * @param body Collection name and description (required)
-     * @return SwagMainCollection
+     * @return SwagCollectionsCollection
      * @throws Swagger.ApiException if fails to make API call
      */
-    public SwagMainCollection collectionsPost(Map<String, Object> params) {
+    public SwagCollectionsCollection collectionsPost(Map<String, Object> params) {
         client.assertNotNull(params.get('body'), 'body');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (SwagMainCollection) client.invoke(
+        return (SwagCollectionsCollection) client.invoke(
             'POST', '/collections/',
             (SwagMainCreateCollectionBody) params.get('body'),
             query, form,
@@ -205,7 +234,7 @@ public class SwagCollectionsApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String> { 'bearerAuth' },
-            SwagMainCollection.class
+            SwagCollectionsCollection.class
         );
     }
 }

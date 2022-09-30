@@ -18,7 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { MainCollection } from '../model/mainCollection';
+import { CollectionsCollection } from '../model/collectionsCollection';
 import { MainCreateCollectionBody } from '../model/mainCreateCollectionBody';
 import { UtilHttpError } from '../model/utilHttpError';
 
@@ -96,6 +96,71 @@ export class CollectionsService {
 
         return this.httpClient.post<string>(`${this.basePath}/collections/${encodeURIComponent(String(coluuid))}/commit`,
             null,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * Deletes a content from a collection
+     * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
+     * @param coluuid Collection ID
+     * @param contentid Content ID
+     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
+     * @param value Value of content_id or path to look for
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe?: 'body', reportProgress?: boolean): Observable<string>;
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (coluuid === null || coluuid === undefined) {
+            throw new Error('Required parameter coluuid was null or undefined when calling collectionsColuuidContentsDelete.');
+        }
+
+        if (contentid === null || contentid === undefined) {
+            throw new Error('Required parameter contentid was null or undefined when calling collectionsColuuidContentsDelete.');
+        }
+
+        if (by === null || by === undefined) {
+            throw new Error('Required parameter by was null or undefined when calling collectionsColuuidContentsDelete.');
+        }
+
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling collectionsColuuidContentsDelete.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (bearerAuth) required
+        if (this.configuration.apiKeys && this.configuration.apiKeys["Authorization"]) {
+            headers = headers.set('Authorization', this.configuration.apiKeys["Authorization"]);
+        }
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.delete<string>(`${this.basePath}/collections/${encodeURIComponent(String(coluuid))}/contents`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -331,18 +396,13 @@ export class CollectionsService {
     /**
      * List all collections
      * This endpoint is used to list all collections. Whenever a user logs on estuary, it will list all collections that the user has access to. This endpoint provides a way to list all collections to the user.
-     * @param id User ID
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public collectionsGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<Array<MainCollection>>;
-    public collectionsGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<MainCollection>>>;
-    public collectionsGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<MainCollection>>>;
-    public collectionsGet(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling collectionsGet.');
-        }
+    public collectionsGet(observe?: 'body', reportProgress?: boolean): Observable<Array<CollectionsCollection>>;
+    public collectionsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CollectionsCollection>>>;
+    public collectionsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CollectionsCollection>>>;
+    public collectionsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -364,7 +424,7 @@ export class CollectionsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Array<MainCollection>>(`${this.basePath}/collections/`,
+        return this.httpClient.get<Array<CollectionsCollection>>(`${this.basePath}/collections/`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -381,9 +441,9 @@ export class CollectionsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public collectionsPost(body: MainCreateCollectionBody, observe?: 'body', reportProgress?: boolean): Observable<MainCollection>;
-    public collectionsPost(body: MainCreateCollectionBody, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MainCollection>>;
-    public collectionsPost(body: MainCreateCollectionBody, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MainCollection>>;
+    public collectionsPost(body: MainCreateCollectionBody, observe?: 'body', reportProgress?: boolean): Observable<CollectionsCollection>;
+    public collectionsPost(body: MainCreateCollectionBody, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CollectionsCollection>>;
+    public collectionsPost(body: MainCreateCollectionBody, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CollectionsCollection>>;
     public collectionsPost(body: MainCreateCollectionBody, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
@@ -414,7 +474,7 @@ export class CollectionsService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<MainCollection>(`${this.basePath}/collections/`,
+        return this.httpClient.post<CollectionsCollection>(`${this.basePath}/collections/`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,

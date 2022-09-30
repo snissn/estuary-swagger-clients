@@ -204,7 +204,7 @@ NSInteger kSWGContentApiMissingParamErrorCode = 234513;
 ///
 /// Add new content
 /// This endpoint is used to upload new content.
-///  @param file File to upload 
+///  @param data File to upload 
 ///
 ///  @param coluuid Collection UUID 
 ///
@@ -212,15 +212,15 @@ NSInteger kSWGContentApiMissingParamErrorCode = 234513;
 ///
 ///  @returns SWGUtilContentAddResponse*
 ///
--(NSURLSessionTask*) contentAddPostWithFile: (NSURL*) file
+-(NSURLSessionTask*) contentAddPostWithData: (NSURL*) data
     coluuid: (NSString*) coluuid
     dir: (NSString*) dir
     completionHandler: (void (^)(SWGUtilContentAddResponse* output, NSError* error)) handler {
-    // verify the required parameter 'file' is set
-    if (file == nil) {
-        NSParameterAssert(file);
+    // verify the required parameter 'data' is set
+    if (data == nil) {
+        NSParameterAssert(data);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"file"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"data"] };
             NSError* error = [NSError errorWithDomain:kSWGContentApiErrorDomain code:kSWGContentApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -280,7 +280,7 @@ NSInteger kSWGContentApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    localVarFiles[@"file"] = file;
+    localVarFiles[@"data"] = data;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

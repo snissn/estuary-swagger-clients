@@ -48,6 +48,27 @@ object CollectionsApi {
     } yield resp
   }
   
+  def collectionsColuuidContentsDelete(host: String, coluuid: String, contentid: String, by: String, value: String): Task[String] = {
+    implicit val returnTypeDecoder: EntityDecoder[String] = jsonOf[String]
+
+    val path = "/collections/{coluuid}/contents".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString)).replaceAll("\\{" + "contentid" + "\\}",escape(contentid.toString))
+    
+    val httpMethod = Method.DELETE
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      )
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(host + path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType)).withBody(value)
+      resp          <- client.expect[String](req)
+
+    } yield resp
+  }
+  
   def collectionsColuuidDelete(host: String, coluuid: String): Task[Unit] = {
     val path = "/collections/{coluuid}".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString))
     
@@ -128,10 +149,10 @@ object CollectionsApi {
     } yield resp
   }
   
-  def collectionsGet(host: String, id: Integer): Task[List[Collection]] = {
+  def collectionsGet(host: String): Task[List[Collection]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Collection]] = jsonOf[List[Collection]]
 
-    val path = "/collections/".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/collections/"
     
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -193,6 +214,27 @@ class HttpServiceCollectionsApi(service: HttpService) {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[String](req)
+
+    } yield resp
+  }
+  
+  def collectionsColuuidContentsDelete(coluuid: String, contentid: String, by: String, value: String): Task[String] = {
+    implicit val returnTypeDecoder: EntityDecoder[String] = jsonOf[String]
+
+    val path = "/collections/{coluuid}/contents".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString)).replaceAll("\\{" + "contentid" + "\\}",escape(contentid.toString))
+    
+    val httpMethod = Method.DELETE
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      )
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType)).withBody(value)
       resp          <- client.expect[String](req)
 
     } yield resp
@@ -278,10 +320,10 @@ class HttpServiceCollectionsApi(service: HttpService) {
     } yield resp
   }
   
-  def collectionsGet(id: Integer): Task[List[Collection]] = {
+  def collectionsGet(): Task[List[Collection]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Collection]] = jsonOf[List[Collection]]
 
-    val path = "/collections/".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/collections/"
     
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

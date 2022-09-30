@@ -42,7 +42,7 @@ Import the following:
 #import <SwaggerClient/SWGApiClient.h>
 #import <SwaggerClient/SWGDefaultConfiguration.h>
 // load models
-#import <SwaggerClient/SWGMainCollection.h>
+#import <SwaggerClient/SWGCollectionsCollection.h>
 #import <SwaggerClient/SWGMainCreateCollectionBody.h>
 #import <SwaggerClient/SWGMainEstimateDealBody.h>
 #import <SwaggerClient/SWGMainGetApiKeysResp.h>
@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *SWGAutoretrieveApi* | [**adminAutoretrieveListGet**](docs/SWGAutoretrieveApi.md#adminautoretrievelistget) | **GET** /admin/autoretrieve/list | List autoretrieve servers
 *SWGAutoretrieveApi* | [**autoretrieveHeartbeatPost**](docs/SWGAutoretrieveApi.md#autoretrieveheartbeatpost) | **POST** /autoretrieve/heartbeat | Marks autoretrieve server as up
 *SWGCollectionsApi* | [**collectionsColuuidCommitPost**](docs/SWGCollectionsApi.md#collectionscoluuidcommitpost) | **POST** /collections/{coluuid}/commit | Produce a CID of the collection contents
+*SWGCollectionsApi* | [**collectionsColuuidContentsDelete**](docs/SWGCollectionsApi.md#collectionscoluuidcontentsdelete) | **DELETE** /collections/{coluuid}/contents | Deletes a content from a collection
 *SWGCollectionsApi* | [**collectionsColuuidDelete**](docs/SWGCollectionsApi.md#collectionscoluuiddelete) | **DELETE** /collections/{coluuid} | Deletes a collection
 *SWGCollectionsApi* | [**collectionsColuuidGet**](docs/SWGCollectionsApi.md#collectionscoluuidget) | **GET** /collections/{coluuid} | Get contents in a collection
 *SWGCollectionsApi* | [**collectionsColuuidPost**](docs/SWGCollectionsApi.md#collectionscoluuidpost) | **POST** /collections/{coluuid} | Add contents to a collection
@@ -196,7 +197,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [SWGMainCollection](docs/SWGMainCollection.md)
+ - [SWGCollectionsCollection](docs/SWGCollectionsCollection.md)
  - [SWGMainCreateCollectionBody](docs/SWGMainCreateCollectionBody.md)
  - [SWGMainEstimateDealBody](docs/SWGMainEstimateDealBody.md)
  - [SWGMainGetApiKeysResp](docs/SWGMainGetApiKeysResp.md)

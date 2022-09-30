@@ -116,6 +116,123 @@ sub collections_coluuid_commit_post {
 }
 
 #
+# collections_coluuid_contents_delete
+#
+# Deletes a content from a collection
+# 
+# @param string $coluuid Collection ID (required)
+# @param string $contentid Content ID (required)
+# @param string $by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
+# @param string $value Value of content_id or path to look for (required)
+{
+    my $params = {
+    'coluuid' => {
+        data_type => 'string',
+        description => 'Collection ID',
+        required => '1',
+    },
+    'contentid' => {
+        data_type => 'string',
+        description => 'Content ID',
+        required => '1',
+    },
+    'by' => {
+        data_type => 'string',
+        description => 'Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)',
+        required => '1',
+    },
+    'value' => {
+        data_type => 'string',
+        description => 'Value of content_id or path to look for',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'collections_coluuid_contents_delete' } = { 
+    	summary => 'Deletes a content from a collection',
+        params => $params,
+        returns => 'string',
+        };
+}
+# @return string
+#
+sub collections_coluuid_contents_delete {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'coluuid' is set
+    unless (exists $args{'coluuid'}) {
+      croak("Missing the required parameter 'coluuid' when calling collections_coluuid_contents_delete");
+    }
+
+    # verify the required parameter 'contentid' is set
+    unless (exists $args{'contentid'}) {
+      croak("Missing the required parameter 'contentid' when calling collections_coluuid_contents_delete");
+    }
+
+    # verify the required parameter 'by' is set
+    unless (exists $args{'by'}) {
+      croak("Missing the required parameter 'by' when calling collections_coluuid_contents_delete");
+    }
+
+    # verify the required parameter 'value' is set
+    unless (exists $args{'value'}) {
+      croak("Missing the required parameter 'value' when calling collections_coluuid_contents_delete");
+    }
+
+    # parse inputs
+    my $_resource_path = '/collections/{coluuid}/contents';
+
+    my $_method = 'DELETE';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # path params
+    if ( exists $args{'coluuid'}) {
+        my $_base_variable = "{" . "coluuid" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'coluuid'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'contentid'}) {
+        my $_base_variable = "{" . "contentid" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'contentid'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'by'}) {
+        $_body_data = $args{'by'};
+    }
+
+    # body params
+    if ( exists $args{'value'}) {
+        $_body_data = $args{'value'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw(bearerAuth )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    return $_response_object;
+}
+
+#
 # collections_coluuid_delete
 #
 # Deletes a collection
@@ -417,30 +534,19 @@ sub collections_fs_add_post {
 #
 # List all collections
 # 
-# @param int $id User ID (required)
 {
     my $params = {
-    'id' => {
-        data_type => 'int',
-        description => 'User ID',
-        required => '1',
-    },
     };
     __PACKAGE__->method_documentation->{ 'collections_get' } = { 
     	summary => 'List all collections',
         params => $params,
-        returns => 'ARRAY[MainCollection]',
+        returns => 'ARRAY[CollectionsCollection]',
         };
 }
-# @return ARRAY[MainCollection]
+# @return ARRAY[CollectionsCollection]
 #
 sub collections_get {
     my ($self, %args) = @_;
-
-    # verify the required parameter 'id' is set
-    unless (exists $args{'id'}) {
-      croak("Missing the required parameter 'id' when calling collections_get");
-    }
 
     # parse inputs
     my $_resource_path = '/collections/';
@@ -457,13 +563,6 @@ sub collections_get {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
-    # path params
-    if ( exists $args{'id'}) {
-        my $_base_variable = "{" . "id" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw(bearerAuth )];
@@ -475,7 +574,7 @@ sub collections_get {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ARRAY[MainCollection]', $response);
+    my $_response_object = $self->{api_client}->deserialize('ARRAY[CollectionsCollection]', $response);
     return $_response_object;
 }
 
@@ -496,10 +595,10 @@ sub collections_get {
     __PACKAGE__->method_documentation->{ 'collections_post' } = { 
     	summary => 'Create a new collection',
         params => $params,
-        returns => 'MainCollection',
+        returns => 'CollectionsCollection',
         };
 }
-# @return MainCollection
+# @return CollectionsCollection
 #
 sub collections_post {
     my ($self, %args) = @_;
@@ -540,7 +639,7 @@ sub collections_post {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('MainCollection', $response);
+    my $_response_object = $self->{api_client}->deserialize('CollectionsCollection', $response);
     return $_response_object;
 }
 

@@ -125,7 +125,7 @@ if("null" != String(size))
     /*
      * Returns UtilContentAddResponse 
      */
-    public function content_add_post (file: File, coluuid: String, dir: String): String {
+    public function content_add_post (data: File, coluuid: String, dir: String): String {
         // create path and map variables
         var path: String = "/content/add".replace(/{format}/g,"xml").replace("{" + "coluuid" + "}", getApiInvoker().escapeString(coluuid)).replace("{" + "dir" + "}", getApiInvoker().escapeString(dir));
 

@@ -11,6 +11,14 @@ Describe 'IO.Swagger CollectionsApi' {
     }
 
     Context 'CollectionsApi' {
+        It 'Invoke-CollectionsApiCollectionsColuuidContentsDelete' {
+            $ret = Invoke-PetApiGetPetById -coluuid "TEST_VALUE" -contentid "TEST_VALUE" -by "TEST_VALUE" -value "TEST_VALUE"
+            #$ret | Should BeOfType IO.Swagger.Model.ModelNameHere
+            #$ret.property | Should Be 0
+        }
+    }
+
+    Context 'CollectionsApi' {
         It 'Invoke-CollectionsApiCollectionsColuuidDelete' {
             $ret = Invoke-PetApiGetPetById -coluuid "TEST_VALUE"
             #$ret | Should BeOfType IO.Swagger.Model.ModelNameHere
@@ -44,7 +52,7 @@ Describe 'IO.Swagger CollectionsApi' {
 
     Context 'CollectionsApi' {
         It 'Invoke-CollectionsApiCollectionsGet' {
-            $ret = Invoke-PetApiGetPetById -id "TEST_VALUE"
+            $ret = Invoke-PetApiGetPetById
             #$ret | Should BeOfType IO.Swagger.Model.ModelNameHere
             #$ret.property | Should Be 0
         }
