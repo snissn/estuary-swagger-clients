@@ -217,9 +217,9 @@ package body .Clients is
    begin
       Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
 
-      URI.Add_Param ("coluuid", Coluuid);
       URI.Add_Param ("dir", Dir);
       URI.Set_Path ("/collections/{coluuid}");
+      URI.Set_Path_Param ("coluuid", Coluuid);
       Client.Call (Swagger.Clients.GET, URI, Reply);
       Swagger.Streams.Deserialize (Reply, "", Result);
    end Collections_Coluuid_Get;

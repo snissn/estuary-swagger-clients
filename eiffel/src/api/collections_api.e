@@ -154,7 +154,7 @@ feature -- API Access
 			create l_request
 			
 			l_path := "/collections/{coluuid}"
-			l_request.fill_query_params(api_client.parameter_to_tuple("", "coluuid", coluuid));
+			l_path.replace_substring_all ("{"+"coluuid"+"}", api_client.url_encode (coluuid.out))
 			l_request.fill_query_params(api_client.parameter_to_tuple("", "dir", dir));
 
 

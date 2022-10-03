@@ -119,7 +119,7 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("CollectionsColuuidGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(string), description: "OK")]
-        public virtual IActionResult CollectionsColuuidGet([FromQuery][Required()]string coluuid, [FromQuery]string dir)
+        public virtual IActionResult CollectionsColuuidGet([FromRoute][Required]string coluuid, [FromQuery]string dir)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(string));

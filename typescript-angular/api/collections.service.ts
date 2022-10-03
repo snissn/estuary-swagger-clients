@@ -234,9 +234,6 @@ export class CollectionsService {
 
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (coluuid !== undefined && coluuid !== null) {
-            queryParameters = queryParameters.set('coluuid', <any>coluuid);
-        }
         if (dir !== undefined && dir !== null) {
             queryParameters = queryParameters.set('dir', <any>dir);
         }

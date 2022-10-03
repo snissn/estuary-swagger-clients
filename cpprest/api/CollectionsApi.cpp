@@ -420,7 +420,8 @@ pplx::task<utility::string_t> CollectionsApi::collectionsColuuidGet(utility::str
 
     std::shared_ptr<ApiConfiguration> apiConfiguration( m_ApiClient->getConfiguration() );
     utility::string_t path = utility::conversions::to_string_t("/collections/{coluuid}");
-    
+    boost::replace_all(path, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("coluuid") + utility::conversions::to_string_t("}"), ApiClient::parameterToString(coluuid));
+
     std::map<utility::string_t, utility::string_t> queryParams;
     std::map<utility::string_t, utility::string_t> headerParams( apiConfiguration->getDefaultHeaders() );
     std::map<utility::string_t, utility::string_t> formParams;
@@ -460,9 +461,6 @@ pplx::task<utility::string_t> CollectionsApi::collectionsColuuidGet(utility::str
 
     std::unordered_set<utility::string_t> consumeHttpContentTypes;
 
-    {
-        queryParams[utility::conversions::to_string_t("coluuid")] = ApiClient::parameterToString(coluuid);
-    }
     if (dir)
     {
         queryParams[utility::conversions::to_string_t("dir")] = ApiClient::parameterToString(*dir);

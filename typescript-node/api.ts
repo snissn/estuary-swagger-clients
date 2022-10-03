@@ -1392,7 +1392,8 @@ export class CollectionsApi {
      * @param {*} [options] Override http request options.
      */
     public collectionsColuuidGet (coluuid: string, dir?: string, options: any = {}) : Promise<{ response: http.ClientResponse; body: string;  }> {
-        const localVarPath = this.basePath + '/collections/{coluuid}';
+        const localVarPath = this.basePath + '/collections/{coluuid}'
+            .replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -1400,10 +1401,6 @@ export class CollectionsApi {
         // verify required parameter 'coluuid' is not null or undefined
         if (coluuid === null || coluuid === undefined) {
             throw new Error('Required parameter coluuid was null or undefined when calling collectionsColuuidGet.');
-        }
-
-        if (coluuid !== undefined) {
-            localVarQueryParameters['coluuid'] = ObjectSerializer.serialize(coluuid, "string");
         }
 
         if (dir !== undefined) {

@@ -108,9 +108,7 @@ class CollectionsApi {
             throw new RuntimeException("missing required params coluuid")
         }
 
-        if (!"null".equals(String.valueOf(coluuid)))
-            queryParams.put("coluuid", String.valueOf(coluuid))
-if (!"null".equals(String.valueOf(dir)))
+        if (!"null".equals(String.valueOf(dir)))
             queryParams.put("dir", String.valueOf(dir))
 
 

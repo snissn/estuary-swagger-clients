@@ -24,7 +24,7 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-30T06:36:34.887Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-03T07:43:56.678Z")
 
 @Controller
 public class CollectionsApiController implements CollectionsApi {
@@ -74,7 +74,7 @@ public class CollectionsApiController implements CollectionsApi {
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<String> collectionsColuuidGet(@NotNull @ApiParam(value = "Collection UUID", required = true) @Valid @RequestParam(value = "coluuid", required = true) String coluuid,@ApiParam(value = "Directory") @Valid @RequestParam(value = "dir", required = false) String dir) {
+    public ResponseEntity<String> collectionsColuuidGet(@ApiParam(value = "Collection UUID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Directory") @Valid @RequestParam(value = "dir", required = false) String dir) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {

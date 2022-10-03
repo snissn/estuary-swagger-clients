@@ -142,7 +142,7 @@ public class CollectionsApi extends SwaggerApi {
      */
     public function collections_coluuid_get (coluuid: String, dir: String): String {
         // create path and map variables
-        var path: String = "/collections/{coluuid}".replace(/{format}/g,"xml");
+        var path: String = "/collections/{coluuid}".replace(/{format}/g,"xml").replace("{" + "coluuid" + "}", getApiInvoker().escapeString(coluuid));
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -157,9 +157,7 @@ public class CollectionsApi extends SwaggerApi {
             throw new ApiError(400, "missing required params");
         }
 
-        if("null" != String(coluuid))
-            queryParams["coluuid"] = toPathValue(coluuid);
-if("null" != String(dir))
+        if("null" != String(dir))
             queryParams["dir"] = toPathValue(dir);
 
         

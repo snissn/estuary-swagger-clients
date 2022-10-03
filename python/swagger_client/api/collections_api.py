@@ -399,10 +399,10 @@ class CollectionsApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'coluuid' in params:
+            path_params['coluuid'] = params['coluuid']  # noqa: E501
 
         query_params = []
-        if 'coluuid' in params:
-            query_params.append(('coluuid', params['coluuid']))  # noqa: E501
         if 'dir' in params:
             query_params.append(('dir', params['dir']))  # noqa: E501
 

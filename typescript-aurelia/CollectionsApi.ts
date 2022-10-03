@@ -207,14 +207,14 @@ export class CollectionsApi extends Api {
     this.ensureParamIsSet('collectionsColuuidGet', params, 'coluuid');
 
     // Create URL to call
-    const url = `${this.basePath}/collections/{coluuid}`;
+    const url = `${this.basePath}/collections/{coluuid}`
+      .replace(`{${'coluuid'}}`, encodeURIComponent(`${params['coluuid']}`));
 
     const response = await this.httpClient.createRequest(url)
       // Set HTTP method
       .asGet()
       // Set query parameters
       .withParams({ 
-        'coluuid': params['coluuid'],
         'dir': params['dir'],
       })
 

@@ -148,7 +148,7 @@ public class CollectionsAPI: APIBase {
     /**
      Get contents in a collection
      
-     - parameter coluuid: (query) Collection UUID 
+     - parameter coluuid: (path) Collection UUID 
      - parameter dir: (query) Directory (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -171,17 +171,17 @@ public class CollectionsAPI: APIBase {
   "empty": true
 }}]
      
-     - parameter coluuid: (query) Collection UUID 
+     - parameter coluuid: (path) Collection UUID 
      - parameter dir: (query) Directory (optional)
 
      - returns: RequestBuilder<String> 
      */
     public class func collectionsColuuidGetWithRequestBuilder(coluuid coluuid: String, dir: String? = nil) -> RequestBuilder<String> {
-        let path = "/collections/{coluuid}"
+        var path = "/collections/{coluuid}"
+        path = path.stringByReplacingOccurrencesOfString("{coluuid}", withString: "\(coluuid)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
 
         let nillableParameters: [String:AnyObject?] = [
-            "coluuid": coluuid,
             "dir": dir
         ]
  

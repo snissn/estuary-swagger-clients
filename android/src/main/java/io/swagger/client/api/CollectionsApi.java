@@ -485,7 +485,7 @@ public class CollectionsApi {
     }
 
     // create path and map variables
-    String path = "/collections/{coluuid}";
+    String path = "/collections/{coluuid}".replaceAll("\\{" + "coluuid" + "\\}", apiInvoker.escapeString(coluuid.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -493,7 +493,6 @@ public class CollectionsApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "coluuid", coluuid));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "dir", dir));
     String[] contentTypes = {
     };
@@ -549,7 +548,7 @@ public class CollectionsApi {
     }
 
     // create path and map variables
-    String path = "/collections/{coluuid}".replaceAll("\\{format\\}","json");
+    String path = "/collections/{coluuid}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "coluuid" + "\\}", apiInvoker.escapeString(coluuid.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -558,7 +557,6 @@ public class CollectionsApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "coluuid", coluuid));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "dir", dir));
 
 

@@ -140,17 +140,14 @@ export class CollectionsApi {
      * @param dir Directory
      */
     public collectionsColuuidGet (coluuid: string, dir?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<string> {
-        const localVarPath = this.basePath + '/collections/{coluuid}';
+        const localVarPath = this.basePath + '/collections/{coluuid}'
+            .replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
         // verify required parameter 'coluuid' is not null or undefined
         if (coluuid === null || coluuid === undefined) {
             throw new Error('Required parameter coluuid was null or undefined when calling collectionsColuuidGet.');
-        }
-
-        if (coluuid !== undefined) {
-            queryParameters['coluuid'] = coluuid;
         }
 
         if (dir !== undefined) {

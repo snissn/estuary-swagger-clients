@@ -29,7 +29,7 @@ import javax.validation.constraints.*;
 @Api(description = "the collections API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-30T06:35:54.948Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-03T07:43:15.762Z")
 
 public class CollectionsApi  {
 
@@ -86,7 +86,7 @@ public class CollectionsApi  {
     }, tags={ "collections",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class) })
-    public Response collectionsColuuidGet( @NotNull @ApiParam(value = "Collection UUID",required=true)  @QueryParam("coluuid") String coluuid,  @ApiParam(value = "Directory")  @QueryParam("dir") String dir) {
+    public Response collectionsColuuidGet(@ApiParam(value = "Collection UUID",required=true) @PathParam("coluuid") String coluuid,  @ApiParam(value = "Directory")  @QueryParam("dir") String dir) {
         return delegate.collectionsColuuidGet(coluuid, dir, securityContext);
     }
 

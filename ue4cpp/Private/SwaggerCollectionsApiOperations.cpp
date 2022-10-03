@@ -181,9 +181,12 @@ bool SwaggerCollectionsApi::CollectionsColuuidDeleteResponse::FromJson(const TSh
 
 FString SwaggerCollectionsApi::CollectionsColuuidGetRequest::ComputePath() const
 {
-	FString Path(TEXT("/collections/{coluuid}"));
+	TMap<FString, FStringFormatArg> PathParams = { 
+	{ TEXT("coluuid"), ToStringFormatArg(Coluuid) } };
+
+	FString Path = FString::Format(TEXT("/collections/{coluuid}"), PathParams);
+	
 	TArray<FString> QueryParams;
-	QueryParams.Add(FString(TEXT("coluuid=")) + ToUrlString(Coluuid));
 	if(Dir.IsSet())
 	{
 		QueryParams.Add(FString(TEXT("dir=")) + ToUrlString(Dir.GetValue()));

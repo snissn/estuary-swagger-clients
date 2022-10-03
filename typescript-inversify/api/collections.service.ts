@@ -147,9 +147,6 @@ export class CollectionsService {
         }
 
         let queryParameters: string[] = [];
-        if (coluuid !== undefined) {
-            queryParameters.push('coluuid='+encodeURIComponent(String(coluuid)));
-        }
         if (dir !== undefined) {
             queryParameters.push('dir='+encodeURIComponent(String(dir)));
         }

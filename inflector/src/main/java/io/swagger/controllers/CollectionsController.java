@@ -16,7 +16,7 @@ import io.swagger.model.MainCreateCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-09-30T06:35:45.031Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-10-03T07:43:05.439Z")
 public class CollectionsController  {
   /** 
    * Uncomment and implement as you see fit.  These operations will map

@@ -70,9 +70,9 @@
   ([coluuid {:keys [dir ]}]
    (check-required-params coluuid)
    (call-api "/collections/{coluuid}" :get
-             {:path-params   {}
+             {:path-params   {"coluuid" coluuid }
               :header-params {}
-              :query-params  {"coluuid" coluuid "dir" dir }
+              :query-params  {"dir" dir }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]

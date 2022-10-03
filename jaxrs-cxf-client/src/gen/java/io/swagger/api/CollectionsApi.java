@@ -82,7 +82,7 @@ public interface CollectionsApi  {
     @ApiOperation(value = "Get contents in a collection", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class) })
-    public String collectionsColuuidGet(@QueryParam("coluuid")String coluuid, @QueryParam("dir")String dir);
+    public String collectionsColuuidGet(@PathParam("coluuid") String coluuid, @QueryParam("dir")String dir);
 
     /**
      * Add contents to a collection

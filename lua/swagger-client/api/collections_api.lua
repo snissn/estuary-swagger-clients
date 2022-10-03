@@ -186,8 +186,8 @@ function collections_api:collections_coluuid_get(coluuid, dir)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
-		path = string.format("%s/collections/%s?coluuid=%s&dir=%s",
-			self.basePath, http_util.encodeURIComponent(coluuid), http_util.encodeURIComponent(dir));
+		path = string.format("%s/collections/%s?dir=%s",
+			self.basePath, coluuid, http_util.encodeURIComponent(dir));
 	})
 
 	-- set HTTP verb

@@ -120,7 +120,6 @@ public class SwagCollectionsApi {
         List<Swagger.Param> query = new List<Swagger.Param>();
 
         // cast query params to verify their expected type
-        query.addAll(client.makeParam('coluuid', (String) params.get('coluuid')));
         query.addAll(client.makeParam('dir', (String) params.get('dir')));
 
         List<Swagger.Param> form = new List<Swagger.Param>();
@@ -128,7 +127,9 @@ public class SwagCollectionsApi {
         return (String) client.invoke(
             'GET', '/collections/{coluuid}', '',
             query, form,
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'coluuid' => (String) params.get('coluuid')
+            },
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },

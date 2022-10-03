@@ -570,10 +570,6 @@ static bool collectionsColuuidGetHelper(char * accessToken,
 	string itemAtq;
 	
 
-	itemAtq = stringify(&coluuid, "std::string");
-	queryParams.insert(pair<string, string>("coluuid", itemAtq));
-
-
 	itemAtq = stringify(&dir, "std::string");
 	queryParams.insert(pair<string, string>("dir", itemAtq));
 	if( itemAtq.empty()==true){
@@ -587,6 +583,12 @@ static bool collectionsColuuidGetHelper(char * accessToken,
 	string url("/collections/{coluuid}");
 	int pos;
 
+	string s_coluuid("{");
+	s_coluuid.append("coluuid");
+	s_coluuid.append("}");
+	pos = url.find(s_coluuid);
+	url.erase(pos, s_coluuid.length());
+	url.insert(pos, stringify(&coluuid, "std::string"));
 
 	//TODO: free memory of errormsg, memorystruct
 	MemoryStruct_s* p_chunk = new MemoryStruct_s();

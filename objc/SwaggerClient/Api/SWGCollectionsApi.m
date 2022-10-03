@@ -327,11 +327,11 @@ NSInteger kSWGCollectionsApiMissingParamErrorCode = 234513;
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/collections/{coluuid}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (coluuid != nil) {
+        pathParams[@"coluuid"] = coluuid;
+    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (coluuid != nil) {
-        queryParams[@"coluuid"] = coluuid;
-    }
     if (dir != nil) {
         queryParams[@"dir"] = dir;
     }

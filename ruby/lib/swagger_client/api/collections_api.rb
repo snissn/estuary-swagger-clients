@@ -216,11 +216,10 @@ module SwaggerClient
         fail ArgumentError, "Missing the required parameter 'coluuid' when calling CollectionsApi.collections_coluuid_get"
       end
       # resource path
-      local_var_path = '/collections/{coluuid}'
+      local_var_path = '/collections/{coluuid}'.sub('{' + 'coluuid' + '}', coluuid.to_s)
 
       # query parameters
       query_params = {}
-      query_params[:'coluuid'] = coluuid
       query_params[:'dir'] = opts[:'dir'] if !opts[:'dir'].nil?
 
       # header parameters

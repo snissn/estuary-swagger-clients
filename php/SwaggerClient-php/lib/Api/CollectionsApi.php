@@ -1121,14 +1121,18 @@ class CollectionsApi
         $multipart = false;
 
         // query params
-        if ($coluuid !== null) {
-            $queryParams['coluuid'] = ObjectSerializer::toQueryValue($coluuid);
-        }
-        // query params
         if ($dir !== null) {
             $queryParams['dir'] = ObjectSerializer::toQueryValue($dir);
         }
 
+        // path params
+        if ($coluuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'coluuid' . '}',
+                ObjectSerializer::toPathValue($coluuid),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;

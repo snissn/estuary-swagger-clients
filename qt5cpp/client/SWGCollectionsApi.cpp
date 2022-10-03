@@ -203,14 +203,8 @@ SWGCollectionsApi::collectionsColuuidGet(QString* coluuid, QString* dir) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/collections/{coluuid}");
 
-
-    if (fullPath.indexOf("?") > 0)
-      fullPath.append("&");
-    else
-      fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("coluuid"))
-        .append("=")
-        .append(QUrl::toPercentEncoding(stringValue(coluuid)));
+    QString coluuidPathParam("{"); coluuidPathParam.append("coluuid").append("}");
+    fullPath.replace(coluuidPathParam, stringValue(coluuid));
 
     if (fullPath.indexOf("?") > 0)
       fullPath.append("&");

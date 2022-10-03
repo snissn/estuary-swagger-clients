@@ -88,8 +88,8 @@ object CollectionsApi {
   def collectionsColuuidGet(coluuid: String, dir: Option[String] = None)(implicit apiKey: ApiKeyValue): ApiRequest[String] =
     ApiRequest[String](ApiMethods.GET, "https://api.estuary.tech", "/collections/{coluuid}", "application/json")
       .withApiKey(apiKey, "Authorization", HEADER)
-      .withQueryParam("coluuid", coluuid)
       .withQueryParam("dir", dir)
+      .withPathParam("coluuid", coluuid)
       .withSuccessResponse[String](200)
         /**
    * This endpoint adds already-pinned contents (that have ContentIDs) to a collection.

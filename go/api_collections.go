@@ -356,12 +356,12 @@ func (a *CollectionsApiService) CollectionsColuuidGet(ctx context.Context, coluu
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/collections/{coluuid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"coluuid"+"}", fmt.Sprintf("%v", coluuid), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("coluuid", parameterToString(coluuid, ""))
 	if localVarOptionals != nil && localVarOptionals.Dir.IsSet() {
 		localVarQueryParams.Add("dir", parameterToString(localVarOptionals.Dir.Value(), ""))
 	}

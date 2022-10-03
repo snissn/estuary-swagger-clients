@@ -55,10 +55,9 @@ class TestCollectionsController(BaseTestCase):
 
         Get contents in a collection
         """
-        query_string = [('coluuid', 'coluuid_example'),
-                        ('dir', 'dir_example')]
+        query_string = [('dir', 'dir_example')]
         response = self.client.open(
-            '//collections/{coluuid}',
+            '//collections/{coluuid}'.format(coluuid='coluuid_example'),
             method='GET',
             query_string=query_string)
         self.assert200(response,

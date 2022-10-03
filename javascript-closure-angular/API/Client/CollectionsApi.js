@@ -183,7 +183,8 @@ API.Client.CollectionsApi.prototype.collectionsColuuidDelete = function(coluuid,
  */
 API.Client.CollectionsApi.prototype.collectionsColuuidGet = function(coluuid, opt_dir, opt_extraHttpRequestParams) {
   /** @const {string} */
-  var path = this.basePath_ + '/collections/{coluuid}';
+  var path = this.basePath_ + '/collections/{coluuid}'
+      .replace('{' + 'coluuid' + '}', String(coluuid));
 
   /** @type {!Object} */
   var queryParameters = {};
@@ -194,10 +195,6 @@ API.Client.CollectionsApi.prototype.collectionsColuuidGet = function(coluuid, op
   if (!coluuid) {
     throw new Error('Missing required parameter coluuid when calling collectionsColuuidGet');
   }
-  if (coluuid !== undefined) {
-    queryParameters['coluuid'] = coluuid;
-  }
-
   if (opt_dir !== undefined) {
     queryParameters['dir'] = opt_dir;
   }

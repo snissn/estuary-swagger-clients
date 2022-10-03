@@ -470,8 +470,8 @@ case $state in
       collectionsColuuidGet)
         local -a _op_arguments
         _op_arguments=(
-                    "coluuid=:[QUERY] Collection UUID"
-"dir=:[QUERY] Directory"
+          "coluuid=:[PATH] Collection UUID"
+          "dir=:[QUERY] Directory"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

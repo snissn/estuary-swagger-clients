@@ -256,7 +256,7 @@ export class CollectionsApi {
      * @param dir Directory
      */
     public collectionsColuuidGet(coluuid: string, dir?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQueryPromise<{ response: JQueryXHR; body: string;  }> {
-        let localVarPath = this.basePath + '/collections/{coluuid}';
+        let localVarPath = this.basePath + '/collections/{coluuid}'.replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -265,9 +265,6 @@ export class CollectionsApi {
             throw new Error('Required parameter coluuid was null or undefined when calling collectionsColuuidGet.');
         }
 
-        if (coluuid !== null && coluuid !== undefined) {
-            queryParameters['coluuid'] = <string><any>coluuid;
-        }
         if (dir !== null && dir !== undefined) {
             queryParameters['dir'] = <string><any>dir;
         }

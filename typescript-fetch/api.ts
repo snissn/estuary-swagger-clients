@@ -1356,7 +1356,8 @@ export const CollectionsApiFetchParamCreator = function (configuration?: Configu
             if (coluuid === null || coluuid === undefined) {
                 throw new RequiredError('coluuid','Required parameter coluuid was null or undefined when calling collectionsColuuidGet.');
             }
-            const localVarPath = `/collections/{coluuid}`;
+            const localVarPath = `/collections/{coluuid}`
+                .replace(`{${"coluuid"}}`, encodeURIComponent(String(coluuid)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
             const localVarHeaderParameter = {} as any;
@@ -1368,10 +1369,6 @@ export const CollectionsApiFetchParamCreator = function (configuration?: Configu
 					? configuration.apiKey("Authorization")
 					: configuration.apiKey;
                 localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
-            }
-
-            if (coluuid !== undefined) {
-                localVarQueryParameter['coluuid'] = coluuid;
             }
 
             if (dir !== undefined) {

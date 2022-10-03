@@ -78,10 +78,10 @@ collectionsColuuidDelete coluuid =
 {-
    This endpoint is used to get contents in a collection. If no colpath query param is passed
 -}
-collectionsColuuidGet : Http.Request String
-collectionsColuuidGet =
+collectionsColuuidGet : String -> Http.Request String
+collectionsColuuidGet coluuid =
     { method = "GET"
-    , url = basePath ++ "/collections/{coluuid}"
+    , url = basePath ++ "/collections/" ++ coluuid
     , headers = []
     , body = Http.emptyBody
     , expect = Http.expectJson Decode.string

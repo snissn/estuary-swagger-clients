@@ -1108,8 +1108,7 @@ print_collectionsColuuidGet_help() {
     echo -e "This endpoint is used to get contents in a collection. If no colpath query param is passed" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}coluuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Collection UUID${YELLOW} Specify as: coluuid=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}coluuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Collection UUID ${YELLOW}Specify as: coluuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}dir${OFF} ${BLUE}[string]${OFF}${OFF} - Directory${YELLOW} Specify as: dir=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
@@ -2888,10 +2887,10 @@ call_collectionsColuuidDelete() {
 call_collectionsColuuidGet() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=()
+    local path_parameter_names=(coluuid)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(coluuid dir  )
+    local query_parameter_names=(dir  )
     local path
 
     if ! path=$(build_request_path "/collections/{coluuid}" path_parameter_names query_parameter_names); then

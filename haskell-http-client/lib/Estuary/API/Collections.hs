@@ -147,9 +147,8 @@ collectionsColuuidGet
   :: Coluuid -- ^ "coluuid" -  Collection UUID
   -> EstuaryRequest CollectionsColuuidGet MimeNoContent Text MimeJSON
 collectionsColuuidGet (Coluuid coluuid) =
-  _mkRequest "GET" ["/collections/{coluuid}"]
+  _mkRequest "GET" ["/collections/",toPath coluuid]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyBearerAuth)
-    `setQuery` toQuery ("coluuid", Just coluuid)
 
 data CollectionsColuuidGet  
 

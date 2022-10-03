@@ -1002,7 +1002,7 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (coluuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "coluuid", coluuid)); // query parameter
+            if (coluuid != null) localVarPathParams.Add("coluuid", this.Configuration.ApiClient.ParameterToString(coluuid)); // path parameter
             if (dir != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dir", dir)); // query parameter
 
             // authentication (bearerAuth) required
@@ -1077,7 +1077,7 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (coluuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "coluuid", coluuid)); // query parameter
+            if (coluuid != null) localVarPathParams.Add("coluuid", this.Configuration.ApiClient.ParameterToString(coluuid)); // path parameter
             if (dir != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dir", dir)); // query parameter
 
             // authentication (bearerAuth) required

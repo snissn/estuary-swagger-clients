@@ -259,15 +259,15 @@ path = path.Replace("{" + "contentid" + "}", ApiClient.ParameterToString(content
     
             var path = "/collections/{coluuid}";
             path = path.Replace("{format}", "json");
-                
+            path = path.Replace("{" + "coluuid" + "}", ApiClient.ParameterToString(coluuid));
+    
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, String>();
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-             if (coluuid != null) queryParams.Add("coluuid", ApiClient.ParameterToString(coluuid)); // query parameter
- if (dir != null) queryParams.Add("dir", ApiClient.ParameterToString(dir)); // query parameter
+             if (dir != null) queryParams.Add("dir", ApiClient.ParameterToString(dir)); // query parameter
                                         
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };

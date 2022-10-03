@@ -88,17 +88,17 @@ object CollectionsApi {
     } yield resp
   }
   
-  def collectionsColuuidGet(host: String, coluuid: String, dir: String)(implicit coluuidQuery: QueryParam[String], dirQuery: QueryParam[String]): Task[String] = {
+  def collectionsColuuidGet(host: String, coluuid: String, dir: String)(implicit dirQuery: QueryParam[String]): Task[String] = {
     implicit val returnTypeDecoder: EntityDecoder[String] = jsonOf[String]
 
-    val path = "/collections/{coluuid}"
+    val path = "/collections/{coluuid}".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString))
     
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
     val headers = Headers(
       )
     val queryParams = Query(
-      ("coluuid", Some(coluuidQuery.toParamString(coluuid))), ("dir", Some(dirQuery.toParamString(dir))))
+      ("dir", Some(dirQuery.toParamString(dir))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
@@ -259,17 +259,17 @@ class HttpServiceCollectionsApi(service: HttpService) {
     } yield resp
   }
   
-  def collectionsColuuidGet(coluuid: String, dir: String)(implicit coluuidQuery: QueryParam[String], dirQuery: QueryParam[String]): Task[String] = {
+  def collectionsColuuidGet(coluuid: String, dir: String)(implicit dirQuery: QueryParam[String]): Task[String] = {
     implicit val returnTypeDecoder: EntityDecoder[String] = jsonOf[String]
 
-    val path = "/collections/{coluuid}"
+    val path = "/collections/{coluuid}".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString))
     
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
     val headers = Headers(
       )
     val queryParams = Query(
-      ("coluuid", Some(coluuidQuery.toParamString(coluuid))), ("dir", Some(dirQuery.toParamString(dir))))
+      ("dir", Some(dirQuery.toParamString(dir))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))

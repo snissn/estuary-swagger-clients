@@ -462,12 +462,11 @@ public class CollectionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/collections/{coluuid}";
+        String localVarPath = "/collections/{coluuid}"
+            .replaceAll("\\{" + "coluuid" + "\\}", apiClient.escapeString(coluuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (coluuid != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("coluuid", coluuid));
         if (dir != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("dir", dir));
 

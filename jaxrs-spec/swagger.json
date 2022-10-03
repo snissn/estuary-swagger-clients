@@ -263,7 +263,7 @@
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "coluuid",
-          "in" : "query",
+          "in" : "path",
           "description" : "Collection UUID",
           "required" : true,
           "type" : "string"

@@ -267,14 +267,13 @@ impl<C: hyper::client::Connect>CollectionsApi for CollectionsApiClient<C> {
 
         let query_string = {
             let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("coluuid", &coluuid.to_string());
             query.append_pair("dir", &dir.to_string());
             for (key, val) in &auth_query {
                 query.append_pair(key, val);
             }
             query.finish()
         };
-        let uri_str = format!("{}/collections/{coluuid}?{}", configuration.base_path, query_string);
+        let uri_str = format!("{}/collections/{coluuid}?{}", configuration.base_path, query_string, coluuid=coluuid);
 
         // TODO(farcaller): handle error
         // if let Err(e) = uri {

@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Path("/content")
 @Api(description = "the content API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-09-30T06:36:02.123Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-03T07:43:22.979Z")
 public class ContentApi {
 
     @POST

@@ -347,13 +347,15 @@ sub collections_coluuid_get {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'coluuid'}) {
-        $query_params->{'coluuid'} = $self->{api_client}->to_query_value($args{'coluuid'});
-    }
-
-    # query params
     if ( exists $args{'dir'}) {
         $query_params->{'dir'} = $self->{api_client}->to_query_value($args{'dir'});
+    }
+
+    # path params
+    if ( exists $args{'coluuid'}) {
+        my $_base_variable = "{" . "coluuid" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'coluuid'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

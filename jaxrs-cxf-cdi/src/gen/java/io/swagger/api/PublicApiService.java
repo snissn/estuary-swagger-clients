@@ -14,7 +14,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-09-30T06:35:54.948Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-03T07:43:15.762Z")
 public interface PublicApiService {
       public Response publicByCidCidGet(String cid, SecurityContext securityContext);
       public Response publicDealsFailuresGet(SecurityContext securityContext);

@@ -25,7 +25,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the admin API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-30T06:35:58.982Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-10-03T07:43:19.698Z")
 public class AdminApi  {
 
     @Inject AdminApiService service;

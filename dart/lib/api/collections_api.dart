@@ -184,13 +184,12 @@ class CollectionsApi {
     }
 
     // create path and map variables
-    String path = "/collections/{coluuid}".replaceAll("{format}","json");
+    String path = "/collections/{coluuid}".replaceAll("{format}","json").replaceAll("{" + "coluuid" + "}", coluuid.toString());
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "coluuid", coluuid));
     if(dir != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "dir", dir));
     }

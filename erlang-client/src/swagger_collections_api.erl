@@ -87,7 +87,7 @@ collections_coluuid_get(Ctx, Coluuid, Optional) ->
 
     Method = get,
     Path = ["/collections/", Coluuid, ""],
-    QS = lists:flatten([{<<"coluuid">>, Coluuid}])++swagger_utils:optional_params([, 'dir'], _OptionalParams),
+    QS = lists:flatten([])++swagger_utils:optional_params(['dir'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = swagger_utils:select_header_content_type([]),

@@ -115,7 +115,6 @@ defmodule EstuaryAPI.Api.Collections do
     %{}
     |> method(:get)
     |> url("/collections/#{coluuid}")
-    |> add_param(:query, :"coluuid", coluuid)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

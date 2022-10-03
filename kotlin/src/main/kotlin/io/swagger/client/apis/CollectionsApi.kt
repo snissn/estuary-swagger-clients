@@ -145,7 +145,7 @@ class CollectionsApi(basePath: kotlin.String = "https://api.estuary.tech") : Api
     @Suppress("UNCHECKED_CAST")
     fun collectionsColuuidGet(coluuid: kotlin.String, dir: kotlin.String) : kotlin.String {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("coluuid" to listOf("$coluuid"), "dir" to listOf("$dir"))
+        val localVariableQuery: MultiValueMap = mapOf("dir" to listOf("$dir"))
         
         val contentHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
         val acceptsHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Accept" to "application/json")
@@ -155,7 +155,7 @@ class CollectionsApi(basePath: kotlin.String = "https://api.estuary.tech") : Api
         
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
-            "/collections/{coluuid}",
+            "/collections/{coluuid}".replace("{"+"coluuid"+"}", "$coluuid"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )

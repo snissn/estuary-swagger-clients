@@ -237,9 +237,9 @@
 
 
       var pathParams = {
+        'coluuid': coluuid
       };
       var queryParams = {
-        'coluuid': coluuid,
         'dir': opts['dir'],
       };
       var collectionQueryParams = {

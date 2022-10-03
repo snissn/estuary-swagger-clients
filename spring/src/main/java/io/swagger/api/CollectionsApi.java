@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-09-30T06:36:34.887Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-03T07:43:56.678Z")
 
 @Validated
 @Api(value = "collections", description = "the collections API")
@@ -72,7 +72,7 @@ public interface CollectionsApi {
     @RequestMapping(value = "/collections/{coluuid}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<String> collectionsColuuidGet(@NotNull @ApiParam(value = "Collection UUID", required = true) @Valid @RequestParam(value = "coluuid", required = true) String coluuid,@ApiParam(value = "Directory") @Valid @RequestParam(value = "dir", required = false) String dir);
+    ResponseEntity<String> collectionsColuuidGet(@ApiParam(value = "Collection UUID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Directory") @Valid @RequestParam(value = "dir", required = false) String dir);
 
 
     @ApiOperation(value = "Add contents to a collection", nickname = "collectionsColuuidPost", notes = "This endpoint adds already-pinned contents (that have ContentIDs) to a collection.", response = String.class, responseContainer = "Map", authorizations = {

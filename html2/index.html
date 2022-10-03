@@ -4965,7 +4965,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Collections-collectionsColuuidGet-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "Authorization: [[apiKey]]" "https://api.estuary.tech/collections/{coluuid}?coluuid=&dir="</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "Authorization: [[apiKey]]" "https://api.estuary.tech/collections/{coluuid}?dir="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Collections-collectionsColuuidGet-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -5195,17 +5195,13 @@ except ApiException as e:
 
                           <h2>Parameters</h2>
 
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
+                            <div class="methodsubtabletitle">Path parameters</div>
                             <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">coluuid*</td>
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">coluuid*</td>
 <td>
 
 
@@ -5228,6 +5224,17 @@ except ApiException as e:
 </td>
 </tr>
 
+                            </table>
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
                                 <tr><td style="width:150px;">dir</td>
 <td>
 

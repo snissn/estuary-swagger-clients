@@ -371,7 +371,8 @@ class CollectionsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
     dir: Option[String] = None
     )(implicit reader: ClientResponseReader[String]): Future[String] = {
     // create path and map variables
-    val path = (addFmt("/collections/{coluuid}"))
+    val path = (addFmt("/collections/{coluuid}")
+      replaceAll("\\{" + "coluuid" + "\\}", coluuid.toString))
 
     // query params
     val queryParams = new mutable.HashMap[String, String]
@@ -379,7 +380,6 @@ class CollectionsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
 
     if (coluuid == null) throw new Exception("Missing required parameter 'coluuid' when calling CollectionsApi->collectionsColuuidGet")
 
-    queryParams += "coluuid" -> coluuid.toString
     dir match {
       case Some(param) => queryParams += "dir" -> param.toString
       case _ => queryParams

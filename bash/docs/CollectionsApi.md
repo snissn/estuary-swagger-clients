@@ -121,7 +121,7 @@ This endpoint is used to get contents in a collection. If no colpath query param
 
 ### Example
 ```bash
- collectionsColuuidGet  coluuid=value  dir=value
+ collectionsColuuidGet coluuid=value  dir=value
 ```
 
 ### Parameters

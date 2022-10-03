@@ -160,15 +160,15 @@ CollectionsApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`coluuid`)) {
-        queryParams['coluuid'] <- coluuid
-      }
-
       if (!missing(`dir`)) {
         queryParams['dir'] <- dir
       }
 
       urlPath <- "/collections/{coluuid}"
+      if (!missing(`coluuid`)) {
+        urlPath <- gsub(paste0("\\{", "coluuid", "\\}"), `coluuid`, urlPath)
+      }
+
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
                                  queryParams = queryParams,

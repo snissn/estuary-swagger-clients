@@ -26,7 +26,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the collections API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-09-30T06:36:00.498Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-03T07:43:21.296Z")
 public interface CollectionsApi  {
    
     @POST
@@ -69,7 +69,7 @@ public interface CollectionsApi  {
     }, tags={ "collections", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class) })
-    public Response collectionsColuuidGet( @NotNull @QueryParam("coluuid") String coluuid, @QueryParam("dir") String dir,@Context SecurityContext securityContext);
+    public Response collectionsColuuidGet( @PathParam("coluuid") String coluuid, @QueryParam("dir") String dir,@Context SecurityContext securityContext);
     @POST
     @Path("/{coluuid}")
     @Consumes({ "application/json" })

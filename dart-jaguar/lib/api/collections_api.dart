@@ -50,9 +50,8 @@ class CollectionsApi extends _$CollectionsApiClient implements ApiClient {
     /// This endpoint is used to get contents in a collection. If no colpath query param is passed
     @GetReq(path: "/collections/:coluuid", metadata: {"auth": [ {"type": "apiKey", "name": "bearerAuth", "keyName": "Authorization", "where": "header" }]})
     Future<String> collectionsColuuidGet(
-        
-        @QueryParam("coluuid") String coluuid, 
-        
+            @PathParam("coluuid") String coluuid
+        ,
         @QueryParam("dir") String dir
     );
 

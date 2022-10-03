@@ -155,7 +155,7 @@ open class CollectionsAPI {
     /**
      Get contents in a collection
      
-     - parameter coluuid: (query) Collection UUID 
+     - parameter coluuid: (path) Collection UUID 
      - parameter dir: (query) Directory (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -178,19 +178,21 @@ open class CollectionsAPI {
   "empty": true
 }}]
      
-     - parameter coluuid: (query) Collection UUID 
+     - parameter coluuid: (path) Collection UUID 
      - parameter dir: (query) Directory (optional)
 
      - returns: RequestBuilder<String> 
      */
     open class func collectionsColuuidGetWithRequestBuilder(coluuid: String, dir: String? = nil) -> RequestBuilder<String> {
-        let path = "/collections/{coluuid}"
+        var path = "/collections/{coluuid}"
+        let coluuidPreEscape = "\(coluuid)"
+        let coluuidPostEscape = coluuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "coluuid": coluuid, 
             "dir": dir
         ])
 

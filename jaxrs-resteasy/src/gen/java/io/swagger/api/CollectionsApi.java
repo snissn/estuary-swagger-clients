@@ -30,7 +30,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the collections API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-09-30T06:35:58.982Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-10-03T07:43:19.698Z")
 public class CollectionsApi  {
 
     @Inject CollectionsApiService service;
@@ -84,7 +84,7 @@ public class CollectionsApi  {
     }, tags={ "collections", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class) })
-    public Response collectionsColuuidGet( @NotNull  @QueryParam("coluuid") String coluuid,  @QueryParam("dir") String dir,@Context SecurityContext securityContext)
+    public Response collectionsColuuidGet( @PathParam("coluuid") String coluuid,  @QueryParam("dir") String dir,@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.collectionsColuuidGet(coluuid,dir,securityContext);
     }
