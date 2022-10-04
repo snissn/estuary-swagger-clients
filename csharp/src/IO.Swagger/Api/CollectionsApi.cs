@@ -54,10 +54,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>string</returns>
-        string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value);
+        string CollectionsColuuidContentsDelete (string coluuid, string contentid, MainDeleteContentFromCollectionBody body);
 
         /// <summary>
         /// Deletes a content from a collection
@@ -68,10 +67,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> CollectionsColuuidContentsDeleteWithHttpInfo (string coluuid, string contentid, string by, string value);
+        ApiResponse<string> CollectionsColuuidContentsDeleteWithHttpInfo (string coluuid, string contentid, MainDeleteContentFromCollectionBody body);
         /// <summary>
         /// Deletes a collection
         /// </summary>
@@ -234,10 +232,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> CollectionsColuuidContentsDeleteAsync (string coluuid, string contentid, string by, string value);
+        System.Threading.Tasks.Task<string> CollectionsColuuidContentsDeleteAsync (string coluuid, string contentid, MainDeleteContentFromCollectionBody body);
 
         /// <summary>
         /// Deletes a content from a collection
@@ -248,10 +245,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> CollectionsColuuidContentsDeleteAsyncWithHttpInfo (string coluuid, string contentid, string by, string value);
+        System.Threading.Tasks.Task<ApiResponse<string>> CollectionsColuuidContentsDeleteAsyncWithHttpInfo (string coluuid, string contentid, MainDeleteContentFromCollectionBody body);
         /// <summary>
         /// Deletes a collection
         /// </summary>
@@ -631,12 +627,11 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>string</returns>
-        public string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value)
+        public string CollectionsColuuidContentsDelete (string coluuid, string contentid, MainDeleteContentFromCollectionBody body)
         {
-             ApiResponse<string> localVarResponse = CollectionsColuuidContentsDeleteWithHttpInfo(coluuid, contentid, by, value);
+             ApiResponse<string> localVarResponse = CollectionsColuuidContentsDeleteWithHttpInfo(coluuid, contentid, body);
              return localVarResponse.Data;
         }
 
@@ -646,10 +641,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > CollectionsColuuidContentsDeleteWithHttpInfo (string coluuid, string contentid, string by, string value)
+        public ApiResponse< string > CollectionsColuuidContentsDeleteWithHttpInfo (string coluuid, string contentid, MainDeleteContentFromCollectionBody body)
         {
             // verify the required parameter 'coluuid' is set
             if (coluuid == null)
@@ -657,12 +651,9 @@ namespace IO.Swagger.Api
             // verify the required parameter 'contentid' is set
             if (contentid == null)
                 throw new ApiException(400, "Missing required parameter 'contentid' when calling CollectionsApi->CollectionsColuuidContentsDelete");
-            // verify the required parameter 'by' is set
-            if (by == null)
-                throw new ApiException(400, "Missing required parameter 'by' when calling CollectionsApi->CollectionsColuuidContentsDelete");
-            // verify the required parameter 'value' is set
-            if (value == null)
-                throw new ApiException(400, "Missing required parameter 'value' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling CollectionsApi->CollectionsColuuidContentsDelete");
 
             var localVarPath = "/collections/{coluuid}/contents";
             var localVarPathParams = new Dictionary<String, String>();
@@ -687,13 +678,13 @@ namespace IO.Swagger.Api
 
             if (coluuid != null) localVarPathParams.Add("coluuid", this.Configuration.ApiClient.ParameterToString(coluuid)); // path parameter
             if (contentid != null) localVarPathParams.Add("contentid", this.Configuration.ApiClient.ParameterToString(contentid)); // path parameter
-            if (value != null && value.GetType() != typeof(byte[]))
+            if (body != null && body.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(value); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = value; // byte array
+                localVarPostBody = body; // byte array
             }
 
             // authentication (bearerAuth) required
@@ -726,12 +717,11 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> CollectionsColuuidContentsDeleteAsync (string coluuid, string contentid, string by, string value)
+        public async System.Threading.Tasks.Task<string> CollectionsColuuidContentsDeleteAsync (string coluuid, string contentid, MainDeleteContentFromCollectionBody body)
         {
-             ApiResponse<string> localVarResponse = await CollectionsColuuidContentsDeleteAsyncWithHttpInfo(coluuid, contentid, by, value);
+             ApiResponse<string> localVarResponse = await CollectionsColuuidContentsDeleteAsyncWithHttpInfo(coluuid, contentid, body);
              return localVarResponse.Data;
 
         }
@@ -742,10 +732,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> CollectionsColuuidContentsDeleteAsyncWithHttpInfo (string coluuid, string contentid, string by, string value)
+        public async System.Threading.Tasks.Task<ApiResponse<string>> CollectionsColuuidContentsDeleteAsyncWithHttpInfo (string coluuid, string contentid, MainDeleteContentFromCollectionBody body)
         {
             // verify the required parameter 'coluuid' is set
             if (coluuid == null)
@@ -753,12 +742,9 @@ namespace IO.Swagger.Api
             // verify the required parameter 'contentid' is set
             if (contentid == null)
                 throw new ApiException(400, "Missing required parameter 'contentid' when calling CollectionsApi->CollectionsColuuidContentsDelete");
-            // verify the required parameter 'by' is set
-            if (by == null)
-                throw new ApiException(400, "Missing required parameter 'by' when calling CollectionsApi->CollectionsColuuidContentsDelete");
-            // verify the required parameter 'value' is set
-            if (value == null)
-                throw new ApiException(400, "Missing required parameter 'value' when calling CollectionsApi->CollectionsColuuidContentsDelete");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling CollectionsApi->CollectionsColuuidContentsDelete");
 
             var localVarPath = "/collections/{coluuid}/contents";
             var localVarPathParams = new Dictionary<String, String>();
@@ -783,13 +769,13 @@ namespace IO.Swagger.Api
 
             if (coluuid != null) localVarPathParams.Add("coluuid", this.Configuration.ApiClient.ParameterToString(coluuid)); // path parameter
             if (contentid != null) localVarPathParams.Add("contentid", this.Configuration.ApiClient.ParameterToString(contentid)); // path parameter
-            if (value != null && value.GetType() != typeof(byte[]))
+            if (body != null && body.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(value); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = value; // byte array
+                localVarPostBody = body; // byte array
             }
 
             // authentication (bearerAuth) required

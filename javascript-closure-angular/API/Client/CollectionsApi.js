@@ -15,6 +15,7 @@
 goog.provide('API.Client.CollectionsApi');
 
 goog.require('API.Client.MainCreateCollectionBody');
+goog.require('API.Client.MainDeleteContentFromCollectionBody');
 goog.require('API.Client.collections.Collection');
 goog.require('API.Client.util.HttpError');
 
@@ -87,12 +88,11 @@ API.Client.CollectionsApi.prototype.collectionsColuuidCommitPost = function(colu
  * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
  * @param {!string} coluuid Collection ID
  * @param {!string} contentid Content ID
- * @param {!string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
- * @param {!string} value Value of content_id or path to look for
+ * @param {!MainDeleteContentFromCollectionBody} body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!string>}
  */
-API.Client.CollectionsApi.prototype.collectionsColuuidContentsDelete = function(coluuid, contentid, by, value, opt_extraHttpRequestParams) {
+API.Client.CollectionsApi.prototype.collectionsColuuidContentsDelete = function(coluuid, contentid, body, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/collections/{coluuid}/contents'
       .replace('{' + 'coluuid' + '}', String(coluuid))
@@ -111,20 +111,16 @@ API.Client.CollectionsApi.prototype.collectionsColuuidContentsDelete = function(
   if (!contentid) {
     throw new Error('Missing required parameter contentid when calling collectionsColuuidContentsDelete');
   }
-  // verify required parameter 'by' is set
-  if (!by) {
-    throw new Error('Missing required parameter by when calling collectionsColuuidContentsDelete');
-  }
-  // verify required parameter 'value' is set
-  if (!value) {
-    throw new Error('Missing required parameter value when calling collectionsColuuidContentsDelete');
+  // verify required parameter 'body' is set
+  if (!body) {
+    throw new Error('Missing required parameter body when calling collectionsColuuidContentsDelete');
   }
   /** @type {!Object} */
   var httpRequestParams = {
     method: 'DELETE',
     url: path,
     json: true,
-    data: value,
+    data: body,
         params: queryParameters,
     headers: headerParams
   };

@@ -16,12 +16,12 @@ class TestAutoretrieveController(BaseTestCase):
 
         Register autoretrieve server
         """
-        pubKey = 'pubKey_example'
+        data = dict(addresses='addresses_example',
+                    pubKey='pubKey_example')
         response = self.client.open(
             '//admin/autoretrieve/init',
             method='POST',
-            data=json.dumps(pubKey),
-            content_type='application/json')
+            data=data)
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 

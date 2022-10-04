@@ -71,10 +71,9 @@ object Paths {
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      * @param coluuid Collection ID 
      * @param contentid Content ID 
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
-     * @param value Value of content_id or path to look for 
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} 
      */
-    @Location("/collections/{coluuid}/contents") class collectionsColuuidContentsDelete(val coluuid: kotlin.String, val contentid: kotlin.String, val by: kotlin.String, val value: kotlin.String)
+    @Location("/collections/{coluuid}/contents") class collectionsColuuidContentsDelete(val coluuid: kotlin.String, val contentid: kotlin.String, val body: MaindeleteContentFromCollectionBody)
 
     /**
      * Deletes a collection

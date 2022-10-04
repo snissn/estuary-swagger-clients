@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import io.swagger.client.model.CollectionsCollection;
 import java.util.*;
 import io.swagger.client.model.MainCreateCollectionBody;
+import io.swagger.client.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.client.model.UtilHttpError;
 
@@ -191,12 +192,11 @@ public class CollectionsApi {
   * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
    * @param coluuid Collection ID
    * @param contentid Content ID
-   * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-   * @param value Value of content_id or path to look for
+   * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
    * @return String
   */
-  public String collectionsColuuidContentsDelete (String coluuid, String contentid, String by, String value) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = value;
+  public String collectionsColuuidContentsDelete (String coluuid, String contentid, MainDeleteContentFromCollectionBody body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = body;
     // verify the required parameter 'coluuid' is set
     if (coluuid == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'coluuid' when calling collectionsColuuidContentsDelete",
@@ -207,15 +207,10 @@ public class CollectionsApi {
       VolleyError error = new VolleyError("Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete",
         new ApiException(400, "Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete"));
     }
-    // verify the required parameter 'by' is set
-    if (by == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'by' when calling collectionsColuuidContentsDelete",
-        new ApiException(400, "Missing the required parameter 'by' when calling collectionsColuuidContentsDelete"));
-    }
-    // verify the required parameter 'value' is set
-    if (value == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'value' when calling collectionsColuuidContentsDelete",
-        new ApiException(400, "Missing the required parameter 'value' when calling collectionsColuuidContentsDelete"));
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'body' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'body' when calling collectionsColuuidContentsDelete"));
     }
 
     // create path and map variables
@@ -269,10 +264,10 @@ public class CollectionsApi {
       /**
    * Deletes a content from a collection
    * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
-   * @param coluuid Collection ID   * @param contentid Content ID   * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)   * @param value Value of content_id or path to look for
+   * @param coluuid Collection ID   * @param contentid Content ID   * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
   */
-  public void collectionsColuuidContentsDelete (String coluuid, String contentid, String by, String value, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = value;
+  public void collectionsColuuidContentsDelete (String coluuid, String contentid, MainDeleteContentFromCollectionBody body, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = body;
 
     // verify the required parameter 'coluuid' is set
     if (coluuid == null) {
@@ -284,15 +279,10 @@ public class CollectionsApi {
       VolleyError error = new VolleyError("Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete",
         new ApiException(400, "Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete"));
     }
-    // verify the required parameter 'by' is set
-    if (by == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'by' when calling collectionsColuuidContentsDelete",
-        new ApiException(400, "Missing the required parameter 'by' when calling collectionsColuuidContentsDelete"));
-    }
-    // verify the required parameter 'value' is set
-    if (value == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'value' when calling collectionsColuuidContentsDelete",
-        new ApiException(400, "Missing the required parameter 'value' when calling collectionsColuuidContentsDelete"));
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'body' when calling collectionsColuuidContentsDelete",
+        new ApiException(400, "Missing the required parameter 'body' when calling collectionsColuuidContentsDelete"));
     }
 
     // create path and map variables

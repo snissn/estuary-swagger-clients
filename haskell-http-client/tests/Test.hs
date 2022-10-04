@@ -22,6 +22,7 @@ main =
       pure ()
       propMimeEq MimeJSON (Proxy :: Proxy CollectionsCollection)
       propMimeEq MimeJSON (Proxy :: Proxy MainCreateCollectionBody)
+      propMimeEq MimeJSON (Proxy :: Proxy MainDeleteContentFromCollectionBody)
       propMimeEq MimeJSON (Proxy :: Proxy MainEstimateDealBody)
       propMimeEq MimeJSON (Proxy :: Proxy MainGetApiKeysResp)
       propMimeEq MimeJSON (Proxy :: Proxy MainImportDealBody)

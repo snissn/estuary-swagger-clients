@@ -45,8 +45,7 @@ defmodule EstuaryAPI.Api.Collections do
   - connection (EstuaryAPI.Connection): Connection to server
   - coluuid (String.t): Collection ID
   - contentid (String.t): Content ID
-  - by (String.t): Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-  - value (String.t): Value of content_id or path to look for
+  - body (MainDeleteContentFromCollectionBody): {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -54,13 +53,12 @@ defmodule EstuaryAPI.Api.Collections do
   {:ok, %EstuaryAPI.Model.String.t{}} on success
   {:error, info} on failure
   """
-  @spec collections_coluuid_contents_delete(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
-  def collections_coluuid_contents_delete(connection, coluuid, contentid, by, value, _opts \\ []) do
+  @spec collections_coluuid_contents_delete(Tesla.Env.client, String.t, String.t, EstuaryAPI.Model.MainDeleteContentFromCollectionBody.t, keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
+  def collections_coluuid_contents_delete(connection, coluuid, contentid, body, _opts \\ []) do
     %{}
     |> method(:delete)
     |> url("/collections/#{coluuid}/contents")
-    |> add_param(:body, :"by", by)
-    |> add_param(:body, :"value", value)
+    |> add_param(:body, :"body", body)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> decode(false)

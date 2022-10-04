@@ -63,10 +63,11 @@
           /*
           var coluuid = "coluuid_example";
           var contentid = "contentid_example";
-          var by = "by_example";
-          var value = "value_example";
+          var body = new EstuaryApi.MainDeleteContentFromCollectionBody();
+          body.by = "";
+          body.value = "";
 
-          instance.collectionsColuuidContentsDelete(coluuid, contentid, by, value, function(error, data, response) {
+          instance.collectionsColuuidContentsDelete(coluuid, contentid, body, function(error, data, response) {
             if (error) {
               done(error);
               return;

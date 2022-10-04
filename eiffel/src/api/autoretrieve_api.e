@@ -41,9 +41,15 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-			l_request.set_body(pub_key)
+			
 			l_path := "/admin/autoretrieve/init"
 
+			if attached addresses as l_addresses then
+				l_request.add_form(l_addresses,"addresses");
+			end
+			if attached pub_key as l_pub_key then
+				l_request.add_form(l_pub_key,"pubKey");
+			end
 
 			if attached {STRING} api_client.select_header_accept (<<"application/json">>)  as l_accept then
 				l_request.add_header(l_accept,"Accept");

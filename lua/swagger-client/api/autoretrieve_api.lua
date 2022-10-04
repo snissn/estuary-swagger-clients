@@ -56,10 +56,10 @@ function autoretrieve_api:admin_autoretrieve_init_post(addresses, pub_key)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(addresses))
-
-	req:set_body(dkjson.encode(pub_key))
-
+	req:set_body(http_util.dict_to_query({
+		["addresses"] = addresses;
+		["pubKey"] = pub_key;
+	}))
 	-- api key in headers 'Authorization'
 	if self.api_key['Authorization'] then
 		req.headers:upsert("bearerAuth", self.api_key['Authorization'])

@@ -3,6 +3,7 @@
 
 export(CollectionsCollection)
 export(MainCreateCollectionBody)
+export(MainDeleteContentFromCollectionBody)
 export(MainEstimateDealBody)
 export(MainGetApiKeysResp)
 export(MainImportDealBody)

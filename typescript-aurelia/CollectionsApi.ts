@@ -15,6 +15,7 @@ import { HttpClient } from 'aurelia-http-client';
 import { Api } from './Api';
 import { AuthStorage } from './AuthStorage';
 import {
+  MainDeleteContentFromCollectionBody,
   MainCreateCollectionBody,
   CollectionsCollection,
 } from './models';
@@ -32,8 +33,7 @@ export interface ICollectionsColuuidCommitPostParams {
 export interface ICollectionsColuuidContentsDeleteParams {
   coluuid: string;
   contentid: string;
-  by: string;
-  value: string;
+  body: MainDeleteContentFromCollectionBody;
 }
 
 /**
@@ -131,15 +131,13 @@ export class CollectionsApi extends Api {
    * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
    * @param params.coluuid Collection ID
    * @param params.contentid Content ID
-   * @param params.by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-   * @param params.value Value of content_id or path to look for
+   * @param params.body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
    */
   async collectionsColuuidContentsDelete(params: ICollectionsColuuidContentsDeleteParams): Promise<string> {
     // Verify required parameters are set
     this.ensureParamIsSet('collectionsColuuidContentsDelete', params, 'coluuid');
     this.ensureParamIsSet('collectionsColuuidContentsDelete', params, 'contentid');
-    this.ensureParamIsSet('collectionsColuuidContentsDelete', params, 'by');
-    this.ensureParamIsSet('collectionsColuuidContentsDelete', params, 'value');
+    this.ensureParamIsSet('collectionsColuuidContentsDelete', params, 'body');
 
     // Create URL to call
     const url = `${this.basePath}/collections/{coluuid}/contents`
@@ -151,7 +149,7 @@ export class CollectionsApi extends Api {
       .asDelete()
       // Encode body parameter
       .withHeader('content-type', 'application/json')
-      .withContent(JSON.stringify(params['value'] || {}))
+      .withContent(JSON.stringify(params['body'] || {}))
 
       // Authentication 'bearerAuth' required
       .withHeader('Authorization', this.authStorage.getbearerAuth())

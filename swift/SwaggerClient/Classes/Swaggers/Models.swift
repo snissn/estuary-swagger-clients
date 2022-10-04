@@ -183,6 +183,20 @@ class Decoders {
             }
 
 
+            // Decoder for [MainDeleteContentFromCollectionBody]
+            Decoders.addDecoder(clazz: [MainDeleteContentFromCollectionBody].self) { (source: AnyObject) -> [MainDeleteContentFromCollectionBody] in
+                return Decoders.decode(clazz: [MainDeleteContentFromCollectionBody].self, source: source)
+            }
+            // Decoder for MainDeleteContentFromCollectionBody
+            Decoders.addDecoder(clazz: MainDeleteContentFromCollectionBody.self) { (source: AnyObject) -> MainDeleteContentFromCollectionBody in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = MainDeleteContentFromCollectionBody()
+                instance.by = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["by"])
+                instance.value = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["value"])
+                return instance
+            }
+
+
             // Decoder for [MainEstimateDealBody]
             Decoders.addDecoder(clazz: [MainEstimateDealBody].self) { (source: AnyObject) -> [MainEstimateDealBody] in
                 return Decoders.decode(clazz: [MainEstimateDealBody].self, source: source)

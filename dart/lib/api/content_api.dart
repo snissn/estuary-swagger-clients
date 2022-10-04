@@ -123,27 +123,27 @@ class ContentApi {
   /// Add new content
   ///
   /// This endpoint is used to upload new content.
-  Future<UtilContentAddResponse> contentAddPost(MultipartFile data, String coluuid, String dir) async {
+  Future<UtilContentAddResponse> contentAddPost(MultipartFile data, { String coluuid, String dir }) async {
     Object postBody = null;
 
     // verify required params are set
     if(data == null) {
      throw new ApiException(400, "Missing required param: data");
     }
-    if(coluuid == null) {
-     throw new ApiException(400, "Missing required param: coluuid");
-    }
-    if(dir == null) {
-     throw new ApiException(400, "Missing required param: dir");
-    }
 
     // create path and map variables
-    String path = "/content/add".replaceAll("{format}","json").replaceAll("{" + "coluuid" + "}", coluuid.toString()).replaceAll("{" + "dir" + "}", dir.toString());
+    String path = "/content/add".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(coluuid != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "coluuid", coluuid));
+    }
+    if(dir != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "dir", dir));
+    }
     
     List<String> contentTypes = ["multipart/form-data"];
 

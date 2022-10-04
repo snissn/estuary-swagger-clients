@@ -21,7 +21,7 @@ admin_autoretrieve_init_post(Ctx, Addresses, PubKey, Optional) ->
     Path = ["/admin/autoretrieve/init"],
     QS = [],
     Headers = [],
-    Body1 = AddressesPubKey,
+    Body1 = {form, [{<<"addresses">>, Addresses}, {<<"pubKey">>, PubKey}]++swagger_utils:optional_params([], _OptionalParams)},
     ContentTypeHeader = swagger_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 

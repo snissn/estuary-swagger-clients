@@ -3,6 +3,7 @@ import six
 
 from swagger_server.models.collections_collection import CollectionsCollection  # noqa: E501
 from swagger_server.models.main_create_collection_body import MainCreateCollectionBody  # noqa: E501
+from swagger_server.models.main_delete_content_from_collection_body import MainDeleteContentFromCollectionBody  # noqa: E501
 from swagger_server.models.util_http_error import UtilHttpError  # noqa: E501
 from swagger_server import util
 
@@ -20,7 +21,7 @@ def collections_coluuid_commit_post(coluuid):  # noqa: E501
     return 'do some magic!'
 
 
-def collections_coluuid_contents_delete(coluuid, contentid, by, value):  # noqa: E501
+def collections_coluuid_contents_delete(coluuid, contentid, body):  # noqa: E501
     """Deletes a content from a collection
 
     This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path # noqa: E501
@@ -29,13 +30,13 @@ def collections_coluuid_contents_delete(coluuid, contentid, by, value):  # noqa:
     :type coluuid: str
     :param contentid: Content ID
     :type contentid: str
-    :param by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-    :type by: str
-    :param value: Value of content_id or path to look for
-    :type value: str
+    :param body: {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
+    :type body: dict | bytes
 
     :rtype: str
     """
+    if connexion.request.is_json:
+        body = MainDeleteContentFromCollectionBody.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 

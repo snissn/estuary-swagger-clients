@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionsColuuidContentsDelete"></a>
 # **collectionsColuuidContentsDelete**
-> kotlin.String collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+> kotlin.String collectionsColuuidContentsDelete(coluuid, contentid, body)
 
 Deletes a content from a collection
 
@@ -78,10 +78,9 @@ This endpoint is used to delete an existing content from an existing collection.
 val apiInstance = CollectionsApi()
 val coluuid : kotlin.String = coluuid_example // kotlin.String | Collection ID
 val contentid : kotlin.String = contentid_example // kotlin.String | Content ID
-val by : kotlin.String = by_example // kotlin.String | Variable to use when filtering for files (must be either 'path' or 'content_id')
-val value : kotlin.String = value_example // kotlin.String | Value of content_id or path to look for
+val body : MaindeleteContentFromCollectionBody =  // MaindeleteContentFromCollectionBody | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 try {
-    val result : kotlin.String = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+    val result : kotlin.String = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, body)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CollectionsApi#collectionsColuuidContentsDelete")
@@ -98,8 +97,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **kotlin.String**| Collection ID |
  **contentid** | **kotlin.String**| Content ID |
- **by** | **kotlin.String**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) |
- **value** | **kotlin.String**| Value of content_id or path to look for |
+ **body** | [**MaindeleteContentFromCollectionBody**](MaindeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} |
 
 ### Return type
 

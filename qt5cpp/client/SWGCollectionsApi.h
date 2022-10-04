@@ -19,6 +19,7 @@
 #include <QString>
 #include "SWGCollections.Collection.h"
 #include "SWGMain.createCollectionBody.h"
+#include "SWGMain.deleteContentFromCollectionBody.h"
 #include "SWGUtil.HttpError.h"
 
 #include <QObject>
@@ -38,7 +39,7 @@ public:
     QMap<QString, QString> defaultHeaders;
 
     void collectionsColuuidCommitPost(QString* coluuid);
-    void collectionsColuuidContentsDelete(QString* coluuid, QString* contentid, QString*& by, QString*& value);
+    void collectionsColuuidContentsDelete(QString* coluuid, QString* contentid, SWGMain.deleteContentFromCollectionBody& body);
     void collectionsColuuidDelete(QString* coluuid);
     void collectionsColuuidGet(QString* coluuid, QString* dir);
     void collectionsColuuidPost(QList<qint32>*& body);

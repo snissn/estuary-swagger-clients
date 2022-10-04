@@ -61,9 +61,11 @@ module SwaggerClient
 
       # form parameters
       form_params = {}
+      form_params['addresses'] = addresses
+      form_params['pubKey'] = pub_key
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(pub_key)
+      post_body = nil
       auth_names = ['bearerAuth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,

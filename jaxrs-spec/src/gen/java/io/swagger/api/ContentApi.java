@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Path("/content")
 @Api(description = "the content API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-03T07:43:22.979Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-04T07:13:34.144Z")
 public class ContentApi {
 
     @POST
@@ -55,7 +55,7 @@ public class ContentApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = UtilContentAddResponse.class)
     })
-    public Response contentAddPost( @FormParam(value = "data") InputStream dataInputStream,@PathParam("coluuid") @ApiParam("Collection UUID") String coluuid,@PathParam("dir") @ApiParam("Directory") String dir) {
+    public Response contentAddPost( @FormParam(value = "data") InputStream dataInputStream,@QueryParam("coluuid")   @ApiParam("Collection UUID")  String coluuid,@QueryParam("dir")   @ApiParam("Directory")  String dir) {
         return Response.ok().entity("magic!").build();
     }
 

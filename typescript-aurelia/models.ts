@@ -24,6 +24,11 @@ export interface MainCreateCollectionBody {
   name?: string;
 }
 
+export interface MainDeleteContentFromCollectionBody {
+  by?: string;
+  value?: string;
+}
+
 export interface MainEstimateDealBody {
   durationBlks?: number;
   replication?: number;

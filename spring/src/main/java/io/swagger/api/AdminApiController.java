@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-03T07:43:56.678Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-04T07:14:06.505Z")
 
 @Controller
 public class AdminApiController implements AdminApi {
@@ -36,7 +36,7 @@ public class AdminApiController implements AdminApi {
         this.request = request;
     }
 
-    public ResponseEntity<Void> adminAutoretrieveInitPost(@ApiParam(value = "Autoretrieve's comma-separated list of addresses" ,required=true )  @Valid @RequestBody String addresses,@ApiParam(value = "Autoretrieve's public key" ,required=true )  @Valid @RequestBody String pubKey) {
+    public ResponseEntity<Void> adminAutoretrieveInitPost(@ApiParam(value = "Autoretrieve's comma-separated list of addresses", required=true) @RequestParam(value="addresses", required=true)  String addresses,@ApiParam(value = "Autoretrieve's public key", required=true) @RequestParam(value="pubKey", required=true)  String pubKey) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }

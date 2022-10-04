@@ -106,10 +106,8 @@ export class ContentApi {
      * @param coluuid Collection UUID
      * @param dir Directory
      */
-    public contentAddPost (data: any, coluuid: string, dir: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.UtilContentAddResponse> {
-        const localVarPath = this.basePath + '/content/add'
-            .replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid)))
-            .replace('{' + 'dir' + '}', encodeURIComponent(String(dir)));
+    public contentAddPost (data: any, coluuid?: string, dir?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.UtilContentAddResponse> {
+        const localVarPath = this.basePath + '/content/add';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -120,14 +118,12 @@ export class ContentApi {
             throw new Error('Required parameter data was null or undefined when calling contentAddPost.');
         }
 
-        // verify required parameter 'coluuid' is not null or undefined
-        if (coluuid === null || coluuid === undefined) {
-            throw new Error('Required parameter coluuid was null or undefined when calling contentAddPost.');
+        if (coluuid !== undefined) {
+            queryParameters['coluuid'] = coluuid;
         }
 
-        // verify required parameter 'dir' is not null or undefined
-        if (dir === null || dir === undefined) {
-            throw new Error('Required parameter dir was null or undefined when calling contentAddPost.');
+        if (dir !== undefined) {
+            queryParameters['dir'] = dir;
         }
 
         headerParams['Content-Type'] = 'application/x-www-form-urlencoded';

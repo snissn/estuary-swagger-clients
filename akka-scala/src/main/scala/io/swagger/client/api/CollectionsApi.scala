@@ -13,6 +13,7 @@ package io.swagger.client.api
 
 import io.swagger.client.model.CollectionsCollection
 import io.swagger.client.model.MainCreateCollectionBody
+import io.swagger.client.model.MainDeleteContentFromCollectionBody
 import io.swagger.client.model.UtilHttpError
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
@@ -48,13 +49,12 @@ object CollectionsApi {
    * 
    * @param coluuid Collection ID
    * @param contentid Content ID
-   * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-   * @param value Value of content_id or path to look for
+   * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
    */
-  def collectionsColuuidContentsDelete(coluuid: String, contentid: String, by: String, value: String)(implicit apiKey: ApiKeyValue): ApiRequest[String] =
+  def collectionsColuuidContentsDelete(coluuid: String, contentid: String, body: MainDeleteContentFromCollectionBody)(implicit apiKey: ApiKeyValue): ApiRequest[String] =
     ApiRequest[String](ApiMethods.DELETE, "https://api.estuary.tech", "/collections/{coluuid}/contents", "application/json")
       .withApiKey(apiKey, "Authorization", HEADER)
-      .withBody(value)
+      .withBody(body)
       .withPathParam("coluuid", coluuid)
       .withPathParam("contentid", contentid)
       .withSuccessResponse[String](200)

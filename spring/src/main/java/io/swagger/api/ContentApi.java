@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-03T07:43:56.678Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-04T07:14:06.505Z")
 
 @Validated
 @Api(value = "content", description = "the content API")
@@ -60,7 +60,7 @@ public interface ContentApi {
         produces = { "application/json" }, 
         consumes = { "multipart/form-data" },
         method = RequestMethod.POST)
-    ResponseEntity<UtilContentAddResponse> contentAddPost(@ApiParam(value = "File to upload") @Valid @RequestPart(value="data", required=true) MultipartFile data,@ApiParam(value = "Collection UUID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Directory",required=true) @PathVariable("dir") String dir);
+    ResponseEntity<UtilContentAddResponse> contentAddPost(@ApiParam(value = "File to upload") @Valid @RequestPart(value="data", required=true) MultipartFile data,@ApiParam(value = "Collection UUID") @Valid @RequestParam(value = "coluuid", required = false) String coluuid,@ApiParam(value = "Directory") @Valid @RequestParam(value = "dir", required = false) String dir);
 
 
     @ApiOperation(value = "Get aggregated content stats", nickname = "contentAggregatedContentGet", notes = "This endpoint returns aggregated content stats", response = String.class, authorizations = {

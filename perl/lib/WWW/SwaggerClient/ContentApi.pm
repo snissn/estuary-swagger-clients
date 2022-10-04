@@ -209,8 +209,8 @@ sub content_add_ipfs_post {
 # Add new content
 # 
 # @param File $data File to upload (required)
-# @param string $coluuid Collection UUID (required)
-# @param string $dir Directory (required)
+# @param string $coluuid Collection UUID (optional)
+# @param string $dir Directory (optional)
 {
     my $params = {
     'data' => {
@@ -221,12 +221,12 @@ sub content_add_ipfs_post {
     'coluuid' => {
         data_type => 'string',
         description => 'Collection UUID',
-        required => '1',
+        required => '0',
     },
     'dir' => {
         data_type => 'string',
         description => 'Directory',
-        required => '1',
+        required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ 'content_add_post' } = { 
@@ -245,16 +245,6 @@ sub content_add_post {
       croak("Missing the required parameter 'data' when calling content_add_post");
     }
 
-    # verify the required parameter 'coluuid' is set
-    unless (exists $args{'coluuid'}) {
-      croak("Missing the required parameter 'coluuid' when calling content_add_post");
-    }
-
-    # verify the required parameter 'dir' is set
-    unless (exists $args{'dir'}) {
-      croak("Missing the required parameter 'dir' when calling content_add_post");
-    }
-
     # parse inputs
     my $_resource_path = '/content/add';
 
@@ -270,18 +260,14 @@ sub content_add_post {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('multipart/form-data');
 
-    # path params
+    # query params
     if ( exists $args{'coluuid'}) {
-        my $_base_variable = "{" . "coluuid" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'coluuid'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
+        $query_params->{'coluuid'} = $self->{api_client}->to_query_value($args{'coluuid'});
     }
 
-    # path params
+    # query params
     if ( exists $args{'dir'}) {
-        my $_base_variable = "{" . "dir" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'dir'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
+        $query_params->{'dir'} = $self->{api_client}->to_query_value($args{'dir'});
     }
 
     # form params

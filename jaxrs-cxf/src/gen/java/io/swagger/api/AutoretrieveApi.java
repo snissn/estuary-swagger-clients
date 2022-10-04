@@ -39,7 +39,7 @@ public interface AutoretrieveApi  {
     @Produces({ "application/json" })
     @ApiOperation(value = "Register autoretrieve server", tags={ "autoretrieve",  })
     @ApiResponses(value = {  })
-    public void adminAutoretrieveInitPost(@Valid String addresses, @Valid String pubKey);
+    public void adminAutoretrieveInitPost(@Multipart(value = "addresses")  String addresses, @Multipart(value = "pubKey")  String pubKey);
 
     /**
      * List autoretrieve servers

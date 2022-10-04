@@ -6,8 +6,8 @@
  * This endpoint is used to upload new content.
  *
  * data File File to upload
- * coluuid String Collection UUID
- * dir String Directory
+ * coluuid String Collection UUID (optional)
+ * dir String Directory (optional)
  * returns util.ContentAddResponse
  **/
 exports.contentAddPOST = function(data,coluuid,dir) {

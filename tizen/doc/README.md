@@ -272,6 +272,7 @@ Class | Description
 ------------- | -------------
  *Collections.Collection* | 
  *Main.createCollectionBody* | 
+ *Main.deleteContentFromCollectionBody* | 
  *Main.estimateDealBody* | 
  *Main.getApiKeysResp* | 
  *Main.importDealBody* | 

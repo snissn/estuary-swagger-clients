@@ -328,19 +328,9 @@ public class ContentApi {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling contentAddPost",
         new ApiException(400, "Missing the required parameter 'data' when calling contentAddPost"));
     }
-    // verify the required parameter 'coluuid' is set
-    if (coluuid == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'coluuid' when calling contentAddPost",
-        new ApiException(400, "Missing the required parameter 'coluuid' when calling contentAddPost"));
-    }
-    // verify the required parameter 'dir' is set
-    if (dir == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'dir' when calling contentAddPost",
-        new ApiException(400, "Missing the required parameter 'dir' when calling contentAddPost"));
-    }
 
     // create path and map variables
-    String path = "/content/add".replaceAll("\\{" + "coluuid" + "\\}", apiInvoker.escapeString(coluuid.toString())).replaceAll("\\{" + "dir" + "\\}", apiInvoker.escapeString(dir.toString()));
+    String path = "/content/add";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -348,6 +338,8 @@ public class ContentApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "coluuid", coluuid));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "dir", dir));
     String[] contentTypes = {
       "multipart/form-data"
     };
@@ -404,19 +396,9 @@ public class ContentApi {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling contentAddPost",
         new ApiException(400, "Missing the required parameter 'data' when calling contentAddPost"));
     }
-    // verify the required parameter 'coluuid' is set
-    if (coluuid == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'coluuid' when calling contentAddPost",
-        new ApiException(400, "Missing the required parameter 'coluuid' when calling contentAddPost"));
-    }
-    // verify the required parameter 'dir' is set
-    if (dir == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'dir' when calling contentAddPost",
-        new ApiException(400, "Missing the required parameter 'dir' when calling contentAddPost"));
-    }
 
     // create path and map variables
-    String path = "/content/add".replaceAll("\\{format\\}","json").replaceAll("\\{" + "coluuid" + "\\}", apiInvoker.escapeString(coluuid.toString())).replaceAll("\\{" + "dir" + "\\}", apiInvoker.escapeString(dir.toString()));
+    String path = "/content/add".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -425,6 +407,8 @@ public class ContentApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "coluuid", coluuid));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "dir", dir));
 
 
     String[] contentTypes = {

@@ -79,16 +79,12 @@ if (!"null".equals(String.valueOf(size)))
         if (data == null) {
             throw new RuntimeException("missing required params data")
         }
-        // verify required params are set
-        if (coluuid == null) {
-            throw new RuntimeException("missing required params coluuid")
-        }
-        // verify required params are set
-        if (dir == null) {
-            throw new RuntimeException("missing required params dir")
-        }
 
-        
+        if (!"null".equals(String.valueOf(coluuid)))
+            queryParams.put("coluuid", String.valueOf(coluuid))
+if (!"null".equals(String.valueOf(dir)))
+            queryParams.put("dir", String.valueOf(dir))
+
 
         // Also still TODO: form params, body param
 

@@ -364,6 +364,32 @@ class Decoders {
                 return .failure(.typeMismatch(expected: "MainCreateCollectionBody", actual: "\(source)"))
             }
         }
+        // Decoder for [MainDeleteContentFromCollectionBody]
+        Decoders.addDecoder(clazz: [MainDeleteContentFromCollectionBody].self) { (source: AnyObject, instance: AnyObject?) -> Decoded<[MainDeleteContentFromCollectionBody]> in
+            return Decoders.decode(clazz: [MainDeleteContentFromCollectionBody].self, source: source)
+        }
+
+        // Decoder for MainDeleteContentFromCollectionBody
+        Decoders.addDecoder(clazz: MainDeleteContentFromCollectionBody.self) { (source: AnyObject, instance: AnyObject?) -> Decoded<MainDeleteContentFromCollectionBody> in
+            if let sourceDictionary = source as? [AnyHashable: Any] {
+                let _result = instance == nil ? MainDeleteContentFromCollectionBody() : instance as! MainDeleteContentFromCollectionBody
+                switch Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["by"] as AnyObject?) {
+                
+                case let .success(value): _result.by = value
+                case let .failure(error): break
+                
+                }
+                switch Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["value"] as AnyObject?) {
+                
+                case let .success(value): _result.value = value
+                case let .failure(error): break
+                
+                }
+                return .success(_result)
+            } else {
+                return .failure(.typeMismatch(expected: "MainDeleteContentFromCollectionBody", actual: "\(source)"))
+            }
+        }
         // Decoder for [MainEstimateDealBody]
         Decoders.addDecoder(clazz: [MainEstimateDealBody].self) { (source: AnyObject, instance: AnyObject?) -> Decoded<[MainEstimateDealBody]> in
             return Decoders.decode(clazz: [MainEstimateDealBody].self, source: source)

@@ -13,7 +13,6 @@
 
 module Request.Autoretrieve exposing (adminAutoretrieveInitPost, adminAutoretrieveListGet, autoretrieveHeartbeatPost)
 
-import Data.String exposing (Encode.string, String)
 import Http
 import Json.Decode as Decode
 
@@ -26,12 +25,12 @@ basePath =
 {-
    This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
 -}
-adminAutoretrieveInitPost : String -> Http.Request 
-adminAutoretrieveInitPost model =
+adminAutoretrieveInitPost : Http.Request 
+adminAutoretrieveInitPost =
     { method = "POST"
     , url = basePath ++ "/admin/autoretrieve/init"
     , headers = []
-    , body = Http.jsonBody <| Encode.string model
+    , body = Http.emptyBody
     , expect = 
     , timeout = Just 30000
     , withCredentials = False

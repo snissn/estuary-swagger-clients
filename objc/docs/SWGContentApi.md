@@ -165,8 +165,8 @@ SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
 
 
 NSURL* data = [NSURL fileURLWithPath:@"/path/to/file.txt"]; // File to upload
-NSString* coluuid = @"coluuid_example"; // Collection UUID
-NSString* dir = @"dir_example"; // Directory
+NSString* coluuid = @"coluuid_example"; // Collection UUID (optional)
+NSString* dir = @"dir_example"; // Directory (optional)
 
 SWGContentApi*apiInstance = [[SWGContentApi alloc] init];
 
@@ -189,8 +189,8 @@ SWGContentApi*apiInstance = [[SWGContentApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data** | **NSURL***| File to upload | 
- **coluuid** | **NSString***| Collection UUID | 
- **dir** | **NSString***| Directory | 
+ **coluuid** | **NSString***| Collection UUID | [optional] 
+ **dir** | **NSString***| Directory | [optional] 
 
 ### Return type
 

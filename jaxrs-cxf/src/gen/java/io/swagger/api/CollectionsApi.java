@@ -3,6 +3,7 @@ package io.swagger.api;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 
@@ -60,7 +61,7 @@ public interface CollectionsApi  {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class),
         @ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class) })
-    public String collectionsColuuidContentsDelete(@PathParam("coluuid") String coluuid, @PathParam("contentid") String contentid, @Valid String by, @Valid String value);
+    public String collectionsColuuidContentsDelete(@PathParam("coluuid") String coluuid, @PathParam("contentid") String contentid, @Valid MainDeleteContentFromCollectionBody body);
 
     /**
      * Deletes a collection

@@ -158,8 +158,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data** | **MultipartFile**| File to upload | 
- **coluuid** | **String**| Collection UUID | 
- **dir** | **String**| Directory | 
+ **coluuid** | **String**| Collection UUID | [optional] 
+ **dir** | **String**| Directory | [optional] 
 
 ### Return type
 

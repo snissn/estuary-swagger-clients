@@ -13,10 +13,11 @@
 
 module Request.Collections exposing (collectionsColuuidCommitPost, collectionsColuuidContentsDelete, collectionsColuuidDelete, collectionsColuuidGet, collectionsColuuidPost, collectionsFsAddPost, collectionsGet, collectionsPost)
 
+import Data.MainDeleteContentFromCollectionBody exposing (MainDeleteContentFromCollectionBody, mainDeleteContentFromCollectionBodyEncoder)
 import Data.MainCreateCollectionBody exposing (MainCreateCollectionBody, mainCreateCollectionBodyEncoder)
 import Data.CollectionsCollection exposing (CollectionsCollection, collectionsCollectionDecoder)
 import Data.UtilHttpError exposing (UtilHttpError, utilHttpErrorDecoder)
-import Data.String exposing (Decode.string, Encode.string, String, stringDecoder)
+import Data.String exposing (Decode.string, String, stringDecoder)
 import Data.Int exposing (Encode.int, Int)
 import Http
 import Json.Decode as Decode
@@ -46,12 +47,12 @@ collectionsColuuidCommitPost coluuid =
 {-
    This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
 -}
-collectionsColuuidContentsDelete : String -> String -> String -> Http.Request String
+collectionsColuuidContentsDelete : String -> String -> MainDeleteContentFromCollectionBody -> Http.Request String
 collectionsColuuidContentsDelete coluuid contentid model =
     { method = "DELETE"
     , url = basePath ++ "/collections/" ++ coluuid ++ "/contents"
     , headers = []
-    , body = Http.jsonBody <| Encode.string model
+    , body = Http.jsonBody <| mainDeleteContentFromCollectionBodyEncoder model
     , expect = Http.expectJson Decode.string
     , timeout = Just 30000
     , withCredentials = False

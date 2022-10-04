@@ -1,5 +1,6 @@
 export * from './collectionsCollection';
 export * from './mainCreateCollectionBody';
+export * from './mainDeleteContentFromCollectionBody';
 export * from './mainEstimateDealBody';
 export * from './mainGetApiKeysResp';
 export * from './mainImportDealBody';

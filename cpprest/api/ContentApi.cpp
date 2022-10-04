@@ -285,7 +285,7 @@ pplx::task<void> ContentApi::contentAddIpfsPost(std::shared_ptr<Util.ContentAddI
         return void();
     });
 }
-pplx::task<std::shared_ptr<Util.ContentAddResponse>> ContentApi::contentAddPost(std::shared_ptr<HttpContent> data, utility::string_t coluuid, utility::string_t dir)
+pplx::task<std::shared_ptr<Util.ContentAddResponse>> ContentApi::contentAddPost(std::shared_ptr<HttpContent> data, boost::optional<utility::string_t> coluuid, boost::optional<utility::string_t> dir)
 {
 
     // verify the required parameter 'data' is set
@@ -297,9 +297,7 @@ pplx::task<std::shared_ptr<Util.ContentAddResponse>> ContentApi::contentAddPost(
 
     std::shared_ptr<ApiConfiguration> apiConfiguration( m_ApiClient->getConfiguration() );
     utility::string_t path = utility::conversions::to_string_t("/content/add");
-    boost::replace_all(path, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("coluuid") + utility::conversions::to_string_t("}"), ApiClient::parameterToString(coluuid));
-boost::replace_all(path, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("dir") + utility::conversions::to_string_t("}"), ApiClient::parameterToString(dir));
-
+    
     std::map<utility::string_t, utility::string_t> queryParams;
     std::map<utility::string_t, utility::string_t> headerParams( apiConfiguration->getDefaultHeaders() );
     std::map<utility::string_t, utility::string_t> formParams;
@@ -338,6 +336,14 @@ boost::replace_all(path, utility::conversions::to_string_t("{") + utility::conve
     if (data != nullptr)
     {
         fileParams[ utility::conversions::to_string_t("data") ] = data;
+    }
+    if (coluuid)
+    {
+        queryParams[utility::conversions::to_string_t("coluuid")] = ApiClient::parameterToString(*coluuid);
+    }
+    if (dir)
+    {
+        queryParams[utility::conversions::to_string_t("dir")] = ApiClient::parameterToString(*dir);
     }
 
     std::shared_ptr<IHttpBody> httpBody;

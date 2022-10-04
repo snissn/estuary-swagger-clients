@@ -95,13 +95,27 @@ export class AutoretrieveService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected != undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): void | HttpParams; };
+        let useForm = false;
+        let convertFormParamsToString = false;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        }
+
+        if (addresses !== undefined) {
+            formParams = formParams.append('addresses', <any>addresses) || formParams;
+        }
+        if (pubKey !== undefined) {
+            formParams = formParams.append('pubKey', <any>pubKey) || formParams;
         }
 
         return this.httpClient.post<any>(`${this.basePath}/admin/autoretrieve/init`,
-            pubKey,
+            convertFormParamsToString ? formParams.toString() : formParams,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

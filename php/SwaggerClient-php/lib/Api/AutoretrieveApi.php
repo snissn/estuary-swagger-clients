@@ -251,14 +251,16 @@ class AutoretrieveApi
 
 
 
+        // form params
+        if ($addresses !== null) {
+            $formParams['addresses'] = ObjectSerializer::toFormValue($addresses);
+        }
+        // form params
+        if ($pub_key !== null) {
+            $formParams['pubKey'] = ObjectSerializer::toFormValue($pub_key);
+        }
         // body params
         $_tempBody = null;
-        if (isset($addresses)) {
-            $_tempBody = $addresses;
-        }
-        if (isset($pub_key)) {
-            $_tempBody = $pub_key;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(

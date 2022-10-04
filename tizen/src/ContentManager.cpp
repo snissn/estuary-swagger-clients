@@ -412,6 +412,20 @@ static bool contentAddPostHelper(char * accessToken,
 	map <string, string> queryParams;
 	string itemAtq;
 	
+
+	itemAtq = stringify(&coluuid, "std::string");
+	queryParams.insert(pair<string, string>("coluuid", itemAtq));
+	if( itemAtq.empty()==true){
+		queryParams.erase("coluuid");
+	}
+
+
+	itemAtq = stringify(&dir, "std::string");
+	queryParams.insert(pair<string, string>("dir", itemAtq));
+	if( itemAtq.empty()==true){
+		queryParams.erase("dir");
+	}
+
 	string mBody = "";
 	JsonNode* node;
 	JsonArray* json_array;
@@ -419,18 +433,6 @@ static bool contentAddPostHelper(char * accessToken,
 	string url("/content/add");
 	int pos;
 
-	string s_coluuid("{");
-	s_coluuid.append("coluuid");
-	s_coluuid.append("}");
-	pos = url.find(s_coluuid);
-	url.erase(pos, s_coluuid.length());
-	url.insert(pos, stringify(&coluuid, "std::string"));
-	string s_dir("{");
-	s_dir.append("dir");
-	s_dir.append("}");
-	pos = url.find(s_dir);
-	url.erase(pos, s_dir.length());
-	url.insert(pos, stringify(&dir, "std::string"));
 
 	//TODO: free memory of errormsg, memorystruct
 	MemoryStruct_s* p_chunk = new MemoryStruct_s();

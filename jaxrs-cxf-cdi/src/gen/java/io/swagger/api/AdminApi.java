@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 @Api(description = "the admin API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-03T07:43:15.762Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-04T07:13:27.121Z")
 
 public class AdminApi  {
 
@@ -41,7 +41,7 @@ public class AdminApi  {
         @Authorization(value = "bearerAuth")
     }, tags={ "autoretrieve",  })
     @ApiResponses(value = {  })
-    public Response adminAutoretrieveInitPost(@ApiParam(value = "Autoretrieve's comma-separated list of addresses" ,required=true) String addresses, @ApiParam(value = "Autoretrieve's public key" ,required=true) String pubKey) {
+    public Response adminAutoretrieveInitPost(@Multipart(value = "addresses")  String addresses, @Multipart(value = "pubKey")  String pubKey) {
         return delegate.adminAutoretrieveInitPost(addresses, pubKey, securityContext);
     }
 

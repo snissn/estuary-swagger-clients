@@ -65,17 +65,17 @@ object ContentApi {
     } yield resp
   }
   
-  def contentAddPost(host: String, data: File, coluuid: String, dir: String): Task[ContentAddResponse] = {
+  def contentAddPost(host: String, data: File, coluuid: String, dir: String)(implicit coluuidQuery: QueryParam[String], dirQuery: QueryParam[String]): Task[ContentAddResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ContentAddResponse] = jsonOf[ContentAddResponse]
 
-    val path = "/content/add".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString)).replaceAll("\\{" + "dir" + "\\}",escape(dir.toString))
+    val path = "/content/add"
     
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
     val headers = Headers(
       )
     val queryParams = Query(
-      )
+      ("coluuid", Some(coluuidQuery.toParamString(coluuid))), ("dir", Some(dirQuery.toParamString(dir))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
@@ -384,17 +384,17 @@ class HttpServiceContentApi(service: HttpService) {
     } yield resp
   }
   
-  def contentAddPost(data: File, coluuid: String, dir: String): Task[ContentAddResponse] = {
+  def contentAddPost(data: File, coluuid: String, dir: String)(implicit coluuidQuery: QueryParam[String], dirQuery: QueryParam[String]): Task[ContentAddResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ContentAddResponse] = jsonOf[ContentAddResponse]
 
-    val path = "/content/add".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString)).replaceAll("\\{" + "dir" + "\\}",escape(dir.toString))
+    val path = "/content/add"
     
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
     val headers = Headers(
       )
     val queryParams = Query(
-      )
+      ("coluuid", Some(coluuidQuery.toParamString(coluuid))), ("dir", Some(dirQuery.toParamString(dir))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))

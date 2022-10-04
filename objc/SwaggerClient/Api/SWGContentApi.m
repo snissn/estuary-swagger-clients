@@ -206,9 +206,9 @@ NSInteger kSWGContentApiMissingParamErrorCode = 234513;
 /// This endpoint is used to upload new content.
 ///  @param data File to upload 
 ///
-///  @param coluuid Collection UUID 
+///  @param coluuid Collection UUID (optional)
 ///
-///  @param dir Directory 
+///  @param dir Directory (optional)
 ///
 ///  @returns SWGUtilContentAddResponse*
 ///
@@ -227,39 +227,17 @@ NSInteger kSWGContentApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'coluuid' is set
-    if (coluuid == nil) {
-        NSParameterAssert(coluuid);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"coluuid"] };
-            NSError* error = [NSError errorWithDomain:kSWGContentApiErrorDomain code:kSWGContentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    // verify the required parameter 'dir' is set
-    if (dir == nil) {
-        NSParameterAssert(dir);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"dir"] };
-            NSError* error = [NSError errorWithDomain:kSWGContentApiErrorDomain code:kSWGContentApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/content/add"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (coluuid != nil) {
-        pathParams[@"coluuid"] = coluuid;
-    }
-    if (dir != nil) {
-        pathParams[@"dir"] = dir;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (coluuid != nil) {
+        queryParams[@"coluuid"] = coluuid;
+    }
+    if (dir != nil) {
+        queryParams[@"dir"] = dir;
+    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`

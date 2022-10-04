@@ -23,7 +23,7 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-03T07:43:56.678Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-04T07:14:06.505Z")
 
 @Controller
 public class ContentApiController implements ContentApi {
@@ -50,7 +50,7 @@ public class ContentApiController implements ContentApi {
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<UtilContentAddResponse> contentAddPost(@ApiParam(value = "File to upload") @Valid @RequestPart(value="data", required=true) MultipartFile data,@ApiParam(value = "Collection UUID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Directory",required=true) @PathVariable("dir") String dir) {
+    public ResponseEntity<UtilContentAddResponse> contentAddPost(@ApiParam(value = "File to upload") @Valid @RequestPart(value="data", required=true) MultipartFile data,@ApiParam(value = "Collection UUID") @Valid @RequestParam(value = "coluuid", required = false) String coluuid,@ApiParam(value = "Directory") @Valid @RequestParam(value = "dir", required = false) String dir) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {

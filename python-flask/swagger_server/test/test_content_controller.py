@@ -51,12 +51,15 @@ class TestContentController(BaseTestCase):
 
         Add new content
         """
+        query_string = [('coluuid', 'coluuid_example'),
+                        ('dir', 'dir_example')]
         data = dict(data=(BytesIO(b'some file data'), 'file.txt'))
         response = self.client.open(
-            '//content/add'.format(coluuid='coluuid_example', dir='dir_example'),
+            '//content/add',
             method='POST',
             data=data,
-            content_type='multipart/form-data')
+            content_type='multipart/form-data',
+            query_string=query_string)
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 

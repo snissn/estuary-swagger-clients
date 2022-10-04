@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-03T07:43:56.678Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-04T07:14:06.505Z")
 
 @Validated
 @Api(value = "admin", description = "the admin API")
@@ -34,7 +34,7 @@ public interface AdminApi {
     @RequestMapping(value = "/admin/autoretrieve/init",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
-    ResponseEntity<Void> adminAutoretrieveInitPost(@ApiParam(value = "Autoretrieve's comma-separated list of addresses" ,required=true )  @Valid @RequestBody String addresses,@ApiParam(value = "Autoretrieve's public key" ,required=true )  @Valid @RequestBody String pubKey);
+    ResponseEntity<Void> adminAutoretrieveInitPost(@ApiParam(value = "Autoretrieve's comma-separated list of addresses", required=true) @RequestParam(value="addresses", required=true)  String addresses,@ApiParam(value = "Autoretrieve's public key", required=true) @RequestParam(value="pubKey", required=true)  String pubKey);
 
 
     @ApiOperation(value = "List autoretrieve servers", nickname = "adminAutoretrieveListGet", notes = "This endpoint lists all registered autoretrieve servers", authorizations = {

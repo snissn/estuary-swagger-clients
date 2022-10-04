@@ -15,7 +15,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-03T07:43:21.296Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-04T07:13:32.436Z")
 public class UserApiServiceImpl implements UserApi {
       public Response userApiKeysGet(SecurityContext securityContext) {
       // do some magic!

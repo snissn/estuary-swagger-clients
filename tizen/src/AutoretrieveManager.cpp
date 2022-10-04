@@ -103,24 +103,6 @@ static bool adminAutoretrieveInitPostHelper(char * accessToken,
 	JsonNode* node;
 	JsonArray* json_array;
 
-	if (isprimitive("std::string")) {
-		node = converttoJson(&addresses, "std::string", "");
-	}
-	
-
-	char *jsonStr1 =  json_to_string(node, false);
-	mBody.append(jsonStr1);
-	g_free(static_cast<gpointer>(jsonStr1));
-
-	if (isprimitive("std::string")) {
-		node = converttoJson(&pubKey, "std::string", "");
-	}
-	
-
-	char *jsonStr1 =  json_to_string(node, false);
-	mBody.append(jsonStr1);
-	g_free(static_cast<gpointer>(jsonStr1));
-
 	string url("/admin/autoretrieve/init");
 	int pos;
 

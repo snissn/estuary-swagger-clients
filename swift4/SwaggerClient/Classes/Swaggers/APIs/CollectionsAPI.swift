@@ -60,12 +60,11 @@ open class CollectionsAPI {
      
      - parameter coluuid: (path) Collection ID 
      - parameter contentid: (path) Content ID 
-     - parameter by: (body) Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
-     - parameter value: (body) Value of content_id or path to look for 
+     - parameter body: (body) {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func collectionsColuuidContentsDelete(coluuid: String, contentid: String, by: String, value: String, completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
-        collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: coluuid, contentid: contentid, by: by, value: value).execute { (response, error) -> Void in
+    open class func collectionsColuuidContentsDelete(coluuid: String, contentid: String, body: MainDeleteContentFromCollectionBody, completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+        collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: coluuid, contentid: contentid, body: body).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -85,12 +84,11 @@ open class CollectionsAPI {
      
      - parameter coluuid: (path) Collection ID 
      - parameter contentid: (path) Content ID 
-     - parameter by: (body) Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
-     - parameter value: (body) Value of content_id or path to look for 
+     - parameter body: (body) {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} 
 
      - returns: RequestBuilder<String> 
      */
-    open class func collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: String, contentid: String, by: String, value: String) -> RequestBuilder<String> {
+    open class func collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: String, contentid: String, body: MainDeleteContentFromCollectionBody) -> RequestBuilder<String> {
         var path = "/collections/{coluuid}/contents"
         let coluuidPreEscape = "\(coluuid)"
         let coluuidPostEscape = coluuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -99,7 +97,7 @@ open class CollectionsAPI {
         let contentidPostEscape = contentidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{contentid}", with: contentidPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: value)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
 
         let url = URLComponents(string: URLString)
 

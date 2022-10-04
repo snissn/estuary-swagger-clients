@@ -59,6 +59,9 @@ API.Client.AutoretrieveApi.prototype.adminAutoretrieveInitPost = function(addres
 
   /** @type {!Object} */
   var headerParams = angular.extend({}, this.defaultHeaders_);
+  /** @type {!Object} */
+  var formParams = {};
+
   // verify required parameter 'addresses' is set
   if (!addresses) {
     throw new Error('Missing required parameter addresses when calling adminAutoretrieveInitPost');
@@ -67,13 +70,19 @@ API.Client.AutoretrieveApi.prototype.adminAutoretrieveInitPost = function(addres
   if (!pubKey) {
     throw new Error('Missing required parameter pubKey when calling adminAutoretrieveInitPost');
   }
+  headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+  formParams['addresses'] = addresses;
+
+  formParams['pubKey'] = pubKey;
+
   /** @type {!Object} */
   var httpRequestParams = {
     method: 'POST',
     url: path,
-    json: true,
-    data: pubKey,
-        params: queryParameters,
+    json: false,
+        data: this.httpParamSerializer(formParams),
+    params: queryParameters,
     headers: headerParams
   };
 

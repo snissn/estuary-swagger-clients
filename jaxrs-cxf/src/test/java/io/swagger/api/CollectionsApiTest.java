@@ -28,6 +28,7 @@ package io.swagger.api;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 import org.junit.Test;
@@ -105,9 +106,8 @@ public class CollectionsApiTest {
     public void collectionsColuuidContentsDeleteTest() {
         String coluuid = null;
         String contentid = null;
-        String by = null;
-        String value = null;
-        //String response = api.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
+        MainDeleteContentFromCollectionBody body = null;
+        //String response = api.collectionsColuuidContentsDelete(coluuid, contentid, body);
         //assertNotNull(response);
         // TODO: test validations
         

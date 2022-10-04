@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionsColuuidContentsDelete"></a>
 # **collectionsColuuidContentsDelete**
-> String collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+> String collectionsColuuidContentsDelete(coluuid, contentid, body)
 
 Deletes a content from a collection
 
@@ -73,10 +73,9 @@ This endpoint is used to delete an existing content from an existing collection.
 CollectionsApi apiInstance = new CollectionsApi();
 String coluuid = "coluuid_example"; // String | Collection ID
 String contentid = "contentid_example"; // String | Content ID
-String by = "by_example"; // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
-String value = "value_example"; // String | Value of content_id or path to look for
+MainDeleteContentFromCollectionBody body = new MainDeleteContentFromCollectionBody(); // MainDeleteContentFromCollectionBody | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 try {
-    String result = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
+    String result = apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CollectionsApi#collectionsColuuidContentsDelete");
@@ -90,8 +89,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **String**| Collection ID |
  **contentid** | **String**| Content ID |
- **by** | **String**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) |
- **value** | **String**| Value of content_id or path to look for |
+ **body** | [**MainDeleteContentFromCollectionBody**](MainDeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} |
 
 ### Return type
 

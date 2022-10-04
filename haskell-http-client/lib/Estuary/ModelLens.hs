@@ -84,6 +84,20 @@ mainCreateCollectionBodyNameL f MainCreateCollectionBody{..} = (\mainCreateColle
 
 
 
+-- * MainDeleteContentFromCollectionBody
+
+-- | 'mainDeleteContentFromCollectionBodyBy' Lens
+mainDeleteContentFromCollectionBodyByL :: Lens_' MainDeleteContentFromCollectionBody (Maybe Text)
+mainDeleteContentFromCollectionBodyByL f MainDeleteContentFromCollectionBody{..} = (\mainDeleteContentFromCollectionBodyBy -> MainDeleteContentFromCollectionBody { mainDeleteContentFromCollectionBodyBy, ..} ) <$> f mainDeleteContentFromCollectionBodyBy
+{-# INLINE mainDeleteContentFromCollectionBodyByL #-}
+
+-- | 'mainDeleteContentFromCollectionBodyValue' Lens
+mainDeleteContentFromCollectionBodyValueL :: Lens_' MainDeleteContentFromCollectionBody (Maybe Text)
+mainDeleteContentFromCollectionBodyValueL f MainDeleteContentFromCollectionBody{..} = (\mainDeleteContentFromCollectionBodyValue -> MainDeleteContentFromCollectionBody { mainDeleteContentFromCollectionBodyValue, ..} ) <$> f mainDeleteContentFromCollectionBodyValue
+{-# INLINE mainDeleteContentFromCollectionBodyValueL #-}
+
+
+
 -- * MainEstimateDealBody
 
 -- | 'mainEstimateDealBodyDurationBlks' Lens

@@ -75,12 +75,11 @@ module SwaggerClient
     # This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
     # @param coluuid Collection ID
     # @param contentid Content ID
-    # @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-    # @param value Value of content_id or path to look for
+    # @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
     # @param [Hash] opts the optional parameters
     # @return [String]
-    def collections_coluuid_contents_delete(coluuid, contentid, by, value, opts = {})
-      data, _status_code, _headers = collections_coluuid_contents_delete_with_http_info(coluuid, contentid, by, value, opts)
+    def collections_coluuid_contents_delete(coluuid, contentid, body, opts = {})
+      data, _status_code, _headers = collections_coluuid_contents_delete_with_http_info(coluuid, contentid, body, opts)
       data
     end
 
@@ -88,11 +87,10 @@ module SwaggerClient
     # This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
     # @param coluuid Collection ID
     # @param contentid Content ID
-    # @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-    # @param value Value of content_id or path to look for
+    # @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def collections_coluuid_contents_delete_with_http_info(coluuid, contentid, by, value, opts = {})
+    def collections_coluuid_contents_delete_with_http_info(coluuid, contentid, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CollectionsApi.collections_coluuid_contents_delete ...'
       end
@@ -104,13 +102,9 @@ module SwaggerClient
       if @api_client.config.client_side_validation && contentid.nil?
         fail ArgumentError, "Missing the required parameter 'contentid' when calling CollectionsApi.collections_coluuid_contents_delete"
       end
-      # verify the required parameter 'by' is set
-      if @api_client.config.client_side_validation && by.nil?
-        fail ArgumentError, "Missing the required parameter 'by' when calling CollectionsApi.collections_coluuid_contents_delete"
-      end
-      # verify the required parameter 'value' is set
-      if @api_client.config.client_side_validation && value.nil?
-        fail ArgumentError, "Missing the required parameter 'value' when calling CollectionsApi.collections_coluuid_contents_delete"
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CollectionsApi.collections_coluuid_contents_delete"
       end
       # resource path
       local_var_path = '/collections/{coluuid}/contents'.sub('{' + 'coluuid' + '}', coluuid.to_s).sub('{' + 'contentid' + '}', contentid.to_s)
@@ -127,7 +121,7 @@ module SwaggerClient
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(value)
+      post_body = @api_client.object_to_http_body(body)
       auth_names = ['bearerAuth']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,

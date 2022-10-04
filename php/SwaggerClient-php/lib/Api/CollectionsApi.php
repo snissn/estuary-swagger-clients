@@ -368,16 +368,15 @@ class CollectionsApi
      *
      * @param  string $coluuid Collection ID (required)
      * @param  string $contentid Content ID (required)
-     * @param  string $by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param  string $value Value of content_id or path to look for (required)
+     * @param  \Swagger\Client\Model\MainDeleteContentFromCollectionBody $body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function collectionsColuuidContentsDelete($coluuid, $contentid, $by, $value)
+    public function collectionsColuuidContentsDelete($coluuid, $contentid, $body)
     {
-        list($response) = $this->collectionsColuuidContentsDeleteWithHttpInfo($coluuid, $contentid, $by, $value);
+        list($response) = $this->collectionsColuuidContentsDeleteWithHttpInfo($coluuid, $contentid, $body);
         return $response;
     }
 
@@ -388,17 +387,16 @@ class CollectionsApi
      *
      * @param  string $coluuid Collection ID (required)
      * @param  string $contentid Content ID (required)
-     * @param  string $by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param  string $value Value of content_id or path to look for (required)
+     * @param  \Swagger\Client\Model\MainDeleteContentFromCollectionBody $body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function collectionsColuuidContentsDeleteWithHttpInfo($coluuid, $contentid, $by, $value)
+    public function collectionsColuuidContentsDeleteWithHttpInfo($coluuid, $contentid, $body)
     {
         $returnType = 'string';
-        $request = $this->collectionsColuuidContentsDeleteRequest($coluuid, $contentid, $by, $value);
+        $request = $this->collectionsColuuidContentsDeleteRequest($coluuid, $contentid, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -474,15 +472,14 @@ class CollectionsApi
      *
      * @param  string $coluuid Collection ID (required)
      * @param  string $contentid Content ID (required)
-     * @param  string $by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param  string $value Value of content_id or path to look for (required)
+     * @param  \Swagger\Client\Model\MainDeleteContentFromCollectionBody $body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function collectionsColuuidContentsDeleteAsync($coluuid, $contentid, $by, $value)
+    public function collectionsColuuidContentsDeleteAsync($coluuid, $contentid, $body)
     {
-        return $this->collectionsColuuidContentsDeleteAsyncWithHttpInfo($coluuid, $contentid, $by, $value)
+        return $this->collectionsColuuidContentsDeleteAsyncWithHttpInfo($coluuid, $contentid, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -497,16 +494,15 @@ class CollectionsApi
      *
      * @param  string $coluuid Collection ID (required)
      * @param  string $contentid Content ID (required)
-     * @param  string $by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param  string $value Value of content_id or path to look for (required)
+     * @param  \Swagger\Client\Model\MainDeleteContentFromCollectionBody $body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function collectionsColuuidContentsDeleteAsyncWithHttpInfo($coluuid, $contentid, $by, $value)
+    public function collectionsColuuidContentsDeleteAsyncWithHttpInfo($coluuid, $contentid, $body)
     {
         $returnType = 'string';
-        $request = $this->collectionsColuuidContentsDeleteRequest($coluuid, $contentid, $by, $value);
+        $request = $this->collectionsColuuidContentsDeleteRequest($coluuid, $contentid, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -550,13 +546,12 @@ class CollectionsApi
      *
      * @param  string $coluuid Collection ID (required)
      * @param  string $contentid Content ID (required)
-     * @param  string $by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param  string $value Value of content_id or path to look for (required)
+     * @param  \Swagger\Client\Model\MainDeleteContentFromCollectionBody $body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function collectionsColuuidContentsDeleteRequest($coluuid, $contentid, $by, $value)
+    protected function collectionsColuuidContentsDeleteRequest($coluuid, $contentid, $body)
     {
         // verify the required parameter 'coluuid' is set
         if ($coluuid === null || (is_array($coluuid) && count($coluuid) === 0)) {
@@ -570,16 +565,10 @@ class CollectionsApi
                 'Missing the required parameter $contentid when calling collectionsColuuidContentsDelete'
             );
         }
-        // verify the required parameter 'by' is set
-        if ($by === null || (is_array($by) && count($by) === 0)) {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $by when calling collectionsColuuidContentsDelete'
-            );
-        }
-        // verify the required parameter 'value' is set
-        if ($value === null || (is_array($value) && count($value) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $value when calling collectionsColuuidContentsDelete'
+                'Missing the required parameter $body when calling collectionsColuuidContentsDelete'
             );
         }
 
@@ -610,11 +599,8 @@ class CollectionsApi
 
         // body params
         $_tempBody = null;
-        if (isset($by)) {
-            $_tempBody = $by;
-        }
-        if (isset($value)) {
-            $_tempBody = $value;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         if ($multipart) {

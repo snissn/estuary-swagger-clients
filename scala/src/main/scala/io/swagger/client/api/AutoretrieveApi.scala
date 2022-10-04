@@ -161,7 +161,7 @@ class AutoretrieveApi(
 class AutoretrieveApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extends ApiClient(client, config) {
 
   def adminAutoretrieveInitPost(addresses: String,
-    pubKey: String)(implicit reader: ClientResponseReader[Unit], writer: RequestWriter[String], writer: RequestWriter[String]): Future[Unit] = {
+    pubKey: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
     val path = (addFmt("/admin/autoretrieve/init"))
 
@@ -174,7 +174,7 @@ class AutoretrieveApiAsyncHelper(client: TransportClient, config: SwaggerConfig)
     if (pubKey == null) throw new Exception("Missing required parameter 'pubKey' when calling AutoretrieveApi->adminAutoretrieveInitPost")
 
 
-    val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, writer.write(pubKey))
+    val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, "")
     resFuture flatMap { resp =>
       process(reader.read(resp))
     }

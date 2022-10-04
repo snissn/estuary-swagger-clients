@@ -97,7 +97,7 @@ This endpoint is used to upload new content.
 
 ### Example
 ```bash
- contentAddPost coluuid=value dir=value
+ contentAddPost  coluuid=value  dir=value
 ```
 
 ### Parameters
@@ -105,8 +105,8 @@ This endpoint is used to upload new content.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data** | **File** | File to upload |
- **coluuid** | **string** | Collection UUID |
- **dir** | **string** | Directory |
+ **coluuid** | **string** | Collection UUID | [optional]
+ **dir** | **string** | Directory | [optional]
 
 ### Return type
 

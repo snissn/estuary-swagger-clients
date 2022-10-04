@@ -300,14 +300,8 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (pubKey != null && pubKey.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(pubKey); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = pubKey; // byte array
-            }
+            if (addresses != null) localVarFormParams.Add("addresses", this.Configuration.ApiClient.ParameterToString(addresses)); // form parameter
+            if (pubKey != null) localVarFormParams.Add("pubKey", this.Configuration.ApiClient.ParameterToString(pubKey)); // form parameter
 
             // authentication (bearerAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -383,14 +377,8 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (pubKey != null && pubKey.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(pubKey); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = pubKey; // byte array
-            }
+            if (addresses != null) localVarFormParams.Add("addresses", this.Configuration.ApiClient.ParameterToString(addresses)); // form parameter
+            if (pubKey != null) localVarFormParams.Add("pubKey", this.Configuration.ApiClient.ParameterToString(pubKey)); // form parameter
 
             // authentication (bearerAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

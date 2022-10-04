@@ -75,8 +75,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) collectionsColuuidContentsDeleteWithColuuid: (NSString*) coluuid
     contentid: (NSString*) contentid
-    by: (NSString*) by
-    value: (NSString*) value
+    body: (SWGMainDeleteContentFromCollectionBody*) body
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -96,16 +95,14 @@ SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
 
 NSString* coluuid = @"coluuid_example"; // Collection ID
 NSString* contentid = @"contentid_example"; // Content ID
-NSString* by = by_example; // Variable to use when filtering for files (must be either 'path' or 'content_id')
-NSString* value = value_example; // Value of content_id or path to look for
+SWGMainDeleteContentFromCollectionBody* body = [[SWGMainDeleteContentFromCollectionBody alloc] init]; // {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 
 SWGCollectionsApi*apiInstance = [[SWGCollectionsApi alloc] init];
 
 // Deletes a content from a collection
 [apiInstance collectionsColuuidContentsDeleteWithColuuid:coluuid
               contentid:contentid
-              by:by
-              value:value
+              body:body
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -122,8 +119,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **NSString***| Collection ID | 
  **contentid** | **NSString***| Content ID | 
- **by** | **NSString***| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
- **value** | **NSString***| Value of content_id or path to look for | 
+ **body** | [**SWGMainDeleteContentFromCollectionBody***](SWGMainDeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} | 
 
 ### Return type
 

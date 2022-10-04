@@ -3,6 +3,7 @@ package io.swagger.api;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 
@@ -18,7 +19,7 @@ import javax.validation.Valid;
 
 @Path("/collections")
 @Api(description = "the collections API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-03T07:43:22.979Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-04T07:13:34.144Z")
 public class CollectionsApi {
 
     @POST
@@ -44,7 +45,7 @@ public class CollectionsApi {
         @ApiResponse(code = 200, message = "OK", response = String.class),
         @ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class)
     })
-    public Response collectionsColuuidContentsDelete(@PathParam("coluuid") @ApiParam("Collection ID") String coluuid,@PathParam("contentid") @ApiParam("Content ID") String contentid,@Valid String by,@Valid String value) {
+    public Response collectionsColuuidContentsDelete(@PathParam("coluuid") @ApiParam("Collection ID") String coluuid,@PathParam("contentid") @ApiParam("Content ID") String contentid,@Valid MainDeleteContentFromCollectionBody body) {
         return Response.ok().entity("magic!").build();
     }
 

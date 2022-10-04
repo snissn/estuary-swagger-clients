@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionsColuuidContentsDelete"></a>
 # **collectionsColuuidContentsDelete**
-> String collectionsColuuidContentsDelete(coluuid, contentid, r_by, value)
+> String collectionsColuuidContentsDelete(coluuid, contentid, body)
 
 Deletes a content from a collection
 
@@ -83,8 +83,7 @@ bearerAuth.setApiKey('YOUR API KEY');
 Map<String, Object> params = new Map<String, Object>{
     'coluuid' => 'coluuid_example',
     'contentid' => 'contentid_example',
-    'r_by' => 'r_by_example',
-    'value' => 'value_example'
+    'body' => SwagMainDeleteContentFromCollectionB.getExample()
 };
 
 try {
@@ -102,8 +101,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **String**| Collection ID |
  **contentid** | **String**| Content ID |
- **r_by** | **String**| Variable to use when filtering for files (must be either \&#39;path\&#39; or \&#39;content_id\&#39;) |
- **value** | **String**| Value of content_id or path to look for |
+ **body** | [**SwagMainDeleteContentFromCollectionB**](SwagMainDeleteContentFromCollectionB.md)| {by: Variable to use when filtering for files (must be either \&#39;path\&#39; or \&#39;content_id\&#39;), value: Value of content_id or path to look for} |
 
 ### Return type
 

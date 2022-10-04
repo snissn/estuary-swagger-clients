@@ -38,14 +38,17 @@ public class SwagAutoretrieveApi {
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('addresses', (String) params.get('addresses')));
+        form.addAll(client.makeParam('pubKey', (String) params.get('pubKey')));
+
         client.invoke(
-            'POST', '/admin/autoretrieve/init',
-            (String) params.get('pubKey'),
+            'POST', '/admin/autoretrieve/init', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
-            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'bearerAuth' },
             null
         );

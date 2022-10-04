@@ -90,9 +90,9 @@ public:
 	/* File to upload */
 	HttpFileInput Data;
 	/* Collection UUID */
-	FString Coluuid;
+	TOptional<FString> Coluuid;
 	/* Directory */
-	FString Dir;
+	TOptional<FString> Dir;
 };
 
 class SWAGGER_API SwaggerContentApi::ContentAddPostResponse : public Response

@@ -68,12 +68,12 @@ object ContentApi {
    * @param coluuid Collection UUID
    * @param dir Directory
    */
-  def contentAddPost(data: File, coluuid: String, dir: String)(implicit apiKey: ApiKeyValue): ApiRequest[UtilContentAddResponse] =
+  def contentAddPost(data: File, coluuid: Option[String] = None, dir: Option[String] = None)(implicit apiKey: ApiKeyValue): ApiRequest[UtilContentAddResponse] =
     ApiRequest[UtilContentAddResponse](ApiMethods.POST, "https://api.estuary.tech", "/content/add", "multipart/form-data")
       .withApiKey(apiKey, "Authorization", HEADER)
       .withFormParam("data", data)
-      .withPathParam("coluuid", coluuid)
-      .withPathParam("dir", dir)
+      .withQueryParam("coluuid", coluuid)
+      .withQueryParam("dir", dir)
       .withSuccessResponse[UtilContentAddResponse](200)
         /**
    * This endpoint returns aggregated content stats

@@ -66,8 +66,8 @@ import qualified Prelude as P
 -- * Parameter newtypes
 
 
--- ** Addresses2
-newtype Addresses2 = Addresses2 { unAddresses2 :: Text } deriving (P.Eq, P.Show, A.ToJSON)
+-- ** Addresses
+newtype Addresses = Addresses { unAddresses :: Text } deriving (P.Eq, P.Show)
 
 -- ** All
 newtype All = All { unAll :: Text } deriving (P.Eq, P.Show)
@@ -80,9 +80,6 @@ newtype Body = Body { unBody :: [Int] } deriving (P.Eq, P.Show, A.ToJSON)
 
 -- ** BodyText
 newtype BodyText = BodyText { unBodyText :: Text } deriving (P.Eq, P.Show, A.ToJSON)
-
--- ** By2
-newtype By2 = By2 { unBy2 :: Text } deriving (P.Eq, P.Show, A.ToJSON)
 
 -- ** Cid
 newtype Cid = Cid { unCid :: Text } deriving (P.Eq, P.Show)
@@ -156,17 +153,14 @@ newtype Pinid = Pinid { unPinid :: Text } deriving (P.Eq, P.Show)
 -- ** Propcid
 newtype Propcid = Propcid { unPropcid :: Text } deriving (P.Eq, P.Show)
 
--- ** PubKey2
-newtype PubKey2 = PubKey2 { unPubKey2 :: Text } deriving (P.Eq, P.Show, A.ToJSON)
+-- ** PubKey
+newtype PubKey = PubKey { unPubKey :: Text } deriving (P.Eq, P.Show)
 
 -- ** Size
 newtype Size = Size { unSize :: Text } deriving (P.Eq, P.Show)
 
 -- ** Token
 newtype Token = Token { unToken :: Text } deriving (P.Eq, P.Show)
-
--- ** Value2
-newtype Value2 = Value2 { unValue2 :: Text } deriving (P.Eq, P.Show, A.ToJSON)
 
 -- * Models
 
@@ -249,6 +243,38 @@ mkMainCreateCollectionBody =
   MainCreateCollectionBody
   { mainCreateCollectionBodyDescription = Nothing
   , mainCreateCollectionBodyName = Nothing
+  }
+
+-- ** MainDeleteContentFromCollectionBody
+-- | MainDeleteContentFromCollectionBody
+data MainDeleteContentFromCollectionBody = MainDeleteContentFromCollectionBody
+  { mainDeleteContentFromCollectionBodyBy :: !(Maybe Text) -- ^ "by"
+  , mainDeleteContentFromCollectionBodyValue :: !(Maybe Text) -- ^ "value"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON MainDeleteContentFromCollectionBody
+instance A.FromJSON MainDeleteContentFromCollectionBody where
+  parseJSON = A.withObject "MainDeleteContentFromCollectionBody" $ \o ->
+    MainDeleteContentFromCollectionBody
+      <$> (o .:? "by")
+      <*> (o .:? "value")
+
+-- | ToJSON MainDeleteContentFromCollectionBody
+instance A.ToJSON MainDeleteContentFromCollectionBody where
+  toJSON MainDeleteContentFromCollectionBody {..} =
+   _omitNulls
+      [ "by" .= mainDeleteContentFromCollectionBodyBy
+      , "value" .= mainDeleteContentFromCollectionBodyValue
+      ]
+
+
+-- | Construct a value of type 'MainDeleteContentFromCollectionBody' (by applying it's required fields, if any)
+mkMainDeleteContentFromCollectionBody
+  :: MainDeleteContentFromCollectionBody
+mkMainDeleteContentFromCollectionBody =
+  MainDeleteContentFromCollectionBody
+  { mainDeleteContentFromCollectionBodyBy = Nothing
+  , mainDeleteContentFromCollectionBodyValue = Nothing
   }
 
 -- ** MainEstimateDealBody

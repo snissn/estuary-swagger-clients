@@ -145,15 +145,23 @@ instance Produces ContentAddIpfsPost MimeJSON
 contentAddPost 
   :: (Consumes ContentAddPost MimeMultipartFormData)
   => ParamData -- ^ "_data" -  File to upload
-  -> Coluuid -- ^ "coluuid" -  Collection UUID
-  -> Dir -- ^ "dir" -  Directory
   -> EstuaryRequest ContentAddPost MimeMultipartFormData UtilContentAddResponse MimeJSON
-contentAddPost (ParamData _data) (Coluuid coluuid) (Dir dir) =
+contentAddPost (ParamData _data) =
   _mkRequest "POST" ["/content/add"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyBearerAuth)
     `_addMultiFormPart` NH.partFileSource "data" _data
 
 data ContentAddPost  
+
+-- | /Optional Param/ "coluuid" - Collection UUID
+instance HasOptionalParam ContentAddPost Coluuid where
+  applyOptionalParam req (Coluuid xs) =
+    req `setQuery` toQuery ("coluuid", Just xs)
+
+-- | /Optional Param/ "dir" - Directory
+instance HasOptionalParam ContentAddPost Dir where
+  applyOptionalParam req (Dir xs) =
+    req `setQuery` toQuery ("dir", Just xs)
 
 -- | @multipart/form-data@
 instance Consumes ContentAddPost MimeMultipartFormData

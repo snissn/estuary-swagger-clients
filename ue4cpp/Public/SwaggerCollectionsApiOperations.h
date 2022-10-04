@@ -16,6 +16,7 @@
 
 #include "SwaggerCollections_Collection.h"
 #include "SwaggerMain_createCollectionBody.h"
+#include "SwaggerMain_deleteContentFromCollectionBody.h"
 #include "SwaggerUtil_HttpError.h"
 
 namespace Swagger 
@@ -61,10 +62,8 @@ public:
 	FString Coluuid;
 	/* Content ID */
 	FString Contentid;
-	/* Variable to use when filtering for files (must be either 'path' or 'content_id') */
-	FString By;
-	/* Value of content_id or path to look for */
-	FString Value;
+	/* {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for} */
+	SwaggerMain_deleteContentFromCollectionBody Body;
 };
 
 class SWAGGER_API SwaggerCollectionsApi::CollectionsColuuidContentsDeleteResponse : public Response

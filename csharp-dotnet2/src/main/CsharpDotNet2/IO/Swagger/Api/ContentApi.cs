@@ -261,25 +261,19 @@ namespace IO.Swagger.Api
             // verify the required parameter 'data' is set
             if (data == null) throw new ApiException(400, "Missing required parameter 'data' when calling ContentAddPost");
             
-            // verify the required parameter 'coluuid' is set
-            if (coluuid == null) throw new ApiException(400, "Missing required parameter 'coluuid' when calling ContentAddPost");
-            
-            // verify the required parameter 'dir' is set
-            if (dir == null) throw new ApiException(400, "Missing required parameter 'dir' when calling ContentAddPost");
-            
     
             var path = "/content/add";
             path = path.Replace("{format}", "json");
-            path = path.Replace("{" + "coluuid" + "}", ApiClient.ParameterToString(coluuid));
-path = path.Replace("{" + "dir" + "}", ApiClient.ParameterToString(dir));
-    
+                
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
             var formParams = new Dictionary<String, String>();
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                    if (data != null) fileParams.Add("data", ApiClient.ParameterToFile("data", data));
+             if (coluuid != null) queryParams.Add("coluuid", ApiClient.ParameterToString(coluuid)); // query parameter
+ if (dir != null) queryParams.Add("dir", ApiClient.ParameterToString(dir)); // query parameter
+                        if (data != null) fileParams.Add("data", ApiClient.ParameterToFile("data", data));
                 
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };

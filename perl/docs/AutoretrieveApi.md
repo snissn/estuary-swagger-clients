@@ -33,8 +33,8 @@ my $api_instance = WWW::SwaggerClient::AutoretrieveApi->new(
     #api_key_prefix => {'Authorization' => 'Bearer'},
 );
 
-my $addresses = WWW::SwaggerClient::Object::string->new(); # string | Autoretrieve's comma-separated list of addresses
-my $pub_key = WWW::SwaggerClient::Object::string->new(); # string | Autoretrieve's public key
+my $addresses = 'addresses_example'; # string | Autoretrieve's comma-separated list of addresses
+my $pub_key = 'pub_key_example'; # string | Autoretrieve's public key
 
 eval { 
     $api_instance->admin_autoretrieve_init_post(addresses => $addresses, pub_key => $pub_key);

@@ -31,7 +31,8 @@ object AutoretrieveApi {
   def adminAutoretrieveInitPost(addresses: String, pubKey: String)(implicit apiKey: ApiKeyValue): ApiRequest[Unit] =
     ApiRequest[Unit](ApiMethods.POST, "https://api.estuary.tech", "/admin/autoretrieve/init", "application/json")
       .withApiKey(apiKey, "Authorization", HEADER)
-      .withBody(pubKey)
+      .withFormParam("addresses", addresses)
+      .withFormParam("pubKey", pubKey)
         /**
    * This endpoint lists all registered autoretrieve servers
    * 

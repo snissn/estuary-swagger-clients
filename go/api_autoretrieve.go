@@ -67,10 +67,8 @@ func (a *AutoretrieveApiService) AdminAutoretrieveInitPost(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	// body params
-	localVarPostBody = &addresses
-	// body params
-	localVarPostBody = &pubKey
+	localVarFormParams.Add("addresses", parameterToString(addresses, ""))
+	localVarFormParams.Add("pubKey", parameterToString(pubKey, ""))
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

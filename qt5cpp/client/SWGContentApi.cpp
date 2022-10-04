@@ -162,10 +162,22 @@ SWGContentApi::contentAddPost(SWGHttpRequestInputFileElement* data, QString* col
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/content/add");
 
-    QString coluuidPathParam("{"); coluuidPathParam.append("coluuid").append("}");
-    fullPath.replace(coluuidPathParam, stringValue(coluuid));
-    QString dirPathParam("{"); dirPathParam.append("dir").append("}");
-    fullPath.replace(dirPathParam, stringValue(dir));
+
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("coluuid"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(stringValue(coluuid)));
+
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("dir"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(stringValue(dir)));
 
 
     SWGHttpRequestWorker *worker = new SWGHttpRequestWorker();

@@ -217,6 +217,7 @@ Class | Method | HTTP request | Description
 
  - [EstuaryApi.CollectionsCollection](docs/CollectionsCollection.md)
  - [EstuaryApi.MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
+ - [EstuaryApi.MainDeleteContentFromCollectionBody](docs/MainDeleteContentFromCollectionBody.md)
  - [EstuaryApi.MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [EstuaryApi.MainGetApiKeysResp](docs/MainGetApiKeysResp.md)
  - [EstuaryApi.MainImportDealBody](docs/MainImportDealBody.md)

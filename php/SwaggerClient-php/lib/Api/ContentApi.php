@@ -584,14 +584,14 @@ class ContentApi
      * Add new content
      *
      * @param  \SplFileObject $data File to upload (required)
-     * @param  string $coluuid Collection UUID (required)
-     * @param  string $dir Directory (required)
+     * @param  string $coluuid Collection UUID (optional)
+     * @param  string $dir Directory (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\UtilContentAddResponse
      */
-    public function contentAddPost($data, $coluuid, $dir)
+    public function contentAddPost($data, $coluuid = null, $dir = null)
     {
         list($response) = $this->contentAddPostWithHttpInfo($data, $coluuid, $dir);
         return $response;
@@ -603,14 +603,14 @@ class ContentApi
      * Add new content
      *
      * @param  \SplFileObject $data File to upload (required)
-     * @param  string $coluuid Collection UUID (required)
-     * @param  string $dir Directory (required)
+     * @param  string $coluuid Collection UUID (optional)
+     * @param  string $dir Directory (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\UtilContentAddResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function contentAddPostWithHttpInfo($data, $coluuid, $dir)
+    public function contentAddPostWithHttpInfo($data, $coluuid = null, $dir = null)
     {
         $returnType = '\Swagger\Client\Model\UtilContentAddResponse';
         $request = $this->contentAddPostRequest($data, $coluuid, $dir);
@@ -680,13 +680,13 @@ class ContentApi
      * Add new content
      *
      * @param  \SplFileObject $data File to upload (required)
-     * @param  string $coluuid Collection UUID (required)
-     * @param  string $dir Directory (required)
+     * @param  string $coluuid Collection UUID (optional)
+     * @param  string $dir Directory (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contentAddPostAsync($data, $coluuid, $dir)
+    public function contentAddPostAsync($data, $coluuid = null, $dir = null)
     {
         return $this->contentAddPostAsyncWithHttpInfo($data, $coluuid, $dir)
             ->then(
@@ -702,13 +702,13 @@ class ContentApi
      * Add new content
      *
      * @param  \SplFileObject $data File to upload (required)
-     * @param  string $coluuid Collection UUID (required)
-     * @param  string $dir Directory (required)
+     * @param  string $coluuid Collection UUID (optional)
+     * @param  string $dir Directory (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contentAddPostAsyncWithHttpInfo($data, $coluuid, $dir)
+    public function contentAddPostAsyncWithHttpInfo($data, $coluuid = null, $dir = null)
     {
         $returnType = '\Swagger\Client\Model\UtilContentAddResponse';
         $request = $this->contentAddPostRequest($data, $coluuid, $dir);
@@ -754,30 +754,18 @@ class ContentApi
      * Create request for operation 'contentAddPost'
      *
      * @param  \SplFileObject $data File to upload (required)
-     * @param  string $coluuid Collection UUID (required)
-     * @param  string $dir Directory (required)
+     * @param  string $coluuid Collection UUID (optional)
+     * @param  string $dir Directory (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function contentAddPostRequest($data, $coluuid, $dir)
+    protected function contentAddPostRequest($data, $coluuid = null, $dir = null)
     {
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $data when calling contentAddPost'
-            );
-        }
-        // verify the required parameter 'coluuid' is set
-        if ($coluuid === null || (is_array($coluuid) && count($coluuid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $coluuid when calling contentAddPost'
-            );
-        }
-        // verify the required parameter 'dir' is set
-        if ($dir === null || (is_array($dir) && count($dir) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $dir when calling contentAddPost'
             );
         }
 
@@ -788,23 +776,15 @@ class ContentApi
         $httpBody = '';
         $multipart = false;
 
-
-        // path params
+        // query params
         if ($coluuid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'coluuid' . '}',
-                ObjectSerializer::toPathValue($coluuid),
-                $resourcePath
-            );
+            $queryParams['coluuid'] = ObjectSerializer::toQueryValue($coluuid);
         }
-        // path params
+        // query params
         if ($dir !== null) {
-            $resourcePath = str_replace(
-                '{' . 'dir' . '}',
-                ObjectSerializer::toPathValue($dir),
-                $resourcePath
-            );
+            $queryParams['dir'] = ObjectSerializer::toQueryValue($dir);
         }
+
 
         // form params
         if ($data !== null) {

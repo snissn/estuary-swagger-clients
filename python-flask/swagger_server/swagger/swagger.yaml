@@ -26,18 +26,16 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - in: "body"
-        name: "addresses"
+      - name: "addresses"
+        in: "formData"
         description: "Autoretrieve's comma-separated list of addresses"
         required: true
-        schema:
-          type: "string"
-      - in: "body"
-        name: "pubKey"
+        type: "string"
+      - name: "pubKey"
+        in: "formData"
         description: "Autoretrieve's public key"
         required: true
-        schema:
-          type: "string"
+        type: "string"
       responses: {}
       x-swagger-router-controller: "swagger_server.controllers.autoretrieve_controller"
   /admin/autoretrieve/list:
@@ -383,18 +381,12 @@ paths:
         required: true
         type: "string"
       - in: "body"
-        name: "by"
-        description: "Variable to use when filtering for files (must be either 'path'\
-          \ or 'content_id')"
+        name: "body"
+        description: "{by: Variable to use when filtering for files (must be either\
+          \ 'path' or 'content_id'), value: Value of content_id or path to look for}"
         required: true
         schema:
-          type: "string"
-      - in: "body"
-        name: "value"
-        description: "Value of content_id or path to look for"
-        required: true
-        schema:
-          type: "string"
+          $ref: "#/definitions/main.deleteContentFromCollectionBody"
       responses:
         "200":
           description: "OK"
@@ -423,14 +415,14 @@ paths:
         required: true
         type: "file"
       - name: "coluuid"
-        in: "path"
+        in: "query"
         description: "Collection UUID"
-        required: true
+        required: false
         type: "string"
       - name: "dir"
-        in: "path"
+        in: "query"
         description: "Directory"
-        required: true
+        required: false
         type: "string"
       responses:
         "200":
@@ -1369,6 +1361,13 @@ definitions:
       description:
         type: "string"
       name:
+        type: "string"
+  main.deleteContentFromCollectionBody:
+    type: "object"
+    properties:
+      by:
+        type: "string"
+      value:
         type: "string"
   main.estimateDealBody:
     type: "object"

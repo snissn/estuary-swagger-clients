@@ -55,9 +55,17 @@ export class AutoretrieveService {
             headers['Authorization'] = this.APIConfiguration.apiKeys['Authorization'];
         }
         headers['Accept'] = 'application/json';
-        headers['Content-Type'] = 'application/json';
 
-        const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.APIConfiguration.basePath}/admin/autoretrieve/init`, pubKey as any, headers);
+        let formData: FormData = new FormData();
+        headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+        if (addresses !== undefined) {
+            formData.append('addresses', <any>addresses);
+        }
+        if (pubKey !== undefined) {
+            formData.append('pubKey', <any>pubKey);
+        }
+
+        const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.APIConfiguration.basePath}/admin/autoretrieve/init` as any, body, headers);
         if (observe === 'body') {
                return response.map(httpResponse => httpResponse.response);
         }

@@ -187,21 +187,23 @@ export class ContentService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'body', reportProgress?: boolean): Observable<UtilContentAddResponse>;
-    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UtilContentAddResponse>>;
-    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UtilContentAddResponse>>;
-    public contentAddPost(data: Blob, coluuid: string, dir: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public contentAddPost(data: Blob, coluuid?: string, dir?: string, observe?: 'body', reportProgress?: boolean): Observable<UtilContentAddResponse>;
+    public contentAddPost(data: Blob, coluuid?: string, dir?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UtilContentAddResponse>>;
+    public contentAddPost(data: Blob, coluuid?: string, dir?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UtilContentAddResponse>>;
+    public contentAddPost(data: Blob, coluuid?: string, dir?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (data === null || data === undefined) {
             throw new Error('Required parameter data was null or undefined when calling contentAddPost.');
         }
 
-        if (coluuid === null || coluuid === undefined) {
-            throw new Error('Required parameter coluuid was null or undefined when calling contentAddPost.');
-        }
 
-        if (dir === null || dir === undefined) {
-            throw new Error('Required parameter dir was null or undefined when calling contentAddPost.');
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (coluuid !== undefined && coluuid !== null) {
+            queryParameters = queryParameters.set('coluuid', <any>coluuid);
+        }
+        if (dir !== undefined && dir !== null) {
+            queryParameters = queryParameters.set('dir', <any>dir);
         }
 
         let headers = this.defaultHeaders;
@@ -246,6 +248,7 @@ export class ContentService {
         return this.httpClient.post<UtilContentAddResponse>(`${this.basePath}/content/add`,
             convertFormParamsToString ? formParams.toString() : formParams,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

@@ -122,8 +122,7 @@ sub collections_coluuid_commit_post {
 # 
 # @param string $coluuid Collection ID (required)
 # @param string $contentid Content ID (required)
-# @param string $by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-# @param string $value Value of content_id or path to look for (required)
+# @param MainDeleteContentFromCollectionBody $body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
 {
     my $params = {
     'coluuid' => {
@@ -136,14 +135,9 @@ sub collections_coluuid_commit_post {
         description => 'Content ID',
         required => '1',
     },
-    'by' => {
-        data_type => 'string',
-        description => 'Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)',
-        required => '1',
-    },
-    'value' => {
-        data_type => 'string',
-        description => 'Value of content_id or path to look for',
+    'body' => {
+        data_type => 'MainDeleteContentFromCollectionBody',
+        description => '{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}',
         required => '1',
     },
     };
@@ -168,14 +162,9 @@ sub collections_coluuid_contents_delete {
       croak("Missing the required parameter 'contentid' when calling collections_coluuid_contents_delete");
     }
 
-    # verify the required parameter 'by' is set
-    unless (exists $args{'by'}) {
-      croak("Missing the required parameter 'by' when calling collections_coluuid_contents_delete");
-    }
-
-    # verify the required parameter 'value' is set
-    unless (exists $args{'value'}) {
-      croak("Missing the required parameter 'value' when calling collections_coluuid_contents_delete");
+    # verify the required parameter 'body' is set
+    unless (exists $args{'body'}) {
+      croak("Missing the required parameter 'body' when calling collections_coluuid_contents_delete");
     }
 
     # parse inputs
@@ -209,13 +198,8 @@ sub collections_coluuid_contents_delete {
 
     my $_body_data;
     # body params
-    if ( exists $args{'by'}) {
-        $_body_data = $args{'by'};
-    }
-
-    # body params
-    if ( exists $args{'value'}) {
-        $_body_data = $args{'value'};
+    if ( exists $args{'body'}) {
+        $_body_data = $args{'body'};
     }
 
     # authentication setting, if any

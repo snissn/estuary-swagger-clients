@@ -41,6 +41,7 @@ import io.swagger.server.delete
 
 import io.swagger.server.models.CollectionsCollection
 import io.swagger.server.models.MaincreateCollectionBody
+import io.swagger.server.models.MaindeleteContentFromCollectionBody
 import io.swagger.server.models.UtilHttpError
 
 fun Route.CollectionsApi() {

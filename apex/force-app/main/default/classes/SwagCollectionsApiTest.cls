@@ -48,8 +48,7 @@ private class SwagCollectionsApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'coluuid' => 'coluuid_example',
             'contentid' => 'contentid_example',
-            'r_by' => 'r_by_example',
-            'value' => 'value_example'
+            'body' => SwagMainDeleteContentFromCollectionB.getExample()
         };
 
         SwagClient client;

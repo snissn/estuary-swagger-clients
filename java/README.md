@@ -2,7 +2,7 @@
 
 Estuary API
 - API version: 0.0.0
-  - Build date: 2022-10-03T07:43:07.170Z
+  - Build date: 2022-10-04T07:13:18.703Z
 
 This is the API for the Estuary application.
 
@@ -204,6 +204,7 @@ Class | Method | HTTP request | Description
 
  - [CollectionsCollection](docs/CollectionsCollection.md)
  - [MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
+ - [MainDeleteContentFromCollectionBody](docs/MainDeleteContentFromCollectionBody.md)
  - [MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [MainGetApiKeysResp](docs/MainGetApiKeysResp.md)
  - [MainImportDealBody](docs/MainImportDealBody.md)

@@ -17,9 +17,8 @@ module.exports.collectionsColuuidCommitPOST = function collectionsColuuidCommitP
 module.exports.collectionsColuuidContentsDELETE = function collectionsColuuidContentsDELETE (req, res, next) {
   var coluuid = req.swagger.params['coluuid'].value;
   var contentid = req.swagger.params['contentid'].value;
-  var by = req.swagger.params['by'].value;
-  var value = req.swagger.params['value'].value;
-  Collections.collectionsColuuidContentsDELETE(coluuid,contentid,by,value)
+  var body = req.swagger.params['body'].value;
+  Collections.collectionsColuuidContentsDELETE(coluuid,contentid,body)
     .then(function (response) {
       utils.writeJson(res, response);
     })

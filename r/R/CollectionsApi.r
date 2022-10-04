@@ -85,19 +85,13 @@ CollectionsApi <- R6::R6Class(
       }
 
     },
-    collections_coluuid_contents_delete = function(coluuid, contentid, by, value, ...){
+    collections_coluuid_contents_delete = function(coluuid, contentid, body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`by`)) {
-        body <- `by`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      if (!missing(`value`)) {
-        body <- `value`$toJSONString()
+      if (!missing(`body`)) {
+        body <- `body`$toJSONString()
       } else {
         body <- NULL
       }

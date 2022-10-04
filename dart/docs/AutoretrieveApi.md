@@ -30,8 +30,8 @@ import 'package:swagger/api.dart';
 //swagger.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
 
 var api_instance = new AutoretrieveApi();
-var addresses = new String(); // String | Autoretrieve's comma-separated list of addresses
-var pubKey = new String(); // String | Autoretrieve's public key
+var addresses = addresses_example; // String | Autoretrieve's comma-separated list of addresses
+var pubKey = pubKey_example; // String | Autoretrieve's public key
 
 try { 
     api_instance.adminAutoretrieveInitPost(addresses, pubKey);

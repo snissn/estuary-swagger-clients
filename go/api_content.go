@@ -223,12 +223,19 @@ ContentApiService Add new content
 This endpoint is used to upload new content.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param data File to upload
- * @param coluuid Collection UUID
- * @param dir Directory
+ * @param optional nil or *ContentApiContentAddPostOpts - Optional Parameters:
+     * @param "Coluuid" (optional.String) -  Collection UUID
+     * @param "Dir" (optional.String) -  Directory
 
 @return UtilContentAddResponse
 */
-func (a *ContentApiService) ContentAddPost(ctx context.Context, data *os.File, coluuid string, dir string) (UtilContentAddResponse, *http.Response, error) {
+
+type ContentApiContentAddPostOpts struct { 
+	Coluuid optional.String
+	Dir optional.String
+}
+
+func (a *ContentApiService) ContentAddPost(ctx context.Context, data *os.File, localVarOptionals *ContentApiContentAddPostOpts) (UtilContentAddResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -239,13 +246,17 @@ func (a *ContentApiService) ContentAddPost(ctx context.Context, data *os.File, c
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/content/add"
-	localVarPath = strings.Replace(localVarPath, "{"+"coluuid"+"}", fmt.Sprintf("%v", coluuid), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"dir"+"}", fmt.Sprintf("%v", dir), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Coluuid.IsSet() {
+		localVarQueryParams.Add("coluuid", parameterToString(localVarOptionals.Coluuid.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Dir.IsSet() {
+		localVarQueryParams.Add("dir", parameterToString(localVarOptionals.Dir.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"multipart/form-data"}
 

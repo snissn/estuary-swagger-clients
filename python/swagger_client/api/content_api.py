@@ -235,43 +235,43 @@ class ContentApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def content_add_post(self, data, coluuid, dir, **kwargs):  # noqa: E501
+    def content_add_post(self, data, **kwargs):  # noqa: E501
         """Add new content  # noqa: E501
 
         This endpoint is used to upload new content.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.content_add_post(data, coluuid, dir, async_req=True)
+        >>> thread = api.content_add_post(data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param file data: File to upload (required)
-        :param str coluuid: Collection UUID (required)
-        :param str dir: Directory (required)
+        :param str coluuid: Collection UUID
+        :param str dir: Directory
         :return: UtilContentAddResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.content_add_post_with_http_info(data, coluuid, dir, **kwargs)  # noqa: E501
+            return self.content_add_post_with_http_info(data, **kwargs)  # noqa: E501
         else:
-            (data) = self.content_add_post_with_http_info(data, coluuid, dir, **kwargs)  # noqa: E501
+            (data) = self.content_add_post_with_http_info(data, **kwargs)  # noqa: E501
             return data
 
-    def content_add_post_with_http_info(self, data, coluuid, dir, **kwargs):  # noqa: E501
+    def content_add_post_with_http_info(self, data, **kwargs):  # noqa: E501
         """Add new content  # noqa: E501
 
         This endpoint is used to upload new content.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.content_add_post_with_http_info(data, coluuid, dir, async_req=True)
+        >>> thread = api.content_add_post_with_http_info(data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param file data: File to upload (required)
-        :param str coluuid: Collection UUID (required)
-        :param str dir: Directory (required)
+        :param str coluuid: Collection UUID
+        :param str dir: Directory
         :return: UtilContentAddResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -296,24 +296,16 @@ class ContentApi(object):
         if self.api_client.client_side_validation and ('data' not in params or
                                                        params['data'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `data` when calling `content_add_post`")  # noqa: E501
-        # verify the required parameter 'coluuid' is set
-        if self.api_client.client_side_validation and ('coluuid' not in params or
-                                                       params['coluuid'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `coluuid` when calling `content_add_post`")  # noqa: E501
-        # verify the required parameter 'dir' is set
-        if self.api_client.client_side_validation and ('dir' not in params or
-                                                       params['dir'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `dir` when calling `content_add_post`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'coluuid' in params:
-            path_params['coluuid'] = params['coluuid']  # noqa: E501
-        if 'dir' in params:
-            path_params['dir'] = params['dir']  # noqa: E501
 
         query_params = []
+        if 'coluuid' in params:
+            query_params.append(('coluuid', params['coluuid']))  # noqa: E501
+        if 'dir' in params:
+            query_params.append(('dir', params['dir']))  # noqa: E501
 
         header_params = {}
 

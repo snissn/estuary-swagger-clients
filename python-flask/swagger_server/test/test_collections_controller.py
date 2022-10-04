@@ -7,6 +7,7 @@ from six import BytesIO
 
 from swagger_server.models.collections_collection import CollectionsCollection  # noqa: E501
 from swagger_server.models.main_create_collection_body import MainCreateCollectionBody  # noqa: E501
+from swagger_server.models.main_delete_content_from_collection_body import MainDeleteContentFromCollectionBody  # noqa: E501
 from swagger_server.models.util_http_error import UtilHttpError  # noqa: E501
 from swagger_server.test import BaseTestCase
 
@@ -30,11 +31,11 @@ class TestCollectionsController(BaseTestCase):
 
         Deletes a content from a collection
         """
-        value = 'value_example'
+        body = MainDeleteContentFromCollectionBody()
         response = self.client.open(
             '//collections/{coluuid}/contents'.format(coluuid='coluuid_example', contentid='contentid_example'),
             method='DELETE',
-            data=json.dumps(value),
+            data=json.dumps(body),
             content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

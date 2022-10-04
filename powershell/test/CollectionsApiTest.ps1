@@ -12,7 +12,7 @@ Describe 'IO.Swagger CollectionsApi' {
 
     Context 'CollectionsApi' {
         It 'Invoke-CollectionsApiCollectionsColuuidContentsDelete' {
-            $ret = Invoke-PetApiGetPetById -coluuid "TEST_VALUE" -contentid "TEST_VALUE" -by "TEST_VALUE" -value "TEST_VALUE"
+            $ret = Invoke-PetApiGetPetById -coluuid "TEST_VALUE" -contentid "TEST_VALUE" -body "TEST_VALUE"
             #$ret | Should BeOfType IO.Swagger.Model.ModelNameHere
             #$ret.property | Should Be 0
         }

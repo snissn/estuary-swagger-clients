@@ -63,9 +63,9 @@ describe 'ContentApi' do
   # Add new content
   # This endpoint is used to upload new content.
   # @param data File to upload
-  # @param coluuid Collection UUID
-  # @param dir Directory
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :coluuid Collection UUID
+  # @option opts [String] :dir Directory
   # @return [UtilContentAddResponse]
   describe 'content_add_post test' do
     it 'should work' do

@@ -84,16 +84,19 @@ public class SwagContentApi {
      * Add new content
      * This endpoint is used to upload new content.
      * @param data File to upload (required)
-     * @param coluuid Collection UUID (required)
-     * @param dir Directory (required)
+     * @param coluuid Collection UUID (optional)
+     * @param dir Directory (optional)
      * @return SwagUtilContentAddResponse
      * @throws Swagger.ApiException if fails to make API call
      */
     public SwagUtilContentAddResponse contentAddPost(Map<String, Object> params) {
         client.assertNotNull(params.get('data'), 'data');
-        client.assertNotNull(params.get('coluuid'), 'coluuid');
-        client.assertNotNull(params.get('dir'), 'dir');
         List<Swagger.Param> query = new List<Swagger.Param>();
+
+        // cast query params to verify their expected type
+        query.addAll(client.makeParam('coluuid', (String) params.get('coluuid')));
+        query.addAll(client.makeParam('dir', (String) params.get('dir')));
+
         List<Swagger.Param> form = new List<Swagger.Param>();
 
         // cast form params to verify their expected type
@@ -102,10 +105,7 @@ public class SwagContentApi {
         return (SwagUtilContentAddResponse) client.invoke(
             'POST', '/content/add', '',
             query, form,
-            new Map<String, Object>{
-                'coluuid' => (String) params.get('coluuid'),
-                'dir' => (String) params.get('dir')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },

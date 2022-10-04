@@ -8,6 +8,7 @@ package io.swagger.api;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 import io.swagger.annotations.*;
@@ -25,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-03T07:43:56.678Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-04T07:14:06.505Z")
 
 @Validated
 @Api(value = "collections", description = "the collections API")
@@ -52,7 +53,7 @@ public interface CollectionsApi {
     @RequestMapping(value = "/collections/{coluuid}/contents",
         produces = { "application/json" }, 
         method = RequestMethod.DELETE)
-    ResponseEntity<String> collectionsColuuidContentsDelete(@ApiParam(value = "Collection ID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Content ID",required=true) @PathVariable("contentid") String contentid,@ApiParam(value = "Variable to use when filtering for files (must be either 'path' or 'content_id')" ,required=true )  @Valid @RequestBody String by,@ApiParam(value = "Value of content_id or path to look for" ,required=true )  @Valid @RequestBody String value);
+    ResponseEntity<String> collectionsColuuidContentsDelete(@ApiParam(value = "Collection ID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Content ID",required=true) @PathVariable("contentid") String contentid,@ApiParam(value = "{by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}" ,required=true )  @Valid @RequestBody MainDeleteContentFromCollectionBody body);
 
 
     @ApiOperation(value = "Deletes a collection", nickname = "collectionsColuuidDelete", notes = "This endpoint is used to delete an existing collection.", authorizations = {

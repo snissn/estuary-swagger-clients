@@ -160,6 +160,7 @@ Class | Method | HTTP request | Description
 
  - [CollectionsCollection](CollectionsCollection.md)
  - [MainCreateCollectionBody](MainCreateCollectionBody.md)
+ - [MainDeleteContentFromCollectionBody](MainDeleteContentFromCollectionBody.md)
  - [MainEstimateDealBody](MainEstimateDealBody.md)
  - [MainGetApiKeysResp](MainGetApiKeysResp.md)
  - [MainImportDealBody](MainImportDealBody.md)

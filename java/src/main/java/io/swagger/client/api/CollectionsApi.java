@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import io.swagger.client.model.CollectionsCollection;
 import io.swagger.client.model.MainCreateCollectionBody;
+import io.swagger.client.model.MainDeleteContentFromCollectionBody;
 import io.swagger.client.model.UtilHttpError;
 
 import java.lang.reflect.Type;
@@ -183,15 +184,14 @@ public class CollectionsApi {
      * Build call for collectionsColuuidContentsDelete
      * @param coluuid Collection ID (required)
      * @param contentid Content ID (required)
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param value Value of content_id or path to look for (required)
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call collectionsColuuidContentsDeleteCall(String coluuid, String contentid, String by, String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = value;
+    public com.squareup.okhttp.Call collectionsColuuidContentsDeleteCall(String coluuid, String contentid, MainDeleteContentFromCollectionBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/collections/{coluuid}/contents"
@@ -234,7 +234,7 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call collectionsColuuidContentsDeleteValidateBeforeCall(String coluuid, String contentid, String by, String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call collectionsColuuidContentsDeleteValidateBeforeCall(String coluuid, String contentid, MainDeleteContentFromCollectionBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'coluuid' is set
         if (coluuid == null) {
@@ -246,18 +246,13 @@ public class CollectionsApi {
             throw new ApiException("Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete(Async)");
         }
         
-        // verify the required parameter 'by' is set
-        if (by == null) {
-            throw new ApiException("Missing the required parameter 'by' when calling collectionsColuuidContentsDelete(Async)");
-        }
-        
-        // verify the required parameter 'value' is set
-        if (value == null) {
-            throw new ApiException("Missing the required parameter 'value' when calling collectionsColuuidContentsDelete(Async)");
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling collectionsColuuidContentsDelete(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = collectionsColuuidContentsDeleteCall(coluuid, contentid, by, value, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = collectionsColuuidContentsDeleteCall(coluuid, contentid, body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -267,13 +262,12 @@ public class CollectionsApi {
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      * @param coluuid Collection ID (required)
      * @param contentid Content ID (required)
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param value Value of content_id or path to look for (required)
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String collectionsColuuidContentsDelete(String coluuid, String contentid, String by, String value) throws ApiException {
-        ApiResponse<String> resp = collectionsColuuidContentsDeleteWithHttpInfo(coluuid, contentid, by, value);
+    public String collectionsColuuidContentsDelete(String coluuid, String contentid, MainDeleteContentFromCollectionBody body) throws ApiException {
+        ApiResponse<String> resp = collectionsColuuidContentsDeleteWithHttpInfo(coluuid, contentid, body);
         return resp.getData();
     }
 
@@ -282,13 +276,12 @@ public class CollectionsApi {
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      * @param coluuid Collection ID (required)
      * @param contentid Content ID (required)
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param value Value of content_id or path to look for (required)
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> collectionsColuuidContentsDeleteWithHttpInfo(String coluuid, String contentid, String by, String value) throws ApiException {
-        com.squareup.okhttp.Call call = collectionsColuuidContentsDeleteValidateBeforeCall(coluuid, contentid, by, value, null, null);
+    public ApiResponse<String> collectionsColuuidContentsDeleteWithHttpInfo(String coluuid, String contentid, MainDeleteContentFromCollectionBody body) throws ApiException {
+        com.squareup.okhttp.Call call = collectionsColuuidContentsDeleteValidateBeforeCall(coluuid, contentid, body, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -298,13 +291,12 @@ public class CollectionsApi {
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      * @param coluuid Collection ID (required)
      * @param contentid Content ID (required)
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-     * @param value Value of content_id or path to look for (required)
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call collectionsColuuidContentsDeleteAsync(String coluuid, String contentid, String by, String value, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call collectionsColuuidContentsDeleteAsync(String coluuid, String contentid, MainDeleteContentFromCollectionBody body, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -325,7 +317,7 @@ public class CollectionsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = collectionsColuuidContentsDeleteValidateBeforeCall(coluuid, contentid, by, value, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = collectionsColuuidContentsDeleteValidateBeforeCall(coluuid, contentid, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

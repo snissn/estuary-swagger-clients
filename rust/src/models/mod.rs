@@ -2,6 +2,8 @@ mod collections_collection;
 pub use self::collections_collection::CollectionsCollection;
 mod main_create_collection_body;
 pub use self::main_create_collection_body::MainCreateCollectionBody;
+mod main_delete_content_from_collection_body;
+pub use self::main_delete_content_from_collection_body::MainDeleteContentFromCollectionBody;
 mod main_estimate_deal_body;
 pub use self::main_estimate_deal_body::MainEstimateDealBody;
 mod main_get_api_keys_resp;

@@ -170,8 +170,8 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data** | **File**| File to upload | 
- **coluuid** | **string**| Collection UUID | 
- **dir** | **string**| Directory | 
+ **coluuid** | **string**| Collection UUID | [optional] 
+ **dir** | **string**| Directory | [optional] 
 
 ### Return type
 

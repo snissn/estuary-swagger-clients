@@ -48,7 +48,7 @@ object CollectionsApi {
     } yield resp
   }
   
-  def collectionsColuuidContentsDelete(host: String, coluuid: String, contentid: String, by: String, value: String): Task[String] = {
+  def collectionsColuuidContentsDelete(host: String, coluuid: String, contentid: String, body: DeleteContentFromCollectionBody): Task[String] = {
     implicit val returnTypeDecoder: EntityDecoder[String] = jsonOf[String]
 
     val path = "/collections/{coluuid}/contents".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString)).replaceAll("\\{" + "contentid" + "\\}",escape(contentid.toString))
@@ -63,7 +63,7 @@ object CollectionsApi {
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
       uriWithParams =  uri.copy(query = queryParams)
-      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType)).withBody(value)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType)).withBody(body)
       resp          <- client.expect[String](req)
 
     } yield resp
@@ -219,7 +219,7 @@ class HttpServiceCollectionsApi(service: HttpService) {
     } yield resp
   }
   
-  def collectionsColuuidContentsDelete(coluuid: String, contentid: String, by: String, value: String): Task[String] = {
+  def collectionsColuuidContentsDelete(coluuid: String, contentid: String, body: DeleteContentFromCollectionBody): Task[String] = {
     implicit val returnTypeDecoder: EntityDecoder[String] = jsonOf[String]
 
     val path = "/collections/{coluuid}/contents".replaceAll("\\{" + "coluuid" + "\\}",escape(coluuid.toString)).replaceAll("\\{" + "contentid" + "\\}",escape(contentid.toString))
@@ -234,7 +234,7 @@ class HttpServiceCollectionsApi(service: HttpService) {
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
       uriWithParams =  uri.copy(query = queryParams)
-      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType)).withBody(value)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType)).withBody(body)
       resp          <- client.expect[String](req)
 
     } yield resp

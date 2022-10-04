@@ -29,7 +29,7 @@ import javax.validation.constraints.*;
 @Api(description = "the content API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-03T07:43:15.762Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-04T07:13:27.121Z")
 
 public class ContentApi  {
 
@@ -71,7 +71,7 @@ public class ContentApi  {
     }, tags={ "content",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = UtilContentAddResponse.class) })
-    public Response contentAddPost( @Multipart(value = "data") InputStream dataInputStream, @Multipart(value = "data" ) Attachment dataDetail, @ApiParam(value = "Collection UUID",required=true) @PathParam("coluuid") String coluuid, @ApiParam(value = "Directory",required=true) @PathParam("dir") String dir) {
+    public Response contentAddPost( @Multipart(value = "data") InputStream dataInputStream, @Multipart(value = "data" ) Attachment dataDetail,  @ApiParam(value = "Collection UUID")  @QueryParam("coluuid") String coluuid,  @ApiParam(value = "Directory")  @QueryParam("dir") String dir) {
         return delegate.contentAddPost(dataInputStream, dataDetail, coluuid, dir, securityContext);
     }
 

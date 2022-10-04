@@ -41,7 +41,7 @@ def content_add_ipfs_post(body):  # noqa: E501
     return 'do some magic!'
 
 
-def content_add_post(data, coluuid, dir):  # noqa: E501
+def content_add_post(data, coluuid=None, dir=None):  # noqa: E501
     """Add new content
 
     This endpoint is used to upload new content. # noqa: E501

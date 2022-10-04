@@ -160,7 +160,7 @@ void (empty response body)
 
 <a name="contentaddpost"></a>
 # **ContentAddPost**
-> UtilContentAddResponse ContentAddPost (System.IO.Stream data, string coluuid, string dir)
+> UtilContentAddResponse ContentAddPost (System.IO.Stream data, string coluuid = null, string dir = null)
 
 Add new content
 
@@ -187,8 +187,8 @@ namespace Example
 
             var apiInstance = new ContentApi();
             var data = new System.IO.Stream(); // System.IO.Stream | File to upload
-            var coluuid = coluuid_example;  // string | Collection UUID
-            var dir = dir_example;  // string | Directory
+            var coluuid = coluuid_example;  // string | Collection UUID (optional) 
+            var dir = dir_example;  // string | Directory (optional) 
 
             try
             {
@@ -210,8 +210,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data** | **System.IO.Stream**| File to upload | 
- **coluuid** | **string**| Collection UUID | 
- **dir** | **string**| Directory | 
+ **coluuid** | **string**| Collection UUID | [optional] 
+ **dir** | **string**| Directory | [optional] 
 
 ### Return type
 

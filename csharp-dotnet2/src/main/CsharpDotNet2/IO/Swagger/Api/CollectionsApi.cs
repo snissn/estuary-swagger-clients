@@ -22,10 +22,9 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <returns>string</returns>
-        string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value);
+        string CollectionsColuuidContentsDelete (string coluuid, string contentid, MainDeleteContentFromCollectionBody body);
         /// <summary>
         /// Deletes a collection This endpoint is used to delete an existing collection.
         /// </summary>
@@ -161,10 +160,9 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <param name="coluuid">Collection ID</param> 
         /// <param name="contentid">Content ID</param> 
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param> 
-        /// <param name="value">Value of content_id or path to look for</param> 
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param> 
         /// <returns>string</returns>            
-        public string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value)
+        public string CollectionsColuuidContentsDelete (string coluuid, string contentid, MainDeleteContentFromCollectionBody body)
         {
             
             // verify the required parameter 'coluuid' is set
@@ -173,11 +171,8 @@ namespace IO.Swagger.Api
             // verify the required parameter 'contentid' is set
             if (contentid == null) throw new ApiException(400, "Missing required parameter 'contentid' when calling CollectionsColuuidContentsDelete");
             
-            // verify the required parameter 'by' is set
-            if (by == null) throw new ApiException(400, "Missing required parameter 'by' when calling CollectionsColuuidContentsDelete");
-            
-            // verify the required parameter 'value' is set
-            if (value == null) throw new ApiException(400, "Missing required parameter 'value' when calling CollectionsColuuidContentsDelete");
+            // verify the required parameter 'body' is set
+            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling CollectionsColuuidContentsDelete");
             
     
             var path = "/collections/{coluuid}/contents";
@@ -191,7 +186,7 @@ path = path.Replace("{" + "contentid" + "}", ApiClient.ParameterToString(content
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                                postBody = ApiClient.Serialize(value); // http body (model) parameter
+                                                postBody = ApiClient.Serialize(body); // http body (model) parameter
     
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };

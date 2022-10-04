@@ -47,8 +47,10 @@ class ContentApi extends _$ContentApiClient implements ApiClient {
     /// This endpoint is used to upload new content.
     @PostReq(path: "/content/add", metadata: {"auth": [ {"type": "apiKey", "name": "bearerAuth", "keyName": "Authorization", "where": "header" }]})
     Future<UtilContentAddResponse> contentAddPost(
-            @PathParam("coluuid") String coluuid, 
-            @PathParam("dir") String dir
+        
+        @QueryParam("coluuid") String coluuid, 
+        
+        @QueryParam("dir") String dir
         ,
         @AsMultipartField() MultipartFile data
     );

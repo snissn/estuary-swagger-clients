@@ -70,24 +70,18 @@ import qualified Prelude as P
 -- Note: Has 'Produces' instances, but no response schema
 -- 
 adminAutoretrieveInitPost 
-  :: (Consumes AdminAutoretrieveInitPost contentType, MimeRender contentType Addresses2, MimeRender contentType PubKey2)
+  :: (Consumes AdminAutoretrieveInitPost contentType)
   => ContentType contentType -- ^ request content-type ('MimeType')
-  -> Addresses2 -- ^ "addresses" -  Autoretrieve's comma-separated list of addresses
-  -> PubKey2 -- ^ "pubKey" -  Autoretrieve's public key
+  -> Addresses -- ^ "addresses" -  Autoretrieve's comma-separated list of addresses
+  -> PubKey -- ^ "pubKey" -  Autoretrieve's public key
   -> EstuaryRequest AdminAutoretrieveInitPost contentType res MimeJSON
-adminAutoretrieveInitPost _ addresses pubKey =
+adminAutoretrieveInitPost _ (Addresses addresses) (PubKey pubKey) =
   _mkRequest "POST" ["/admin/autoretrieve/init"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyBearerAuth)
-    `setBodyParam` addresses
-    `setBodyParam` pubKey
+    `addForm` toForm ("addresses", addresses)
+    `addForm` toForm ("pubKey", pubKey)
 
-data AdminAutoretrieveInitPost 
-
--- | /Body Param/ "addresses" - Autoretrieve's comma-separated list of addresses
-instance HasBodyParam AdminAutoretrieveInitPost Addresses2
-
--- | /Body Param/ "pubKey" - Autoretrieve's public key
-instance HasBodyParam AdminAutoretrieveInitPost PubKey2 
+data AdminAutoretrieveInitPost  
 -- | @application/json@
 instance Produces AdminAutoretrieveInitPost MimeJSON
 

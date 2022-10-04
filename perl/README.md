@@ -242,6 +242,7 @@ To load the models:
 ```perl
 use WWW::SwaggerClient::Object::CollectionsCollection;
 use WWW::SwaggerClient::Object::MainCreateCollectionBody;
+use WWW::SwaggerClient::Object::MainDeleteContentFromCollectionBody;
 use WWW::SwaggerClient::Object::MainEstimateDealBody;
 use WWW::SwaggerClient::Object::MainGetApiKeysResp;
 use WWW::SwaggerClient::Object::MainImportDealBody;
@@ -277,6 +278,7 @@ use WWW::SwaggerClient::UserApi;
 # load the models
 use WWW::SwaggerClient::Object::CollectionsCollection;
 use WWW::SwaggerClient::Object::MainCreateCollectionBody;
+use WWW::SwaggerClient::Object::MainDeleteContentFromCollectionBody;
 use WWW::SwaggerClient::Object::MainEstimateDealBody;
 use WWW::SwaggerClient::Object::MainGetApiKeysResp;
 use WWW::SwaggerClient::Object::MainImportDealBody;
@@ -406,6 +408,7 @@ Class | Method | HTTP request | Description
 # DOCUMENTATION FOR MODELS
  - [WWW::SwaggerClient::Object::CollectionsCollection](docs/CollectionsCollection.md)
  - [WWW::SwaggerClient::Object::MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
+ - [WWW::SwaggerClient::Object::MainDeleteContentFromCollectionBody](docs/MainDeleteContentFromCollectionBody.md)
  - [WWW::SwaggerClient::Object::MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [WWW::SwaggerClient::Object::MainGetApiKeysResp](docs/MainGetApiKeysResp.md)
  - [WWW::SwaggerClient::Object::MainImportDealBody](docs/MainImportDealBody.md)

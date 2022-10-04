@@ -22,6 +22,7 @@ import HttpResponse from '../HttpResponse';
 
 import { CollectionsCollection } from '../model/collectionsCollection';
 import { MainCreateCollectionBody } from '../model/mainCreateCollectionBody';
+import { MainDeleteContentFromCollectionBody } from '../model/mainDeleteContentFromCollectionBody';
 import { UtilHttpError } from '../model/utilHttpError';
 
 import { COLLECTION_FORMATS }  from '../variables';
@@ -67,13 +68,12 @@ export class CollectionsService {
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      * @param coluuid Collection ID
      * @param contentid Content ID
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-     * @param value Value of content_id or path to look for
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
      
      */
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe?: 'body', headers?: Headers): Observable<string>;
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<string>>;
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, observe?: 'body', headers?: Headers): Observable<string>;
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, observe?: 'response', headers?: Headers): Observable<HttpResponse<string>>;
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!coluuid){
             throw new Error('Required parameter coluuid was null or undefined when calling collectionsColuuidContentsDelete.');
         }
@@ -82,12 +82,8 @@ export class CollectionsService {
             throw new Error('Required parameter contentid was null or undefined when calling collectionsColuuidContentsDelete.');
         }
 
-        if (!by){
-            throw new Error('Required parameter by was null or undefined when calling collectionsColuuidContentsDelete.');
-        }
-
-        if (!value){
-            throw new Error('Required parameter value was null or undefined when calling collectionsColuuidContentsDelete.');
+        if (!body){
+            throw new Error('Required parameter body was null or undefined when calling collectionsColuuidContentsDelete.');
         }
 
         // authentication (bearerAuth) required
@@ -97,7 +93,7 @@ export class CollectionsService {
         headers['Accept'] = 'application/json';
         headers['Content-Type'] = 'application/json';
 
-        const response: Observable<HttpResponse<string>> = this.httpClient.delete(`${this.APIConfiguration.basePath}/collections/${encodeURIComponent(String(coluuid))}/contents`, value as any, headers);
+        const response: Observable<HttpResponse<string>> = this.httpClient.delete(`${this.APIConfiguration.basePath}/collections/${encodeURIComponent(String(coluuid))}/contents`, body as any, headers);
         if (observe === 'body') {
                return response.map(httpResponse => httpResponse.response);
         }

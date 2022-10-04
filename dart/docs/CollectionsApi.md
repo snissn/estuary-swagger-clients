@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionsColuuidContentsDelete**
-> String collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+> String collectionsColuuidContentsDelete(coluuid, contentid, body)
 
 Deletes a content from a collection
 
@@ -84,11 +84,10 @@ import 'package:swagger/api.dart';
 var api_instance = new CollectionsApi();
 var coluuid = coluuid_example; // String | Collection ID
 var contentid = contentid_example; // String | Content ID
-var by = new String(); // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
-var value = new String(); // String | Value of content_id or path to look for
+var body = new MainDeleteContentFromCollectionBody(); // MainDeleteContentFromCollectionBody | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 
 try { 
-    var result = api_instance.collectionsColuuidContentsDelete(coluuid, contentid, by, value);
+    var result = api_instance.collectionsColuuidContentsDelete(coluuid, contentid, body);
     print(result);
 } catch (e) {
     print("Exception when calling CollectionsApi->collectionsColuuidContentsDelete: $e\n");
@@ -101,8 +100,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **String**| Collection ID | 
  **contentid** | **String**| Content ID | 
- **by** | **String**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
- **value** | **String**| Value of content_id or path to look for | 
+ **body** | [**MainDeleteContentFromCollectionBody**](MainDeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} | 
 
 ### Return type
 

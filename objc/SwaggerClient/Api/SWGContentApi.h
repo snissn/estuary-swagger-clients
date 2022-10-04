@@ -57,8 +57,8 @@ extern NSInteger kSWGContentApiMissingParamErrorCode;
 /// This endpoint is used to upload new content.
 ///
 /// @param data File to upload
-/// @param coluuid Collection UUID
-/// @param dir Directory
+/// @param coluuid Collection UUID (optional)
+/// @param dir Directory (optional)
 /// 
 ///  code:200 message:"OK"
 ///

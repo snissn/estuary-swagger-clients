@@ -84,8 +84,7 @@ package .Clients is
       (Client : in out Client_Type;
        Coluuid : in Swagger.UString;
        Contentid : in Swagger.UString;
-       By : in Swagger.UString;
-       Value : in Swagger.UString;
+       P_Body : in .Models.Main_deleteContentFromCollectionBody_Type;
        Result : out Swagger.UString);
 
    --  Deletes a collection
@@ -150,8 +149,8 @@ package .Clients is
    procedure Content_Add_Post
       (Client : in out Client_Type;
        Data : in Swagger.File_Part_Type;
-       Coluuid : in Swagger.UString;
-       Dir : in Swagger.UString;
+       Coluuid : in Swagger.Nullable_UString;
+       Dir : in Swagger.Nullable_UString;
        Result : out .Models.Util_ContentAddResponse_Type);
 
    --  Get aggregated content stats

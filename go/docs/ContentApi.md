@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ContentAddPost**
-> UtilContentAddResponse ContentAddPost(ctx, data, coluuid, dir)
+> UtilContentAddResponse ContentAddPost(ctx, data, optional)
 Add new content
 
 This endpoint is used to upload new content.
@@ -101,8 +101,16 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **data** | ***os.File**| File to upload | 
-  **coluuid** | **string**| Collection UUID | 
-  **dir** | **string**| Directory | 
+ **optional** | ***ContentApiContentAddPostOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ContentApiContentAddPostOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **coluuid** | **optional.String**| Collection UUID | 
+ **dir** | **optional.String**| Directory | 
 
 ### Return type
 

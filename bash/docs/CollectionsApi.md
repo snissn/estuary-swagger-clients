@@ -63,8 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **string** | Collection ID |
  **contentid** | **string** | Content ID |
- **by** | **string** | Variable to use when filtering for files (must be either 'path' or 'content_id') |
- **value** | **string** | Value of content_id or path to look for |
+ **body** | [**Main.deleteContentFromCollectionBody**](Main.deleteContentFromCollectionBody.md) | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for} |
 
 ### Return type
 

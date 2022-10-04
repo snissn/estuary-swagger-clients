@@ -63,7 +63,7 @@
      * @param {module:api/AutoretrieveApi~adminAutoretrieveInitPostCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.adminAutoretrieveInitPost = function(addresses, pubKey, callback) {
-      var postBody = pubKey;
+      var postBody = null;
 
       // verify the required parameter 'addresses' is set
       if (addresses === undefined || addresses === null) {
@@ -85,6 +85,8 @@
       var headerParams = {
       };
       var formParams = {
+        'addresses': addresses,
+        'pubKey': pubKey
       };
 
       var authNames = ['bearerAuth'];

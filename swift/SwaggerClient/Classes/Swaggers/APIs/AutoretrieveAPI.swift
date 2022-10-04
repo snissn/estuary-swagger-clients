@@ -13,8 +13,8 @@ public class AutoretrieveAPI: APIBase {
     /**
      Register autoretrieve server
      
-     - parameter addresses: (body) Autoretrieve&#39;s comma-separated list of addresses 
-     - parameter pubKey: (body) Autoretrieve&#39;s public key 
+     - parameter addresses: (form) Autoretrieve&#39;s comma-separated list of addresses 
+     - parameter pubKey: (form) Autoretrieve&#39;s public key 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func adminAutoretrieveInitPost(addresses addresses: String, pubKey: String, completion: ((error: ErrorType?) -> Void)) {
@@ -32,21 +32,27 @@ public class AutoretrieveAPI: APIBase {
        - type: apiKey Authorization 
        - name: bearerAuth
      
-     - parameter addresses: (body) Autoretrieve&#39;s comma-separated list of addresses 
-     - parameter pubKey: (body) Autoretrieve&#39;s public key 
+     - parameter addresses: (form) Autoretrieve&#39;s comma-separated list of addresses 
+     - parameter pubKey: (form) Autoretrieve&#39;s public key 
 
      - returns: RequestBuilder<Void> 
      */
     public class func adminAutoretrieveInitPostWithRequestBuilder(addresses addresses: String, pubKey: String) -> RequestBuilder<Void> {
         let path = "/admin/autoretrieve/init"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters = pubKey.encodeToJSON() as? [String:AnyObject]
+
+        let nillableParameters: [String:AnyObject?] = [
+            "addresses": addresses,
+            "pubKey": pubKey
+        ]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**

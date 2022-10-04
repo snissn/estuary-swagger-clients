@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collections_coluuid_contents_delete**
-> collections_coluuid_contents_delete (coluuid: STRING_32 ; contentid: STRING_32 ; by: STRING_32 ; value: STRING_32 ): detachable STRING_32
+> collections_coluuid_contents_delete (coluuid: STRING_32 ; contentid: STRING_32 ; body: MAIN_DELETE_CONTENT_FROM_COLLECTION_BODY ): detachable STRING_32
 	
 
 Deletes a content from a collection
@@ -59,8 +59,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **STRING_32**| Collection ID | 
  **contentid** | **STRING_32**| Content ID | 
- **by** | **STRING_32**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
- **value** | **STRING_32**| Value of content_id or path to look for | 
+ **body** | [**MAIN_DELETE_CONTENT_FROM_COLLECTION_BODY**](MAIN_DELETE_CONTENT_FROM_COLLECTION_BODY.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} | 
 
 ### Return type
 

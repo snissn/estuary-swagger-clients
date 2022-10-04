@@ -8,6 +8,7 @@ import org.apache.cxf.jaxrs.ext.multipart.Attachment;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 
@@ -20,7 +21,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-03T07:43:15.762Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-04T07:13:27.121Z")
 public class CollectionsApiServiceImpl implements CollectionsApiService {
       @Override
       public Response collectionsColuuidCommitPost(String coluuid, SecurityContext securityContext) {
@@ -28,7 +29,7 @@ public class CollectionsApiServiceImpl implements CollectionsApiService {
       return Response.ok().entity("magic!").build();
   }
       @Override
-      public Response collectionsColuuidContentsDelete(String coluuid, String contentid, String by, String value, SecurityContext securityContext) {
+      public Response collectionsColuuidContentsDelete(String coluuid, String contentid, MainDeleteContentFromCollectionBody body, SecurityContext securityContext) {
       // do some magic!
       return Response.ok().entity("magic!").build();
   }

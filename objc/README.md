@@ -44,6 +44,7 @@ Import the following:
 // load models
 #import <SwaggerClient/SWGCollectionsCollection.h>
 #import <SwaggerClient/SWGMainCreateCollectionBody.h>
+#import <SwaggerClient/SWGMainDeleteContentFromCollectionBody.h>
 #import <SwaggerClient/SWGMainEstimateDealBody.h>
 #import <SwaggerClient/SWGMainGetApiKeysResp.h>
 #import <SwaggerClient/SWGMainImportDealBody.h>
@@ -199,6 +200,7 @@ Class | Method | HTTP request | Description
 
  - [SWGCollectionsCollection](docs/SWGCollectionsCollection.md)
  - [SWGMainCreateCollectionBody](docs/SWGMainCreateCollectionBody.md)
+ - [SWGMainDeleteContentFromCollectionBody](docs/SWGMainDeleteContentFromCollectionBody.md)
  - [SWGMainEstimateDealBody](docs/SWGMainEstimateDealBody.md)
  - [SWGMainGetApiKeysResp](docs/SWGMainGetApiKeysResp.md)
  - [SWGMainImportDealBody](docs/SWGMainImportDealBody.md)

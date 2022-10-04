@@ -7,6 +7,7 @@ import io.swagger.model.*;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 
@@ -17,13 +18,13 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-03T07:43:21.296Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-04T07:13:32.436Z")
 public class CollectionsApiServiceImpl implements CollectionsApi {
       public Response collectionsColuuidCommitPost(String coluuid,SecurityContext securityContext) {
       // do some magic!
       return Response.ok().build();
   }
-      public Response collectionsColuuidContentsDelete(String coluuid,String contentid,String by,String value,SecurityContext securityContext) {
+      public Response collectionsColuuidContentsDelete(String coluuid,String contentid,MainDeleteContentFromCollectionBody body,SecurityContext securityContext) {
       // do some magic!
       return Response.ok().build();
   }

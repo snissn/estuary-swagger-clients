@@ -145,6 +145,26 @@ export interface MainCreateCollectionBody {
 /**
  * 
  * @export
+ * @interface MainDeleteContentFromCollectionBody
+ */
+export interface MainDeleteContentFromCollectionBody {
+    /**
+     * 
+     * @type {string}
+     * @memberof MainDeleteContentFromCollectionBody
+     */
+    by?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MainDeleteContentFromCollectionBody
+     */
+    value?: string;
+}
+
+/**
+ * 
+ * @export
  * @interface MainEstimateDealBody
  */
 export interface MainEstimateDealBody {
@@ -959,6 +979,7 @@ export const AutoretrieveApiFetchParamCreator = function (configuration?: Config
             const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            const localVarFormParams = new url.URLSearchParams();
 
             // authentication bearerAuth required
             if (configuration && configuration.apiKey) {
@@ -968,14 +989,21 @@ export const AutoretrieveApiFetchParamCreator = function (configuration?: Config
                 localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
             }
 
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            if (addresses !== undefined) {
+                localVarFormParams.set('addresses', addresses as any);
+            }
+
+            if (pubKey !== undefined) {
+                localVarFormParams.set('pubKey', pubKey as any);
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (<any>"string" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(pubKey || {}) : (pubKey || "");
+            localVarRequestOptions.body = localVarFormParams.toString();
 
             return {
                 url: url.format(localVarUrlObj),
@@ -1254,12 +1282,11 @@ export const CollectionsApiFetchParamCreator = function (configuration?: Configu
          * @summary Deletes a content from a collection
          * @param {string} coluuid Collection ID
          * @param {string} contentid Content ID
-         * @param {string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-         * @param {string} value Value of content_id or path to look for
+         * @param {MainDeleteContentFromCollectionBody} body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, options: any = {}): FetchArgs {
+        collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, options: any = {}): FetchArgs {
             // verify required parameter 'coluuid' is not null or undefined
             if (coluuid === null || coluuid === undefined) {
                 throw new RequiredError('coluuid','Required parameter coluuid was null or undefined when calling collectionsColuuidContentsDelete.');
@@ -1268,13 +1295,9 @@ export const CollectionsApiFetchParamCreator = function (configuration?: Configu
             if (contentid === null || contentid === undefined) {
                 throw new RequiredError('contentid','Required parameter contentid was null or undefined when calling collectionsColuuidContentsDelete.');
             }
-            // verify required parameter 'by' is not null or undefined
-            if (by === null || by === undefined) {
-                throw new RequiredError('by','Required parameter by was null or undefined when calling collectionsColuuidContentsDelete.');
-            }
-            // verify required parameter 'value' is not null or undefined
-            if (value === null || value === undefined) {
-                throw new RequiredError('value','Required parameter value was null or undefined when calling collectionsColuuidContentsDelete.');
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling collectionsColuuidContentsDelete.');
             }
             const localVarPath = `/collections/{coluuid}/contents`
                 .replace(`{${"coluuid"}}`, encodeURIComponent(String(coluuid)))
@@ -1298,8 +1321,8 @@ export const CollectionsApiFetchParamCreator = function (configuration?: Configu
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (<any>"string" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(value || {}) : (value || "");
+            const needsSerialization = (<any>"MainDeleteContentFromCollectionBody" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(body || {}) : (body || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -1587,13 +1610,12 @@ export const CollectionsApiFp = function(configuration?: Configuration) {
          * @summary Deletes a content from a collection
          * @param {string} coluuid Collection ID
          * @param {string} contentid Content ID
-         * @param {string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-         * @param {string} value Value of content_id or path to look for
+         * @param {MainDeleteContentFromCollectionBody} body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<string> {
-            const localVarFetchArgs = CollectionsApiFetchParamCreator(configuration).collectionsColuuidContentsDelete(coluuid, contentid, by, value, options);
+        collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<string> {
+            const localVarFetchArgs = CollectionsApiFetchParamCreator(configuration).collectionsColuuidContentsDelete(coluuid, contentid, body, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -1744,13 +1766,12 @@ export const CollectionsApiFactory = function (configuration?: Configuration, fe
          * @summary Deletes a content from a collection
          * @param {string} coluuid Collection ID
          * @param {string} contentid Content ID
-         * @param {string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-         * @param {string} value Value of content_id or path to look for
+         * @param {MainDeleteContentFromCollectionBody} body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, options?: any) {
-            return CollectionsApiFp(configuration).collectionsColuuidContentsDelete(coluuid, contentid, by, value, options)(fetch, basePath);
+        collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, options?: any) {
+            return CollectionsApiFp(configuration).collectionsColuuidContentsDelete(coluuid, contentid, body, options)(fetch, basePath);
         },
         /**
          * This endpoint is used to delete an existing collection.
@@ -1841,14 +1862,13 @@ export class CollectionsApi extends BaseAPI {
      * @summary Deletes a content from a collection
      * @param {string} coluuid Collection ID
      * @param {string} contentid Content ID
-     * @param {string} by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-     * @param {string} value Value of content_id or path to look for
+     * @param {MainDeleteContentFromCollectionBody} body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CollectionsApi
      */
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, options?: any) {
-        return CollectionsApiFp(this.configuration).collectionsColuuidContentsDelete(coluuid, contentid, by, value, options)(this.fetch, this.basePath);
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, options?: any) {
+        return CollectionsApiFp(this.configuration).collectionsColuuidContentsDelete(coluuid, contentid, body, options)(this.fetch, this.basePath);
     }
 
     /**
@@ -2032,27 +2052,17 @@ export const ContentApiFetchParamCreator = function (configuration?: Configurati
          * This endpoint is used to upload new content.
          * @summary Add new content
          * @param {any} data File to upload
-         * @param {string} coluuid Collection UUID
-         * @param {string} dir Directory
+         * @param {string} [coluuid] Collection UUID
+         * @param {string} [dir] Directory
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contentAddPost(data: any, coluuid: string, dir: string, options: any = {}): FetchArgs {
+        contentAddPost(data: any, coluuid?: string, dir?: string, options: any = {}): FetchArgs {
             // verify required parameter 'data' is not null or undefined
             if (data === null || data === undefined) {
                 throw new RequiredError('data','Required parameter data was null or undefined when calling contentAddPost.');
             }
-            // verify required parameter 'coluuid' is not null or undefined
-            if (coluuid === null || coluuid === undefined) {
-                throw new RequiredError('coluuid','Required parameter coluuid was null or undefined when calling contentAddPost.');
-            }
-            // verify required parameter 'dir' is not null or undefined
-            if (dir === null || dir === undefined) {
-                throw new RequiredError('dir','Required parameter dir was null or undefined when calling contentAddPost.');
-            }
-            const localVarPath = `/content/add`
-                .replace(`{${"coluuid"}}`, encodeURIComponent(String(coluuid)))
-                .replace(`{${"dir"}}`, encodeURIComponent(String(dir)));
+            const localVarPath = `/content/add`;
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
             const localVarHeaderParameter = {} as any;
@@ -2065,6 +2075,14 @@ export const ContentApiFetchParamCreator = function (configuration?: Configurati
 					? configuration.apiKey("Authorization")
 					: configuration.apiKey;
                 localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            if (coluuid !== undefined) {
+                localVarQueryParameter['coluuid'] = coluuid;
+            }
+
+            if (dir !== undefined) {
+                localVarQueryParameter['dir'] = dir;
             }
 
             if (data !== undefined) {
@@ -2638,12 +2656,12 @@ export const ContentApiFp = function(configuration?: Configuration) {
          * This endpoint is used to upload new content.
          * @summary Add new content
          * @param {any} data File to upload
-         * @param {string} coluuid Collection UUID
-         * @param {string} dir Directory
+         * @param {string} [coluuid] Collection UUID
+         * @param {string} [dir] Directory
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contentAddPost(data: any, coluuid: string, dir: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<UtilContentAddResponse> {
+        contentAddPost(data: any, coluuid?: string, dir?: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<UtilContentAddResponse> {
             const localVarFetchArgs = ContentApiFetchParamCreator(configuration).contentAddPost(data, coluuid, dir, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
@@ -2939,12 +2957,12 @@ export const ContentApiFactory = function (configuration?: Configuration, fetch?
          * This endpoint is used to upload new content.
          * @summary Add new content
          * @param {any} data File to upload
-         * @param {string} coluuid Collection UUID
-         * @param {string} dir Directory
+         * @param {string} [coluuid] Collection UUID
+         * @param {string} [dir] Directory
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contentAddPost(data: any, coluuid: string, dir: string, options?: any) {
+        contentAddPost(data: any, coluuid?: string, dir?: string, options?: any) {
             return ContentApiFp(configuration).contentAddPost(data, coluuid, dir, options)(fetch, basePath);
         },
         /**
@@ -3119,13 +3137,13 @@ export class ContentApi extends BaseAPI {
      * This endpoint is used to upload new content.
      * @summary Add new content
      * @param {any} data File to upload
-     * @param {string} coluuid Collection UUID
-     * @param {string} dir Directory
+     * @param {string} [coluuid] Collection UUID
+     * @param {string} [dir] Directory
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ContentApi
      */
-    public contentAddPost(data: any, coluuid: string, dir: string, options?: any) {
+    public contentAddPost(data: any, coluuid?: string, dir?: string, options?: any) {
         return ContentApiFp(this.configuration).contentAddPost(data, coluuid, dir, options)(this.fetch, this.basePath);
     }
 

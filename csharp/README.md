@@ -195,6 +195,7 @@ Class | Method | HTTP request | Description
 
  - [Model.CollectionsCollection](docs/CollectionsCollection.md)
  - [Model.MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
+ - [Model.MainDeleteContentFromCollectionBody](docs/MainDeleteContentFromCollectionBody.md)
  - [Model.MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [Model.MainGetApiKeysResp](docs/MainGetApiKeysResp.md)
  - [Model.MainImportDealBody](docs/MainImportDealBody.md)

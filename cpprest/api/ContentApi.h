@@ -75,12 +75,12 @@ public:
     /// This endpoint is used to upload new content.
     /// </remarks>
     /// <param name="data">File to upload</param>
-    /// <param name="coluuid">Collection UUID</param>
-    /// <param name="dir">Directory</param>
+    /// <param name="coluuid">Collection UUID (optional)</param>
+    /// <param name="dir">Directory (optional)</param>
     pplx::task<std::shared_ptr<Util.ContentAddResponse>> contentAddPost(
         std::shared_ptr<HttpContent> data,
-        utility::string_t coluuid,
-        utility::string_t dir
+        boost::optional<utility::string_t> coluuid,
+        boost::optional<utility::string_t> dir
     );
     /// <summary>
     /// Get aggregated content stats

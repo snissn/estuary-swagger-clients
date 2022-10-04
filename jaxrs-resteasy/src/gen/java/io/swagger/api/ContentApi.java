@@ -30,7 +30,7 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 
 
 @io.swagger.annotations.Api(description = "the content API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-10-03T07:43:19.698Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-10-04T07:13:30.968Z")
 public class ContentApi  {
 
     @Inject ContentApiService service;
@@ -68,7 +68,7 @@ public class ContentApi  {
     }, tags={ "content", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = UtilContentAddResponse.class) })
-    public Response contentAddPost(MultipartFormDataInput input, @PathParam("coluuid") String coluuid, @PathParam("dir") String dir,@Context SecurityContext securityContext)
+    public Response contentAddPost(MultipartFormDataInput input,  @QueryParam("coluuid") String coluuid,  @QueryParam("dir") String dir,@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.contentAddPost(input,coluuid,dir,securityContext);
     }

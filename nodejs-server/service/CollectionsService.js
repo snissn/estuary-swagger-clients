@@ -30,11 +30,10 @@ exports.collectionsColuuidCommitPOST = function(coluuid) {
  *
  * coluuid String Collection ID
  * contentid String Content ID
- * by String Variable to use when filtering for files (must be either 'path' or 'content_id')
- * value String Value of content_id or path to look for
+ * body Main.deleteContentFromCollectionBody {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
  * returns String
  **/
-exports.collectionsColuuidContentsDELETE = function(coluuid,contentid,by,value) {
+exports.collectionsColuuidContentsDELETE = function(coluuid,contentid,body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {

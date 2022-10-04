@@ -38,6 +38,7 @@ build = {
 		["swagger-client.api.user_api"] = "swagger-client/api/user_api.lua";
 		["swagger-client.model.collections_collection"] = "swagger-client/model/collections_collection.lua";
 		["swagger-client.model.main_create_collection_body"] = "swagger-client/model/main_create_collection_body.lua";
+		["swagger-client.model.main_delete_content_from_collection_body"] = "swagger-client/model/main_delete_content_from_collection_body.lua";
 		["swagger-client.model.main_estimate_deal_body"] = "swagger-client/model/main_estimate_deal_body.lua";
 		["swagger-client.model.main_get_api_keys_resp"] = "swagger-client/model/main_get_api_keys_resp.lua";
 		["swagger-client.model.main_import_deal_body"] = "swagger-client/model/main_import_deal_body.lua";

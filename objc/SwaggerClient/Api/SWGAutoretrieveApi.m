@@ -107,7 +107,12 @@ NSInteger kSWGAutoretrieveApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = pubKey;
+    if (addresses) {
+        formParams[@"addresses"] = addresses;
+    }
+    if (pubKey) {
+        formParams[@"pubKey"] = pubKey;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

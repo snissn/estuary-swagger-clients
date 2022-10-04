@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collections_coluuid_contents_delete**
-> str collections_coluuid_contents_delete(coluuid, contentid, by, value)
+> str collections_coluuid_contents_delete(coluuid, contentid, body)
 
 Deletes a content from a collection
 
@@ -93,12 +93,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = swagger_client.CollectionsApi(swagger_client.ApiClient(configuration))
 coluuid = 'coluuid_example' # str | Collection ID
 contentid = 'contentid_example' # str | Content ID
-by = 'by_example' # str | Variable to use when filtering for files (must be either 'path' or 'content_id')
-value = 'value_example' # str | Value of content_id or path to look for
+body = swagger_client.MainDeleteContentFromCollectionBody() # MainDeleteContentFromCollectionBody | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 
 try:
     # Deletes a content from a collection
-    api_response = api_instance.collections_coluuid_contents_delete(coluuid, contentid, by, value)
+    api_response = api_instance.collections_coluuid_contents_delete(coluuid, contentid, body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CollectionsApi->collections_coluuid_contents_delete: %s\n" % e)
@@ -110,8 +109,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **str**| Collection ID | 
  **contentid** | **str**| Content ID | 
- **by** | **str**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
- **value** | **str**| Value of content_id or path to look for | 
+ **body** | [**MainDeleteContentFromCollectionBody**](MainDeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} | 
 
 ### Return type
 

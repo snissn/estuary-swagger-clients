@@ -83,14 +83,6 @@ impl<C: hyper::client::Connect>AutoretrieveApi for AutoretrieveApiClient<C> {
             req.headers_mut().set_raw(key, val);
         }
 
-        let serialized = serde_json::to_string(&addresses).unwrap();
-        req.headers_mut().set(hyper::header::ContentType::json());
-        req.headers_mut().set(hyper::header::ContentLength(serialized.len() as u64));
-        req.set_body(serialized);
-        let serialized = serde_json::to_string(&pub_key).unwrap();
-        req.headers_mut().set(hyper::header::ContentType::json());
-        req.headers_mut().set(hyper::header::ContentLength(serialized.len() as u64));
-        req.set_body(serialized);
 
         // send request
         Box::new(

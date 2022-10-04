@@ -193,8 +193,8 @@ export class ContentApi {
      * @param coluuid Collection UUID
      * @param dir Directory
      */
-    public contentAddPost(data: any, coluuid: string, dir: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQueryPromise<{ response: JQueryXHR; body: models.UtilContentAddResponse;  }> {
-        let localVarPath = this.basePath + '/content/add'.replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid))).replace('{' + 'dir' + '}', encodeURIComponent(String(dir)));
+    public contentAddPost(data: any, coluuid?: string, dir?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQueryPromise<{ response: JQueryXHR; body: models.UtilContentAddResponse;  }> {
+        let localVarPath = this.basePath + '/content/add';
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -206,16 +206,12 @@ export class ContentApi {
             throw new Error('Required parameter data was null or undefined when calling contentAddPost.');
         }
 
-        // verify required parameter 'coluuid' is not null or undefined
-        if (coluuid === null || coluuid === undefined) {
-            throw new Error('Required parameter coluuid was null or undefined when calling contentAddPost.');
+        if (coluuid !== null && coluuid !== undefined) {
+            queryParameters['coluuid'] = <string><any>coluuid;
         }
-
-        // verify required parameter 'dir' is not null or undefined
-        if (dir === null || dir === undefined) {
-            throw new Error('Required parameter dir was null or undefined when calling contentAddPost.');
+        if (dir !== null && dir !== undefined) {
+            queryParameters['dir'] = <string><any>dir;
         }
-
 
         localVarPath = localVarPath + "?" + $.param(queryParameters);
         reqHasFile = true;

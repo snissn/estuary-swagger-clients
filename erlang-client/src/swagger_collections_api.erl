@@ -1,7 +1,7 @@
 -module(swagger_collections_api).
 
 -export([collections_coluuid_commit_post/2, collections_coluuid_commit_post/3,
-         collections_coluuid_contents_delete/5, collections_coluuid_contents_delete/6,
+         collections_coluuid_contents_delete/4, collections_coluuid_contents_delete/5,
          collections_coluuid_delete/2, collections_coluuid_delete/3,
          collections_coluuid_get/2, collections_coluuid_get/3,
          collections_coluuid_post/2, collections_coluuid_post/3,
@@ -34,12 +34,12 @@ collections_coluuid_commit_post(Ctx, Coluuid, Optional) ->
 
 %% @doc Deletes a content from a collection
 %% This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
--spec collections_coluuid_contents_delete(ctx:ctx(), binary(), binary(), binary(), binary()) -> {ok, binary(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
-collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, By, Value) ->
-    collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, By, Value, #{}).
+-spec collections_coluuid_contents_delete(ctx:ctx(), binary(), binary(), swagger_main_delete_content_from_collection_body:swagger_main_delete_content_from_collection_body()) -> {ok, binary(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
+collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, Body) ->
+    collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, Body, #{}).
 
--spec collections_coluuid_contents_delete(ctx:ctx(), binary(), binary(), binary(), binary(), maps:map()) -> {ok, binary(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
-collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, By, Value, Optional) ->
+-spec collections_coluuid_contents_delete(ctx:ctx(), binary(), binary(), swagger_main_delete_content_from_collection_body:swagger_main_delete_content_from_collection_body(), maps:map()) -> {ok, binary(), swagger_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), swagger_utils:response_info()}.
+collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, Body, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -47,7 +47,7 @@ collections_coluuid_contents_delete(Ctx, Coluuid, Contentid, By, Value, Optional
     Path = ["/collections/", Coluuid, "/contents"],
     QS = [],
     Headers = [],
-    Body1 = ByValue,
+    Body1 = Body,
     ContentTypeHeader = swagger_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 

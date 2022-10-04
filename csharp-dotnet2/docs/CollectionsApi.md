@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionscoluuidcontentsdelete"></a>
 # **CollectionsColuuidContentsDelete**
-> string CollectionsColuuidContentsDelete (string coluuid, string contentid, string by, string value)
+> string CollectionsColuuidContentsDelete (string coluuid, string contentid, MainDeleteContentFromCollectionBody body)
 
 Deletes a content from a collection
 
@@ -112,13 +112,12 @@ namespace Example
             var apiInstance = new CollectionsApi();
             var coluuid = coluuid_example;  // string | Collection ID
             var contentid = contentid_example;  // string | Content ID
-            var by = by_example;  // string | Variable to use when filtering for files (must be either 'path' or 'content_id')
-            var value = value_example;  // string | Value of content_id or path to look for
+            var body = new MainDeleteContentFromCollectionBody(); // MainDeleteContentFromCollectionBody | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 
             try
             {
                 // Deletes a content from a collection
-                string result = apiInstance.CollectionsColuuidContentsDelete(coluuid, contentid, by, value);
+                string result = apiInstance.CollectionsColuuidContentsDelete(coluuid, contentid, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -136,8 +135,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **string**| Collection ID | 
  **contentid** | **string**| Content ID | 
- **by** | **string**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
- **value** | **string**| Value of content_id or path to look for | 
+ **body** | [**MainDeleteContentFromCollectionBody**](MainDeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} | 
 
 ### Return type
 

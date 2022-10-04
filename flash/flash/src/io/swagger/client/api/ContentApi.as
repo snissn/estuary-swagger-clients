@@ -127,7 +127,7 @@ if("null" != String(size))
      */
     public function content_add_post (data: File, coluuid: String, dir: String): String {
         // create path and map variables
-        var path: String = "/content/add".replace(/{format}/g,"xml").replace("{" + "coluuid" + "}", getApiInvoker().escapeString(coluuid)).replace("{" + "dir" + "}", getApiInvoker().escapeString(dir));
+        var path: String = "/content/add".replace(/{format}/g,"xml");
 
         // query params
         var queryParams: Dictionary = new Dictionary();
@@ -146,7 +146,11 @@ if("null" != String(size))
             throw new ApiError(400, "missing required params");
         }
 
-        
+        if("null" != String(coluuid))
+            queryParams["coluuid"] = toPathValue(coluuid);
+if("null" != String(dir))
+            queryParams["dir"] = toPathValue(dir);
+
         
         var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, null, headerParams);
 

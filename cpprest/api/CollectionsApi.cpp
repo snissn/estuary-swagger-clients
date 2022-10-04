@@ -168,8 +168,14 @@ pplx::task<utility::string_t> CollectionsApi::collectionsColuuidCommitPost(utili
         return result;
     });
 }
-pplx::task<utility::string_t> CollectionsApi::collectionsColuuidContentsDelete(utility::string_t coluuid, utility::string_t contentid, utility::string_t by, utility::string_t value)
+pplx::task<utility::string_t> CollectionsApi::collectionsColuuidContentsDelete(utility::string_t coluuid, utility::string_t contentid, std::shared_ptr<Main.deleteContentFromCollectionBody> body)
 {
+
+    // verify the required parameter 'body' is set
+    if (body == nullptr)
+    {
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'body' when calling CollectionsApi->collectionsColuuidContentsDelete"));
+    }
 
 
     std::shared_ptr<ApiConfiguration> apiConfiguration( m_ApiClient->getConfiguration() );
@@ -226,7 +232,8 @@ boost::replace_all(path, utility::conversions::to_string_t("{") + utility::conve
         requestHttpContentType = utility::conversions::to_string_t("application/json");
         web::json::value json;
 
-        json = ModelBase::toJson(value);
+        json = ModelBase::toJson(body);
+        
 
         httpBody = std::shared_ptr<IHttpBody>( new JsonBody( json ) );
     }
@@ -235,7 +242,11 @@ boost::replace_all(path, utility::conversions::to_string_t("{") + utility::conve
     {
         requestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
         std::shared_ptr<MultipartFormData> multipart(new MultipartFormData);
-        multipart->add(ModelBase::toHttpContent("value", value));
+
+        if(body.get())
+        {
+            body->toMultipart(multipart, utility::conversions::to_string_t("body"));
+        }
 
         httpBody = multipart;
         requestHttpContentType += utility::conversions::to_string_t("; boundary=") + multipart->getBoundary();

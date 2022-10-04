@@ -145,11 +145,11 @@ class ContentApi(
    * This endpoint is used to upload new content.
    *
    * @param data File to upload 
-   * @param coluuid Collection UUID 
-   * @param dir Directory 
+   * @param coluuid Collection UUID (optional)
+   * @param dir Directory (optional)
    * @return ContentAddResponse
    */
-  def contentAddPost(data: File, coluuid: String, dir: String): Option[ContentAddResponse] = {
+  def contentAddPost(data: File, coluuid: Option[String] = None, dir: Option[String] = None): Option[ContentAddResponse] = {
     val await = Try(Await.result(contentAddPostAsync(data, coluuid, dir), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
@@ -162,11 +162,11 @@ class ContentApi(
    * This endpoint is used to upload new content.
    *
    * @param data File to upload 
-   * @param coluuid Collection UUID 
-   * @param dir Directory 
+   * @param coluuid Collection UUID (optional)
+   * @param dir Directory (optional)
    * @return Future(ContentAddResponse)
    */
-  def contentAddPostAsync(data: File, coluuid: String, dir: String): Future[ContentAddResponse] = {
+  def contentAddPostAsync(data: File, coluuid: Option[String] = None, dir: Option[String] = None): Future[ContentAddResponse] = {
       helper.contentAddPost(data, coluuid, dir)
   }
 
@@ -564,22 +564,25 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
   }
 
   def contentAddPost(data: File,
-    coluuid: String,
-    dir: String)(implicit reader: ClientResponseReader[ContentAddResponse]): Future[ContentAddResponse] = {
+    coluuid: Option[String] = None,
+    dir: Option[String] = None
+    )(implicit reader: ClientResponseReader[ContentAddResponse]): Future[ContentAddResponse] = {
     // create path and map variables
-    val path = (addFmt("/content/add")
-      replaceAll("\\{" + "coluuid" + "\\}", coluuid.toString)
-      replaceAll("\\{" + "dir" + "\\}", dir.toString))
+    val path = (addFmt("/content/add"))
 
     // query params
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
     if (data == null) throw new Exception("Missing required parameter 'data' when calling ContentApi->contentAddPost")
-    if (coluuid == null) throw new Exception("Missing required parameter 'coluuid' when calling ContentApi->contentAddPost")
-
-    if (dir == null) throw new Exception("Missing required parameter 'dir' when calling ContentApi->contentAddPost")
-
+    coluuid match {
+      case Some(param) => queryParams += "coluuid" -> param.toString
+      case _ => queryParams
+    }
+    dir match {
+      case Some(param) => queryParams += "dir" -> param.toString
+      case _ => queryParams
+    }
 
     val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, "")
     resFuture flatMap { resp =>

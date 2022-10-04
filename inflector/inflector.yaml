@@ -6,6 +6,7 @@ modelMappings:
   DefinitionFromSwaggerSpecification: fully.qualified.path.to.Model
   CollectionsCollection : io.swagger.model.CollectionsCollection
 MainCreateCollectionBody : io.swagger.model.MainCreateCollectionBody
+MainDeleteContentFromCollectionBody : io.swagger.model.MainDeleteContentFromCollectionBody
 MainEstimateDealBody : io.swagger.model.MainEstimateDealBody
 MainGetApiKeysResp : io.swagger.model.MainGetApiKeysResp
 MainImportDealBody : io.swagger.model.MainImportDealBody

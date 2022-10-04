@@ -5,6 +5,7 @@ import 'package:jaguar_serializer/src/repo/repo.dart';
 import 'dart:async';
 
 import 'package:swagger/model/collections_collection.dart';
+import 'package:swagger/model/main_delete_content_from_collection_body.dart';
 import 'package:swagger/model/main_create_collection_body.dart';
 import 'package:swagger/model/util_http_error.dart';
 
@@ -34,7 +35,7 @@ class CollectionsApi extends _$CollectionsApiClient implements ApiClient {
             @PathParam("coluuid") String coluuid, 
             @PathParam("contentid") String contentid
         ,
-        @AsJson() String value
+        @AsJson() MainDeleteContentFromCollectionBody body
     );
 
     /// Deletes a collection

@@ -132,12 +132,19 @@ bool SwaggerContentApi::ContentAddIpfsPostResponse::FromJson(const TSharedPtr<FJ
 
 FString SwaggerContentApi::ContentAddPostRequest::ComputePath() const
 {
-	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("coluuid"), ToStringFormatArg(Coluuid) },
-	{ TEXT("dir"), ToStringFormatArg(Dir) } };
+	FString Path(TEXT("/content/add"));
+	TArray<FString> QueryParams;
+	if(Coluuid.IsSet())
+	{
+		QueryParams.Add(FString(TEXT("coluuid=")) + ToUrlString(Coluuid.GetValue()));
+	}
+	if(Dir.IsSet())
+	{
+		QueryParams.Add(FString(TEXT("dir=")) + ToUrlString(Dir.GetValue()));
+	}
+	Path += TCHAR('?');
+	Path += FString::Join(QueryParams, TEXT("&"));
 
-	FString Path = FString::Format(TEXT("/content/add"), PathParams);
-	
 	return Path;
 }
 

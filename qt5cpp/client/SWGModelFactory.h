@@ -17,6 +17,7 @@
 
 #include "SWGCollections.Collection.h"
 #include "SWGMain.createCollectionBody.h"
+#include "SWGMain.deleteContentFromCollectionBody.h"
 #include "SWGMain.estimateDealBody.h"
 #include "SWGMain.getApiKeysResp.h"
 #include "SWGMain.importDealBody.h"
@@ -33,6 +34,9 @@ namespace Swagger {
     }
     if(QString("SWGMain.createCollectionBody").compare(type) == 0) {
       return new SWGMain.createCollectionBody();
+    }
+    if(QString("SWGMain.deleteContentFromCollectionBody").compare(type) == 0) {
+      return new SWGMain.deleteContentFromCollectionBody();
     }
     if(QString("SWGMain.estimateDealBody").compare(type) == 0) {
       return new SWGMain.estimateDealBody();

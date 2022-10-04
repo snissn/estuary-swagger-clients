@@ -25,19 +25,17 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - in: "body"
-        name: "addresses"
+      - name: "addresses"
+        in: "formData"
         description: "Autoretrieve's comma-separated list of addresses"
         required: true
-        schema:
-          type: "string"
+        type: "string"
         x-exportParamName: "Addresses"
-      - in: "body"
-        name: "pubKey"
+      - name: "pubKey"
+        in: "formData"
         description: "Autoretrieve's public key"
         required: true
-        schema:
-          type: "string"
+        type: "string"
         x-exportParamName: "PubKey"
       responses: {}
   /admin/autoretrieve/list:
@@ -361,20 +359,13 @@ paths:
         type: "string"
         x-exportParamName: "Contentid"
       - in: "body"
-        name: "by"
-        description: "Variable to use when filtering for files (must be either 'path'\
-          \ or 'content_id')"
+        name: "body"
+        description: "{by: Variable to use when filtering for files (must be either\
+          \ 'path' or 'content_id'), value: Value of content_id or path to look for}"
         required: true
         schema:
-          type: "string"
-        x-exportParamName: "By"
-      - in: "body"
-        name: "value"
-        description: "Value of content_id or path to look for"
-        required: true
-        schema:
-          type: "string"
-        x-exportParamName: "Value"
+          $ref: "#/definitions/main.deleteContentFromCollectionBody"
+        x-exportParamName: "Body"
       responses:
         "200":
           description: "OK"
@@ -402,17 +393,19 @@ paths:
         type: "file"
         x-exportParamName: "Data"
       - name: "coluuid"
-        in: "path"
+        in: "query"
         description: "Collection UUID"
-        required: true
+        required: false
         type: "string"
         x-exportParamName: "Coluuid"
+        x-optionalDataType: "String"
       - name: "dir"
-        in: "path"
+        in: "query"
         description: "Directory"
-        required: true
+        required: false
         type: "string"
         x-exportParamName: "Dir"
+        x-optionalDataType: "String"
       responses:
         "200":
           description: "OK"
@@ -1295,6 +1288,13 @@ definitions:
       description:
         type: "string"
       name:
+        type: "string"
+  main.deleteContentFromCollectionBody:
+    type: "object"
+    properties:
+      by:
+        type: "string"
+      value:
         type: "string"
   main.estimateDealBody:
     type: "object"

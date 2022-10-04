@@ -65,6 +65,10 @@ public class JsonUtil {
       return new TypeToken<List<MainCreateCollectionBody>>(){}.getType();
     }
     
+    if ("MainDeleteContentFromCollectionBody".equalsIgnoreCase(className)) {
+      return new TypeToken<List<MainDeleteContentFromCollectionBody>>(){}.getType();
+    }
+    
     if ("MainEstimateDealBody".equalsIgnoreCase(className)) {
       return new TypeToken<List<MainEstimateDealBody>>(){}.getType();
     }
@@ -105,6 +109,10 @@ public class JsonUtil {
     
     if ("MainCreateCollectionBody".equalsIgnoreCase(className)) {
       return new TypeToken<MainCreateCollectionBody>(){}.getType();
+    }
+    
+    if ("MainDeleteContentFromCollectionBody".equalsIgnoreCase(className)) {
+      return new TypeToken<MainDeleteContentFromCollectionBody>(){}.getType();
     }
     
     if ("MainEstimateDealBody".equalsIgnoreCase(className)) {

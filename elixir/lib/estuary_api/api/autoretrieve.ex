@@ -32,8 +32,8 @@ defmodule EstuaryAPI.Api.Autoretrieve do
     %{}
     |> method(:post)
     |> url("/admin/autoretrieve/init")
-    |> add_param(:body, :"addresses", addresses)
-    |> add_param(:body, :"pubKey", pub_key)
+    |> add_param(:form, :"addresses", addresses)
+    |> add_param(:form, :"pubKey", pub_key)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> decode(false)

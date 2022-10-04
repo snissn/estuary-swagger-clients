@@ -154,6 +154,7 @@ Class | Method | HTTP request | Description
 
  - [SwagCollectionsCollection](docs/SwagCollectionsCollection.md)
  - [SwagMainCreateCollectionBody](docs/SwagMainCreateCollectionBody.md)
+ - [SwagMainDeleteContentFromCollectionB](docs/SwagMainDeleteContentFromCollectionB.md)
  - [SwagMainEstimateDealBody](docs/SwagMainEstimateDealBody.md)
  - [SwagMainGetApiKeysResp](docs/SwagMainGetApiKeysResp.md)
  - [SwagMainImportDealBody](docs/SwagMainImportDealBody.md)

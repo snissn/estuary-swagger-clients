@@ -138,16 +138,14 @@ API.Client.ContentApi.prototype.contentAddIpfsPost = function(body, opt_extraHtt
  * Add new content
  * This endpoint is used to upload new content.
  * @param {!Object} data File to upload
- * @param {!string} coluuid Collection UUID
- * @param {!string} dir Directory
+ * @param {!string=} opt_coluuid Collection UUID
+ * @param {!string=} opt_dir Directory
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.util.ContentAddResponse>}
  */
-API.Client.ContentApi.prototype.contentAddPost = function(data, coluuid, dir, opt_extraHttpRequestParams) {
+API.Client.ContentApi.prototype.contentAddPost = function(data, opt_coluuid, opt_dir, opt_extraHttpRequestParams) {
   /** @const {string} */
-  var path = this.basePath_ + '/content/add'
-      .replace('{' + 'coluuid' + '}', String(coluuid))
-      .replace('{' + 'dir' + '}', String(dir));
+  var path = this.basePath_ + '/content/add';
 
   /** @type {!Object} */
   var queryParameters = {};
@@ -161,14 +159,14 @@ API.Client.ContentApi.prototype.contentAddPost = function(data, coluuid, dir, op
   if (!data) {
     throw new Error('Missing required parameter data when calling contentAddPost');
   }
-  // verify required parameter 'coluuid' is set
-  if (!coluuid) {
-    throw new Error('Missing required parameter coluuid when calling contentAddPost');
+  if (opt_coluuid !== undefined) {
+    queryParameters['coluuid'] = opt_coluuid;
   }
-  // verify required parameter 'dir' is set
-  if (!dir) {
-    throw new Error('Missing required parameter dir when calling contentAddPost');
+
+  if (opt_dir !== undefined) {
+    queryParameters['dir'] = opt_dir;
   }
+
   headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
   formParams['data'] = data;

@@ -12,8 +12,8 @@ import Alamofire
 open class AutoretrieveAPI: APIBase {
     /**
      Register autoretrieve server
-     - parameter addresses: (body) Autoretrieve&#39;s comma-separated list of addresses 
-     - parameter pubKey: (body) Autoretrieve&#39;s public key 
+     - parameter addresses: (form) Autoretrieve&#39;s comma-separated list of addresses 
+     - parameter pubKey: (form) Autoretrieve&#39;s public key 
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func adminAutoretrieveInitPost(addresses: String, pubKey: String, completion: @escaping ((_ error: ErrorResponse?) -> Void)) {
@@ -30,20 +30,26 @@ open class AutoretrieveAPI: APIBase {
      - API Key:
        - type: apiKey Authorization 
        - name: bearerAuth
-     - parameter addresses: (body) Autoretrieve&#39;s comma-separated list of addresses 
-     - parameter pubKey: (body) Autoretrieve&#39;s public key 
+     - parameter addresses: (form) Autoretrieve&#39;s comma-separated list of addresses 
+     - parameter pubKey: (form) Autoretrieve&#39;s public key 
      - returns: RequestBuilder<Void> 
      */
     open class func adminAutoretrieveInitPostWithRequestBuilder(addresses: String, pubKey: String) -> RequestBuilder<Void> {
         let path = "/admin/autoretrieve/init"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters = pubKey.encodeToJSON()
+        let formParams: [String:Any?] = [
+            "addresses": addresses,
+            "pubKey": pubKey
+        ]
 
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+        
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**

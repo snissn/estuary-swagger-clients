@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CollectionsCollection', 'model/MainCreateCollectionBody', 'model/UtilHttpError'], factory);
+    define(['ApiClient', 'model/CollectionsCollection', 'model/MainCreateCollectionBody', 'model/MainDeleteContentFromCollectionBody', 'model/UtilHttpError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CollectionsCollection'), require('../model/MainCreateCollectionBody'), require('../model/UtilHttpError'));
+    module.exports = factory(require('../ApiClient'), require('../model/CollectionsCollection'), require('../model/MainCreateCollectionBody'), require('../model/MainDeleteContentFromCollectionBody'), require('../model/UtilHttpError'));
   } else {
     // Browser globals (root is window)
     if (!root.EstuaryApi) {
       root.EstuaryApi = {};
     }
-    root.EstuaryApi.CollectionsApi = factory(root.EstuaryApi.ApiClient, root.EstuaryApi.CollectionsCollection, root.EstuaryApi.MainCreateCollectionBody, root.EstuaryApi.UtilHttpError);
+    root.EstuaryApi.CollectionsApi = factory(root.EstuaryApi.ApiClient, root.EstuaryApi.CollectionsCollection, root.EstuaryApi.MainCreateCollectionBody, root.EstuaryApi.MainDeleteContentFromCollectionBody, root.EstuaryApi.UtilHttpError);
   }
-}(this, function(ApiClient, CollectionsCollection, MainCreateCollectionBody, UtilHttpError) {
+}(this, function(ApiClient, CollectionsCollection, MainCreateCollectionBody, MainDeleteContentFromCollectionBody, UtilHttpError) {
   'use strict';
 
   /**
@@ -108,13 +108,12 @@
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      * @param {String} coluuid Collection ID
      * @param {String} contentid Content ID
-     * @param {String} by Variable to use when filtering for files (must be either 'path' or 'content_id')
-     * @param {String} value Value of content_id or path to look for
+     * @param {module:model/MainDeleteContentFromCollectionBody} body {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
      * @param {module:api/CollectionsApi~collectionsColuuidContentsDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'String'}
      */
-    this.collectionsColuuidContentsDelete = function(coluuid, contentid, by, value, callback) {
-      var postBody = value;
+    this.collectionsColuuidContentsDelete = function(coluuid, contentid, body, callback) {
+      var postBody = body;
 
       // verify the required parameter 'coluuid' is set
       if (coluuid === undefined || coluuid === null) {
@@ -126,14 +125,9 @@
         throw new Error("Missing the required parameter 'contentid' when calling collectionsColuuidContentsDelete");
       }
 
-      // verify the required parameter 'by' is set
-      if (by === undefined || by === null) {
-        throw new Error("Missing the required parameter 'by' when calling collectionsColuuidContentsDelete");
-      }
-
-      // verify the required parameter 'value' is set
-      if (value === undefined || value === null) {
-        throw new Error("Missing the required parameter 'value' when calling collectionsColuuidContentsDelete");
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling collectionsColuuidContentsDelete");
       }
 
 

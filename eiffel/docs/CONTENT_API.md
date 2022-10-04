@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **content_add_post**
-> content_add_post (data: FILE ; coluuid: STRING_32 ; dir: STRING_32 ): detachable UTIL_CONTENT_ADD_RESPONSE
+> content_add_post (data: FILE ; coluuid:  detachable STRING_32 ; dir:  detachable STRING_32 ): detachable UTIL_CONTENT_ADD_RESPONSE
 	
 
 Add new content
@@ -99,8 +99,8 @@ This endpoint is used to upload new content.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data** | **FILE**| File to upload | 
- **coluuid** | **STRING_32**| Collection UUID | 
- **dir** | **STRING_32**| Directory | 
+ **coluuid** | **STRING_32**| Collection UUID | [optional] 
+ **dir** | **STRING_32**| Directory | [optional] 
 
 ### Return type
 

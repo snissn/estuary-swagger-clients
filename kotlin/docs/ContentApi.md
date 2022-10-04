@@ -155,8 +155,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **&#x60;data&#x60;** | **java.io.File**| File to upload |
- **coluuid** | **kotlin.String**| Collection UUID |
- **dir** | **kotlin.String**| Directory |
+ **coluuid** | **kotlin.String**| Collection UUID | [optional]
+ **dir** | **kotlin.String**| Directory | [optional]
 
 ### Return type
 

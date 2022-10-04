@@ -188,6 +188,7 @@ Class | Method | HTTP request | Description
 
  - [Collections.Collection](docs/Collections.Collection.md)
  - [Main.createCollectionBody](docs/Main.createCollectionBody.md)
+ - [Main.deleteContentFromCollectionBody](docs/Main.deleteContentFromCollectionBody.md)
  - [Main.estimateDealBody](docs/Main.estimateDealBody.md)
  - [Main.getApiKeysResp](docs/Main.getApiKeysResp.md)
  - [Main.importDealBody](docs/Main.importDealBody.md)

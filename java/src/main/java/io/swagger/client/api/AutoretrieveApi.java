@@ -63,7 +63,7 @@ public class AutoretrieveApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call adminAutoretrieveInitPostCall(String addresses, String pubKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = pubKey;
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/admin/autoretrieve/init";
@@ -74,6 +74,10 @@ public class AutoretrieveApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (addresses != null)
+        localVarFormParams.put("addresses", addresses);
+        if (pubKey != null)
+        localVarFormParams.put("pubKey", pubKey);
 
         final String[] localVarAccepts = {
             "application/json"

@@ -20,6 +20,7 @@ import { Observable }                                        from 'rxjs/Observab
 
 import { CollectionsCollection } from '../model/collectionsCollection';
 import { MainCreateCollectionBody } from '../model/mainCreateCollectionBody';
+import { MainDeleteContentFromCollectionBody } from '../model/mainDeleteContentFromCollectionBody';
 import { UtilHttpError } from '../model/utilHttpError';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -110,15 +111,14 @@ export class CollectionsService {
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      * @param coluuid Collection ID
      * @param contentid Content ID
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-     * @param value Value of content_id or path to look for
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe?: 'body', reportProgress?: boolean): Observable<string>;
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, observe?: 'body', reportProgress?: boolean): Observable<string>;
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: MainDeleteContentFromCollectionBody, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (coluuid === null || coluuid === undefined) {
             throw new Error('Required parameter coluuid was null or undefined when calling collectionsColuuidContentsDelete.');
@@ -128,12 +128,8 @@ export class CollectionsService {
             throw new Error('Required parameter contentid was null or undefined when calling collectionsColuuidContentsDelete.');
         }
 
-        if (by === null || by === undefined) {
-            throw new Error('Required parameter by was null or undefined when calling collectionsColuuidContentsDelete.');
-        }
-
-        if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling collectionsColuuidContentsDelete.');
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling collectionsColuuidContentsDelete.');
         }
 
         let headers = this.defaultHeaders;

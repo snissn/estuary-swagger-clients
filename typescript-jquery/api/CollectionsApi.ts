@@ -112,10 +112,9 @@ export class CollectionsApi {
      * @summary Deletes a content from a collection
      * @param coluuid Collection ID
      * @param contentid Content ID
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-     * @param value Value of content_id or path to look for
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
      */
-    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, by: string, value: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQueryPromise<{ response: JQueryXHR; body: string;  }> {
+    public collectionsColuuidContentsDelete(coluuid: string, contentid: string, body: models.MainDeleteContentFromCollectionBody, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQueryPromise<{ response: JQueryXHR; body: string;  }> {
         let localVarPath = this.basePath + '/collections/{coluuid}/contents'.replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid))).replace('{' + 'contentid' + '}', encodeURIComponent(String(contentid)));
 
         let queryParameters: any = {};
@@ -130,14 +129,9 @@ export class CollectionsApi {
             throw new Error('Required parameter contentid was null or undefined when calling collectionsColuuidContentsDelete.');
         }
 
-        // verify required parameter 'by' is not null or undefined
-        if (by === null || by === undefined) {
-            throw new Error('Required parameter by was null or undefined when calling collectionsColuuidContentsDelete.');
-        }
-
-        // verify required parameter 'value' is not null or undefined
-        if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling collectionsColuuidContentsDelete.');
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling collectionsColuuidContentsDelete.');
         }
 
 
@@ -166,7 +160,7 @@ export class CollectionsApi {
             processData: false
         };
 
-        requestOptions.data = JSON.stringify(value);
+        requestOptions.data = JSON.stringify(body);
         if (headerParams['Content-Type']) {
             requestOptions.contentType = headerParams['Content-Type'];
         }

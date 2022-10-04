@@ -116,9 +116,9 @@ package body .Clients is
       Req   : Swagger.Clients.Request_Type;
    begin
       Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
-      Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
-      .Models.Serialize (Req.Stream, "", Addresses);
-      .Models.Serialize (Req.Stream, "", Pub_Key);
+      Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_FORM));
+      .Models.Serialize (Req.Stream, "addresses", Addresses);
+      .Models.Serialize (Req.Stream, "pubKey", Pub_Key);
 
       URI.Set_Path ("/admin/autoretrieve/init");
       Client.Call (Swagger.Clients.POST, URI, Req);
@@ -172,8 +172,7 @@ package body .Clients is
       (Client : in out Client_Type;
        Coluuid : in Swagger.UString;
        Contentid : in Swagger.UString;
-       By : in Swagger.UString;
-       Value : in Swagger.UString;
+       P_Body : in .Models.Main_deleteContentFromCollectionBody_Type;
        Result : out Swagger.UString) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
@@ -181,8 +180,7 @@ package body .Clients is
    begin
       Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
-      .Models.Serialize (Req.Stream, "", By);
-      .Models.Serialize (Req.Stream, "", Value);
+      .Models.Serialize (Req.Stream, "", P_Body);
 
       URI.Set_Path ("/collections/{coluuid}/contents");
       URI.Set_Path_Param ("coluuid", Coluuid);
@@ -338,8 +336,8 @@ package body .Clients is
    procedure Content_Add_Post
       (Client : in out Client_Type;
        Data : in Swagger.File_Part_Type;
-       Coluuid : in Swagger.UString;
-       Dir : in Swagger.UString;
+       Coluuid : in Swagger.Nullable_UString;
+       Dir : in Swagger.Nullable_UString;
        Result : out .Models.Util_ContentAddResponse_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
@@ -349,9 +347,9 @@ package body .Clients is
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_FORM));
       .Models.Serialize (Req.Stream, "data", Data);
 
+      URI.Add_Param ("coluuid", Coluuid);
+      URI.Add_Param ("dir", Dir);
       URI.Set_Path ("/content/add");
-      URI.Set_Path_Param ("coluuid", Coluuid);
-      URI.Set_Path_Param ("dir", Dir);
       Client.Call (Swagger.Clients.POST, URI, Req, Reply);
       .Models.Deserialize (Reply, "", Result);
    end Content_Add_Post;

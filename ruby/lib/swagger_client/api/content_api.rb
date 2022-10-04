@@ -133,23 +133,23 @@ module SwaggerClient
     # Add new content
     # This endpoint is used to upload new content.
     # @param data File to upload
-    # @param coluuid Collection UUID
-    # @param dir Directory
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :coluuid Collection UUID
+    # @option opts [String] :dir Directory
     # @return [UtilContentAddResponse]
-    def content_add_post(data, coluuid, dir, opts = {})
-      data, _status_code, _headers = content_add_post_with_http_info(data, coluuid, dir, opts)
+    def content_add_post(data, opts = {})
+      data, _status_code, _headers = content_add_post_with_http_info(data, opts)
       data
     end
 
     # Add new content
     # This endpoint is used to upload new content.
     # @param data File to upload
-    # @param coluuid Collection UUID
-    # @param dir Directory
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :coluuid Collection UUID
+    # @option opts [String] :dir Directory
     # @return [Array<(UtilContentAddResponse, Fixnum, Hash)>] UtilContentAddResponse data, response status code and response headers
-    def content_add_post_with_http_info(data, coluuid, dir, opts = {})
+    def content_add_post_with_http_info(data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContentApi.content_add_post ...'
       end
@@ -157,19 +157,13 @@ module SwaggerClient
       if @api_client.config.client_side_validation && data.nil?
         fail ArgumentError, "Missing the required parameter 'data' when calling ContentApi.content_add_post"
       end
-      # verify the required parameter 'coluuid' is set
-      if @api_client.config.client_side_validation && coluuid.nil?
-        fail ArgumentError, "Missing the required parameter 'coluuid' when calling ContentApi.content_add_post"
-      end
-      # verify the required parameter 'dir' is set
-      if @api_client.config.client_side_validation && dir.nil?
-        fail ArgumentError, "Missing the required parameter 'dir' when calling ContentApi.content_add_post"
-      end
       # resource path
-      local_var_path = '/content/add'.sub('{' + 'coluuid' + '}', coluuid.to_s).sub('{' + 'dir' + '}', dir.to_s)
+      local_var_path = '/content/add'
 
       # query parameters
       query_params = {}
+      query_params[:'coluuid'] = opts[:'coluuid'] if !opts[:'coluuid'].nil?
+      query_params[:'dir'] = opts[:'dir'] if !opts[:'dir'].nil?
 
       # header parameters
       header_params = {}

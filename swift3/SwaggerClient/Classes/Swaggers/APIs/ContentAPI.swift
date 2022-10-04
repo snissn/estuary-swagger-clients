@@ -92,11 +92,11 @@ open class ContentAPI: APIBase {
     /**
      Add new content
      - parameter data: (form) File to upload 
-     - parameter coluuid: (path) Collection UUID 
-     - parameter dir: (path) Directory 
+     - parameter coluuid: (query) Collection UUID (optional)
+     - parameter dir: (query) Directory (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func contentAddPost(data: URL, coluuid: String, dir: String, completion: @escaping ((_ data: UtilContentAddResponse?, _ error: ErrorResponse?) -> Void)) {
+    open class func contentAddPost(data: URL, coluuid: String? = nil, dir: String? = nil, completion: @escaping ((_ data: UtilContentAddResponse?, _ error: ErrorResponse?) -> Void)) {
         contentAddPostWithRequestBuilder(data: data, coluuid: coluuid, dir: dir).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -112,18 +112,12 @@ open class ContentAPI: APIBase {
        - name: bearerAuth
      - examples: [{contentType=application/json, example={"empty": false}}]
      - parameter data: (form) File to upload 
-     - parameter coluuid: (path) Collection UUID 
-     - parameter dir: (path) Directory 
+     - parameter coluuid: (query) Collection UUID (optional)
+     - parameter dir: (query) Directory (optional)
      - returns: RequestBuilder<UtilContentAddResponse> 
      */
-    open class func contentAddPostWithRequestBuilder(data: URL, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
-        var path = "/content/add"
-        let coluuidPreEscape = "\(coluuid)"
-        let coluuidPostEscape = coluuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{coluuid}", with: coluuidPostEscape, options: .literal, range: nil)
-        let dirPreEscape = "\(dir)"
-        let dirPostEscape = dirPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{dir}", with: dirPostEscape, options: .literal, range: nil)
+    open class func contentAddPostWithRequestBuilder(data: URL, coluuid: String? = nil, dir: String? = nil) -> RequestBuilder<UtilContentAddResponse> {
+        let path = "/content/add"
         let URLString = SwaggerClientAPI.basePath + path
         let formParams: [String:Any?] = [
             "data": data
@@ -132,7 +126,11 @@ open class ContentAPI: APIBase {
         let nonNullParameters = APIHelper.rejectNil(formParams)
         let parameters = APIHelper.convertBoolToString(nonNullParameters)
         
-        let url = URLComponents(string: URLString)
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "coluuid": coluuid,
+            "dir": dir
+        ])
 
         let requestBuilder: RequestBuilder<UtilContentAddResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 

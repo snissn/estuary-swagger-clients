@@ -3,6 +3,7 @@ package io.swagger.api;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 import io.swagger.api.CollectionsApiService;
@@ -29,7 +30,7 @@ import javax.validation.constraints.*;
 @Api(description = "the collections API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-03T07:43:15.762Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-04T07:13:27.121Z")
 
 public class CollectionsApi  {
 
@@ -61,8 +62,8 @@ public class CollectionsApi  {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class),
         @ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class) })
-    public Response collectionsColuuidContentsDelete(@ApiParam(value = "Collection ID",required=true) @PathParam("coluuid") String coluuid, @ApiParam(value = "Content ID",required=true) @PathParam("contentid") String contentid, @ApiParam(value = "Variable to use when filtering for files (must be either 'path' or 'content_id')" ,required=true) String by, @ApiParam(value = "Value of content_id or path to look for" ,required=true) String value) {
-        return delegate.collectionsColuuidContentsDelete(coluuid, contentid, by, value, securityContext);
+    public Response collectionsColuuidContentsDelete(@ApiParam(value = "Collection ID",required=true) @PathParam("coluuid") String coluuid, @ApiParam(value = "Content ID",required=true) @PathParam("contentid") String contentid, @ApiParam(value = "{by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}" ,required=true) MainDeleteContentFromCollectionBody body) {
+        return delegate.collectionsColuuidContentsDelete(coluuid, contentid, body, securityContext);
     }
 
     @DELETE

@@ -7,6 +7,7 @@
 #include <glib.h>
 #include "Collections.Collection.h"
 #include "Main.createCollectionBody.h"
+#include "Main.deleteContentFromCollectionBody.h"
 #include "Util.HttpError.h"
 #include <list>
 #include <map>
@@ -60,14 +61,13 @@ bool collectionsColuuidCommitPostAsync(char * accessToken,
  * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
  * \param coluuid Collection ID *Required*
  * \param contentid Content ID *Required*
- * \param by Variable to use when filtering for files (must be either 'path' or 'content_id') *Required*
- * \param value Value of content_id or path to look for *Required*
+ * \param body {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for} *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool collectionsColuuidContentsDeleteSync(char * accessToken,
-	std::string coluuid, std::string contentid, std::string by, std::string value, 
+	std::string coluuid, std::string contentid, Main.deleteContentFromCollectionBody body, 
 	void(* handler)(std::string, Error, void* )
 	, void* userData);
 
@@ -76,14 +76,13 @@ bool collectionsColuuidContentsDeleteSync(char * accessToken,
  * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
  * \param coluuid Collection ID *Required*
  * \param contentid Content ID *Required*
- * \param by Variable to use when filtering for files (must be either 'path' or 'content_id') *Required*
- * \param value Value of content_id or path to look for *Required*
+ * \param body {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for} *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool collectionsColuuidContentsDeleteAsync(char * accessToken,
-	std::string coluuid, std::string contentid, std::string by, std::string value, 
+	std::string coluuid, std::string contentid, Main.deleteContentFromCollectionBody body, 
 	void(* handler)(std::string, Error, void* )
 	, void* userData);
 

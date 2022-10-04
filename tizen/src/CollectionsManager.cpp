@@ -251,7 +251,7 @@ static bool collectionsColuuidContentsDeleteProcessor(MemoryStruct_s p_chunk, lo
 }
 
 static bool collectionsColuuidContentsDeleteHelper(char * accessToken,
-	std::string coluuid, std::string contentid, std::string by, std::string value, 
+	std::string coluuid, std::string contentid, Main.deleteContentFromCollectionBody body, 
 	void(* handler)(std::string, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -272,18 +272,13 @@ static bool collectionsColuuidContentsDeleteHelper(char * accessToken,
 	JsonNode* node;
 	JsonArray* json_array;
 
-	if (isprimitive("std::string")) {
-		node = converttoJson(&by, "std::string", "");
+	if (isprimitive("Main.deleteContentFromCollectionBody")) {
+		node = converttoJson(&body, "Main.deleteContentFromCollectionBody", "");
 	}
 	
-
-	char *jsonStr1 =  json_to_string(node, false);
-	mBody.append(jsonStr1);
-	g_free(static_cast<gpointer>(jsonStr1));
-
-	if (isprimitive("std::string")) {
-		node = converttoJson(&value, "std::string", "");
-	}
+	char *jsonStr =  body.toJson();
+	node = json_from_string(jsonStr, NULL);
+	g_free(static_cast<gpointer>(jsonStr));
 	
 
 	char *jsonStr1 =  json_to_string(node, false);
@@ -352,22 +347,22 @@ static bool collectionsColuuidContentsDeleteHelper(char * accessToken,
 
 
 bool CollectionsManager::collectionsColuuidContentsDeleteAsync(char * accessToken,
-	std::string coluuid, std::string contentid, std::string by, std::string value, 
+	std::string coluuid, std::string contentid, Main.deleteContentFromCollectionBody body, 
 	void(* handler)(std::string, Error, void* )
 	, void* userData)
 {
 	return collectionsColuuidContentsDeleteHelper(accessToken,
-	coluuid, contentid, by, value, 
+	coluuid, contentid, body, 
 	handler, userData, true);
 }
 
 bool CollectionsManager::collectionsColuuidContentsDeleteSync(char * accessToken,
-	std::string coluuid, std::string contentid, std::string by, std::string value, 
+	std::string coluuid, std::string contentid, Main.deleteContentFromCollectionBody body, 
 	void(* handler)(std::string, Error, void* )
 	, void* userData)
 {
 	return collectionsColuuidContentsDeleteHelper(accessToken,
-	coluuid, contentid, by, value, 
+	coluuid, contentid, body, 
 	handler, userData, false);
 }
 

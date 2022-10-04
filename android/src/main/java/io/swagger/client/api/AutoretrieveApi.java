@@ -62,7 +62,7 @@ public class AutoretrieveApi {
    * @return void
   */
   public void adminAutoretrieveInitPost (String addresses, String pubKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = pubKey;
+    Object postBody = null;
     // verify the required parameter 'addresses' is set
     if (addresses == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'addresses' when calling adminAutoretrieveInitPost",
@@ -90,10 +90,18 @@ public class AutoretrieveApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (addresses != null) {
+        localVarBuilder.addTextBody("addresses", ApiInvoker.parameterToString(addresses), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (pubKey != null) {
+        localVarBuilder.addTextBody("pubKey", ApiInvoker.parameterToString(pubKey), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("addresses", ApiInvoker.parameterToString(addresses));
+      formParams.put("pubKey", ApiInvoker.parameterToString(pubKey));
     }
 
     String[] authNames = new String[] { "bearerAuth" };
@@ -128,7 +136,7 @@ public class AutoretrieveApi {
    * @param addresses Autoretrieve&#39;s comma-separated list of addresses   * @param pubKey Autoretrieve&#39;s public key
   */
   public void adminAutoretrieveInitPost (String addresses, String pubKey, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = pubKey;
+    Object postBody = null;
 
     // verify the required parameter 'addresses' is set
     if (addresses == null) {
@@ -162,12 +170,22 @@ public class AutoretrieveApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (addresses != null) {
+        localVarBuilder.addTextBody("addresses", ApiInvoker.parameterToString(addresses), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (pubKey != null) {
+        localVarBuilder.addTextBody("pubKey", ApiInvoker.parameterToString(pubKey), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("addresses", ApiInvoker.parameterToString(addresses));
+formParams.put("pubKey", ApiInvoker.parameterToString(pubKey));
+    }
 
     String[] authNames = new String[] { "bearerAuth" };
 

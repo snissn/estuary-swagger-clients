@@ -37,6 +37,8 @@ export class AutoretrieveApi {
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let formParams: any = {};
+
         // verify required parameter 'addresses' is not null or undefined
         if (addresses === null || addresses === undefined) {
             throw new Error('Required parameter addresses was null or undefined when calling adminAutoretrieveInitPost.');
@@ -47,10 +49,16 @@ export class AutoretrieveApi {
             throw new Error('Required parameter pubKey was null or undefined when calling adminAutoretrieveInitPost.');
         }
 
+        headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        formParams['addresses'] = addresses;
+
+        formParams['pubKey'] = pubKey;
+
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',
             url: localVarPath,
-            data: pubKey,
+            data: this.$httpParamSerializer(formParams),
             params: queryParameters,
             headers: headerParams
         };

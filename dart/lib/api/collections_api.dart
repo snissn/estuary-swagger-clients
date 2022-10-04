@@ -62,8 +62,8 @@ class CollectionsApi {
   /// Deletes a content from a collection
   ///
   /// This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
-  Future<String> collectionsColuuidContentsDelete(String coluuid, String contentid, String by, String value) async {
-    Object postBody = value;
+  Future<String> collectionsColuuidContentsDelete(String coluuid, String contentid, MainDeleteContentFromCollectionBody body) async {
+    Object postBody = body;
 
     // verify required params are set
     if(coluuid == null) {
@@ -72,11 +72,8 @@ class CollectionsApi {
     if(contentid == null) {
      throw new ApiException(400, "Missing required param: contentid");
     }
-    if(by == null) {
-     throw new ApiException(400, "Missing required param: by");
-    }
-    if(value == null) {
-     throw new ApiException(400, "Missing required param: value");
+    if(body == null) {
+     throw new ApiException(400, "Missing required param: body");
     }
 
     // create path and map variables

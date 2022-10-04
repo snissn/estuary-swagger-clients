@@ -60,10 +60,9 @@ export class CollectionsApi {
      * @summary Deletes a content from a collection
      * @param coluuid Collection ID
      * @param contentid Content ID
-     * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-     * @param value Value of content_id or path to look for
+     * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
      */
-    public collectionsColuuidContentsDelete (coluuid: string, contentid: string, by: string, value: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<string> {
+    public collectionsColuuidContentsDelete (coluuid: string, contentid: string, body: models.MainDeleteContentFromCollectionBody, extraHttpRequestParams?: any ) : ng.IHttpPromise<string> {
         const localVarPath = this.basePath + '/collections/{coluuid}/contents'
             .replace('{' + 'coluuid' + '}', encodeURIComponent(String(coluuid)))
             .replace('{' + 'contentid' + '}', encodeURIComponent(String(contentid)));
@@ -80,20 +79,15 @@ export class CollectionsApi {
             throw new Error('Required parameter contentid was null or undefined when calling collectionsColuuidContentsDelete.');
         }
 
-        // verify required parameter 'by' is not null or undefined
-        if (by === null || by === undefined) {
-            throw new Error('Required parameter by was null or undefined when calling collectionsColuuidContentsDelete.');
-        }
-
-        // verify required parameter 'value' is not null or undefined
-        if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling collectionsColuuidContentsDelete.');
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling collectionsColuuidContentsDelete.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
             method: 'DELETE',
             url: localVarPath,
-            data: value,
+            data: body,
             params: queryParameters,
             headers: headerParams
         };

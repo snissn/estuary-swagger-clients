@@ -3,6 +3,7 @@ package io.swagger.api;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,7 +25,7 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-03T07:43:56.678Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-04T07:14:06.505Z")
 
 @Controller
 public class CollectionsApiController implements CollectionsApi {
@@ -55,7 +56,7 @@ public class CollectionsApiController implements CollectionsApi {
         return new ResponseEntity<String>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<String> collectionsColuuidContentsDelete(@ApiParam(value = "Collection ID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Content ID",required=true) @PathVariable("contentid") String contentid,@ApiParam(value = "Variable to use when filtering for files (must be either 'path' or 'content_id')" ,required=true )  @Valid @RequestBody String by,@ApiParam(value = "Value of content_id or path to look for" ,required=true )  @Valid @RequestBody String value) {
+    public ResponseEntity<String> collectionsColuuidContentsDelete(@ApiParam(value = "Collection ID",required=true) @PathVariable("coluuid") String coluuid,@ApiParam(value = "Content ID",required=true) @PathVariable("contentid") String contentid,@ApiParam(value = "{by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}" ,required=true )  @Valid @RequestBody MainDeleteContentFromCollectionBody body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {

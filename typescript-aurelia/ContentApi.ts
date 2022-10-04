@@ -42,8 +42,8 @@ export interface IContentAddIpfsPostParams {
  */
 export interface IContentAddPostParams {
   data: any;
-  coluuid: string;
-  dir: string;
+  coluuid?: string;
+  dir?: string;
 }
 
 /**
@@ -237,17 +237,18 @@ export class ContentApi extends Api {
   async contentAddPost(params: IContentAddPostParams): Promise<UtilContentAddResponse> {
     // Verify required parameters are set
     this.ensureParamIsSet('contentAddPost', params, 'data');
-    this.ensureParamIsSet('contentAddPost', params, 'coluuid');
-    this.ensureParamIsSet('contentAddPost', params, 'dir');
 
     // Create URL to call
-    const url = `${this.basePath}/content/add`
-      .replace(`{${'coluuid'}}`, encodeURIComponent(`${params['coluuid']}`))
-      .replace(`{${'dir'}}`, encodeURIComponent(`${params['dir']}`));
+    const url = `${this.basePath}/content/add`;
 
     const response = await this.httpClient.createRequest(url)
       // Set HTTP method
       .asPost()
+      // Set query parameters
+      .withParams({ 
+        'coluuid': params['coluuid'],
+        'dir': params['dir'],
+      })
       // Encode form parameters
       .withHeader('content-type', 'application/x-www-form-urlencoded')
       .withContent(this.queryString({ 

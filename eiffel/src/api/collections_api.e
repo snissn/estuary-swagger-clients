@@ -60,7 +60,7 @@ feature -- API Access
 			end
 		end	
 
-	collections_coluuid_contents_delete (coluuid: STRING_32; contentid: STRING_32; by: STRING_32; value: STRING_32): detachable STRING_32
+	collections_coluuid_contents_delete (coluuid: STRING_32; contentid: STRING_32; body: MAIN_DELETE_CONTENT_FROM_COLLECTION_BODY): detachable STRING_32
 			-- Deletes a content from a collection
 			-- This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
 			-- 
@@ -68,9 +68,7 @@ feature -- API Access
 			-- 
 			-- argument: contentid Content ID (required)
 			-- 
-			-- argument: by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) (required)
-			-- 
-			-- argument: value Value of content_id or path to look for (required)
+			-- argument: body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} (required)
 			-- 
 			-- 
 			-- Result STRING_32
@@ -82,7 +80,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-			l_request.set_body(value)
+			l_request.set_body(body)
 			l_path := "/collections/{coluuid}/contents"
 			l_path.replace_substring_all ("{"+"coluuid"+"}", api_client.url_encode (coluuid.out))
 			l_path.replace_substring_all ("{"+"contentid"+"}", api_client.url_encode (contentid.out))

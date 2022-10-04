@@ -107,10 +107,12 @@ class AutoretrieveApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'addresses' in params:
+            form_params.append(('addresses', params['addresses']))  # noqa: E501
+        if 'pub_key' in params:
+            form_params.append(('pubKey', params['pub_key']))  # noqa: E501
 
         body_params = None
-        if 'pub_key' in params:
-            body_params = params['pub_key']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

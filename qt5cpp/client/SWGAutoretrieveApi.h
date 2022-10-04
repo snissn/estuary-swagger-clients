@@ -33,7 +33,7 @@ public:
     QString basePath;
     QMap<QString, QString> defaultHeaders;
 
-    void adminAutoretrieveInitPost(QString*& addresses, QString*& pub_key);
+    void adminAutoretrieveInitPost(QString* addresses, QString* pub_key);
     void adminAutoretrieveListGet();
     void autoretrieveHeartbeatPost(QString* token);
     

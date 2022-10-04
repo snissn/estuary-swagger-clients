@@ -520,9 +520,9 @@ case $state in
       contentAddPost)
         local -a _op_arguments
         _op_arguments=(
-          "coluuid=:[PATH] Collection UUID"
-"dir=:[PATH] Directory"
-                    )
+                    "coluuid=:[QUERY] Collection UUID"
+"dir=:[QUERY] Directory"
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       contentAggregatedContentGet)

@@ -21,6 +21,8 @@ class AutoretrieveApi extends _$AutoretrieveApiClient implements ApiClient {
     @PostReq(path: "/admin/autoretrieve/init", metadata: {"auth": [ {"type": "apiKey", "name": "bearerAuth", "keyName": "Authorization", "where": "header" }]})
     Future<void> adminAutoretrieveInitPost(
         
+        @AsJson() String addresses, 
+        
         @AsJson() String pubKey
     );
 

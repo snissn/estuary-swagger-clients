@@ -71,9 +71,12 @@ export class AutoretrieveApi extends Api {
     const response = await this.httpClient.createRequest(url)
       // Set HTTP method
       .asPost()
-      // Encode body parameter
-      .withHeader('content-type', 'application/json')
-      .withContent(JSON.stringify(params['pubKey'] || {}))
+      // Encode form parameters
+      .withHeader('content-type', 'application/x-www-form-urlencoded')
+      .withContent(this.queryString({ 
+        'addresses': params['addresses'],
+        'pubKey': params['pubKey'],
+      }))
 
       // Authentication 'bearerAuth' required
       .withHeader('Authorization', this.authStorage.getbearerAuth())

@@ -4,6 +4,7 @@ HEADERS += \
 # Models
     $${PWD}/SWGCollections.Collection.h \
     $${PWD}/SWGMain.createCollectionBody.h \
+    $${PWD}/SWGMain.deleteContentFromCollectionBody.h \
     $${PWD}/SWGMain.estimateDealBody.h \
     $${PWD}/SWGMain.getApiKeysResp.h \
     $${PWD}/SWGMain.importDealBody.h \
@@ -36,6 +37,7 @@ SOURCES += \
 # Models
     $${PWD}/SWGCollections.Collection.cpp \
     $${PWD}/SWGMain.createCollectionBody.cpp \
+    $${PWD}/SWGMain.deleteContentFromCollectionBody.cpp \
     $${PWD}/SWGMain.estimateDealBody.cpp \
     $${PWD}/SWGMain.getApiKeysResp.cpp \
     $${PWD}/SWGMain.importDealBody.cpp \

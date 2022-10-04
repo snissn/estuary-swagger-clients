@@ -23,6 +23,7 @@ import 'package:swagger/api/user_api.dart';
 
 import 'package:swagger/model/collections_collection.dart';
 import 'package:swagger/model/main_create_collection_body.dart';
+import 'package:swagger/model/main_delete_content_from_collection_body.dart';
 import 'package:swagger/model/main_estimate_deal_body.dart';
 import 'package:swagger/model/main_get_api_keys_resp.dart';
 import 'package:swagger/model/main_import_deal_body.dart';
@@ -35,6 +36,7 @@ import 'package:swagger/model/util_http_error.dart';
 final jsonJaguarRepo = JsonRepo()
 ..add(CollectionsCollectionSerializer())
 ..add(MainCreateCollectionBodySerializer())
+..add(MainDeleteContentFromCollectionBodySerializer())
 ..add(MainEstimateDealBodySerializer())
 ..add(MainGetApiKeysRespSerializer())
 ..add(MainImportDealBodySerializer())

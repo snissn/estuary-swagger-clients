@@ -113,19 +113,19 @@ export class ContentService {
      * @param dir Directory
      
      */
-    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'body', headers?: Headers): Observable<UtilContentAddResponse>;
-    public contentAddPost(data: Blob, coluuid: string, dir: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<UtilContentAddResponse>>;
-    public contentAddPost(data: Blob, coluuid: string, dir: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public contentAddPost(data: Blob, coluuid?: string, dir?: string, observe?: 'body', headers?: Headers): Observable<UtilContentAddResponse>;
+    public contentAddPost(data: Blob, coluuid?: string, dir?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<UtilContentAddResponse>>;
+    public contentAddPost(data: Blob, coluuid?: string, dir?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!data){
             throw new Error('Required parameter data was null or undefined when calling contentAddPost.');
         }
 
-        if (!coluuid){
-            throw new Error('Required parameter coluuid was null or undefined when calling contentAddPost.');
+        let queryParameters: string[] = [];
+        if (coluuid !== undefined) {
+            queryParameters.push('coluuid='+encodeURIComponent(String(coluuid)));
         }
-
-        if (!dir){
-            throw new Error('Required parameter dir was null or undefined when calling contentAddPost.');
+        if (dir !== undefined) {
+            queryParameters.push('dir='+encodeURIComponent(String(dir)));
         }
 
         // authentication (bearerAuth) required
@@ -140,7 +140,7 @@ export class ContentService {
             formData.append('data', <any>data);
         }
 
-        const response: Observable<HttpResponse<UtilContentAddResponse>> = this.httpClient.post(`${this.APIConfiguration.basePath}/content/add` as any, body, headers);
+        const response: Observable<HttpResponse<UtilContentAddResponse>> = this.httpClient.post(`${this.APIConfiguration.basePath}/content/add?${queryParameters.join('&')}` as any, body, headers);
         if (observe === 'body') {
                return response.map(httpResponse => httpResponse.response);
         }

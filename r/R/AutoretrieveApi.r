@@ -47,17 +47,10 @@ AutoretrieveApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`addresses`)) {
-        body <- `addresses`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      if (!missing(`pub_key`)) {
-        body <- `pub_key`$toJSONString()
-      } else {
-        body <- NULL
-      }
+      body <- list(
+          "addresses" = addresses,
+          "pubKey" = pub_key
+      )
 
       urlPath <- "/admin/autoretrieve/init"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),

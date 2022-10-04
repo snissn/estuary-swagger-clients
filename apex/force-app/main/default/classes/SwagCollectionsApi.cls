@@ -55,22 +55,20 @@ public class SwagCollectionsApi {
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      * @param coluuid Collection ID (required)
      * @param contentid Content ID (required)
-     * @param r_by Variable to use when filtering for files (must be either \&#39;path\&#39; or \&#39;content_id\&#39;) (required)
-     * @param value Value of content_id or path to look for (required)
+     * @param body {by: Variable to use when filtering for files (must be either \&#39;path\&#39; or \&#39;content_id\&#39;), value: Value of content_id or path to look for} (required)
      * @return String
      * @throws Swagger.ApiException if fails to make API call
      */
     public String collectionsColuuidContentsDelete(Map<String, Object> params) {
         client.assertNotNull(params.get('coluuid'), 'coluuid');
         client.assertNotNull(params.get('contentid'), 'contentid');
-        client.assertNotNull(params.get('r_by'), 'r_by');
-        client.assertNotNull(params.get('value'), 'value');
+        client.assertNotNull(params.get('body'), 'body');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
         return (String) client.invoke(
             'DELETE', '/collections/{coluuid}/contents',
-            (String) params.get('value'),
+            (SwagMainDeleteContentFromCollectionB) params.get('body'),
             query, form,
             new Map<String, Object>{
                 'coluuid' => (String) params.get('coluuid'),

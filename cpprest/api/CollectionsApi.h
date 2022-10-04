@@ -24,6 +24,7 @@
 
 #include "Collections.Collection.h"
 #include "Main.createCollectionBody.h"
+#include "Main.deleteContentFromCollectionBody.h"
 #include "Util.HttpError.h"
 #include <vector>
 #include <cpprest/details/basic_types.h>
@@ -60,13 +61,11 @@ public:
     /// </remarks>
     /// <param name="coluuid">Collection ID</param>
     /// <param name="contentid">Content ID</param>
-    /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-    /// <param name="value">Value of content_id or path to look for</param>
+    /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
     pplx::task<utility::string_t> collectionsColuuidContentsDelete(
         utility::string_t coluuid,
         utility::string_t contentid,
-        utility::string_t by,
-        utility::string_t value
+        std::shared_ptr<Main.deleteContentFromCollectionBody> body
     );
     /// <summary>
     /// Deletes a collection

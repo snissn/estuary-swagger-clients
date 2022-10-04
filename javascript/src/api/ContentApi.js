@@ -159,12 +159,14 @@
      * Add new content
      * This endpoint is used to upload new content.
      * @param {File} data File to upload
-     * @param {String} coluuid Collection UUID
-     * @param {String} dir Directory
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.coluuid Collection UUID
+     * @param {String} opts.dir Directory
      * @param {module:api/ContentApi~contentAddPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UtilContentAddResponse}
      */
-    this.contentAddPost = function(data, coluuid, dir, callback) {
+    this.contentAddPost = function(data, opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'data' is set
@@ -172,22 +174,12 @@
         throw new Error("Missing the required parameter 'data' when calling contentAddPost");
       }
 
-      // verify the required parameter 'coluuid' is set
-      if (coluuid === undefined || coluuid === null) {
-        throw new Error("Missing the required parameter 'coluuid' when calling contentAddPost");
-      }
-
-      // verify the required parameter 'dir' is set
-      if (dir === undefined || dir === null) {
-        throw new Error("Missing the required parameter 'dir' when calling contentAddPost");
-      }
-
 
       var pathParams = {
-        'coluuid': coluuid,
-        'dir': dir
       };
       var queryParams = {
+        'coluuid': opts['coluuid'],
+        'dir': opts['dir'],
       };
       var collectionQueryParams = {
       };

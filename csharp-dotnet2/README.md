@@ -173,6 +173,7 @@ Class | Method | HTTP request | Description
 
  - [IO.Swagger.Model.CollectionsCollection](docs/CollectionsCollection.md)
  - [IO.Swagger.Model.MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
+ - [IO.Swagger.Model.MainDeleteContentFromCollectionBody](docs/MainDeleteContentFromCollectionBody.md)
  - [IO.Swagger.Model.MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [IO.Swagger.Model.MainGetApiKeysResp](docs/MainGetApiKeysResp.md)
  - [IO.Swagger.Model.MainImportDealBody](docs/MainImportDealBody.md)

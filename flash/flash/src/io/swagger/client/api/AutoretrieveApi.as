@@ -49,7 +49,7 @@ public class AutoretrieveApi extends SwaggerApi {
 
         
         
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, pubKey, headerParams);
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, null, headerParams);
 
         var requestId: String = getUniqueId();
 

@@ -30,7 +30,7 @@ SWGAutoretrieveApi::SWGAutoretrieveApi(QString host, QString basePath) {
 }
 
 void
-SWGAutoretrieveApi::adminAutoretrieveInitPost(QString*& addresses, QString*& pub_key) {
+SWGAutoretrieveApi::adminAutoretrieveInitPost(QString* addresses, QString* pub_key) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/admin/autoretrieve/init");
 
@@ -39,14 +39,14 @@ SWGAutoretrieveApi::adminAutoretrieveInitPost(QString*& addresses, QString*& pub
     SWGHttpRequestWorker *worker = new SWGHttpRequestWorker();
     SWGHttpRequestInput input(fullPath, "POST");
 
+    if (addresses != nullptr) {
+        input.add_var("addresses", *addresses);
+    }
+    if (pub_key != nullptr) {
+        input.add_var("pubKey", *pub_key);
+    }
 
-    
-    QString output(*addresses);
-    input.request_body.append(output);
-        
-    QString output(*pub_key);
-    input.request_body.append(output);
-    
+
 
 
     foreach(QString key, this->defaultHeaders.keys()) {

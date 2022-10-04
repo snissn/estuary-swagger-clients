@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
 
  - [SwaggerClient::CollectionsCollection](docs/CollectionsCollection.md)
  - [SwaggerClient::MainCreateCollectionBody](docs/MainCreateCollectionBody.md)
+ - [SwaggerClient::MainDeleteContentFromCollectionBody](docs/MainDeleteContentFromCollectionBody.md)
  - [SwaggerClient::MainEstimateDealBody](docs/MainEstimateDealBody.md)
  - [SwaggerClient::MainGetApiKeysResp](docs/MainGetApiKeysResp.md)
  - [SwaggerClient::MainImportDealBody](docs/MainImportDealBody.md)

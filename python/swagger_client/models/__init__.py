@@ -17,6 +17,7 @@ from __future__ import absolute_import
 # import models into model package
 from swagger_client.models.collections_collection import CollectionsCollection
 from swagger_client.models.main_create_collection_body import MainCreateCollectionBody
+from swagger_client.models.main_delete_content_from_collection_body import MainDeleteContentFromCollectionBody
 from swagger_client.models.main_estimate_deal_body import MainEstimateDealBody
 from swagger_client.models.main_get_api_keys_resp import MainGetApiKeysResp
 from swagger_client.models.main_import_deal_body import MainImportDealBody

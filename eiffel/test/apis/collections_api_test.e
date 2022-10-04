@@ -36,16 +36,14 @@ feature -- Test routines
             l_response: STRING_32
             l_coluuid: STRING_32
             l_contentid: STRING_32
-            l_by: STRING_32
-            l_value: STRING_32
+            l_body: MAIN_DELETE_CONTENT_FROM_COLLECTION_BODY
         do
             -- TODO: Initialize required params.
             -- l_coluuid
             -- l_contentid
-            -- l_by
-            -- l_value
+            -- l_body
                       
-            -- l_response := api.collections_coluuid_contents_delete(l_coluuid, l_contentid, l_by, l_value)
+            -- l_response := api.collections_coluuid_contents_delete(l_coluuid, l_contentid, l_body)
             assert ("not_implemented", False)
         end
     

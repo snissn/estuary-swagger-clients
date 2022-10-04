@@ -61,8 +61,8 @@ contentAddIpfsPost model =
 {-
    This endpoint is used to upload new content.
 -}
-contentAddPost : String -> String -> Http.Request UtilContentAddResponse
-contentAddPost coluuid dir =
+contentAddPost : Http.Request UtilContentAddResponse
+contentAddPost =
     { method = "POST"
     , url = basePath ++ "/content/add"
     , headers = []

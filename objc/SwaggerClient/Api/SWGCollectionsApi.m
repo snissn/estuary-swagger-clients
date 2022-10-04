@@ -3,6 +3,7 @@
 #import "SWGApiClient.h"
 #import "SWGCollectionsCollection.h"
 #import "SWGMainCreateCollectionBody.h"
+#import "SWGMainDeleteContentFromCollectionBody.h"
 #import "SWGUtilHttpError.h"
 
 
@@ -126,16 +127,13 @@ NSInteger kSWGCollectionsApiMissingParamErrorCode = 234513;
 ///
 ///  @param contentid Content ID 
 ///
-///  @param by Variable to use when filtering for files (must be either 'path' or 'content_id') 
-///
-///  @param value Value of content_id or path to look for 
+///  @param body {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for} 
 ///
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) collectionsColuuidContentsDeleteWithColuuid: (NSString*) coluuid
     contentid: (NSString*) contentid
-    by: (NSString*) by
-    value: (NSString*) value
+    body: (SWGMainDeleteContentFromCollectionBody*) body
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'coluuid' is set
     if (coluuid == nil) {
@@ -159,22 +157,11 @@ NSInteger kSWGCollectionsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'by' is set
-    if (by == nil) {
-        NSParameterAssert(by);
+    // verify the required parameter 'body' is set
+    if (body == nil) {
+        NSParameterAssert(body);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"by"] };
-            NSError* error = [NSError errorWithDomain:kSWGCollectionsApiErrorDomain code:kSWGCollectionsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    // verify the required parameter 'value' is set
-    if (value == nil) {
-        NSParameterAssert(value);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"value"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"body"] };
             NSError* error = [NSError errorWithDomain:kSWGCollectionsApiErrorDomain code:kSWGCollectionsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -212,7 +199,7 @@ NSInteger kSWGCollectionsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = value;
+    bodyParam = body;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"DELETE"

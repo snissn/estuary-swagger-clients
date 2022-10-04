@@ -314,8 +314,8 @@ public class ContentApi {
     /**
      * Build call for contentAddPost
      * @param data File to upload (required)
-     * @param coluuid Collection UUID (required)
-     * @param dir Directory (required)
+     * @param coluuid Collection UUID (optional)
+     * @param dir Directory (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -325,12 +325,14 @@ public class ContentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/content/add"
-            .replaceAll("\\{" + "coluuid" + "\\}", apiClient.escapeString(coluuid.toString()))
-            .replaceAll("\\{" + "dir" + "\\}", apiClient.escapeString(dir.toString()));
+        String localVarPath = "/content/add";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (coluuid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("coluuid", coluuid));
+        if (dir != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("dir", dir));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -374,16 +376,6 @@ public class ContentApi {
             throw new ApiException("Missing the required parameter 'data' when calling contentAddPost(Async)");
         }
         
-        // verify the required parameter 'coluuid' is set
-        if (coluuid == null) {
-            throw new ApiException("Missing the required parameter 'coluuid' when calling contentAddPost(Async)");
-        }
-        
-        // verify the required parameter 'dir' is set
-        if (dir == null) {
-            throw new ApiException("Missing the required parameter 'dir' when calling contentAddPost(Async)");
-        }
-        
 
         com.squareup.okhttp.Call call = contentAddPostCall(data, coluuid, dir, progressListener, progressRequestListener);
         return call;
@@ -394,8 +386,8 @@ public class ContentApi {
      * Add new content
      * This endpoint is used to upload new content.
      * @param data File to upload (required)
-     * @param coluuid Collection UUID (required)
-     * @param dir Directory (required)
+     * @param coluuid Collection UUID (optional)
+     * @param dir Directory (optional)
      * @return UtilContentAddResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -408,8 +400,8 @@ public class ContentApi {
      * Add new content
      * This endpoint is used to upload new content.
      * @param data File to upload (required)
-     * @param coluuid Collection UUID (required)
-     * @param dir Directory (required)
+     * @param coluuid Collection UUID (optional)
+     * @param dir Directory (optional)
      * @return ApiResponse&lt;UtilContentAddResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -423,8 +415,8 @@ public class ContentApi {
      * Add new content (asynchronously)
      * This endpoint is used to upload new content.
      * @param data File to upload (required)
-     * @param coluuid Collection UUID (required)
-     * @param dir Directory (required)
+     * @param coluuid Collection UUID (optional)
+     * @param dir Directory (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

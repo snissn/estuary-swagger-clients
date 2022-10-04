@@ -104,17 +104,17 @@ sub admin_autoretrieve_init_post {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
+    # form params
+    if ( exists $args{'addresses'} ) {
+                $form_params->{'addresses'} = $self->{api_client}->to_form_value($args{'addresses'});
+    }
+    
+    # form params
+    if ( exists $args{'pub_key'} ) {
+                $form_params->{'pubKey'} = $self->{api_client}->to_form_value($args{'pub_key'});
+    }
+    
     my $_body_data;
-    # body params
-    if ( exists $args{'addresses'}) {
-        $_body_data = $args{'addresses'};
-    }
-
-    # body params
-    if ( exists $args{'pub_key'}) {
-        $_body_data = $args{'pub_key'};
-    }
-
     # authentication setting, if any
     my $auth_settings = [qw(bearerAuth )];
 

@@ -552,19 +552,17 @@ font-style: italic;
 
 
 
-    <h3 class="field-label">Request body</h3>
+
+
+
+    <h3 class="field-label">Form parameters</h3>
     <div class="field-items">
-      <div class="param">addresses <a href="#string">string</a> (required)</div>
+      <div class="param">addresses (required)</div>
 
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Autoretrieve's comma-separated list of addresses </div>
-<div class="param">pubKey <a href="#string">string</a> (required)</div>
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Autoretrieve's comma-separated list of addresses </div><div class="param">pubKey (required)</div>
 
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Autoretrieve's public key </div>
-
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Autoretrieve's public key </div>
     </div>  <!-- field-items -->
-
-
-
 
 
     <!--Todo: process Response Object and its headers, schema, examples -->
@@ -707,12 +705,9 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">by <a href="#string">string</a> (required)</div>
+      <div class="param">body <a href="#main.deleteContentFromCollectionBody">main.deleteContentFromCollectionBody</a> (required)</div>
 
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Variable to use when filtering for files (must be either 'path' or 'content_id') </div>
-<div class="param">value <a href="#string">string</a> (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Value of content_id or path to look for </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for} </div>
 
     </div>  <!-- field-items -->
 
@@ -1104,14 +1099,6 @@ font-style: italic;
     <div class="method-summary">Add new content (<span class="nickname">contentAddPost</span>)</div>
     <div class="method-notes">This endpoint is used to upload new content.</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">coluuid (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Collection UUID </div><div class="param">dir (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Directory </div>
-    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -1121,6 +1108,14 @@ font-style: italic;
 
 
 
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">coluuid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Collection UUID </div><div class="param">dir (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Directory </div>
+    </div>  <!-- field-items -->
 
     <h3 class="field-label">Form parameters</h3>
     <div class="field-items">
@@ -3333,6 +3328,7 @@ font-style: italic;
   <ol>
     <li><a href="#collections.Collection"><code>collections.Collection</code> - </a></li>
     <li><a href="#main.createCollectionBody"><code>main.createCollectionBody</code> - </a></li>
+    <li><a href="#main.deleteContentFromCollectionBody"><code>main.deleteContentFromCollectionBody</code> - </a></li>
     <li><a href="#main.estimateDealBody"><code>main.estimateDealBody</code> - </a></li>
     <li><a href="#main.getApiKeysResp"><code>main.getApiKeysResp</code> - </a></li>
     <li><a href="#main.importDealBody"><code>main.importDealBody</code> - </a></li>
@@ -3360,6 +3356,14 @@ font-style: italic;
     <div class="field-items">
       <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="main.deleteContentFromCollectionBody"><code>main.deleteContentFromCollectionBody</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">by (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

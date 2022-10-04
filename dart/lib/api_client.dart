@@ -42,6 +42,8 @@ class ApiClient {
           return new CollectionsCollection.fromJson(value);
         case 'MainCreateCollectionBody':
           return new MainCreateCollectionBody.fromJson(value);
+        case 'MainDeleteContentFromCollectionBody':
+          return new MainDeleteContentFromCollectionBody.fromJson(value);
         case 'MainEstimateDealBody':
           return new MainEstimateDealBody.fromJson(value);
         case 'MainGetApiKeysResp':

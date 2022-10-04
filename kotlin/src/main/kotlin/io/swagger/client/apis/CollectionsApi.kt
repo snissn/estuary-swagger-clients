@@ -13,6 +13,7 @@ package io.swagger.client.apis
 
 import io.swagger.client.models.CollectionsCollection
 import io.swagger.client.models.MaincreateCollectionBody
+import io.swagger.client.models.MaindeleteContentFromCollectionBody
 import io.swagger.client.models.UtilHttpError
 
 import io.swagger.client.infrastructure.*
@@ -62,13 +63,12 @@ class CollectionsApi(basePath: kotlin.String = "https://api.estuary.tech") : Api
     * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
     * @param coluuid Collection ID 
     * @param contentid Content ID 
-    * @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
-    * @param value Value of content_id or path to look for 
+    * @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} 
     * @return kotlin.String
     */
     @Suppress("UNCHECKED_CAST")
-    fun collectionsColuuidContentsDelete(coluuid: kotlin.String, contentid: kotlin.String, by: kotlin.String, value: kotlin.String) : kotlin.String {
-        val localVariableBody: kotlin.Any? = byvalue
+    fun collectionsColuuidContentsDelete(coluuid: kotlin.String, contentid: kotlin.String, body: MaindeleteContentFromCollectionBody) : kotlin.String {
+        val localVariableBody: kotlin.Any? = body
         val localVariableQuery: MultiValueMap = mapOf()
         
         val contentHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()

@@ -26,11 +26,8 @@ function Invoke-CollectionsApiCollectionsColuuidContentsDelete {
         [String]
         ${contentid},
         [Parameter(Position = 2, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [String]
-        ${by},
-        [Parameter(Position = 3, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [String]
-        ${value}
+        [IO.Swagger.Model.MainDeleteContentFromCollectionBody]
+        ${body}
     )
 
     Process {
@@ -40,8 +37,7 @@ function Invoke-CollectionsApiCollectionsColuuidContentsDelete {
         $Script:CollectionsApi.CollectionsColuuidContentsDelete(
             ${coluuid},
             ${contentid},
-            ${by},
-            ${value}
+            ${body}
         )
     }
 }

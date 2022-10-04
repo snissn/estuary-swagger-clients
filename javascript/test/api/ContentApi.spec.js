@@ -87,10 +87,11 @@
           // TODO: uncomment, update parameter values for contentAddPost call and complete the assertions
           /*
           var data = "/path/to/file.txt";
-          var coluuid = "coluuid_example";
-          var dir = "dir_example";
+          var opts = {};
+          opts.coluuid = "coluuid_example";
+          opts.dir = "dir_example";
 
-          instance.contentAddPost(data, coluuid, dir, function(error, data, response) {
+          instance.contentAddPost(data, opts, function(error, data, response) {
             if (error) {
               done(error);
               return;

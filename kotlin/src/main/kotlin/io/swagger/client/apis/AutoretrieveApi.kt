@@ -24,10 +24,10 @@ class AutoretrieveApi(basePath: kotlin.String = "https://api.estuary.tech") : Ap
     * @return void
     */
     fun adminAutoretrieveInitPost(addresses: kotlin.String, pubKey: kotlin.String) : Unit {
-        val localVariableBody: kotlin.Any? = addressespubKey
+        val localVariableBody: kotlin.Any? = mapOf("addresses" to addresses, "pubKey" to pubKey)
         val localVariableQuery: MultiValueMap = mapOf()
         
-        val contentHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val contentHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Content-Type" to "multipart/form-data")
         val acceptsHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Accept" to "application/json")
         val localVariableHeaders: kotlin.collections.MutableMap<kotlin.String,kotlin.String> = mutableMapOf()
         localVariableHeaders.putAll(contentHeaders)

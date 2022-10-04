@@ -18,6 +18,7 @@ local basexx = require "basexx"
 -- model import
 local swagger-client_collections_collection = require "swagger-client.model.collections_collection"
 local swagger-client_main_create_collection_body = require "swagger-client.model.main_create_collection_body"
+local swagger-client_main_delete_content_from_collection_body = require "swagger-client.model.main_delete_content_from_collection_body"
 local swagger-client_util_http_error = require "swagger-client.model.util_http_error"
 
 local collections_api = {}
@@ -94,7 +95,7 @@ function collections_api:collections_coluuid_commit_post(coluuid)
 	end
 end
 
-function collections_api:collections_coluuid_contents_delete(coluuid, contentid, by, value)
+function collections_api:collections_coluuid_contents_delete(coluuid, contentid, body)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -109,9 +110,7 @@ function collections_api:collections_coluuid_contents_delete(coluuid, contentid,
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(by))
-
-	req:set_body(dkjson.encode(value))
+	req:set_body(dkjson.encode(body))
 
 	-- api key in headers 'Authorization'
 	if self.api_key['Authorization'] then

@@ -137,6 +137,35 @@ package .Models is
 
 
 
+   type Main_createCollectionBody_Type is
+     record
+       Description : Swagger.Nullable_UString;
+       Name : Swagger.Nullable_UString;
+     end record;
+
+   package Main_createCollectionBody_Type_Vectors is
+      new Ada.Containers.Vectors (Index_Type   => Positive,
+                                  Element_Type => Main_createCollectionBody_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Main_createCollectionBody_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in Main_createCollectionBody_Type_Vectors.Vector);
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out Main_createCollectionBody_Type);
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out Main_createCollectionBody_Type_Vectors.Vector);
+
+
+
+
    type Collections_Collection_Type is
      record
        Cid : Swagger.Nullable_UString;
@@ -170,31 +199,31 @@ package .Models is
 
 
 
-   type Main_createCollectionBody_Type is
+   type Main_deleteContentFromCollectionBody_Type is
      record
-       Description : Swagger.Nullable_UString;
-       Name : Swagger.Nullable_UString;
+       By : Swagger.Nullable_UString;
+       Value : Swagger.Nullable_UString;
      end record;
 
-   package Main_createCollectionBody_Type_Vectors is
+   package Main_deleteContentFromCollectionBody_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => Main_createCollectionBody_Type);
+                                  Element_Type => Main_deleteContentFromCollectionBody_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in Main_createCollectionBody_Type);
+                        Value : in Main_deleteContentFromCollectionBody_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in Main_createCollectionBody_Type_Vectors.Vector);
+                        Value : in Main_deleteContentFromCollectionBody_Type_Vectors.Vector);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out Main_createCollectionBody_Type);
+                          Value : out Main_deleteContentFromCollectionBody_Type);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out Main_createCollectionBody_Type_Vectors.Vector);
+                          Value : out Main_deleteContentFromCollectionBody_Type_Vectors.Vector);
 
 
 

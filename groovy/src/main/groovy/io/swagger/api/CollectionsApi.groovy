@@ -7,6 +7,7 @@ import io.swagger.api.ApiUtils
 
 import io.swagger.model.CollectionsCollection
 import io.swagger.model.MainCreateCollectionBody
+import io.swagger.model.MainDeleteContentFromCollectionBody
 import io.swagger.model.Map
 import io.swagger.model.UtilHttpError
 
@@ -39,7 +40,7 @@ class CollectionsApi {
                     String.class )
                     
     }
-    def collectionsColuuidContentsDelete ( String coluuid, String contentid, String by, String value, Closure onSuccess, Closure onFailure)  {
+    def collectionsColuuidContentsDelete ( String coluuid, String contentid, MainDeleteContentFromCollectionBody body, Closure onSuccess, Closure onFailure)  {
         // create path and map path parameters (TODO)
         String resourcePath = "/collections/{coluuid}/contents"
 
@@ -56,12 +57,8 @@ class CollectionsApi {
             throw new RuntimeException("missing required params contentid")
         }
         // verify required params are set
-        if (by == null) {
-            throw new RuntimeException("missing required params by")
-        }
-        // verify required params are set
-        if (value == null) {
-            throw new RuntimeException("missing required params value")
+        if (body == null) {
+            throw new RuntimeException("missing required params body")
         }
 
         

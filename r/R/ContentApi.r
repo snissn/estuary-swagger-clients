@@ -154,19 +154,19 @@ ContentApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
+      if (!missing(`coluuid`)) {
+        queryParams['coluuid'] <- coluuid
+      }
+
+      if (!missing(`dir`)) {
+        queryParams['dir'] <- dir
+      }
+
       body <- list(
           "data" = httr::upload_file(data)
       )
 
       urlPath <- "/content/add"
-      if (!missing(`coluuid`)) {
-        urlPath <- gsub(paste0("\\{", "coluuid", "\\}"), `coluuid`, urlPath)
-      }
-
-      if (!missing(`dir`)) {
-        urlPath <- gsub(paste0("\\{", "dir", "\\}"), `dir`, urlPath)
-      }
-
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,

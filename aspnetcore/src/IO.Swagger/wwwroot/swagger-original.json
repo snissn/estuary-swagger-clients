@@ -27,21 +27,17 @@
         "description" : "This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "in" : "body",
           "name" : "addresses",
+          "in" : "formData",
           "description" : "Autoretrieve's comma-separated list of addresses",
           "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
+          "type" : "string"
         }, {
-          "in" : "body",
           "name" : "pubKey",
+          "in" : "formData",
           "description" : "Autoretrieve's public key",
           "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
+          "type" : "string"
         } ],
         "responses" : { }
       }
@@ -370,19 +366,11 @@
           "type" : "string"
         }, {
           "in" : "body",
-          "name" : "by",
-          "description" : "Variable to use when filtering for files (must be either 'path' or 'content_id')",
+          "name" : "body",
+          "description" : "{by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}",
           "required" : true,
           "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "in" : "body",
-          "name" : "value",
-          "description" : "Value of content_id or path to look for",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
+            "$ref" : "#/definitions/main.deleteContentFromCollectionBody"
           }
         } ],
         "responses" : {
@@ -416,15 +404,15 @@
           "type" : "file"
         }, {
           "name" : "coluuid",
-          "in" : "path",
+          "in" : "query",
           "description" : "Collection UUID",
-          "required" : true,
+          "required" : false,
           "type" : "string"
         }, {
           "name" : "dir",
-          "in" : "path",
+          "in" : "query",
           "description" : "Directory",
-          "required" : true,
+          "required" : false,
           "type" : "string"
         } ],
         "responses" : {
@@ -1358,6 +1346,17 @@
           "type" : "string"
         },
         "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "main.deleteContentFromCollectionBody" : {
+      "type" : "object",
+      "properties" : {
+        "by" : {
+          "type" : "string"
+        },
+        "value" : {
           "type" : "string"
         }
       }

@@ -130,8 +130,8 @@ function content_api:content_add_post(data, coluuid, dir)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
-		path = string.format("%s/content/add",
-			self.basePath, coluuid, dir);
+		path = string.format("%s/content/add?coluuid=%s&dir=%s",
+			self.basePath, http_util.encodeURIComponent(coluuid), http_util.encodeURIComponent(dir));
 	})
 
 	-- set HTTP verb

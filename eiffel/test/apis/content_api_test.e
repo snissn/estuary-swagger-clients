@@ -56,8 +56,6 @@ feature -- Test routines
         do
             -- TODO: Initialize required params.
             -- l_data
-            -- l_coluuid
-            -- l_dir
                       
             -- l_response := api.content_add_post(l_data, l_coluuid, l_dir)
             assert ("not_implemented", False)

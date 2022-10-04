@@ -40,7 +40,7 @@ object AutoretrieveApi {
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
       uriWithParams =  uri.copy(query = queryParams)
-      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType)).withBody(pubKey)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
       resp          <- client.fetch[Unit](req)(_ => Task.now(()))
 
     } yield resp
@@ -104,7 +104,7 @@ class HttpServiceAutoretrieveApi(service: HttpService) {
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
       uriWithParams =  uri.copy(query = queryParams)
-      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType)).withBody(pubKey)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
       resp          <- client.fetch[Unit](req)(_ => Task.now(()))
 
     } yield resp

@@ -11,7 +11,7 @@ class AutoretrieveApi {
   ///
   /// This endpoint registers a new autoretrieve server Q@&amp;^5#^&amp;*Q^Wasdfalsdkjflkj
   Future adminAutoretrieveInitPost(String addresses, String pubKey) async {
-    Object postBody = pubKey;
+    Object postBody = null;
 
     // verify required params are set
     if(addresses == null) {
@@ -38,11 +38,25 @@ class AutoretrieveApi {
       bool hasFields = false;
       MultipartRequest mp = new MultipartRequest(null, null);
       
+      if (addresses != null) {
+        hasFields = true;
+        mp.fields['addresses'] = parameterToString(addresses);
+      }
+      
+      if (pubKey != null) {
+        hasFields = true;
+        mp.fields['pubKey'] = parameterToString(pubKey);
+      }
+      
       if(hasFields)
         postBody = mp;
     }
     else {
-          }
+      if (addresses != null)
+        formParams['addresses'] = parameterToString(addresses);
+if (pubKey != null)
+        formParams['pubKey'] = parameterToString(pubKey);
+    }
 
     var response = await apiClient.invokeAPI(path,
                                              'POST',

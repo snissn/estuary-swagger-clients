@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 
 # **collections_coluuid_contents_delete**
-> String collections_coluuid_contents_delete(coluuid, contentid, by, value)
+> String collections_coluuid_contents_delete(coluuid, contentid, body)
 
 Deletes a content from a collection
 
@@ -93,14 +93,12 @@ coluuid = 'coluuid_example' # String | Collection ID
 
 contentid = 'contentid_example' # String | Content ID
 
-by = 'by_example' # String | Variable to use when filtering for files (must be either 'path' or 'content_id')
-
-value = 'value_example' # String | Value of content_id or path to look for
+body = SwaggerClient::MainDeleteContentFromCollectionBody.new # MainDeleteContentFromCollectionBody | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 
 
 begin
   #Deletes a content from a collection
-  result = api_instance.collections_coluuid_contents_delete(coluuid, contentid, by, value)
+  result = api_instance.collections_coluuid_contents_delete(coluuid, contentid, body)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling CollectionsApi->collections_coluuid_contents_delete: #{e}"
@@ -113,8 +111,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **String**| Collection ID | 
  **contentid** | **String**| Content ID | 
- **by** | **String**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
- **value** | **String**| Value of content_id or path to look for | 
+ **body** | [**MainDeleteContentFromCollectionBody**](MainDeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} | 
 
 ### Return type
 

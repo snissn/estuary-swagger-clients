@@ -61,8 +61,7 @@ namespace IO.Swagger.Controllers
         /// <remarks>This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path</remarks>
         /// <param name="coluuid">Collection ID</param>
         /// <param name="contentid">Content ID</param>
-        /// <param name="by">Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)</param>
-        /// <param name="value">Value of content_id or path to look for</param>
+        /// <param name="body">{by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}</param>
         /// <response code="200">OK</response>
         /// <response code="400">Bad Request</response>
         [HttpDelete]
@@ -72,7 +71,7 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("CollectionsColuuidContentsDelete")]
         [SwaggerResponse(statusCode: 200, type: typeof(string), description: "OK")]
         [SwaggerResponse(statusCode: 400, type: typeof(UtilHttpError), description: "Bad Request")]
-        public virtual IActionResult CollectionsColuuidContentsDelete([FromRoute][Required]string coluuid, [FromRoute][Required]string contentid, [FromBody]string by, [FromBody]string value)
+        public virtual IActionResult CollectionsColuuidContentsDelete([FromRoute][Required]string coluuid, [FromRoute][Required]string contentid, [FromBody]MainDeleteContentFromCollectionBody body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(string));

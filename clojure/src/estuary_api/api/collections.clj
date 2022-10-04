@@ -25,14 +25,14 @@
 (defn collections-coluuid-contents-delete-with-http-info
   "Deletes a content from a collection
   This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path"
-  [coluuid contentid by value ]
-  (check-required-params coluuid contentid by value)
+  [coluuid contentid body ]
+  (check-required-params coluuid contentid body)
   (call-api "/collections/{coluuid}/contents" :delete
             {:path-params   {"coluuid" coluuid "contentid" contentid }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    value
+             :body-param    body
              :content-types []
              :accepts       ["application/json"]
              :auth-names    ["bearerAuth"]}))
@@ -40,8 +40,8 @@
 (defn collections-coluuid-contents-delete
   "Deletes a content from a collection
   This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path"
-  [coluuid contentid by value ]
-  (:data (collections-coluuid-contents-delete-with-http-info coluuid contentid by value)))
+  [coluuid contentid body ]
+  (:data (collections-coluuid-contents-delete-with-http-info coluuid contentid body)))
 
 (defn collections-coluuid-delete-with-http-info
   "Deletes a collection

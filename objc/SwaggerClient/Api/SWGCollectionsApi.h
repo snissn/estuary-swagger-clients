@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "SWGCollectionsCollection.h"
 #import "SWGMainCreateCollectionBody.h"
+#import "SWGMainDeleteContentFromCollectionBody.h"
 #import "SWGUtilHttpError.h"
 #import "SWGApi.h"
 
@@ -42,8 +43,7 @@ extern NSInteger kSWGCollectionsApiMissingParamErrorCode;
 ///
 /// @param coluuid Collection ID
 /// @param contentid Content ID
-/// @param by Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;)
-/// @param value Value of content_id or path to look for
+/// @param body {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for}
 /// 
 ///  code:200 message:"OK",
 ///  code:400 message:"Bad Request"
@@ -51,8 +51,7 @@ extern NSInteger kSWGCollectionsApiMissingParamErrorCode;
 /// @return NSString*
 -(NSURLSessionTask*) collectionsColuuidContentsDeleteWithColuuid: (NSString*) coluuid
     contentid: (NSString*) contentid
-    by: (NSString*) by
-    value: (NSString*) value
+    body: (SWGMainDeleteContentFromCollectionBody*) body
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

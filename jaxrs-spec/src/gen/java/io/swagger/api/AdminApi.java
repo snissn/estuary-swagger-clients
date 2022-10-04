@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @Path("/admin")
 @Api(description = "the admin API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-03T07:43:22.979Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-04T07:13:34.144Z")
 public class AdminApi {
 
     @POST
@@ -24,7 +24,7 @@ public class AdminApi {
     }, tags={ "autoretrieve",  })
     @ApiResponses(value = { 
     })
-    public Response adminAutoretrieveInitPost(@Valid String addresses,@Valid String pubKey) {
+    public Response adminAutoretrieveInitPost(@FormParam(value = "addresses")  String addresses,@FormParam(value = "pubKey")  String pubKey) {
         return Response.ok().entity("magic!").build();
     }
 

@@ -7,6 +7,7 @@ import io.swagger.model.*;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 
@@ -18,11 +19,11 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-10-03T07:43:19.698Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2022-10-04T07:13:30.968Z")
 public interface CollectionsApiService {
       Response collectionsColuuidCommitPost(String coluuid,SecurityContext securityContext)
       throws NotFoundException;
-      Response collectionsColuuidContentsDelete(String coluuid,String contentid,String by,String value,SecurityContext securityContext)
+      Response collectionsColuuidContentsDelete(String coluuid,String contentid,MainDeleteContentFromCollectionBody body,SecurityContext securityContext)
       throws NotFoundException;
       Response collectionsColuuidDelete(String coluuid,SecurityContext securityContext)
       throws NotFoundException;

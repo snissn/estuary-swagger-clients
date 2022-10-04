@@ -99,9 +99,9 @@ feature -- API Access
 			-- 
 			-- argument: data File to upload (required)
 			-- 
-			-- argument: coluuid Collection UUID (required)
+			-- argument: coluuid Collection UUID (optional)
 			-- 
-			-- argument: dir Directory (required)
+			-- argument: dir Directory (optional)
 			-- 
 			-- 
 			-- Result UTIL_CONTENT_ADD_RESPONSE
@@ -115,8 +115,8 @@ feature -- API Access
 			create l_request
 			
 			l_path := "/content/add"
-			l_path.replace_substring_all ("{"+"coluuid"+"}", api_client.url_encode (coluuid.out))
-			l_path.replace_substring_all ("{"+"dir"+"}", api_client.url_encode (dir.out))
+			l_request.fill_query_params(api_client.parameter_to_tuple("", "coluuid", coluuid));
+			l_request.fill_query_params(api_client.parameter_to_tuple("", "dir", dir));
 
 			if attached data as l_data then
 				l_request.add_form(l_data,"data");

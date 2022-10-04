@@ -57,6 +57,9 @@ export class AutoretrieveApi {
 
         let queryParameters: any = {};
         let headerParams: any = {};
+        let formParams = new FormData();
+        let reqHasFile = false;
+
         // verify required parameter 'addresses' is not null or undefined
         if (addresses === null || addresses === undefined) {
             throw new Error('Required parameter addresses was null or undefined when calling adminAutoretrieveInitPost.');
@@ -69,6 +72,12 @@ export class AutoretrieveApi {
 
 
         localVarPath = localVarPath + "?" + $.param(queryParameters);
+        if (addresses !== null && addresses !== undefined) {
+            formParams.append('addresses', <any>addresses);
+        }
+        if (pubKey !== null && pubKey !== undefined) {
+            formParams.append('pubKey', <any>pubKey);
+        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
@@ -83,8 +92,10 @@ export class AutoretrieveApi {
             headerParams['Authorization'] = this.configuration.apiKey;
         }
 
+        if (!reqHasFile) {
+            headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+        }
 
-        headerParams['Content-Type'] = 'application/json';
 
         let requestOptions: JQueryAjaxSettings = {
             url: localVarPath,
@@ -93,9 +104,12 @@ export class AutoretrieveApi {
             processData: false
         };
 
-        requestOptions.data = JSON.stringify(pubKey);
         if (headerParams['Content-Type']) {
             requestOptions.contentType = headerParams['Content-Type'];
+        }
+        requestOptions.data = formParams;
+        if (reqHasFile) {
+            requestOptions.contentType = false;
         }
 
         if (extraJQueryAjaxSettings) {

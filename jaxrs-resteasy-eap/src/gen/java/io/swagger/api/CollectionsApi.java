@@ -8,6 +8,7 @@ import io.swagger.jaxrs.*;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 
@@ -26,7 +27,7 @@ import javax.validation.constraints.*;
 
 
 @io.swagger.annotations.Api(description = "the collections API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-03T07:43:21.296Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-04T07:13:32.436Z")
 public interface CollectionsApi  {
    
     @POST
@@ -50,7 +51,7 @@ public interface CollectionsApi  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class),
         
         @io.swagger.annotations.ApiResponse(code = 400, message = "Bad Request", response = UtilHttpError.class) })
-    public Response collectionsColuuidContentsDelete( @PathParam("coluuid") String coluuid, @PathParam("contentid") String contentid,@ApiParam(value = "Variable to use when filtering for files (must be either 'path' or 'content_id')" ,required=true) String by,@ApiParam(value = "Value of content_id or path to look for" ,required=true) String value,@Context SecurityContext securityContext);
+    public Response collectionsColuuidContentsDelete( @PathParam("coluuid") String coluuid, @PathParam("contentid") String contentid,@ApiParam(value = "{by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}" ,required=true) MainDeleteContentFromCollectionBody body,@Context SecurityContext securityContext);
     @DELETE
     @Path("/{coluuid}")
     

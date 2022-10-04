@@ -90,26 +90,21 @@ instance Produces CollectionsColuuidCommitPost MimeJSON
 -- AuthMethod: 'AuthApiKeyBearerAuth'
 -- 
 collectionsColuuidContentsDelete 
-  :: (Consumes CollectionsColuuidContentsDelete contentType, MimeRender contentType By2, MimeRender contentType Value2)
+  :: (Consumes CollectionsColuuidContentsDelete contentType, MimeRender contentType MainDeleteContentFromCollectionBody)
   => ContentType contentType -- ^ request content-type ('MimeType')
   -> Coluuid -- ^ "coluuid" -  Collection ID
   -> Contentid -- ^ "contentid" -  Content ID
-  -> By2 -- ^ "by" -  Variable to use when filtering for files (must be either 'path' or 'content_id')
-  -> Value2 -- ^ "value" -  Value of content_id or path to look for
+  -> MainDeleteContentFromCollectionBody -- ^ "body" -  {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
   -> EstuaryRequest CollectionsColuuidContentsDelete contentType Text MimeJSON
-collectionsColuuidContentsDelete _ (Coluuid coluuid) (Contentid contentid) by value =
+collectionsColuuidContentsDelete _ (Coluuid coluuid) (Contentid contentid) body =
   _mkRequest "DELETE" ["/collections/",toPath coluuid,"/contents"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyBearerAuth)
-    `setBodyParam` by
-    `setBodyParam` value
+    `setBodyParam` body
 
 data CollectionsColuuidContentsDelete 
 
--- | /Body Param/ "by" - Variable to use when filtering for files (must be either 'path' or 'content_id')
-instance HasBodyParam CollectionsColuuidContentsDelete By2
-
--- | /Body Param/ "value" - Value of content_id or path to look for
-instance HasBodyParam CollectionsColuuidContentsDelete Value2 
+-- | /Body Param/ "body" - {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
+instance HasBodyParam CollectionsColuuidContentsDelete MainDeleteContentFromCollectionBody 
 -- | @application/json@
 instance Produces CollectionsColuuidContentsDelete MimeJSON
 

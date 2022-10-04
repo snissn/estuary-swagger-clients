@@ -19,6 +19,7 @@ require 'swagger_client/configuration'
 # Models
 require 'swagger_client/models/collections_collection'
 require 'swagger_client/models/main_create_collection_body'
+require 'swagger_client/models/main_delete_content_from_collection_body'
 require 'swagger_client/models/main_estimate_deal_body'
 require 'swagger_client/models/main_get_api_keys_resp'
 require 'swagger_client/models/main_import_deal_body'

@@ -85,7 +85,7 @@ SWGCollectionsApi::collectionsColuuidCommitPostCallback(SWGHttpRequestWorker * w
 }
 
 void
-SWGCollectionsApi::collectionsColuuidContentsDelete(QString* coluuid, QString* contentid, QString*& by, QString*& value) {
+SWGCollectionsApi::collectionsColuuidContentsDelete(QString* coluuid, QString* contentid, SWGMain.deleteContentFromCollectionBody& body) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/collections/{coluuid}/contents");
 
@@ -100,10 +100,7 @@ SWGCollectionsApi::collectionsColuuidContentsDelete(QString* coluuid, QString* c
 
 
     
-    QString output(*by);
-    input.request_body.append(output);
-        
-    QString output(*value);
+    QString output = body.asJson();
     input.request_body.append(output);
     
 

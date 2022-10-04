@@ -105,6 +105,12 @@ instance Arbitrary MainCreateCollectionBody where
       <$> arbitrary -- mainCreateCollectionBodyDescription :: Maybe Text
       <*> arbitrary -- mainCreateCollectionBodyName :: Maybe Text
     
+instance Arbitrary MainDeleteContentFromCollectionBody where
+  arbitrary =
+    MainDeleteContentFromCollectionBody
+      <$> arbitrary -- mainDeleteContentFromCollectionBodyBy :: Maybe Text
+      <*> arbitrary -- mainDeleteContentFromCollectionBodyValue :: Maybe Text
+    
 instance Arbitrary MainEstimateDealBody where
   arbitrary =
     MainEstimateDealBody

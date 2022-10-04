@@ -8,6 +8,7 @@ import io.swagger.event.Response;
 import io.swagger.common.SwaggerApi;
 import io.swagger.client.model.CollectionsCollection;
 import io.swagger.client.model.MainCreateCollectionBody;
+import io.swagger.client.model.MainDeleteContentFromCollectionBody;
 import io.swagger.client.model.UtilHttpError;
 
 import mx.rpc.AsyncToken;
@@ -68,7 +69,7 @@ public class CollectionsApi extends SwaggerApi {
     /*
      * Returns String 
      */
-    public function collections_coluuid_contents_delete (coluuid: String, contentid: String, by: String, value: String): String {
+    public function collections_coluuid_contents_delete (coluuid: String, contentid: String, body: MainDeleteContentFromCollectionBody): String {
         // create path and map variables
         var path: String = "/collections/{coluuid}/contents".replace(/{format}/g,"xml").replace("{" + "coluuid" + "}", getApiInvoker().escapeString(coluuid)).replace("{" + "contentid" + "}", getApiInvoker().escapeString(contentid));
 
@@ -77,7 +78,6 @@ public class CollectionsApi extends SwaggerApi {
         var headerParams: Dictionary = new Dictionary();
 
         // verify required params are set
-        if(        // verify required params are set
         if(        // verify required params are set
         if(        // verify required params are set
         if() {
@@ -89,13 +89,10 @@ public class CollectionsApi extends SwaggerApi {
 ) {
             throw new ApiError(400, "missing required params");
         }
-) {
-            throw new ApiError(400, "missing required params");
-        }
 
         
         
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "DELETE", queryParams, value, headerParams);
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "DELETE", queryParams, body, headerParams);
 
         var requestId: String = getUniqueId();
 

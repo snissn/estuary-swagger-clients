@@ -29,22 +29,18 @@
         "summary": "Register autoretrieve server",
         "parameters": [
           {
+            "type": "string",
             "description": "Autoretrieve's comma-separated list of addresses",
             "name": "addresses",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "in": "formData",
+            "required": true
           },
           {
+            "type": "string",
             "description": "Autoretrieve's public key",
             "name": "pubKey",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "in": "formData",
+            "required": true
           }
         ],
         "responses": {}
@@ -466,21 +462,12 @@
             "required": true
           },
           {
-            "description": "Variable to use when filtering for files (must be either 'path' or 'content_id')",
-            "name": "by",
+            "description": "{by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}",
+            "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Value of content_id or path to look for",
-            "name": "value",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string"
+              "$ref": "#/definitions/main.deleteContentFromCollectionBody"
             }
           }
         ],
@@ -525,13 +512,13 @@
             "type": "string",
             "description": "Collection UUID",
             "name": "coluuid",
-            "in": "path"
+            "in": "query"
           },
           {
             "type": "string",
             "description": "Directory",
             "name": "dir",
-            "in": "path"
+            "in": "query"
           }
         ],
         "responses": {
@@ -1394,7 +1381,8 @@
             "type": "string",
             "description": "Filter by miner",
             "name": "miner",
-            "in": "path"
+            "in": "path",
+            "required": true
           }
         ],
         "responses": {}
@@ -1416,7 +1404,8 @@
             "type": "string",
             "description": "Filter by miner",
             "name": "miner",
-            "in": "path"
+            "in": "path",
+            "required": true
           }
         ],
         "responses": {}
@@ -1438,7 +1427,8 @@
             "type": "string",
             "description": "Filter by miner",
             "name": "miner",
-            "in": "path"
+            "in": "path",
+            "required": true
           }
         ],
         "responses": {}
@@ -1698,6 +1688,17 @@
           "type": "string"
         },
         "name": {
+          "type": "string"
+        }
+      }
+    },
+    "main.deleteContentFromCollectionBody": {
+      "type": "object",
+      "properties": {
+        "by": {
+          "type": "string"
+        },
+        "value": {
           "type": "string"
         }
       }

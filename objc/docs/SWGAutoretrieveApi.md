@@ -30,8 +30,8 @@ SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"Authorization"];
 
 
-NSString* addresses = addresses_example; // Autoretrieve's comma-separated list of addresses
-NSString* pubKey = pubKey_example; // Autoretrieve's public key
+NSString* addresses = @"addresses_example"; // Autoretrieve's comma-separated list of addresses
+NSString* pubKey = @"pubKey_example"; // Autoretrieve's public key
 
 SWGAutoretrieveApi*apiInstance = [[SWGAutoretrieveApi alloc] init];
 

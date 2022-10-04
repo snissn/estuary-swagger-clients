@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 <a name="collectionsColuuidContentsDelete"></a>
 # **collectionsColuuidContentsDelete**
-> 'String' collectionsColuuidContentsDelete(coluuid, contentid, by, value)
+> 'String' collectionsColuuidContentsDelete(coluuid, contentid, body)
 
 Deletes a content from a collection
 
@@ -92,9 +92,7 @@ var coluuid = "coluuid_example"; // String | Collection ID
 
 var contentid = "contentid_example"; // String | Content ID
 
-var by = "by_example"; // String | Variable to use when filtering for files (must be either 'path' or 'content_id')
-
-var value = "value_example"; // String | Value of content_id or path to look for
+var body = new EstuaryApi.MainDeleteContentFromCollectionBody(); // MainDeleteContentFromCollectionBody | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 
 
 var callback = function(error, data, response) {
@@ -104,7 +102,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, by, value, callback);
+apiInstance.collectionsColuuidContentsDelete(coluuid, contentid, body, callback);
 ```
 
 ### Parameters
@@ -113,8 +111,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **String**| Collection ID | 
  **contentid** | **String**| Content ID | 
- **by** | **String**| Variable to use when filtering for files (must be either 'path' or 'content_id') | 
- **value** | **String**| Value of content_id or path to look for | 
+ **body** | [**MainDeleteContentFromCollectionBody**](MainDeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for} | 
 
 ### Return type
 

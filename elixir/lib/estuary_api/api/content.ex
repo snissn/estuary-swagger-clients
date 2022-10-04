@@ -80,21 +80,26 @@ defmodule EstuaryAPI.Api.Content do
 
   - connection (EstuaryAPI.Connection): Connection to server
   - data (String.t): File to upload
-  - coluuid (String.t): Collection UUID
-  - dir (String.t): Directory
   - opts (KeywordList): [optional] Optional parameters
+    - :coluuid (String.t): Collection UUID
+    - :dir (String.t): Directory
 
   ## Returns
 
   {:ok, %EstuaryAPI.Model.UtilContentAddResponse{}} on success
   {:error, info} on failure
   """
-  @spec content_add_post(Tesla.Env.client, String.t, String.t, String.t, keyword()) :: {:ok, EstuaryAPI.Model.UtilContentAddResponse.t} | {:error, Tesla.Env.t}
-  def content_add_post(connection, data, coluuid, dir, _opts \\ []) do
+  @spec content_add_post(Tesla.Env.client, String.t, keyword()) :: {:ok, EstuaryAPI.Model.UtilContentAddResponse.t} | {:error, Tesla.Env.t}
+  def content_add_post(connection, data, opts \\ []) do
+    optional_params = %{
+      :"coluuid" => :query,
+      :"dir" => :query
+    }
     %{}
     |> method(:post)
     |> url("/content/add")
     |> add_param(:file, :"data", data)
+    |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> decode(%EstuaryAPI.Model.UtilContentAddResponse{})

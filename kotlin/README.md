@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 
  - [io.swagger.client.models.CollectionsCollection](docs/CollectionsCollection.md)
  - [io.swagger.client.models.MaincreateCollectionBody](docs/MaincreateCollectionBody.md)
+ - [io.swagger.client.models.MaindeleteContentFromCollectionBody](docs/MaindeleteContentFromCollectionBody.md)
  - [io.swagger.client.models.MainestimateDealBody](docs/MainestimateDealBody.md)
  - [io.swagger.client.models.MaingetApiKeysResp](docs/MaingetApiKeysResp.md)
  - [io.swagger.client.models.MainimportDealBody](docs/MainimportDealBody.md)

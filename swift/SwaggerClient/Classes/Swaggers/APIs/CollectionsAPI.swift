@@ -60,12 +60,11 @@ public class CollectionsAPI: APIBase {
      
      - parameter coluuid: (path) Collection ID 
      - parameter contentid: (path) Content ID 
-     - parameter by: (body) Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
-     - parameter value: (body) Value of content_id or path to look for 
+     - parameter body: (body) {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func collectionsColuuidContentsDelete(coluuid coluuid: String, contentid: String, by: String, value: String, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: coluuid, contentid: contentid, by: by, value: value).execute { (response, error) -> Void in
+    public class func collectionsColuuidContentsDelete(coluuid coluuid: String, contentid: String, body: MainDeleteContentFromCollectionBody, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        collectionsColuuidContentsDeleteWithRequestBuilder(coluuid: coluuid, contentid: contentid, body: body).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -85,17 +84,16 @@ public class CollectionsAPI: APIBase {
      
      - parameter coluuid: (path) Collection ID 
      - parameter contentid: (path) Content ID 
-     - parameter by: (body) Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) 
-     - parameter value: (body) Value of content_id or path to look for 
+     - parameter body: (body) {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} 
 
      - returns: RequestBuilder<String> 
      */
-    public class func collectionsColuuidContentsDeleteWithRequestBuilder(coluuid coluuid: String, contentid: String, by: String, value: String) -> RequestBuilder<String> {
+    public class func collectionsColuuidContentsDeleteWithRequestBuilder(coluuid coluuid: String, contentid: String, body: MainDeleteContentFromCollectionBody) -> RequestBuilder<String> {
         var path = "/collections/{coluuid}/contents"
         path = path.stringByReplacingOccurrencesOfString("{coluuid}", withString: "\(coluuid)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{contentid}", withString: "\(contentid)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters = value.encodeToJSON() as? [String:AnyObject]
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  

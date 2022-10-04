@@ -43,9 +43,8 @@ isa_ok($api, 'WWW::SwaggerClient::CollectionsApi');
 {
     my $coluuid = undef; # replace NULL with a proper value
     my $contentid = undef; # replace NULL with a proper value
-    my $by = undef; # replace NULL with a proper value
-    my $value = undef; # replace NULL with a proper value
-    my $result = $api->collections_coluuid_contents_delete(coluuid => $coluuid, contentid => $contentid, by => $by, value => $value);
+    my $body = undef; # replace NULL with a proper value
+    my $result = $api->collections_coluuid_contents_delete(coluuid => $coluuid, contentid => $contentid, body => $body);
 }
 
 #

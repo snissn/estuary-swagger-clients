@@ -12,7 +12,7 @@ import java.util.List;
 
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-10-03T07:43:05.439Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaInflectorServerCodegen", date = "2022-10-04T07:13:17.083Z")
 public class MainImportDealBody   {
   @JsonProperty("coluuid")
   private String coluuid = null;

@@ -39,7 +39,7 @@ namespace IO.Swagger.Controllers
         [Authorize(AuthenticationSchemes = ApiKeyAuthenticationHandler.SchemeName)]
         [ValidateModelState]
         [SwaggerOperation("AdminAutoretrieveInitPost")]
-        public virtual IActionResult AdminAutoretrieveInitPost([FromBody]string addresses, [FromBody]string pubKey)
+        public virtual IActionResult AdminAutoretrieveInitPost([FromForm][Required()]string addresses, [FromForm][Required()]string pubKey)
         { 
 
             throw new NotImplementedException();

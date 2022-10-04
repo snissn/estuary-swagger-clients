@@ -26,7 +26,7 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 
 
 @io.swagger.annotations.Api(description = "the content API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-03T07:43:21.296Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-10-04T07:13:32.436Z")
 public interface ContentApi  {
    
     @POST
@@ -56,7 +56,7 @@ public interface ContentApi  {
     }, tags={ "content", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = UtilContentAddResponse.class) })
-    public Response contentAddPost(MultipartFormDataInput input, @PathParam("coluuid") String coluuid, @PathParam("dir") String dir,@Context SecurityContext securityContext);
+    public Response contentAddPost(MultipartFormDataInput input, @QueryParam("coluuid") String coluuid, @QueryParam("dir") String dir,@Context SecurityContext securityContext);
     @GET
     @Path("/aggregated/{content}")
     

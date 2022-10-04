@@ -90,8 +90,8 @@ bool contentAddIpfsPostAsync(char * accessToken,
  *
  * This endpoint is used to upload new content.
  * \param data File to upload *Required*
- * \param coluuid Collection UUID *Required*
- * \param dir Directory *Required*
+ * \param coluuid Collection UUID
+ * \param dir Directory
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
@@ -105,8 +105,8 @@ bool contentAddPostSync(char * accessToken,
  *
  * This endpoint is used to upload new content.
  * \param data File to upload *Required*
- * \param coluuid Collection UUID *Required*
- * \param dir Directory *Required*
+ * \param coluuid Collection UUID
+ * \param dir Directory
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.

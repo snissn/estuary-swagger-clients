@@ -97,8 +97,7 @@ void SwaggerCollectionsApi::CollectionsColuuidContentsDeleteRequest::SetupHttpRe
 		FString JsonBody;
 		JsonWriter Writer = TJsonWriterFactory<>::Create(&JsonBody);
 
-		WriteJsonValue(Writer, By);
-		WriteJsonValue(Writer, Value);
+		WriteJsonValue(Writer, Body);
 		Writer->Close();
 
 		HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json; charset=utf-8"));
@@ -106,13 +105,11 @@ void SwaggerCollectionsApi::CollectionsColuuidContentsDeleteRequest::SetupHttpRe
 	}
 	else if (Consumes.Contains(TEXT("multipart/form-data")))
 	{
-		UE_LOG(LogSwagger, Error, TEXT("Body parameter (by) was ignored, not supported in multipart form"));
-		UE_LOG(LogSwagger, Error, TEXT("Body parameter (value) was ignored, not supported in multipart form"));
+		UE_LOG(LogSwagger, Error, TEXT("Body parameter (body) was ignored, not supported in multipart form"));
 	}
 	else if (Consumes.Contains(TEXT("application/x-www-form-urlencoded")))
 	{
-		UE_LOG(LogSwagger, Error, TEXT("Body parameter (by) was ignored, not supported in urlencoded requests"));
-		UE_LOG(LogSwagger, Error, TEXT("Body parameter (value) was ignored, not supported in urlencoded requests"));
+		UE_LOG(LogSwagger, Error, TEXT("Body parameter (body) was ignored, not supported in urlencoded requests"));
 	}
 	else
 	{

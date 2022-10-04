@@ -108,8 +108,9 @@ namespace IO.Swagger.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                                                postBody = ApiClient.Serialize(pubKey); // http body (model) parameter
-    
+                                    if (addresses != null) formParams.Add("addresses", ApiClient.ParameterToString(addresses)); // form parameter
+if (pubKey != null) formParams.Add("pubKey", ApiClient.ParameterToString(pubKey)); // form parameter
+                
             // authentication setting, if any
             String[] authSettings = new String[] { "bearerAuth" };
     

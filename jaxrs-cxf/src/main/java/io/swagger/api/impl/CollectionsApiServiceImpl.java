@@ -4,6 +4,7 @@ import io.swagger.api.*;
 import io.swagger.model.CollectionsCollection;
 import java.util.List;
 import io.swagger.model.MainCreateCollectionBody;
+import io.swagger.model.MainDeleteContentFromCollectionBody;
 import java.util.Map;
 import io.swagger.model.UtilHttpError;
 
@@ -45,7 +46,7 @@ public class CollectionsApiServiceImpl implements CollectionsApi {
      * This endpoint is used to delete an existing content from an existing collection. If two or more files with the same contentid exist in the collection, delete the one in the specified path
      *
      */
-    public String collectionsColuuidContentsDelete(String coluuid, String contentid, String by, String value) {
+    public String collectionsColuuidContentsDelete(String coluuid, String contentid, MainDeleteContentFromCollectionBody body) {
         // TODO: Implement...
         
         return null;

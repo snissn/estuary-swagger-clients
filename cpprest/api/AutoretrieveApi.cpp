@@ -77,6 +77,12 @@ pplx::task<void> AutoretrieveApi::adminAutoretrieveInitPost(utility::string_t ad
 
     std::unordered_set<utility::string_t> consumeHttpContentTypes;
 
+    {
+        formParams[ utility::conversions::to_string_t("addresses") ] = ApiClient::parameterToString(addresses);
+    }
+    {
+        formParams[ utility::conversions::to_string_t("pubKey") ] = ApiClient::parameterToString(pubKey);
+    }
 
     std::shared_ptr<IHttpBody> httpBody;
     utility::string_t requestHttpContentType;
@@ -85,21 +91,11 @@ pplx::task<void> AutoretrieveApi::adminAutoretrieveInitPost(utility::string_t ad
     if ( consumeHttpContentTypes.size() == 0 || consumeHttpContentTypes.find(utility::conversions::to_string_t("application/json")) != consumeHttpContentTypes.end() )
     {
         requestHttpContentType = utility::conversions::to_string_t("application/json");
-        web::json::value json;
-
-        json = ModelBase::toJson(pubKey);
-
-        httpBody = std::shared_ptr<IHttpBody>( new JsonBody( json ) );
     }
     // multipart formdata
     else if( consumeHttpContentTypes.find(utility::conversions::to_string_t("multipart/form-data")) != consumeHttpContentTypes.end() )
     {
         requestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
-        std::shared_ptr<MultipartFormData> multipart(new MultipartFormData);
-        multipart->add(ModelBase::toHttpContent("pubKey", pubKey));
-
-        httpBody = multipart;
-        requestHttpContentType += utility::conversions::to_string_t("; boundary=") + multipart->getBoundary();
     }
     else
     {

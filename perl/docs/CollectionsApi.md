@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collections_coluuid_contents_delete**
-> string collections_coluuid_contents_delete(coluuid => $coluuid, contentid => $contentid, by => $by, value => $value)
+> string collections_coluuid_contents_delete(coluuid => $coluuid, contentid => $contentid, body => $body)
 
 Deletes a content from a collection
 
@@ -91,11 +91,10 @@ my $api_instance = WWW::SwaggerClient::CollectionsApi->new(
 
 my $coluuid = 'coluuid_example'; # string | Collection ID
 my $contentid = 'contentid_example'; # string | Content ID
-my $by = WWW::SwaggerClient::Object::string->new(); # string | Variable to use when filtering for files (must be either 'path' or 'content_id')
-my $value = WWW::SwaggerClient::Object::string->new(); # string | Value of content_id or path to look for
+my $body = WWW::SwaggerClient::Object::MainDeleteContentFromCollectionBody->new(); # MainDeleteContentFromCollectionBody | {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}
 
 eval { 
-    my $result = $api_instance->collections_coluuid_contents_delete(coluuid => $coluuid, contentid => $contentid, by => $by, value => $value);
+    my $result = $api_instance->collections_coluuid_contents_delete(coluuid => $coluuid, contentid => $contentid, body => $body);
     print Dumper($result);
 };
 if ($@) {
@@ -109,8 +108,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coluuid** | **string**| Collection ID | 
  **contentid** | **string**| Content ID | 
- **by** | **string**| Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;) | 
- **value** | **string**| Value of content_id or path to look for | 
+ **body** | [**MainDeleteContentFromCollectionBody**](MainDeleteContentFromCollectionBody.md)| {by: Variable to use when filtering for files (must be either &#39;path&#39; or &#39;content_id&#39;), value: Value of content_id or path to look for} | 
 
 ### Return type
 

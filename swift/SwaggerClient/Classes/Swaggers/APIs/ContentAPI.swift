@@ -94,11 +94,11 @@ public class ContentAPI: APIBase {
      Add new content
      
      - parameter data: (form) File to upload 
-     - parameter coluuid: (path) Collection UUID 
-     - parameter dir: (path) Directory 
+     - parameter coluuid: (query) Collection UUID (optional)
+     - parameter dir: (query) Directory (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func contentAddPost(data data: NSURL, coluuid: String, dir: String, completion: ((data: UtilContentAddResponse?, error: ErrorType?) -> Void)) {
+    public class func contentAddPost(data data: NSURL, coluuid: String? = nil, dir: String? = nil, completion: ((data: UtilContentAddResponse?, error: ErrorType?) -> Void)) {
         contentAddPostWithRequestBuilder(data: data, coluuid: coluuid, dir: dir).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -115,19 +115,18 @@ public class ContentAPI: APIBase {
      - examples: [{contentType=application/json, example={"empty": false}}]
      
      - parameter data: (form) File to upload 
-     - parameter coluuid: (path) Collection UUID 
-     - parameter dir: (path) Directory 
+     - parameter coluuid: (query) Collection UUID (optional)
+     - parameter dir: (query) Directory (optional)
 
      - returns: RequestBuilder<UtilContentAddResponse> 
      */
-    public class func contentAddPostWithRequestBuilder(data data: NSURL, coluuid: String, dir: String) -> RequestBuilder<UtilContentAddResponse> {
-        var path = "/content/add"
-        path = path.stringByReplacingOccurrencesOfString("{coluuid}", withString: "\(coluuid)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{dir}", withString: "\(dir)", options: .LiteralSearch, range: nil)
+    public class func contentAddPostWithRequestBuilder(data data: NSURL, coluuid: String? = nil, dir: String? = nil) -> RequestBuilder<UtilContentAddResponse> {
+        let path = "/content/add"
         let URLString = SwaggerClientAPI.basePath + path
 
         let nillableParameters: [String:AnyObject?] = [
-            "data": data
+            "coluuid": coluuid,
+            "dir": dir
         ]
  
         let parameters = APIHelper.rejectNil(nillableParameters)
@@ -136,7 +135,7 @@ public class ContentAPI: APIBase {
  
         let requestBuilder: RequestBuilder<UtilContentAddResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: falsefalse)
     }
 
     /**

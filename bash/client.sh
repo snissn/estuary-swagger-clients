@@ -101,8 +101,7 @@ operation_parameters_minimum_occurrences["autoretrieveHeartbeatPost:::token"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidCommitPost:::coluuid"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::coluuid"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::contentid"]=1
-operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::by"]=1
-operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::value"]=1
+operation_parameters_minimum_occurrences["collectionsColuuidContentsDelete:::body"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidDelete:::coluuid"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidGet:::coluuid"]=1
 operation_parameters_minimum_occurrences["collectionsColuuidGet:::dir"]=0
@@ -117,8 +116,8 @@ operation_parameters_minimum_occurrences["contentAddCarPost:::commp"]=0
 operation_parameters_minimum_occurrences["contentAddCarPost:::size"]=0
 operation_parameters_minimum_occurrences["contentAddIpfsPost:::body"]=1
 operation_parameters_minimum_occurrences["contentAddPost:::data"]=1
-operation_parameters_minimum_occurrences["contentAddPost:::coluuid"]=1
-operation_parameters_minimum_occurrences["contentAddPost:::dir"]=1
+operation_parameters_minimum_occurrences["contentAddPost:::coluuid"]=0
+operation_parameters_minimum_occurrences["contentAddPost:::dir"]=0
 operation_parameters_minimum_occurrences["contentAggregatedContentGet:::content"]=1
 operation_parameters_minimum_occurrences["contentAllDealsGet:::begin"]=1
 operation_parameters_minimum_occurrences["contentAllDealsGet:::duration"]=1
@@ -171,8 +170,7 @@ operation_parameters_maximum_occurrences["autoretrieveHeartbeatPost:::token"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidCommitPost:::coluuid"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::coluuid"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::contentid"]=0
-operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::by"]=0
-operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::value"]=0
+operation_parameters_maximum_occurrences["collectionsColuuidContentsDelete:::body"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidDelete:::coluuid"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidGet:::coluuid"]=0
 operation_parameters_maximum_occurrences["collectionsColuuidGet:::dir"]=0
@@ -238,8 +236,7 @@ operation_parameters_collection_type["autoretrieveHeartbeatPost:::token"]=""
 operation_parameters_collection_type["collectionsColuuidCommitPost:::coluuid"]=""
 operation_parameters_collection_type["collectionsColuuidContentsDelete:::coluuid"]=""
 operation_parameters_collection_type["collectionsColuuidContentsDelete:::contentid"]=""
-operation_parameters_collection_type["collectionsColuuidContentsDelete:::by"]=""
-operation_parameters_collection_type["collectionsColuuidContentsDelete:::value"]=""
+operation_parameters_collection_type["collectionsColuuidContentsDelete:::body"]=""
 operation_parameters_collection_type["collectionsColuuidDelete:::coluuid"]=""
 operation_parameters_collection_type["collectionsColuuidGet:::coluuid"]=""
 operation_parameters_collection_type["collectionsColuuidGet:::dir"]=""
@@ -1000,10 +997,6 @@ print_adminAutoretrieveInitPost_help() {
     echo -e "This endpoint registers a new autoretrieve server Q@&^5#^&*Q^Wasdfalsdkjflkj" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[]${OFF} ${RED}(required)${OFF}${OFF} - Autoretrieve's comma-separated list of addresses" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[]${OFF} ${RED}(required)${OFF}${OFF} - Autoretrieve's public key" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
 }
@@ -1069,9 +1062,7 @@ print_collectionsColuuidContentsDelete_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}coluuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Collection ID ${YELLOW}Specify as: coluuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}contentid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Content ID ${YELLOW}Specify as: contentid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[]${OFF} ${RED}(required)${OFF}${OFF} - Variable to use when filtering for files (must be either 'path' or 'content_id')" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[]${OFF} ${RED}(required)${OFF}${OFF} - Value of content_id or path to look for" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[]${OFF} ${RED}(required)${OFF}${OFF} - {by: Variable to use when filtering for files (must be either 'path' or 'content_id'), value: Value of content_id or path to look for}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1255,8 +1246,10 @@ print_contentAddPost_help() {
     echo -e "This endpoint is used to upload new content." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}coluuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Collection UUID ${YELLOW}Specify as: coluuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}dir${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Directory ${YELLOW}Specify as: dir=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}coluuid${OFF} ${BLUE}[string]${OFF}${OFF} - Collection UUID${YELLOW} Specify as: coluuid=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}dir${OFF} ${BLUE}[string]${OFF}${OFF} - Directory${YELLOW} Specify as: dir=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2626,43 +2619,10 @@ call_adminAutoretrieveInitPost() {
     if [[ -n $basic_auth_credential ]]; then
         basic_auth_option="-u ${basic_auth_credential}"
     fi
-    local body_json_curl=""
-
-    #
-    # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
-    # if values produces and consumes are defined unambigously
-    #
-
-
-    if [[ -z $header_content_type && "$force" = false ]]; then
-        :
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
     else
-        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
-    fi
-
-
-    #
-    # If we have received some body content over pipe, pass it from the
-    # temporary file to cURL
-    #
-    if [[ -n $body_content_temp_file ]]; then
-        if [[ "$print_curl" = true ]]; then
-            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        else
-            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        fi
-        rm "${body_content_temp_file}"
-    #
-    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
-    #
-    else
-        body_json_curl=$(body_parameters_to_json)
-        if [[ "$print_curl" = true ]]; then
-            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        else
-            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        fi
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
     fi
 }
 
@@ -3280,10 +3240,10 @@ call_contentAddIpfsPost() {
 call_contentAddPost() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(coluuid dir)
+    local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(  )
+    local query_parameter_names=(coluuid dir  )
     local path
 
     if ! path=$(build_request_path "/content/add" path_parameter_names query_parameter_names); then

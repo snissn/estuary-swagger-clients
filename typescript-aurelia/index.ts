@@ -28,6 +28,7 @@ export { UserApi } from './UserApi';
 export {
   CollectionsCollection,
   MainCreateCollectionBody,
+  MainDeleteContentFromCollectionBody,
   MainEstimateDealBody,
   MainGetApiKeysResp,
   MainImportDealBody,

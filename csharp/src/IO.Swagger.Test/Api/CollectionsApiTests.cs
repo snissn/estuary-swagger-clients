@@ -85,9 +85,8 @@ namespace IO.Swagger.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string coluuid = null;
             //string contentid = null;
-            //string by = null;
-            //string value = null;
-            //var response = instance.CollectionsColuuidContentsDelete(coluuid, contentid, by, value);
+            //MainDeleteContentFromCollectionBody body = null;
+            //var response = instance.CollectionsColuuidContentsDelete(coluuid, contentid, body);
             //Assert.IsInstanceOf<string> (response, "response is string");
         }
         
