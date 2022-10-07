@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @Path("/autoretrieve")
 @Api(description = "the autoretrieve API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-04T07:13:34.144Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-10-07T01:37:11.622Z")
 public class AutoretrieveApi {
 
     @POST

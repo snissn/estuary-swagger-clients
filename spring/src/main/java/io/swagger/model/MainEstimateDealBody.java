@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * MainEstimateDealBody
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-04T07:14:06.505Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-10-07T01:37:44.986Z")
 
 
 public class MainEstimateDealBody   {

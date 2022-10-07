@@ -1658,7 +1658,6 @@
     }
   },
   "definitions": {
-    "title": "api title",
     "collections.Collection": {
       "type": "object",
       "properties": {

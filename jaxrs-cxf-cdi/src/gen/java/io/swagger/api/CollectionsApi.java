@@ -30,7 +30,7 @@ import javax.validation.constraints.*;
 @Api(description = "the collections API")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-04T07:13:27.121Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-10-07T01:37:04.283Z")
 
 public class CollectionsApi  {
 
